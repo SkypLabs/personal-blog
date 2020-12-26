@@ -1,7 +1,10 @@
 base_url = "https://blog.skyplabs.net"
 
+default_language = "en"
+
 compile_sass = true
 highlight_code = true
 build_search_index = true
+generate_feed = true
 
 [extra]
