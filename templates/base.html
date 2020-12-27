@@ -15,7 +15,30 @@
   {% if config.generate_feed %}<link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">{% endif %}
 </head>
 <body>
-  {% block content %}
-  {% endblock content %}
+  {% block sidebar %}
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="/">{{ section.title }}</a></h1>
+        <p class="lead">{{ section.description }}</p>
+      </div>
+
+      <div class="sidebar-links">
+        <a class="icon-rss" href="{{ get_url(path=config.feed_filename) | safe }}" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        {% for link in section.extra.sidebar_links %}
+        <a class="sidebar-nav-item" href="{{ link.url }}">{{ link.name }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </div>
+  {% endblock sidebar %}
+
+  <div class="content container">
+    {% block content %}
+    {% endblock content %}
+  </div>
 </body>
 </html>
