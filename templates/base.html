@@ -31,7 +31,7 @@
 
       <nav class="sidebar-nav">
         {% for link in section.extra.sidebar_links %}
-        <a class="sidebar-nav-item" href="{{ link.url }}">{{ link.name }}</a>
+        <a class="sidebar-nav-item{% if link.url == current_path %} active{% endif %}" href="{{ link.url }}">{{ link.name }}</a>
         {% endfor %}
       </nav>
     </div>
