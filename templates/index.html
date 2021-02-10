@@ -30,8 +30,10 @@
       </div>
 
       <nav class="sidebar-nav">
-        {% for link in section.extra.sidebar_links %}
-        <a class="sidebar-nav-item{% if link.url == current_path %} active{% endif %}" href="{{ link.url }}">{{ link.name }}</a>
+        {% set index = get_section(path="pages/_index.md") %}
+        {% for page in index.pages %}
+        <a class="sidebar-nav-item{% if page.path == current_path %} active{%
+          endif %}" href="{{ page.path }}">{{ page.title }}</a>
         {% endfor %}
       </nav>
     </div>
