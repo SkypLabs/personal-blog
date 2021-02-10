@@ -30,6 +30,7 @@
       </div>
 
       <nav class="sidebar-nav">
+        <a class="sidebar-nav-item{% if "/" == current_path %} active{% endif %}" href="/">Home</a>
         {% set index = get_section(path="pages/_index.md") %}
         {% for page in index.pages %}
         <a class="sidebar-nav-item{% if page.path == current_path %} active{%
