@@ -21,11 +21,31 @@
   <div class="sidebar">
     <div class="container sidebar-sticky">
       <div class="sidebar-about">
-        <h1><a href="{{ config.base_url }}">{{ config.title }}</a></h1>
+        <h1><a href="{{ config.base_url | safe }}">{{ config.title }}</a></h1>
         <p class="lead">{{ config.description }}</p>
       </div>
 
       <div class="sidebar-links">
+        {% if config.extra.github %}
+        <a class="icon-github" href="https://github.com/{{ config.extra.github }}" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        {% endif %}
+        {% if config.extra.docker_hub %}
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/{{
+          config.extra.docker_hub }}" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        {% endif %}
+        {% if config.extra.twitter %}
+        <a class="icon-twitter" href="https://twitter.com/{{ config.extra.twitter }}" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        {% endif %}
+        {% if config.extra.linkedin %}
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/{{
+          config.extra.linkedin }}" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        {% endif %}
+        {% if config.extra.keybase %}
+        <a class="icon-keybase" href="https://keybase.io/{{ config.extra.keybase }}" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        {% endif %}
+        {% if config.extra.email %}
+        <a class="icon-email" href="mailto:{{ config.extra.email }}" title="Email"></a>
+        {% endif %}
         <a class="icon-rss" href="{{ get_url(path=config.feed_filename) | safe }}" title="RSS"></a>
       </div>
 
@@ -34,7 +54,7 @@
         {% set index = get_section(path="pages/_index.md") %}
         {% for page in index.pages %}
         <a class="sidebar-nav-item{% if page.path == current_path %} active{%
-          endif %}" href="{{ page.path }}">{{ page.title }}</a>
+          endif %}" href="{{ page.path | safe }}">{{ page.title }}</a>
         {% endfor %}
       </nav>
     </div>
