@@ -6,11 +6,11 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
 
-  <meta name="description" content="{{ section.description }}">
-  <meta name="keywords" content="{{ section.extra.keywords }}">
-  <meta name="author" content="{{ section.extra.author }}">
+  <meta name="description" content="{{ config.description }}">
+  <meta name="keywords" content="{{ config.extra.keywords }}">
+  <meta name="author" content="{{ config.extra.author }}">
 
-  <title>{{ section.title }}</title>
+  <title>{{ config.title }}</title>
 
   <link rel="stylesheet" href="{{ get_url(path="css/style.css") | safe }}">
 
@@ -21,8 +21,8 @@
   <div class="sidebar">
     <div class="container sidebar-sticky">
       <div class="sidebar-about">
-        <h1><a href="{{ config.base_url }}">{{ section.title }}</a></h1>
-        <p class="lead">{{ section.description }}</p>
+        <h1><a href="{{ config.base_url }}">{{ config.title }}</a></h1>
+        <p class="lead">{{ config.description }}</p>
       </div>
 
       <div class="sidebar-links">
