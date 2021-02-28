@@ -1,0 +1,26 @@
+{% macro post_info(post) %}
+  <div class="post-meta">
+    <time class="post-date" datetime="{{ post.date | date(format="%F %R") }}" property="datePublished">{{ post.date | date(format="%Y-%m-%d") }}</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">{{ config.extra.author }}</span>
+      <span property="givenName">{{ config.extra.first_name }}</span>
+      <span property="familyName">{{ config.extra.last_name }}</span>
+      <span property="alternateName">{{ config.extra.nickname }}</span>
+      <span property="email">{{ config.extra.email }}</span>
+    </div>
+  </div>
+{% endmacro post_info %}
+
+{% macro post_taxonomies(post) %}
+  {% if post.taxonomies.categories %}
+  <span class="categories" property="keywords">
+    {% for category in post.taxonomies.categories %}{{ category }} {% endfor %}
+  </span>
+  {% endif %}
+
+  {% if post.taxonomies.tags %}
+  <span class="tags" property="keywords">
+    {% for tag in post.taxonomies.tags %}{{ tag }} {% endfor %}
+  </span>
+  {% endif %}
+{% endmacro post_taxonomies %}
