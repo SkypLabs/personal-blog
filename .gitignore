@@ -1,0 +1,6 @@
+# Zola
+public/
+
+# Text editors
+*~
+*.swp
