@@ -63,6 +63,56 @@
 
   <div class="content container">
     {% block content %}
+    <div id="search-container">
+      <input type="search" id="search-input" placeholder="{{ trans(key="search_bar") }}">
+      <ul id="results-container"></ul>
+    </div>
+
+    <div class="posts">
+      {% set posts = get_section(path="posts/_index.md") %}
+      {% for post in posts.pages %}
+      <div class="post" property="blogPost" typeof="BlogPosting">
+        <h2 class="post-title" property="headline">
+          <a href="{{ post.permalink }}">
+            {{ post.title | safe }}
+          </a>
+        </h2>
+
+        <div class="post-meta">
+          <time class="post-date" datetime="{{ post.date | date(format="%F %R") }}" property="datePublished">{{ post.date | date(format="%Y-%m-%d") }}</time>
+          <div class="post-author" property="author" typeof="Person" hidden>
+            <span property="name">{{ config.extra.author }}</span>
+            <span property="givenName">{{ config.extra.first_name }}</span>
+            <span property="familyName">{{ config.extra.last_name }}</span>
+            <span property="alternateName">{{ config.extra.nickname }}</span>
+            <span property="email">{{ config.extra.email }}</span>
+          </div>
+        </div>
+
+        {% if post.summary %}
+        <div class="post-content" property="description">
+          {{ post.summary | safe }}
+        </div>
+
+        <a href="{{ post.permalink }}">{{ trans(key="read_more") }}</a>
+        {% else %}
+        <div class="post-content" property="articleBody">
+          {{ post.content | safe }}
+        </div>
+        {% endif %}
+
+        {% if post.taxonomies.categories %}
+        <span class="categories" property="keywords">{% for category in
+          post.taxonomies.categories %}{{ category }} {% endfor %}</span>
+        {% endif %}
+
+        {% if post.taxonomies.tags %}
+        <span class="tags" property="keywords">{% for tag in
+          post.taxonomies.tags %}{{ tag }} {% endfor %}</span>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
     {% endblock content %}
   </div>
 </body>
