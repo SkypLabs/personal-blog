@@ -10,7 +10,7 @@
     <h2 class="post-title" property="headline">{{ post.title | safe }}</h2>
     {% endif %}
 
-    <time class="post-date" datetime="{{ post.date | date(format="%F %R") }}" property="datePublished">{{ post.date | date(format="%Y-%m-%d") }}</time>
+    <time class="post-date" datetime="{{ post.date | date(format="%F %R") }}" property="datePublished">{{ post.date | date(format=config.extra.data_format_posts) }}</time>
     <div class="post-author" property="author" typeof="Person" hidden>
       <span property="name">{{ config.extra.author }}</span>
       <span property="givenName">{{ config.extra.first_name }}</span>
