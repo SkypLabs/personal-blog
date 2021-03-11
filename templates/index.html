@@ -73,13 +73,7 @@
       {% set posts = get_section(path="posts/_index.md") %}
       {% for post in posts.pages %}
       <div class="post" property="blogPost" typeof="BlogPosting">
-        <h2 class="post-title" property="headline">
-          <a href="{{ post.permalink }}">
-            {{ post.title | safe }}
-          </a>
-        </h2>
-
-        {{ post_macros::post_info(post=post) }}
+        {{ post_macros::post_info(post=post, clickable_title=true) }}
 
         {% if post.summary %}
         <div class="post-content" property="description">

@@ -3,8 +3,6 @@
 
 {% block content %}
 <article class="post" property="blogPost" typeof="BlogPosting">
-  <h2 class="post-title" property="headline">{{ page.title }}</h2>
-
   {{ post_macros::post_info(post=page) }}
 
   <div class="post-content" property="articleBody">

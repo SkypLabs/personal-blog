@@ -1,5 +1,15 @@
-{% macro post_info(post) %}
+{% macro post_info(post, clickable_title=false) %}
   <div class="post-meta">
+    {% if clickable_title %}
+    <h2 class="post-title" property="headline">
+      <a href="{{ post.permalink }}">
+        {{ post.title | safe }}
+      </a>
+    </h2>
+    {% else %}
+    <h2 class="post-title" property="headline">{{ post.title | safe }}</h2>
+    {% endif %}
+
     <time class="post-date" datetime="{{ post.date | date(format="%F %R") }}" property="datePublished">{{ post.date | date(format="%Y-%m-%d") }}</time>
     <div class="post-author" property="author" typeof="Person" hidden>
       <span property="name">{{ config.extra.author }}</span>
