@@ -69,8 +69,7 @@
     </div>
 
     <div class="posts">
-      {% set posts = get_section(path="posts/_index.md") %}
-      {% for post in posts.pages %}
+      {% for post in paginator.pages %}
       <div class="post" property="blogPost" typeof="BlogPosting">
         {{ post_macros::post_info(post=post, clickable_title=true) }}
 
@@ -90,6 +89,20 @@
       </div>
       {% endfor %}
     </div>
+
+    <nav class="pagination">
+      {% if paginator.previous %}
+      <span class="pagination-item older"><a href="{{ paginator.previous }}">← {{ trans(key="previous_page") }}</a></span>
+      {% else %}
+      <span class="pagination-item older">← {{ trans(key="previous_page") }}</span>
+      {% endif %}
+
+      {% if paginator.next %}
+      <span class="pagination-item newer"><a href="{{ paginator.next }}">{{ trans(key="next_page") }} →</a></span>
+      {% else %}
+      <span class="pagination-item newer">{{ trans(key="next_page") }} →</span>
+      {% endif %}
+    </nav>
     {% endblock content %}
   </div>
 </body>
