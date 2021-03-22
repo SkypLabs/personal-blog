@@ -408,3 +408,15 @@ a.sidebar-nav-item {
   width: 100%;
   padding-left: 0.5em;
 }
+
+/* Gallery */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-gap: 2rem;
+
+  img {
+    margin: 0;
+  }
+}
