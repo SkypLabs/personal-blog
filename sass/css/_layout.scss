@@ -387,17 +387,19 @@ a.sidebar-nav-item {
 /* Search bar */
 
 #search-container {
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 10px;
+  .search-results {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 10px;
 
-    li {
-      border-bottom: 1px solid #ccc;
-    }
+      li {
+        border-bottom: 1px solid #ccc;
+      }
 
-    li:last-child {
-      border: none;
+      li:last-child {
+        border: none;
+      }
     }
   }
 }

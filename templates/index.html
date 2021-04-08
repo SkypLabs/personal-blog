@@ -65,7 +65,9 @@
     {% block content %}
     <div id="search-container">
       <input type="search" id="search-input" placeholder="{{ trans(key="search_bar") }}">
-      <ul id="results-container"></ul>
+      <div class="search-results">
+        <ul class="search-results-items"></ul>
+      </div>
     </div>
 
     <div class="posts">
@@ -105,5 +107,8 @@
     </nav>
     {% endblock content %}
   </div>
+  <script type="text/javascript" src="{{ get_url(path="elasticlunr.min.js") }}"></script>
+  <script type="text/javascript" src="{{ get_url(path="search_index.en.js") }}"></script>
+  <script type="text/javascript" src="{{ get_url(path="js/search.js") }}"></script>
 </body>
 </html>
