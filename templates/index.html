@@ -7,8 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
 
   <meta name="description" content="{{ config.description }}">
-  <meta name="keywords" content="{{ config.extra.keywords }}">
-  <meta name="author" content="{{ config.extra.author }}">
+  <meta name="keywords" content="{{ config.extra.meta.keywords }}">
+  <meta name="author" content="{{ config.extra.author.first_name }} {{
+  config.extra.author.last_name}}">
 
   <title>{{ config.title }}</title>
 
@@ -26,26 +27,32 @@
       </div>
 
       <div class="sidebar-links">
-        {% if config.extra.github %}
-        <a class="icon-github" href="https://github.com/{{ config.extra.github }}" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        {% if config.extra.social.github %}
+        <a class="icon-github" href="https://github.com/{{ config.extra.social.github }}" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
         {% endif %}
-        {% if config.extra.docker_hub %}
+
+        {% if config.extra.social.docker_hub %}
         <a class="icon-docker-hub" href="https://hub.docker.com/u/{{
-          config.extra.docker_hub }}" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+          config.extra.social.docker_hub }}" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
         {% endif %}
-        {% if config.extra.twitter %}
-        <a class="icon-twitter" href="https://twitter.com/{{ config.extra.twitter }}" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+
+        {% if config.extra.social.twitter %}
+        <a class="icon-twitter" href="https://twitter.com/{{ config.extra.social.twitter }}" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
         {% endif %}
-        {% if config.extra.linkedin %}
+
+        {% if config.extra.social.linkedin %}
         <a class="icon-linkedin" href="https://www.linkedin.com/in/{{
-          config.extra.linkedin }}" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+          config.extra.social.linkedin }}" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
         {% endif %}
-        {% if config.extra.keybase %}
-        <a class="icon-keybase" href="https://keybase.io/{{ config.extra.keybase }}" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+
+        {% if config.extra.social.keybase %}
+        <a class="icon-keybase" href="https://keybase.io/{{ config.extra.social.keybase }}" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
         {% endif %}
-        {% if config.extra.email %}
-        <a class="icon-email" href="mailto:{{ config.extra.email }}" title="Email"></a>
+
+        {% if config.extra.social.email %}
+        <a class="icon-email" href="mailto:{{ config.extra.social.email }}" title="Email"></a>
         {% endif %}
+
         <a class="icon-rss" href="{{ get_url(path=config.feed_filename) | safe }}" title="RSS"></a>
       </div>
 

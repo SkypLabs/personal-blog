@@ -10,13 +10,16 @@
     <h2 class="post-title" property="headline">{{ post.title | safe }}</h2>
     {% endif %}
 
-    <time class="post-date" datetime="{{ post.date | date(format="%F %R") }}" property="datePublished">{{ post.date | date(format=config.extra.data_format_posts) }}</time>
+    <time class="post-date" datetime="{{ post.date | date(format="%F %R") }}"
+      property="datePublished">{{ post.date |
+      date(format=config.extra.settings.date_format_posts) }}</time>
     <div class="post-author" property="author" typeof="Person" hidden>
-      <span property="name">{{ config.extra.author }}</span>
-      <span property="givenName">{{ config.extra.first_name }}</span>
-      <span property="familyName">{{ config.extra.last_name }}</span>
-      <span property="alternateName">{{ config.extra.nickname }}</span>
-      <span property="email">{{ config.extra.email }}</span>
+      <span property="name">{{ config.extra.author.first_name }} {{
+        config.extra.author.last_name }}</span>
+      <span property="givenName">{{ config.extra.author.first_name }}</span>
+      <span property="familyName">{{ config.extra.author.last_name }}</span>
+      <span property="alternateName">{{ config.extra.author.nickname }}</span>
+      <span property="email">{{ config.extra.social.email }}</span>
     </div>
   </div>
 {% endmacro post_info %}
