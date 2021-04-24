@@ -1,5 +1,8 @@
 base_url = "https://blog.skyplabs.net"
 
+title = "Skyper's blog"
+description = "Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting..."
+
 default_language = "en"
 
 compile_sass = true
@@ -28,15 +31,25 @@ search_bar = "Search for a post, a tag, a category..."
 no_search_results = "No results found"
 
 [extra]
-author.first_name = ""
-author.last_name = ""
-author.nickname = ""
+author.first_name = "Paul-Emmanuel"
+author.last_name = "Raoul"
+author.nickname = "Skyper"
 
-meta.keywords = ""
+github.url = "https://github.com/SkypLabs/personal-blog"
+github.branch = "content"
+
+meta.keywords = "Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source"
 
 plausible = ""
 
 settings.date_format_posts = "%d %b %Y"
+
+social.github = "SkypLabs"
+social.docker_hub = "skyplabs"
+social.twitter = "SkypLabs"
+social.linkedin = "peraoul"
+social.keybase = "skyplabs"
+social.email = "skyper@skyplabs.net"
 
 [extra.favicon]
 apple_touch_icon = "/favicon/apple-touch-icon.png"
