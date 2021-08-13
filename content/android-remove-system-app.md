@@ -34,7 +34,7 @@ Les étapes de réalisation sont les suivantes :
 3. Changer d'utilisateur pour root grace à la commande `su`.
 4. Monter la partition système en *rw* en faisant :
 
-    ```raw
+    ```
     mount -o remount,rw -t yaffs2 /dev/block/mtdblock3 /system
     ```
 
@@ -45,13 +45,13 @@ Les étapes de réalisation sont les suivantes :
    le répertoire `/system/app` en utilisant simplement la commande `rm`. Par
    exemple :
 
-    ```raw
+    ```
     rm /system/app/twitter.apk
     ```
 
 6. Une fois terminé, remonter la partition system en *ro* en faisant :
 
-    ```raw
+    ```
     mount -o remount,ro -t yaffs2 /dev/block/mtdblock3 /system
     ```
 

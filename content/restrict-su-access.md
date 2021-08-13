@@ -12,7 +12,7 @@ la restriction de la commande `su` est déjà intégrée. Il est seulement
 nécessaire de l'activer en décommentant la ligne suivante dans le fichier
 `/etc/pam.d/su` :
 
-```raw
+```
 # Uncomment the following line to implicitly trust users in the "wheel" group.
 auth           sufficient      pam_wheel.so trust use_uid
 ```
@@ -35,25 +35,25 @@ Pour ce faire, je vais utiliser la même méthode que celle utilisée sur FreeBS
 
 * Création du groupe `wheel` :
 
-  ```raw
+  ```
   groupadd --system wheel
   ```
 
 * Modification du groupe de la commande `su` :
 
-  ```raw
+  ```
   chown root:wheel /bin/su
   ```
 
 * Modification des droits de la commande `su` :
 
-  ```raw
+  ```
   chmod 4750 /bin/su
   ```
 
 * Rajout des utilisateurs autorisés au groupe `wheel` :
 
-  ```raw
+  ```
   usermod -G wheel -a <user>
   ```
 

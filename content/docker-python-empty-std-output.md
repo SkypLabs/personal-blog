@@ -10,7 +10,7 @@ tags = ["Docker", "Python"]
 Lors de l'exécution d'un programme écrit en Python dans un conteneur Docker, il
 arrive régulièrement que la sortie standard reste anormalement vide :
 
-```raw
+```
 $ docker logs my-app
 $
 ```
@@ -29,7 +29,7 @@ CMD ["python3", "-u", "my-app.py"]
 
 Et ainsi :
 
-```raw
+```
 $ docker logs my-app
 It works !
 $

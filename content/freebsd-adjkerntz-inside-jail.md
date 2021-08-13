@@ -15,7 +15,7 @@ Cependant, au sein d'une jail, seul le fuseau horaire peut être modifié. La ja
 utilise donc la même heure que celle configurée sur le système hôte.
 L'utilisation de la commande adjkerntz va donc provoquer une erreur :
 
-```raw
+```
 Sep 22 05:31:00 www adjkerntz[23948]: sysctl(set: "machdep.wall_cmos_clock"): Operation not permitted
 ```
 
@@ -24,7 +24,7 @@ parce que la commande `adjkerntz` est invoquée régulièrement par **cron**. Po
 résoudre ce problème, il suffit de commenter la ligne suivante dans le fichier
 `/etc/crontab` de vos jails :
 
-```raw
+```
 # Adjust the time zone if the CMOS clock keeps local time, as opposed to
 # UTC time.  See adjkerntz(8) for details.
 #1,31   0-5     *       *       *       root    adjkerntz -a

@@ -11,7 +11,7 @@ Pour modifier l'état de l'interface Bluetooth de votre ordinateur, nous allons
 utiliser le programme **rfkill**. Assurez-vous qu'il soit bien installé sur
 votre machine :
 
-```raw
+```
 yum install rfkill
 ```
 
@@ -19,19 +19,19 @@ Voici les commandes de base de l'outil :
 
 * Pour afficher l'état actuel de votre interface Bluetooth :
 
-    ```raw
+    ```
     rfkill list bluetooth
     ```
 
 * Pour activer l'interface Bluetooth :
 
-    ```raw
+    ```
     rfkill unblock bluetooth
     ```
 
 * Pour désactiver l'interface Bluetooth :
 
-    ```raw
+    ```
     rfkill block bluetooth
     ```
 

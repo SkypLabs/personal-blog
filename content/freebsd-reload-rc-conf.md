@@ -9,7 +9,7 @@ tags = ["FreeBSD"]
 +++
 Voici une petite astuce permettant de gagner du temps :
 
-```raw
+```
 shutdown now
 ```
 

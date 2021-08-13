@@ -12,7 +12,7 @@ Cela faisait plusieurs jours que j'essayais de faire fonctionner l'extension
 LaTeX. Mais lors de mes tests, j'obtenais toujours une erreur HTTP 500
 (*Internal Server Error*) et le message suivant dans mes logs :
 
-```raw
+```
 Call to undefined method TempFSFile::autocollect()
 ```
 
@@ -20,7 +20,7 @@ On peut donc en conclure que la dernière version de l'extension Math n'est pas
 compatible avec MediaWiki 1.19.2. Pour résoudre cette situation, il est
 nécessaire de revenir à une version antérieure :
 
-```raw
+```
 cd extensions
 git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Math.git
 cd Math

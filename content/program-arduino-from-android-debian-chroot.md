@@ -17,7 +17,7 @@ Dans un premier temps, il nous faut préparer notre environnement de
 développement au sein de la Debian. Un petit coup de `aptitude` (ou `apt-get`,
 selon vos préférences) et le tour est joué :
 
-```raw
+```
 aptitude update
 aptitude install gcc-avr avrdude avr-libc
 ```
@@ -46,7 +46,7 @@ file="Makefile") }}
 Et maintenant, on test le tout (après avoir connecté votre carte Arduino au port
 USB du dock de la Transformer Prime) :
 
-```raw
+```
 make
 make upload
 ```
