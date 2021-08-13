@@ -13,7 +13,7 @@ pour solutionner votre problème :
 
 1. On commence par supprimer le groupe `git_daemon` :
 
-    ```raw
+    ```
     pw group del git_daemon
     ```
 
@@ -22,7 +22,7 @@ pour solutionner votre problème :
 
 3. On met à jour la base de données des mots de passe :
 
-    ```raw
+    ```
     pwd_mkdb -p /etc/master.passwd
     ```
 

@@ -20,7 +20,7 @@ file="sniff_main_thread.py") }}
 This little sniffer displays the source and the destination of all packets
 having an IP layer:
 
-```raw
+```
 $ sudo python3 sniff_main_thread.py
 [*] Start sniffing...
 [!] New Packet: 10.137.2.30 -> 10.137.2.1
@@ -54,7 +54,7 @@ This piece of code does exactly the same thing as the previous one except that
 this time the `sniff` function is executed inside a dedicated thread. Everything
 works well with this new version except when it comes to stopping the sniffer:
 
-```raw
+```
 $ sudo python3 sniff_thread_issue.py
 [*] Start sniffing...
 [!] New Packet: 10.137.2.30 -> 10.137.2.1
@@ -124,7 +124,7 @@ is set to `true` when the `join` method is called to stop the thread.
 
 Is this the end of the story? Not really...
 
-```raw
+```
 $ sudo python3 sniff_thread_issue_2.py
 [*] Start sniffing...
 ^C[*] Stop sniffing
@@ -156,7 +156,7 @@ resources it might hold:
 The `sniff` function uses a socket which is released just before exiting, after
 the sniffing loop:
 
-```pythoon
+```python
 try:
     while sniff_sockets:
         // Sniffing loop

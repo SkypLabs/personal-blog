@@ -13,7 +13,7 @@ de la `gem native extension`.
 
 Pour les installer sous Fedora :
 
-```raw
+```
 sudo yum install -y gcc ruby-devel libxml2 libxml2-devel libxslt libxslt-devel
 ```
 
@@ -23,6 +23,6 @@ système (ici, *libxml2* et *libxslt*).
 
 Par exemple, pour installer la gem **gollum** :
 
-```raw
+```
 gem install gollum -- --use-system-libraries
 ```

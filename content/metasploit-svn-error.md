@@ -14,7 +14,7 @@ l'ensemble de ses composants. Traditionnellement, il faut utiliser le script
 Seulement voilà, la dernière fois que j'ai voulu le mettre à jour, j'ai eu droit
 à l'erreur suivante :
 
-```raw
+```
 svn: Working copy '.' locked
 svn: run 'svn cleanup' to remove locks (type 'svn help cleanup' for details)
 ```
@@ -31,7 +31,7 @@ cette commande à l'ensemble des dépôts locaux des différents composants du
 projet (car dans mon cas, ce problème ne provenait pas que d'un seul dépôt).
 Voici comment faire :
 
-```raw
+```
 find /opt/framework-3.7.1 -name ".svn" | sed  "s/\/.svn/ /" | xargs svn cleanup
 ```
 

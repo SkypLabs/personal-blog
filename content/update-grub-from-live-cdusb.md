@@ -35,7 +35,7 @@ système ? C'est là qu'on sort son bon vieux **Live CD/USB** !
 Donc pour la manipulation (sur le Live CD/USB), en supposant que la partition du
 système GNU/Linux à récupérer soit `sdb1` :
 
-```raw
+```
 mount /dev/sdb1 /mnt
 mount --bind /dev /mnt/dev
 mount --bind /proc /mnt/proc

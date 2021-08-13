@@ -55,7 +55,7 @@ Now, it is needed to configure Karma to use Chromium with the headless mode. The
 `ChromeHeadless` as web browser. To define it as default web browser in
 `karma.conf.js`:
 
-```raw
+```
 ...
 browsers: ['ChromeHeadless'],
 ...
@@ -65,7 +65,7 @@ It is now possible to build the Docker image and to use it to run the unit
 tests. Navigate to the folder containing the source code of your Angular project
 and the above `Dockerfile`, then:
 
-```raw
+```
 docker build -t angular-dev .
 docker run --rm -v $(pwd):/usr/src/app:z angular-dev npm test
 ```
@@ -76,7 +76,7 @@ problem][chrome-namespace-issue]. To fix it, add an additional web browser
 called `ChromeHeadlessCI` to the Karma configuration which will be based on
 `ChromeHeadless` but with the `--no-sandbox` flag this time:
 
-```raw
+```
 ...
 customLaunchers: {
   ChromeHeadlessCI: {
@@ -90,7 +90,7 @@ customLaunchers: {
 Also, increase the browser's no activity timeout to be sure that the continuous
 integration pipeline doesn't fail because the duration value is too short:
 
-```raw
+```
 ...
 browserNoActivityTimeout: 60000
 ...
@@ -110,7 +110,7 @@ file="package.json") }}
 With this done, it is now possible to run the continuous integration tests
 inside a Docker container:
 
-```raw
+```
 docker run --rm -v $(pwd):/usr/src/app:z angular-dev npm run test:ci
 ```
 

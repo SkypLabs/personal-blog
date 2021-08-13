@@ -16,7 +16,7 @@ de validation à partir de cette image :
 
 En utilisant l'outil `strings` sur l'image, nous obtenons les lignes suivantes :
 
-```raw
+```
 $ strings hellofriend.jpg
 ...
 WhoAmI.png
@@ -47,7 +47,7 @@ Hello_friend/9/3xploits.jpg
 Nous en déduisons qu'une archive ZIP est cachée dans le même fichier. L'outil
 `binwalk` peut nous en convaincre :
 
-```raw
+```
 $ binwalk hellofriend.jpg
 
 DECIMAL       HEXADECIMAL     DESCRIPTION
@@ -83,7 +83,7 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 L'outil `unzip` est capable de décompresser une archive ZIP même quand cette
 dernière est enfouie au sein d'un autre fichier. La preuve :
 
-```raw
+```
 $ unzip hellofriend.jpg
 Archive:  hellofriend.jpg
 warning [hellofriend.jpg]:  116141 extra bytes at beginning or within zipfile
@@ -107,7 +107,7 @@ Et ainsi, nous découvrons ce premier mot de passe : `fsociety`.
 
 Après décompression, nous obtenons l'arborescence suivante :
 
-```raw
+```
 Hello_friend/
 ├── 0
 │   └── 64.png
@@ -138,7 +138,7 @@ chaque fois. L'image du dossier 8 n'apporte rien de particulier contrairement à
 celle du dossier 9 qui renferme là encore une archive ZIP demandant un mot de
 passe :
 
-```raw
+```
 $ unzip 9/3xploits.jpg
 Archive:  9/3xploits.jpg
 warning [9/3xploits.jpg]:  186158 extra bytes at beginning or within zipfile
@@ -150,7 +150,7 @@ Nous devons donc trouver à nouveau un mot de passe. Les noms des 8 premières
 images font penser à de l'hexadécimal. Après conversion en ASCII, voilà ce que
 l'on obtient :
 
-```raw
+```
 $ echo '6461726b63306465' | xxd -r -p
 darkc0de
 ```
@@ -164,7 +164,7 @@ dans ce dictionnaire.
 ZIP. Cependant, contrairement à `unzip`, il n'est pas capable de trouver le
 fichier ZIP contenu dans l'image par lui-même :
 
-```raw
+```
 $ fcrackzip -uDv -p ~/Downloads/darkc0de.lst 3xploits.jpg
 found id dbffd8ff, '3xploits.jpg' is not a zipfile ver 2.xx, skipping
 no usable files found
@@ -173,7 +173,7 @@ no usable files found
 Grâce à `unzip`, nous savons que 186158 octets sont présents avant le début du
 fichier ZIP :
 
-```raw
+```
 $ unzip -l 3xploits.jpg
 Archive:  3xploits.jpg
 warning [3xploits.jpg]:  186158 extra bytes at beginning or within zipfile
@@ -187,7 +187,7 @@ warning [3xploits.jpg]:  186158 extra bytes at beginning or within zipfile
 
 Pour supprimer ces octets superflus, nous pouvons utiliser l'outil `dd` :
 
-```raw
+```
 $ file 3xploits.jpg
 3xploits.jpg: JPEG image data, baseline, precision 8, 640x640, frames 3
 $ dd if=3xploits.jpg of=3xploits.zip skip=1 bs=186158
@@ -200,7 +200,7 @@ $ file 3xploits.zip
 
 Maintenant, il est temps de lancer notre attaque par dictionnaire :
 
-```raw
+```
 $ fcrackzip -uDv -p ~/Downloads/darkc0de.lst 3xploits.zip
 found file 'd3bug.png', (size cp/uc 112361/302979, flags 9, chk be20)
 PASSWORD FOUND!!!!: pw == How do you like me now?

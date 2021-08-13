@@ -7,7 +7,7 @@ template = "post.html"
 categories = ["SysAdmin"]
 tags = ["RPM"]
 +++
-```raw
+```
 rm -rf /var/lib/rpm/__db*
 rpm --rebuilddb
 ```

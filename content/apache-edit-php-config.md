@@ -19,7 +19,7 @@ en développement sans modifier la configuration des applications en production.
 Pour réaliser cette tâche, Apache met à notre disposition les instructions
 suivantes (valables uniquement pour le module PHP d'Apache) :
 
-```raw
+```
 php_value <directive> <valeur>
 php_admin_value <directive> <valeur>
 php_flag <directive> <on|off>
@@ -34,7 +34,7 @@ privilèges `AllowOverride Options` ou `AllowOverride All`.
 Les instructions `php_value` et `php_admin_value` permettent de modifier la
 valeur de la directive précisée en paramètre. Exemple :
 
-```raw
+```
 php_admin_value open_basedir /var/www/vhosts/mysite
 ```
 
@@ -42,7 +42,7 @@ Les instructions `php_flag` et `php_admin_flag`, quant à elles, permettent
 d'activer ou de désactiver l'option précisée en paramètre (à utiliser pour les
 directives booléennes). Exemple :
 
-```raw
+```
 php_admin_flag display_errors on
 ```
 

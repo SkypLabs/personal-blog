@@ -31,7 +31,7 @@ compte root, nous allons nous servir de l'outil `dumpcap` (qui est inclus dans
 le paquet `wireshark-common`) pour la capture et Wireshark servira seulement à
 traiter les informations recueillies. Voici donc comment faire :
 
-```raw
+```
 sudo dumpcap -i eth0 -w - | wireshark -k -i -
 ```
 

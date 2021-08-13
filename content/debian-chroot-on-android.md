@@ -85,7 +85,7 @@ dont voici une liste non exhaustive :
 
 * Changer le hostname :
 
-    ```raw
+    ```
     sysctl kernel.hostname=<nouveau_nom>
     ```
 

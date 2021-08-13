@@ -60,7 +60,7 @@ l'option [Set Custom Script][droidwall-custom-script] de Droidwall pour lui
 demander de l'exécuter à chacune de ses activations. Dans la zone de texte
 prévue à cet effet, il vous faut écrire :
 
-```raw
+```
 . /chemin/vers/le/script
 ```
 

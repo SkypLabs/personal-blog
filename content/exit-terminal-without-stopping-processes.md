@@ -33,7 +33,7 @@ fichier on veut rediriger ces canaux.
 Je précise qu'il est préférable de lancer la commande en tâche de fond pour
 pouvoir fermer sa session proprement comme dans l'exemple suivant :
 
-```raw
+```
 nohup mysqldump -u root -pmonsuperpassword --all-databases > mon_backup.db &
 exit
 ```

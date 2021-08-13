@@ -17,7 +17,7 @@ sauvegarder, mais de l'envoyer directement sur le FTP.
 Pour ce faire, une fois connecté au serveur FTP depuis le serveur distant en
 utilisant l'outil `ftp` :
 
-```raw
+```
 ftp> put "| tar cvf - folder/ | gzip " folder.tar.gz
 ```
 

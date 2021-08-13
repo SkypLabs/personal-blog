@@ -16,6 +16,6 @@ Le problème provient d'un conflit de permissions lié à **SELinux**. Pour
 corriger cela, il faut modifier le type du contexte de sécurité de l'application
 **chrome-sandbox** :
 
-```raw
+```
 chcon -t usr_t  /opt/google/chrome/chrome-sandbox
 ```

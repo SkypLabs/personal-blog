@@ -11,7 +11,7 @@ Sous GNOME 3, l'association d'une extension de fichier à un programme référen
 par un fichier de configuration dans `/usr/share/applications` se fait à travers
 le fichier `/usr/share/applications/defaults.list` de la manière suivante :
 
-```raw
+```
 application/x-<extension>=<app>;
 ```
 
@@ -22,6 +22,6 @@ Par exemple dans mon cas, pour associer **xournal** comme programme permettant
 d'ouvrir les fichiers **xoj**, j'ai ajouté la ligne suivante dans le fichier
 `/usr/share/applications/defaults.list` :
 
-```raw
+```
 application/x-xoj=xournal.desktop;
 ```

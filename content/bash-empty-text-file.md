@@ -9,13 +9,13 @@ tags = ["Bash"]
 +++
 En toute simplicité :
 
-```raw
+```
 > <fichier>
 ```
 
 Par exemple, pour vider la liste des serveurs DNS à utiliser :
 
-```raw
+```
 > /etc/resolv.conf
 ```
 
