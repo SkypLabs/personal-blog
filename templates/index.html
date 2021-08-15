@@ -1,0 +1,124 @@
+{% import "macros/post.html" as post_macros %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="{{ config.description }}">
+  <meta name="keywords" content="{{ config.extra.meta.keywords }}">
+  <meta name="author" content="{{ config.extra.author.first_name }} {{
+  config.extra.author.last_name}}">
+
+  <title>{{ config.title }}</title>
+
+  <link rel="stylesheet" href="{{ get_url(path="css/style.css") | safe }}">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  {% if config.generate_feed %}<link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">{% endif %}
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  {% block sidebar %}
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="{{ config.base_url | safe }}">{{ config.title }}</a></h1>
+        <p class="lead">{{ config.description }}</p>
+      </div>
+
+      <div class="sidebar-links">
+        {% if config.extra.social.github %}
+        <a class="icon-github" href="https://github.com/{{ config.extra.social.github }}" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        {% endif %}
+
+        {% if config.extra.social.docker_hub %}
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/{{
+          config.extra.social.docker_hub }}" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        {% endif %}
+
+        {% if config.extra.social.twitter %}
+        <a class="icon-twitter" href="https://twitter.com/{{ config.extra.social.twitter }}" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        {% endif %}
+
+        {% if config.extra.social.linkedin %}
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/{{
+          config.extra.social.linkedin }}" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        {% endif %}
+
+        {% if config.extra.social.keybase %}
+        <a class="icon-keybase" href="https://keybase.io/{{ config.extra.social.keybase }}" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        {% endif %}
+
+        {% if config.extra.social.email %}
+        <a class="icon-email" href="mailto:{{ config.extra.social.email }}" title="Email"></a>
+        {% endif %}
+
+        <a class="icon-rss" href="{{ get_url(path=config.feed_filename) | safe }}" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item{% if "/" == current_path %} active{% endif %}" href="/">Home</a>
+        {% set index = get_section(path="pages/_index.md") %}
+        {% for page in index.pages %}
+        <a class="sidebar-nav-item{% if page.path == current_path %} active{%
+          endif %}" href="{{ page.path | safe }}">{{ page.title }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </div>
+  {% endblock sidebar %}
+
+  <div class="content container">
+    {% block content %}
+    <div id="search-container">
+      <input type="search" id="search-input" placeholder="{{ trans(key="search_bar") }}">
+      <div class="search-results">
+        <ul class="search-results-items"></ul>
+      </div>
+    </div>
+
+    <div class="posts">
+      {% for post in paginator.pages %}
+      <div class="post" property="blogPost" typeof="BlogPosting">
+        {{ post_macros::post_info(post=post, clickable_title=true) }}
+
+        {% if post.summary %}
+        <div class="post-content" property="description">
+          {{ post.summary | safe }}
+        </div>
+
+        <a href="{{ post.permalink }}">{{ trans(key="read_more") }}</a>
+        {% else %}
+        <div class="post-content" property="articleBody">
+          {{ post.content | safe }}
+        </div>
+        {% endif %}
+
+        {{ post_macros::post_taxonomies(post=post) }}
+      </div>
+      {% endfor %}
+    </div>
+
+    <nav class="pagination">
+      {% if paginator.previous %}
+      <span class="pagination-item older"><a href="{{ paginator.previous }}">← {{ trans(key="previous_page") }}</a></span>
+      {% else %}
+      <span class="pagination-item older">← {{ trans(key="previous_page") }}</span>
+      {% endif %}
+
+      {% if paginator.next %}
+      <span class="pagination-item newer"><a href="{{ paginator.next }}">{{ trans(key="next_page") }} →</a></span>
+      {% else %}
+      <span class="pagination-item newer">{{ trans(key="next_page") }} →</span>
+      {% endif %}
+    </nav>
+    {% endblock content %}
+  </div>
+  <script type="text/javascript" src="{{ get_url(path="elasticlunr.min.js") }}"></script>
+  <script type="text/javascript" src="{{ get_url(path="search_index.en.js") }}"></script>
+  <script type="text/javascript" src="{{ get_url(path="js/search.js") }}"></script>
+</body>
+</html>

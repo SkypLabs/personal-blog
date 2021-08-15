@@ -1,0 +1,39 @@
+{% macro post_info(post, clickable_title=false) %}
+  <div class="post-meta">
+    {% if clickable_title %}
+    <h2 class="post-title" property="headline">
+      <a href="{{ post.permalink }}">
+        {{ post.title | safe }}
+      </a>
+    </h2>
+    {% else %}
+    <h2 class="post-title" property="headline">{{ post.title | safe }}</h2>
+    {% endif %}
+
+    <time class="post-date" datetime="{{ post.date | date(format="%F %R") }}"
+      property="datePublished">{{ post.date |
+      date(format=config.extra.settings.date_format_posts) }}</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">{{ config.extra.author.first_name }} {{
+        config.extra.author.last_name }}</span>
+      <span property="givenName">{{ config.extra.author.first_name }}</span>
+      <span property="familyName">{{ config.extra.author.last_name }}</span>
+      <span property="alternateName">{{ config.extra.author.nickname }}</span>
+      <span property="email">{{ config.extra.social.email }}</span>
+    </div>
+  </div>
+{% endmacro post_info %}
+
+{% macro post_taxonomies(post) %}
+  {% if post.taxonomies.categories %}
+  <span class="categories" property="keywords">
+    {% for category in post.taxonomies.categories %}{{ category }} {% endfor %}
+  </span>
+  {% endif %}
+
+  {% if post.taxonomies.tags %}
+  <span class="tags" property="keywords">
+    {% for tag in post.taxonomies.tags %}{{ tag }} {% endfor %}
+  </span>
+  {% endif %}
+{% endmacro post_taxonomies %}

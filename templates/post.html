@@ -1,0 +1,14 @@
+{% import "macros/post.html" as post_macros %}
+{% extends "index.html" %}
+
+{% block content %}
+<article class="post" property="blogPost" typeof="BlogPosting">
+  {{ post_macros::post_info(post=page) }}
+
+  <div class="post-content" property="articleBody">
+    {{ page.content | safe }}
+  </div>
+
+  {{ post_macros::post_taxonomies(post=page) }}
+</article>
+{% endblock content %}

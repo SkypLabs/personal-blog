@@ -1,0 +1,28 @@
+base_url = "https://blog.skyplabs.net"
+
+default_language = "en"
+
+compile_sass = true
+build_search_index = true
+generate_feed = true
+
+[markdown]
+highlight_code = true
+
+[translations]
+next_page = "Next"
+previous_page = "Previous"
+edit_on_github = "Edit this post on GitHub"
+read_more = "Read more"
+related_posts = "Latest Posts"
+search_bar = "Search for a post, a tag, a category..."
+no_search_results = "No results found"
+
+[extra]
+author.first_name = ""
+author.last_name = ""
+author.nickname = ""
+
+meta.keywords = ""
+
+settings.date_format_posts = "%d %b %Y"

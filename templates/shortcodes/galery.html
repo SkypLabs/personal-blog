@@ -1,0 +1,11 @@
+<div class="gallery">
+{% for asset in page.assets %}
+{% if asset is matching("[.](jpg|jpeg|png$)") %}
+  <div class="item">
+    <a href="{{ get_url(path=asset) }}">
+      <img src="{{ resize_image(path=asset, width=240, height=180, op="fill") }}" alt="">
+    </a>
+  </div>
+{% endif %}
+{% endfor %}
+</div>
