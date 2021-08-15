@@ -8,12 +8,13 @@ jobs:
   build-website:
     name: Build Website
     runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/content'
 
     steps:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Build website
+      - name: Build
         uses: shalzz/zola-deploy-action@master
         env:
           BUILD_ONLY: true

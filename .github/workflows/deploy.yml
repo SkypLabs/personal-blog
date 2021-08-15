@@ -1,0 +1,22 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - content
+  pull_request:
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/content'
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Build and Deploy
+        uses: shalzz/zola-deploy-action@master
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
