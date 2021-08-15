@@ -15,6 +15,9 @@
 
   <link rel="stylesheet" href="{{ get_url(path="css/style.css") | safe }}">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   {% if config.generate_feed %}<link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">{% endif %}
 </head>
 <body vocab="http://schema.org/" typeof="Blog">
