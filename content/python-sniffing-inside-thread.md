@@ -3,6 +3,10 @@ title = "[Python] Sniffing inside a thread with Scapy"
 date = 2018-03-01
 template = "post.html"
 
+aliases = [
+  "/2018/03/01/python-sniffing-inside-a-thread-with-scapy/",
+]
+
 [taxonomies]
 categories = ["Programming"]
 tags = ["Python", "Scapy"]

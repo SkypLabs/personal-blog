@@ -3,6 +3,10 @@ title = "[Bash] De la couleur dans vos scripts"
 date = 2014-05-15
 template = "post.html"
 
+aliases = [
+  "/2014/05/15/bash-de-la-couleur-dans-vos-scripts/",
+]
+
 [taxonomies]
 categories = ["Programming"]
 tags = ["Bash"]

@@ -3,6 +3,10 @@ title = "[FreeBSD] adjkerntz dans une jail"
 date = 2012-09-22
 template = "post.html"
 
+aliases = [
+  "/2012/09/22/freebsd-adjkerntz-dans-une-jail/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["FreeBSD", "NTP"]

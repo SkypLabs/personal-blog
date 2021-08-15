@@ -3,6 +3,10 @@ title = "[HTB] Admirer"
 date = 2020-10-02
 template = "post.html"
 
+aliases = [
+  "/2020/10/02/htb-admirer/",
+]
+
 [taxonomies]
 categories = ["Security"]
 tags = ["CTF", "Web"]

@@ -3,6 +3,10 @@ title = "Erreur du Metasploit : \"svn: Working copy '.' locked\""
 date = 2011-06-11
 template = "post.html"
 
+aliases = [
+  "/2011/06/11/erreur-du-metasploit-svn-working-copy-locked/",
+]
+
 [taxonomies]
 categories = ["SysAdmin", "Security"]
 tags = ["Metasploit", "Subversion"]

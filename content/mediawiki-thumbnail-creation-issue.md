@@ -3,6 +3,10 @@ title = "[MediaWiki] Impossible de créer la miniature d'un fichier image"
 date = 2012-10-13
 template = "post.html"
 
+aliases = [
+  "/2012/10/13/mediawiki-impossible-de-creer-la-miniature-dun-fichier-image/",
+]
+
 [taxonomies]
 categories = ["Web", "SysAdmin"]
 tags = ["MediaWiki", "PHP"]

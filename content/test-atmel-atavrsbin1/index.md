@@ -3,6 +3,10 @@ title = "Test de la carte de développement à capteurs inertiels ATAVRSBIN1 d'A
 date = 2014-10-06
 template = "post.html"
 
+aliases = [
+  "/2014/10/06/test-de-la-carte-de-developpement-a-capteurs-inertiels-atavrsbin1-datmel/",
+]
+
 [taxonomies]
 categories = ["Electronics"]
 tags = ["Atmel"]

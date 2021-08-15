@@ -3,6 +3,10 @@ title = "[OpenSSH] Too many authentication failures for root"
 date = 2013-10-02
 template = "post.html"
 
+aliases = [
+  "/2013/10/02/openssh-too-many-authentication-failures-for-root/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["OpenSSH"]

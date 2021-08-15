@@ -3,6 +3,10 @@ title = "Télécommander sa télévision et ses autres appareils à infrarouge d
 date = 2012-06-10
 template = "post.html"
 
+aliases = [
+  "/2012/06/10/telecommander-sa-television-et-ses-autres-appareils-a-infrarouge-depuis-son-smartphone/",
+]
+
 [taxonomies]
 categories = ["Electronics", "Programming"]
 tags = ["Android", "Arduino", "Infrared", "Bluetooth"]

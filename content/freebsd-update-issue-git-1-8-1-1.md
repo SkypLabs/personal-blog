@@ -3,6 +3,10 @@ title = "[FreeBSD] Mise à jour du port git-1.8.1.1"
 date = 2013-01-27
 template = "post.html"
 
+aliases = [
+  "/2013/01/27/freebsd-mise-a-jour-du-port-git-1-8-1-1/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["FreeBSD", "Git"]

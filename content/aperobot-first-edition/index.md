@@ -3,6 +3,10 @@ title = "Apérobot - Première édition"
 date = 2011-09-24
 template = "post.html"
 
+aliases = [
+  "/2011/09/24/aperobot-premiere-edition/",
+]
+
 [taxonomies]
 categories = ["Events"]
 tags = ["Robotics"]

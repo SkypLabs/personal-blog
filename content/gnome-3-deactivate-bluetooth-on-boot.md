@@ -3,6 +3,10 @@ title = "[GNOME 3] Désactiver le bluetooth au démarrage"
 date = 2013-09-22
 template = "post.html"
 
+aliases = [
+  "/2013/09/22/gnome-3-desactiver-le-bluetooth-au-demarrage/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["GNOME 3", "Bluetooth"]

@@ -3,6 +3,10 @@ title = "Quelle est la différence entre chiffrer et coder une information ?"
 date = 2015-03-26
 template = "post.html"
 
+aliases = [
+  "/2015/03/26/quelle-est-la-difference-entre-chiffrer-et-coder-une-information/",
+]
+
 [taxonomies]
 categories = ["Cryptology", "Misc."]
 tags = []

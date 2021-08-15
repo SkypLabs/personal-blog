@@ -3,6 +3,10 @@ title = "Quitter sa console sans stopper les processus en cours d'exécution"
 date = 2011-02-08
 template = "post.html"
 
+aliases = [
+  "/2011/02/08/quitter-sa-console-sans-stopper-les-programmes-darriere-plan/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["nohup"]

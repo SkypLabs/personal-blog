@@ -3,6 +3,10 @@ title = "Empêcher Bash d'écrire dans l'historique des commandes"
 date = 2012-02-29
 template = "post.html"
 
+aliases = [
+  "/2012/02/29/empecher-bash-decrire-dans-lhistorique-des-commandes/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["Bash"]

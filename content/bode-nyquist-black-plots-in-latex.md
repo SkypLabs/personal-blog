@@ -3,6 +3,10 @@ title = "Tracer des diagrammes de Bode, Nyquist et Black en LaTeX"
 date = 2012-11-16
 template = "post.html"
 
+aliases = [
+  "/2012/11/16/tracer-des-diagrammes-de-bode-nyquist-et-black-en-latex/",
+]
+
 [taxonomies]
 categories = ["Programming"]
 tags = ["LaTeX"]

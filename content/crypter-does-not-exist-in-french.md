@@ -3,6 +3,10 @@ title = "Le mot crypter n'existe pas !"
 date = 2012-12-04
 template = "post.html"
 
+aliases = [
+  "/2012/12/04/le-mot-crypter-nexiste-pas/",
+]
+
 [taxonomies]
 categories = ["Cryptology", "Misc."]
 tags = []

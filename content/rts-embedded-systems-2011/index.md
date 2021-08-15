@@ -3,6 +3,10 @@ title = "Salon RTS Embedded Systems 2011"
 date = 2011-04-13
 template = "post.html"
 
+aliases = [
+  "/2011/04/13/salon-rts-embedded-systems-2011/",
+]
+
 [taxonomies]
 categories = ["Events"]
 tags = []

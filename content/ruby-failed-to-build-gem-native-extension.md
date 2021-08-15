@@ -3,6 +3,10 @@ title = "[Ruby] \"Failed to build gem native extension\""
 date = 2014-08-20
 template = "post.html"
 
+aliases = [
+  "/2014/08/20/ruby-failed-to-build-gem-native-extension/",
+]
+
 [taxonomies]
 categories = ["Programming"]
 tags = ["Ruby"]

@@ -3,6 +3,10 @@ title = "Programmer une carte Arduino depuis la Asus Transformer Prime"
 date = 2012-02-24
 template = "post.html"
 
+aliases = [
+  "/2012/02/24/programmer-une-carte-arduino-depuis-la-asus-transformer-prime/",
+]
+
 [taxonomies]
 categories = ["Programming"]
 tags = ["Android", "Debian", "Arduino"]

@@ -3,6 +3,10 @@ title = "Impossible de démarrer Google Chrome sous Fedora 15"
 date = 2011-10-15
 template = "post.html"
 
+aliases = [
+  "/2011/10/15/impossible-de-demarrer-google-chrome-sous-fedora-15/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["Google Chrome", "Fedora"]

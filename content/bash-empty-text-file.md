@@ -3,6 +3,10 @@ title = "[Bash] Supprimer toutes les lignes d'un fichier texte"
 date = 2014-04-30
 template = "post.html"
 
+aliases = [
+  "/2014/04/30/bash-supprimer-toutes-les-lignes-dun-fichier-texte/",
+]
+
 [taxonomies]
 categories = ["Programming"]
 tags = ["Bash"]

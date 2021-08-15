@@ -3,6 +3,10 @@ title = "[Fedora] Autoriser le partage DLNA sous Netfilter"
 date = 2014-04-22
 template = "post.html"
 
+aliases = [
+  "/2014/04/22/fedora-autoriser-le-partage-dlna-sous-netfilter/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["Fedora", "GNOME 3", "Netfilter", "DLNA"]

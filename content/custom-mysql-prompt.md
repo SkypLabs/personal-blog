@@ -3,6 +3,10 @@ title = "Modifier la présentation du prompt sous MySQL"
 date = 2012-07-25
 template = "post.html"
 
+aliases = [
+  "/2012/07/25/modifier-la-presentation-du-prompt-sous-mysql/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["MySQL"]

@@ -3,6 +3,10 @@ title = "L'assembleur n'est pas un langage !"
 date = 2014-05-29
 template = "post.html"
 
+aliases = [
+  "/2014/05/29/lassembleur-nest-pas-un-langage/",
+]
+
 [taxonomies]
 categories = ["Programming", "Misc."]
 tags = ["Assembly"]

@@ -3,6 +3,10 @@ title = "[HTB] Traceback"
 date = 2020-08-25
 template = "post.html"
 
+aliases = [
+  "/2020/08/25/htb-traceback/",
+]
+
 [taxonomies]
 categories = ["Security"]
 tags = ["CTF", "Web"]

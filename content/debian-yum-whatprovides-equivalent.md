@@ -3,6 +3,10 @@ title = "[Debian] Équivalent de \"yum whatprovides\""
 date = 2014-04-27
 template = "post.html"
 
+aliases = [
+  "/2014/04/27/debian-equivalent-de-yum-whatprovides/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["RPM", "Yum"]

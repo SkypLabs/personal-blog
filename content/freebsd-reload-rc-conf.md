@@ -3,6 +3,10 @@ title = "[FreeBSD] Recharger le fichier /etc/rc.conf sans redémarrer votre mach
 date = 2011-12-31
 template = "post.html"
 
+aliases = [
+  "/2011/12/31/freebsd-recharger-le-fichier-etcrc-conf-sans-redemarrer-votre-machine/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["FreeBSD"]

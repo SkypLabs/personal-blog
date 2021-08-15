@@ -3,6 +3,10 @@ title = "[ndh2k16] Hello Friend"
 date = 2016-07-05
 template = "post.html"
 
+aliases = [
+  "/2016/07/05/ndh2k16-hello-friend/",
+]
+
 [taxonomies]
 categories = ["Security", "Steganography"]
 tags = ["CTF", "Wargame", "Write-up"]
