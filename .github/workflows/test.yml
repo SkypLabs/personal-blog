@@ -1,0 +1,19 @@
+name: Test
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build-website:
+    name: Build Website
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Build website
+        uses: shalzz/zola-deploy-action@master
+        env:
+          BUILD_ONLY: true
