@@ -5,6 +5,8 @@ on:
     branches:
       - content
   pull_request:
+    branches:
+      - content
 
 jobs:
   build-and-deploy:
