@@ -3,6 +3,10 @@ title = "Faire un update-grub depuis un live CD/USB"
 date = 2011-02-03
 template = "post.html"
 
+aliases = [
+  "/2011/02/03/faire-un-update-grub-depuis-un-live-cdusb/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["GRUB"]

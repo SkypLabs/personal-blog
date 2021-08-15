@@ -3,6 +3,10 @@ title = "Convertir automatiquement une define C/C++ en constante C#"
 date = 2013-07-08
 template = "post.html"
 
+aliases = [
+  "/2013/07/08/convertir-automatiquement-une-define-ccpp-en-constante-csharp/",
+]
+
 [taxonomies]
 categories = ["Programming"]
 tags = ["C", "C++", "C#"]

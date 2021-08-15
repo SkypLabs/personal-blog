@@ -3,6 +3,10 @@ title = "[GNOME 3] Associer l'ouverture d'un programme à une extension de fichi
 date = 2014-01-07
 template = "post.html"
 
+aliases = [
+  "/2014/01/07/gnome-3-associer-louverture-dun-programme-a-une-extension-de-fichier/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["GNOME 3"]

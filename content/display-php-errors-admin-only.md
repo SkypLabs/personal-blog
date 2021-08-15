@@ -3,6 +3,10 @@ title = "Afficher les erreurs SQL de PHP seulement aux personnes concernées"
 date = 2011-03-19
 template = "post.html"
 
+aliases = [
+  "/2011/03/19/afficher-les-erreurs-sql-de-php-seulement-aux-personnes-concernees/",
+]
+
 [taxonomies]
 categories = ["Programming", "Security"]
 tags = ["PHP", "SQL"]

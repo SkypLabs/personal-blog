@@ -3,6 +3,10 @@ title = "[Docker] Développer sur le BLE Micro de Seeed Studio"
 date = 2014-12-08
 template = "post.html"
 
+aliases = [
+  "/2014/12/08/docker-developper-sur-le-ble-micro-de-seeed-studio/",
+]
+
 [taxonomies]
 categories = ["Programming", "Electronics"]
 tags = ["Docker"]

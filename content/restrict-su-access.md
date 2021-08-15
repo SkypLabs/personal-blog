@@ -3,6 +3,10 @@ title = "Restreindre l'accès à la commande 'su' sous Linux"
 date = 2011-05-18
 template = "post.html"
 
+aliases = [
+  "/2011/05/18/restreindre-lacces-a-la-commande-su-sous-linux/",
+]
+
 [taxonomies]
 categories = ["SysAdmin", "Security"]
 tags = ["Linux"]

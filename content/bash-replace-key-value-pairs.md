@@ -3,6 +3,10 @@ title = "[Bash] Remplacement de la forme key=value dans un fichier texte"
 date = 2014-04-30
 template = "post.html"
 
+aliases = [
+  "/2014/04/30/bash-remplacement-de-la-forme-keyvalue-dans-un-fichier-texte/",
+]
+
 [taxonomies]
 categories = ["Programming"]
 tags = ["Bash"]

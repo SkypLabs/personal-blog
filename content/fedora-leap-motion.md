@@ -3,6 +3,10 @@ title = "[Fedora] Installer de quoi utiliser le Leap Motion"
 date = 2015-07-04
 template = "post.html"
 
+aliases = [
+  "/2015/07/04/fedora-installer-de-quoi-utiliser-le-leap-motion/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["Leap Motion", "RPM"]

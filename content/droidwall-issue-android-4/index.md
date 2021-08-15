@@ -3,6 +3,10 @@ title = "Problème d'utilisation de Droidwall depuis la version 4 d'Android"
 date = 2011-12-29
 template = "post.html"
 
+aliases = [
+  "/2011/12/29/probleme-dutilisation-de-droidwall-depuis-la-version-4-dandroid/",
+]
+
 [taxonomies]
 categories = ["Systems"]
 tags = ["Android", "Netfilter"]

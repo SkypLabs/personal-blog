@@ -3,6 +3,10 @@ title = "[Android] Supprimer une application native à une ROM"
 date = 2011-12-24
 template = "post.html"
 
+aliases = [
+  "/2011/12/24/android-supprimer-une-application-native-a-une-rom/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["Android"]

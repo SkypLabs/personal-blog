@@ -3,6 +3,10 @@ title = "Allier Android en GUI et Debian en CLI sur la Asus Transformer Prime"
 date = 2012-01-20
 template = "post.html"
 
+aliases = [
+  "/2012/01/20/allier-android-en-gui-et-debian-en-cli-sur-la-asus-transformer-prime/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["Android", "Debian"]

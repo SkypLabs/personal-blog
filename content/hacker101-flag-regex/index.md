@@ -3,6 +3,10 @@ title = "Hacker 101 - Capture the Flags with a Regex"
 date = 2020-07-07
 template = "post.html"
 
+aliases = [
+  "/2020/07/07/hacker101-flag-regex/",
+]
+
 [taxonomies]
 categories = ["Security"]
 tags = ["CTF", "ZAP", "Web"]

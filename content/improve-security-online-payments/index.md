@@ -3,6 +3,10 @@ title = "Improve the security of your online payments"
 date = 2017-03-22
 template = "post.html"
 
+aliases = [
+  "/2017/03/22/improve-the-security-of-your-online-payments/",
+]
+
 [taxonomies]
 categories = ["Security"]
 tags = ["Payment", "Credit Card"]

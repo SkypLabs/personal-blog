@@ -3,6 +3,10 @@ title = "[Ubuntu] Récupérer le PATH de l'utilisateur courant avec sudo"
 date = 2011-03-12
 template = "post.html"
 
+aliases = [
+  "/2011/03/12/ubuntu-recuperer-le-path-de-lutilisateur-courant-avec-sudo/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["Ubuntu"]

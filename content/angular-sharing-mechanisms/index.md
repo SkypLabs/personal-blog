@@ -3,6 +3,10 @@ title = "[Angular] Different sharing mechanisms for different situations"
 date = 2017-11-30
 template = "post.html"
 
+aliases = [
+  "/2017/11/30/angular-different-sharing-mechanisms-for-different-situations/",
+]
+
 [taxonomies]
 categories = ["Programming"]
 tags = ["Angular", "Web"]

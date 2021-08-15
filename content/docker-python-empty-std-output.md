@@ -3,6 +3,10 @@ title = "[Docker] Votre script Python laisse anormalement la sortie standard vid
 date = 2015-11-16
 template = "post.html"
 
+aliases = [
+  "/2015/11/16/docker-votre-script-python-laisse-anormalement-la-sortie-standard-vide/",
+]
+
 [taxonomies]
 categories = ["SysAdmin", "Programming"]
 tags = ["Docker", "Python"]

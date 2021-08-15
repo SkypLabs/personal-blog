@@ -3,6 +3,10 @@ title = "Salon des solutions Linux / Open Source 2011"
 date = 2011-05-30
 template = "post.html"
 
+aliases = [
+  "/2011/05/30/salon-des-solutions-linux-open-source-2011/",
+]
+
 [taxonomies]
 categories = ["Events"]
 tags = ["Linux", "Open Source"]

@@ -3,6 +3,10 @@ title = "Sniffer le réseau avec Wireshark sans le compte root"
 date = 2011-02-09
 template = "post.html"
 
+aliases = [
+  "/2011/02/09/sniffer-le-reseau-avec-wireshark-sans-le-compte-root/",
+]
+
 [taxonomies]
 categories = ["SysAdmin", "Network", "Security"]
 tags = ["Wireshark"]

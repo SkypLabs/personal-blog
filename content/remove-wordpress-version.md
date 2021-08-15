@@ -3,6 +3,10 @@ title = "Retirer la version de WordPress des en-têtes HTML"
 date = 2011-03-11
 template = "post.html"
 
+aliases = [
+  "/2011/03/11/retirer-la-version-de-wordpress-des-en-tetes-html/",
+]
+
 [taxonomies]
 categories = ["SysAdmin", "Security"]
 tags = ["WordPress"]

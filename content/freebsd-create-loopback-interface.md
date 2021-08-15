@@ -3,6 +3,10 @@ title = "[FreeBSD] Créer une interface de loopback au démarrage"
 date = 2012-07-12
 template = "post.html"
 
+aliases = [
+  "/2012/07/12/freebsd-creer-une-interface-de-loopback-au-demarrage/",
+]
+
 [taxonomies]
 categories = ["SysAdmin", "Network"]
 tags = ["FreeBSD"]

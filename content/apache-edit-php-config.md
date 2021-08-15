@@ -3,6 +3,10 @@ title = "Modifier la configuration de PHP depuis Apache"
 date = 2011-06-19
 template = "post.html"
 
+aliases = [
+  "/2011/06/19/modifier-la-configuration-de-php-depuis-apache/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["Apache", "PHP"]

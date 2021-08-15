@@ -3,6 +3,10 @@ title = "[Bash] Tester une adresse IPv4"
 date = 2014-04-14
 template = "post.html"
 
+aliases = [
+  "/2014/04/14/bash-tester-une-adresse-ipv4/",
+]
+
 [taxonomies]
 categories = ["Programming"]
 tags = ["Bash"]

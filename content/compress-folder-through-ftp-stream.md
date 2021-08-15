@@ -3,6 +3,10 @@ title = "Compresser un dossier local à travers un lien FTP"
 date = 2015-05-28
 template = "post.html"
 
+aliases = [
+  "/2015/05/28/compresser-un-dossier-local-a-travers-un-lien-ftp/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["Backup", "FTP"]

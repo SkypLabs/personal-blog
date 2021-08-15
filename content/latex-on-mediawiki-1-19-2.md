@@ -3,6 +3,10 @@ title = "LaTeX sur MediaWiki 1.19.2"
 date = 2012-10-20
 template = "post.html"
 
+aliases = [
+  "/2012/10/20/latex-sur-mediawiki-1-19-2/",
+]
+
 [taxonomies]
 categories = ["SysAdmin", "Web"]
 tags = ["MediaWiki", "LaTeX"]

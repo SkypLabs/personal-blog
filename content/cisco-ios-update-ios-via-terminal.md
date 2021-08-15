@@ -3,6 +3,10 @@ title = "[Cisco IOS] Mettre à jour IOS uniquement en console"
 date = 2014-08-08
 template = "post.html"
 
+aliases = [
+  "/2014/08/08/cisco-ios-mettre-a-jour-ios-uniquement-en-console/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["Cisco IOS"]

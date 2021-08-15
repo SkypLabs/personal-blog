@@ -3,6 +3,10 @@ title = "[Angular] Running unit tests with Chromium in a Docker container"
 date = 2017-08-29
 template = "post.html"
 
+aliases = [
+  "/2017/08/29/angular-running-unit-tests-with-chromium-in-a-docker-container/",
+]
+
 [taxonomies]
 categories = ["Programming"]
 tags = ["Angular", "Chromium", "Docker", "Web"]

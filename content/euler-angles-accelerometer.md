@@ -3,6 +3,10 @@ title = "Calcul des angles d'Euler avec un accéléromètre"
 date = 2016-01-17
 template = "post.html"
 
+aliases = [
+  "/2016/01/17/calcul-des-angles-deuler-avec-un-accelerometre/",
+]
+
 [taxonomies]
 categories = ["Physics", "Electronics"]
 tags = []

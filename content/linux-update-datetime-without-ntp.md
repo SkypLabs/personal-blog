@@ -3,6 +3,10 @@ title = "[Linux] Mettre à jour l'heure de son système par internet sans NTP"
 date = 2014-04-25
 template = "post.html"
 
+aliases = [
+  "/2014/04/25/linux-mettre-a-jour-lheure-de-son-systeme-par-internet-sans-ntp/",
+]
+
 [taxonomies]
 categories = ["SysAdmin"]
 tags = ["Linux", "NTP"]
