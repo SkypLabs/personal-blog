@@ -8,6 +8,7 @@ generate_feed = true
 
 [markdown]
 highlight_code = true
+render_emoji = true
 
 [translations]
 next_page = "Next"
