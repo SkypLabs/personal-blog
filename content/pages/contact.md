@@ -2,11 +2,11 @@
 title = "Contact"
 weight = 4
 +++
-### Email 📧
+### Email :incoming_envelope:
 
 Here is my email address: {{ mailto() }}
 
-#### With PGP 🔐
+#### With PGP :closed_lock_with_key:
 
 If you have something confidential to share, please use [PGP][pgp]/[GPG][gpg]
 encryption to secure our communication.
@@ -18,7 +18,7 @@ My public key can be downloaded from my [Keybase][keybase] profile:
 To facilitate the encryption process, you can use [this online
 tool][keybase-encrypt-tool]. You can also use it to verify my signatures.
 
-#### Without PGP 🔓
+#### Without PGP :unlock:
 
 If you want to email me securely but you don't know or don't want to use PGP,
 please follow these steps:
@@ -30,12 +30,12 @@ please follow these steps:
 4. I will answer you with a password-encrypted email via the [Tutanota
    webmail][tutanota].
 
-### Keybase 🔑
+### Keybase :key:
 
 If you have a [Keybase][keybase] account, you can start chatting securely with
 me by going on [my profile][my-keybase-profile].
 
-### Public conversations 🐦
+### Public conversations :bird:
 
 You can also contact me publicly via my [Twitter account][my-twitter].
 

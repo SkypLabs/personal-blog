@@ -9,7 +9,7 @@ exchanging with people. Also, security and privacy go hand-in-hand with
 transparency and we definitely need more of it in our actual world.
 
 Having said that, if you like my work and want to support me, tips are very
-welcome 🙂
+welcome :slightly_smiling_face:
 
 ### Brave Rewards
 
@@ -20,7 +20,7 @@ clicking on the BAT logo in your URL bar.
 
 I love working from coffee shops so, if you buy me a coffee on [Buy Me A
 Coffee][buy-me-a-coffee] or [Ko-fi][ko-fi], you can be sure that I will
-literally use your tips for this very purpose ☕
+literally use your tips for this very purpose :coffee:
 
 ### Cryptocurrencies
 
