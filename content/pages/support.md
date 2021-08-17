@@ -28,12 +28,22 @@ If you like cryptocurrencies as I do, you will find all my cryptocurrency
 addresses on my [Keybase profile][my-keybase] and/or in [this text
 file][my-wallets] (digitally signed).
 
+### GitHub Sponsors
+
+[GitHub][github] has an amazing [sponsoring program][github-sponsors] that you
+can use to sponsor my work through recurring or one-off payments.
+
+<iframe src="https://github.com/sponsors/SkypLabs/card" title="Sponsor SkypLabs"
+height="200" width="100%" style="border: 0;"></iframe>
+
 ### PayPal
 
 If you have a PayPal account, you can use [this link][my-paypal] to tip me.
 
  [brave]: https://brave.com "Brave Official Website"
  [buy-me-a-coffee]: https://www.buymeacoffee.com/skyplabs "My profile on Buy Me A Coffee"
+ [github]: https://github.com "GitHub Official Website"
+ [github-sponsors]: https://github.com/sponsors "GitHub Sponsors"
  [ko-fi]: https://ko-fi.com/skyplabs "My profile on Ko-fi"
  [my-keybase]: https://keybase.io/skyplabs "My profile on Keybase"
  [my-wallets]: https://keybase.pub/skyplabs/wallets.txt "My cryptocurrencies addresses"
