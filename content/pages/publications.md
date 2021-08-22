@@ -1,6 +1,7 @@
 +++
 title = "Publications"
 weight = 2
+path = "publications/"
 +++
 ### Academic Papers
 

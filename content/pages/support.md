@@ -1,6 +1,7 @@
 +++
 title = "Support me"
 weight = 5
+path = "support/"
 +++
 I've been working on many open-source software and other publicly-shared
 resources for a long while now without asking any counterpart as I love what I'm
