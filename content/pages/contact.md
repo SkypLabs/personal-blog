@@ -1,6 +1,7 @@
 +++
 title = "Contact"
 weight = 4
+path = "contact/"
 +++
 ### Email :incoming_envelope:
 

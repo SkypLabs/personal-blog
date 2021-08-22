@@ -1,6 +1,7 @@
 +++
 title = "About me"
 weight = 3
+path = "about/"
 +++
 Hello,
 
