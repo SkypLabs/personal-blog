@@ -40,7 +40,7 @@ github.branch = "content"
 
 meta.keywords = "Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source"
 
-plausible = ""
+plausible = "blog.skyplabs.net"
 
 settings.date_format_posts = "%d %b %Y"
 
