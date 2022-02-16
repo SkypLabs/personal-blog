@@ -26,7 +26,8 @@ actually using an `EventEmitter` object. Although this solution is appropriate
 for the majority of situations, this is not always the case. Let's consider the
 following example:
 
-![Diagram of the data propagation using an EventEmitter](EventEmitter.svg)
+![Diagram of the data propagation using an
+EventEmitter](/angular-sharing-mechanisms/EventEmitter.svg)
 
 <!-- more -->
 
