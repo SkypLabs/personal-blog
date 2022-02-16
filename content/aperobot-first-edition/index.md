@@ -20,7 +20,7 @@ juin 2011 alors que **l'association de robotique de Caliban** et la société
 **Teknobot** (plus connue sous le nom de **World of Robot**) partageaient un
 stand. Et voici le résultat d'une telle rencontre :
 
-![Apérobot - Salon du modélisme](aperobot-premiere-edition-1.jpg)
+![Apérobot - Salon du modélisme](/aperobot-first-edition/aperobot-premiere-edition-1.jpg)
 
 <!-- more -->
 

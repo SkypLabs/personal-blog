@@ -18,12 +18,12 @@ skimming through web pages, you can ask [ZAP][zap] to catch them for you with
 this regex: `\^FLAG\^[\w\d]{64}\$FLAG\$`
 
 ![ZAP settings to capture Hacker 101 flags
-automatically](hacker101_zap_flag_regex_settings.jpg)
+automatically](/hacker101-flag-regex/hacker101_zap_flag_regex_settings.jpg)
 
 A "Flag" tag will appear next the requests containing a flag in their response:
 
 ![HTTP request captured with ZAP containing a Hacker 101
-flag](hacker101_zap_flag_regex_captured.jpg)
+flag](/hacker101-flag-regex/hacker101_zap_flag_regex_captured.jpg)
 
 This technique is particularly useful when a flag appears in a non-obvious
 location such as an HTML comment.

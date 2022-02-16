@@ -19,7 +19,7 @@ vulnerable machines are deployed in a private network accessible via VPN, and
 where users need to hack their way into the systems to collect flags as proofs
 of their success.
 
-![HTB Admirer information card](htb-admirer-info-card.jpg)
+![HTB Admirer information card](/htb-admirer/htb-admirer-info-card.jpg)
 
 <!-- more -->
 
