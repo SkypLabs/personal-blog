@@ -17,7 +17,7 @@ Studio][seeed-studio] embarquant le SoC [nRF51822][nRF51822] de Nordic
 Semiconductor. Ce dernier est un module de communication [Bluetooth Low
 Energy][ble] (BLE) basé un Cortex M0.
 
-![BLE Micro de Seeed Studio](/docker-ble-micro/ble_micro.jpg)
+![BLE Micro de Seeed Studio](/posts/docker-ble-micro/ble_micro.jpg)
 
 <!-- more -->
 
