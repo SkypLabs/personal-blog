@@ -8,6 +8,10 @@ generate_feed = true
 
 [markdown]
 highlight_code = true
+render_emoji = true
+external_links_target_blank = true
+external_links_no_follow = true
+external_links_no_referrer = true
 
 [translations]
 next_page = "Next"
@@ -24,5 +28,7 @@ author.last_name = ""
 author.nickname = ""
 
 meta.keywords = ""
+
+plausible = ""
 
 settings.date_format_posts = "%d %b %Y"
