@@ -32,4 +32,4 @@ rectifier la situation :
 
 Il ne vous reste plus qu'à tester le bon fonctionnement de votre modification en
 utilisant un client DLNA sur un autre appareil pour lancer la lecture d'un film
-par exemple :)
+par exemple :slightly_smiling_face:
