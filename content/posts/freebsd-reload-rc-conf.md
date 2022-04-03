@@ -27,4 +27,4 @@ revenir en mode **multi user** et ainsi recharger le fichier `/etc/rc.conf`.
 Ayez cependant conscience que l'ensemble de vos services vont être relancés
 pendant cette procédure.
 
-Bonne année à tous :)
+Bonne année à tous :slightly_smiling_face:
