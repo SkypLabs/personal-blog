@@ -50,4 +50,4 @@ seul livre traitant du noyau Linux sur les systèmes embarqués en Français.
 Pour conclure ce petit compte rendu, voici une petite série de photos prises au
 salon le jour même :
 
-{{ galery() }}
+{{ gallery() }}

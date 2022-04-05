@@ -57,7 +57,7 @@ m'y rendre.
 Comme d'habitude, en conclusion de cet article, une série de photos prise le
 jour de l'événement :
 
-{{ galery() }}
+{{ gallery() }}
 
  [site-caliban]: https://caliban-asso.fr "Association Caliban"
  [facebook-world-of-robot]: https://www.facebook.com/pages/World-Of-Robot/164886823512 "Page Facebook de World Of Robot"
