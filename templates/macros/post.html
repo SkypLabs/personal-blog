@@ -30,6 +30,7 @@
     {% for category in post.taxonomies.categories %}
     {% set url = get_taxonomy_url(kind="categories", name=category, lang=post.lang) %}
     <a href="{{ url }}">{{ category }}</a>
+    {% if not loop.last %} · {% endif %}
     {% endfor %}
   </span>
   {% endif %}
@@ -39,6 +40,7 @@
     {% for tag in post.taxonomies.tags %}
     {% set url = get_taxonomy_url(kind="tags", name=tag, lang=post.lang) %}
     <a href="{{ url }}">{{ tag }}</a>
+    {% if not loop.last %} · {% endif %}
     {% endfor %}
   </span>
   {% endif %}
