@@ -1,0 +1,17 @@
+{% extends "page.html" %}
+
+{% block content %}
+<div class="page">
+  <h2 class="page-title">Tags</h2>
+
+  {% for tag in terms %}
+  <span>
+    <a href="{{ tag.permalink | safe }}">
+      {{ tag.name }}
+      <sup>{{ tag.pages | length }}</sup>
+    </a>
+  </span>
+  {% if not loop.last %} · {% endif %}
+  {% endfor %}
+</div>
+{% endblock content %}

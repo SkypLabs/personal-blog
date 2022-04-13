@@ -27,13 +27,19 @@
 {% macro post_taxonomies(post) %}
   {% if post.taxonomies.categories %}
   <span class="categories" property="keywords">
-    {% for category in post.taxonomies.categories %}{{ category }} {% endfor %}
+    {% for category in post.taxonomies.categories %}
+    {% set url = get_taxonomy_url(kind="categories", name=category, lang=post.lang) %}
+    <a href="{{ url }}">{{ category }}</a>
+    {% endfor %}
   </span>
   {% endif %}
 
   {% if post.taxonomies.tags %}
   <span class="tags" property="keywords">
-    {% for tag in post.taxonomies.tags %}{{ tag }} {% endfor %}
+    {% for tag in post.taxonomies.tags %}
+    {% set url = get_taxonomy_url(kind="tags", name=tag, lang=post.lang) %}
+    <a href="{{ url }}">{{ tag }}</a>
+    {% endfor %}
   </span>
   {% endif %}
 {% endmacro post_taxonomies %}
