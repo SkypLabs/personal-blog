@@ -86,7 +86,7 @@
 
     <div class="posts">
       {% for post in paginator.pages %}
-      <div class="post" property="blogPost" typeof="BlogPosting">
+      <article class="post" property="blogPost" typeof="BlogPosting">
         {{ post_macros::post_info(post=post, clickable_title=true) }}
 
         {% if post.summary %}
@@ -102,7 +102,7 @@
         {% endif %}
 
         {{ post_macros::post_taxonomies(post=post) }}
-      </div>
+      </article>
       {% endfor %}
     </div>
 
