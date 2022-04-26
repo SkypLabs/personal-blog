@@ -1,0 +1,30 @@
+name: Check Links
+
+on:
+  schedule:
+    - cron: '30 3 * * 0' # At 03:30 on Sunday.
+  workflow_dispatch:
+    inputs:
+      check_flags:
+        type: string
+        description: "Flags to pass to 'zola check'"
+        required: false
+        default: ''
+
+jobs:
+  build-website:
+    name: Check Links
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          ref: content
+
+      - name: Build
+        uses: shalzz/zola-deploy-action@master
+        env:
+          BUILD_ONLY: true
+          CHECK_LINKS: true
+          CHECK_FLAGS: "${{ github.event.inputs.check_flags }}"
