@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Build and Deploy
         uses: shalzz/zola-deploy-action@master
