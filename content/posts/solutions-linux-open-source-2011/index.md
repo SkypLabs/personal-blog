@@ -98,4 +98,4 @@ présentes.
 
 À l'année prochaine !
 
- [microsoft-open-source]: https://www.01net.com/editorial/532777/microsoft-nous-ne-combattons-plus-l-open-source/ "Microsoft : Nous ne combattons plus l'open source"
+ [microsoft-open-source]: https://www.01net.com/actualites/microsoft-nous-ne-combattons-plus-l-open-source-532777.html "Microsoft : Nous ne combattons plus l'open source"

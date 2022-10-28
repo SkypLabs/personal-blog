@@ -14,6 +14,24 @@ taxonomies = [
   { name = "tags", feed = true },
 ]
 
+[link_checker]
+skip_prefixes = [
+  "http://10.",
+  "https://10.",
+  "http://192.168.",
+  "https://192.168.",
+  "https://dev.mysql.com/",
+  "https://fr.farnell.com",
+  "https://infosecwriteups.com",
+  "https://twitter.com",
+]
+
+skip_anchor_prefixes = [
+  "https://docs.github.com",
+  "https://github.com",
+  "https://keybase.io/encrypt",
+]
+
 [markdown]
 highlight_code = true
 render_emoji = true

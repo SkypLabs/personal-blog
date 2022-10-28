@@ -40,13 +40,13 @@ Mais depuis la version 4 d'Android (nommée **Ice Cream Sandwich**), Google a
 intégré à son système la possibilité de visualiser la consommation data réalisée
 par l'ensemble des applications qui y sont installées. Cela se traduit par
 l'ajout de nouvelles règles Netfilter dans les chaînes `INPUT` et `OUTPUT`. Le
-soucis est que ces nouvelles règles viennent perturber le bon fonctionnement de
+souci est que ces nouvelles règles viennent perturber le bon fonctionnement de
 Droidwall. Voyez par vous même :
 
 ![Screenshot Netfilter Android - before](probleme-droidwall-1.png)
 
 La règle correspondante à Droiwall se situe après celle qui autorise l'ensemble
-du trafic à sortir. Pour corriger ce problème, j'ai écris un petit script de
+du trafic à sortir. Pour corriger ce problème, j'ai écrit un petit script de
 règles Netfilter que je fais exécuter par Droidwall (via une de ses options)
 pour modifier la position de la règle citée plus haut. Voici le script en
 question :
@@ -61,9 +61,9 @@ $IPTABLES -I OUTPUT 2 -j droidwall
 ```
 
 Après avoir copié ce petit script sur votre carte SD, il vous faut utiliser
-l'option [Set Custom Script][droidwall-custom-script] de Droidwall pour lui
-demander de l'exécuter à chacune de ses activations. Dans la zone de texte
-prévue à cet effet, il vous faut écrire :
+l'option "Set Custom Script" de Droidwall pour lui demander de l'exécuter à
+chacune de ses activations. Dans la zone de texte prévue à cet effet, il vous
+faut écrire :
 
 ```
 . /chemin/vers/le/script
@@ -76,5 +76,3 @@ Et voici le résultat en image :
 Cette méthode permet de résoudre le problème mais je vais prendre le temps de
 contacter le développeur de l'application Droidwall pour le lui signaler et
 ainsi éviter toutes ces manipulations.
-
- [droidwall-custom-script]: https://code.google.com/p/droidwall/wiki/CustomScripts "Set Custom Script"

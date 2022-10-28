@@ -232,7 +232,7 @@ $
 
 The root flag was `fa6d76ff6866c37f381b5f6e40f8ce89`.
 
- [github-api-trees]: https://developer.github.com/v3/git/trees/#get-a-tree
+ [github-api-trees]: https://docs.github.com/en/rest/git/trees#get-a-tree
  [luvit]: https://luvit.io/
  [smevk-backdoor]: http://10.10.10.181/smevk.php
  [smevk-credentials]: https://github.com/Xh4H/Web-Shells/blob/master/smevk.php#L14-L15

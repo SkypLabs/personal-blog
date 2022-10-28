@@ -137,7 +137,7 @@ placés dans l'appartement (mon Nexus S possède un lecteur NFC), etc.
 
 Affaire à suivre...
 
- [protocole-nec]: https://www.sbprojects.com/knowledge/ir/nec.php "NEC protocol"
+ [protocole-nec]: https://www.sbprojects.net/knowledge/ir/nec.php "NEC protocol"
  [lirc]: http://www.lirc.org/ "LIRC"
  [pcb-zip-file]: https://keybase.pub/skyplabs/Blog/Downloads/TV_RC_ARDUINO_SHIELD_PCB_V1.zip "TV_RC_ARDUINO_SHIELD_PCB_V1.zip"
  [tv-remote-control]: https://keybase.pub/skyplabs/Blog/Downloads/tv_rc_android_v0.1.apk "TV Remote Control Project"

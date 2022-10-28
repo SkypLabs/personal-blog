@@ -25,12 +25,12 @@ autour des différents capteurs inertiels existants :
   connaître la position d'origine de ce dernier (technologie utilisée à bord des
   avions par exemple).
 
-La carte de développement [**ATAVRSBIN1**][ATAVRSBIN1] que nous allons tester au
-cours de cet article est équipée de deux de ces capteurs : elle embarque un
-**gyromètre** (ITG-3200) et un **accéléromètre** (BMA-150). Le ITG-3200 est
-pourtant vendu comme étant un gyroscope, mais en regardant sa datasheet, on
-s'aperçoit qu'il retourne une mesure en °/s. C'est une erreur très commune donc
-prenez garde la prochaine fois que vous sélectionnerez un produit de la sorte.
+La carte de développement **ATAVRSBIN1** que nous allons tester au cours de cet
+article est équipée de deux de ces capteurs : elle embarque un **gyromètre**
+(ITG-3200) et un **accéléromètre** (BMA-150). Le ITG-3200 est pourtant vendu
+comme étant un gyroscope, mais en regardant sa datasheet, on s'aperçoit qu'il
+retourne une mesure en °/s. C'est une erreur très commune donc prenez garde la
+prochaine fois que vous sélectionnerez un produit de la sorte.
 
 <!-- more -->
 
@@ -105,7 +105,6 @@ file="ATAVRSBIN1_i2c.ino") }}
  [gyromètre]: https://fr.wikipedia.org/wiki/Gyrom%C3%A8tre
  [accéléromètre]: https://fr.wikipedia.org/wiki/Acc%C3%A9l%C3%A9rom%C3%A8tre
  [centrale-inertielle]: https://fr.wikipedia.org/wiki/Centrale_%C3%A0_inertie
- [ATAVRSBIN1]: https://fr.farnell.com/atmel/atavrsbin1/carte-inertial-capteur-9dof/dp/1972205
  [i2c]: https://fr.wikipedia.org/wiki/I2C
  [farnell]: https://fr.farnell.com/
  [ATAVRSBIN1-datasheet]: https://ww1.microchip.com/downloads/en/AppNotes/doc8354.pdf

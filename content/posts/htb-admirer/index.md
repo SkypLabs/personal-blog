@@ -521,9 +521,9 @@ It was an easy machine, as expected. It still allowed me to discover the Adminer
 project and it was also an occasion for me to use the rogue MySQL server of
 Bettercap.
 
- [adminer-exploit-blog-post]: https://medium.com/bugbountywriteup/adminer-script-results-to-pwning-server-private-bug-bounty-program-fe6d8a43fe6f "Adminer Script Results to Pwning Server?, Private Bug Bounty Program"
+ [adminer-exploit-blog-post]: https://infosecwriteups.com/adminer-script-results-to-pwning-server-private-bug-bounty-program-fe6d8a43fe6f "Adminer Script Results to Pwning Server?, Private Bug Bounty Program"
  [bettercap]: https://www.bettercap.org/ "Bettercap Official Website"
- [bettercap-caplets]: https://www.bettercap.org/usage/#caplets "Bettercap - Caplets"
+ [bettercap-caplets]: https://www.bettercap.org/usage/interactive/#caplets "Bettercap - Caplets"
  [bettercap-mysql-module]: https://www.bettercap.org/modules/ethernet/servers/mysql.server/ "Bettercap MySQL module"
  [htb]: https://hackthebox.eu/ "Hack The Box - Main Website"
  [kali-hydra]: https://tools.kali.org/password-attacks/hydra "Kali Tools - Hydra Package Description"

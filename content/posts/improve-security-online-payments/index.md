@@ -45,5 +45,5 @@ one-click buying feature such as Amazon ([storing the CSC is prohibited by card
 issuers][CSC storage]).
 
  [CSC]: https://en.wikipedia.org/wiki/Card_security_code
- [CSC storage]: https://en.wikipedia.org/wiki/Card_security_code#Security_benefits
+ [CSC storage]: https://en.wikipedia.org/wiki/Card_security_code#Benefits_and_limitations
  [keepass]: https://keepass.info/
