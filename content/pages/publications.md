@@ -3,11 +3,6 @@ title = "Publications"
 weight = 2
 path = "publications/"
 +++
-### Academic Papers
-
-* [Abi-Lahoud, E., Raoul, P-E., Muckley, C. (2017) "Linking Data To Understand
-  The Fintech Ecosystem", In SEMANTiCS'17, Amsterdam][semantics-2017-demo-paper]
-
 ### Blog Posts
 
 * ["How to use Git in a secure way", Avatao Blog, 04 Sep.
@@ -17,6 +12,11 @@ path = "publications/"
 
 * [Raoul, Paul-Emmanuel. "ProbeQuest", Hakin9 Magazine, vol. 13, no. 05, Jul.
   2018, pp. 180-190][hakin9-vol13-no05]
+
+### Research Papers
+
+* [Abi-Lahoud, E., Raoul, P-E., Muckley, C. (2017) "Linking Data To Understand
+  The Fintech Ecosystem", In SEMANTiCS'17, Amsterdam][semantics-2017-demo-paper]
 
 ### Slideshows
 
