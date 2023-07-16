@@ -23,12 +23,6 @@ I love working from coffee shops so, if you buy me a coffee on [Buy Me A
 Coffee][buy-me-a-coffee] or [Ko-fi][ko-fi], you can be sure that I will
 literally use your tips for this very purpose :coffee:
 
-### Cryptocurrencies
-
-If you like cryptocurrencies as I do, you will find all my cryptocurrency
-addresses on my [Keybase profile][my-keybase] and/or in [this text
-file][my-wallets] (digitally signed).
-
 ### GitHub Sponsors
 
 [GitHub][github] has an amazing [sponsoring program][github-sponsors] that you
