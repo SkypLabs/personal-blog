@@ -139,5 +139,5 @@ Affaire à suivre...
 
  [protocole-nec]: https://www.sbprojects.net/knowledge/ir/nec.php "NEC protocol"
  [lirc]: http://www.lirc.org/ "LIRC"
- [pcb-zip-file]: https://keybase.pub/skyplabs/Blog/Downloads/TV_RC_ARDUINO_SHIELD_PCB_V1.zip "TV_RC_ARDUINO_SHIELD_PCB_V1.zip"
- [tv-remote-control]: https://keybase.pub/skyplabs/Blog/Downloads/tv_rc_android_v0.1.apk "TV Remote Control Project"
+ [pcb-zip-file]: https://files.skyplabs.net/TV_RC_ARDUINO_SHIELD_PCB_V1.zip "TV_RC_ARDUINO_SHIELD_PCB_V1.zip"
+ [tv-remote-control]: https://files.skyplabs.net/tv_rc_android_v0.1.apk "TV Remote Control Project"

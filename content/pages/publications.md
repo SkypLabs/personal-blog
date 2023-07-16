@@ -39,5 +39,5 @@ path = "publications/"
  [CVE-2021-23632]: https://security.snyk.io/vuln/SNYK-JS-GIT-1568518
  [CVE-2021-23732]: https://security.snyk.io/vuln/SNYK-JS-DOCKERCLIJS-1568516
  [git-slideshow]: https://skyplabs.github.io/git-slideshow/
- [hakin9-vol13-no05]: https://skyplabs.keybase.pub/Papers/Magazines/Hakin9%20Magazine%2C%20VOL.13%2C%20NO.%2005%2C%20%22Open%20Source%20Hacking%20Tools%22.pdf
+ [hakin9-vol13-no05]: https://files.skyplabs.net/Hakin9%20Magazine%2C%20VOL.13%2C%20NO.%2005%2C%20%22Open%20Source%20Hacking%20Tools%22.pdf
  [semantics-2017-demo-paper]: http://ceur-ws.org/Vol-2044/paper18/

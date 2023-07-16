@@ -218,5 +218,5 @@ dessus :
 
 ![Image contenant le code de validation](ndh2k16_hello_friend_d3bug.png)
 
- [hello friend]: https://skyplabs.keybase.pub/Blog/Downloads/hellofriend.jpg
+ [hello friend]: https://files.skyplabs.net/hellofriend.jpg
  [darkc0de]: https://github.com/empijei/useful-commands/blob/master/exploiting/wifi/darkc0de.lst
