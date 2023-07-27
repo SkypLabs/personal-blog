@@ -23,6 +23,8 @@ in a container it will generally be quite high (4851522 in the asciicast):
 
 {{ asciinema(id="318880") }}
 
+<!-- more -->
+
 On Linux, one of the underlying mechanisms commonly used to create a container
 is [cgroups][cgroups]. The `/proc/1/cgroup` virtual file will give you the
 control groups of the `init` process which are generally `/` for the majority of
