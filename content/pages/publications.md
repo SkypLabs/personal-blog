@@ -5,6 +5,7 @@ path = "publications/"
 +++
 ### Blog Posts
 
+* ["Parsing .DS_Store files with ZAP", ZAP Blog, 08 Sep, 2023][zap-ds-store]
 * ["How to use Git in a secure way", Avatao Blog, 04 Sep.
   2018][avatao-git-security] (also on [Medium][avatao-git-security-medium])
 
@@ -41,3 +42,4 @@ path = "publications/"
  [git-slideshow]: https://skyplabs.github.io/git-slideshow/
  [hakin9-vol13-no05]: https://files.skyplabs.net/Hakin9%20Magazine%2C%20VOL.13%2C%20NO.%2005%2C%20%22Open%20Source%20Hacking%20Tools%22.pdf
  [semantics-2017-demo-paper]: http://ceur-ws.org/Vol-2044/paper18/
+ [zap-ds-store]: https://www.zaproxy.org/blog/2023-09-08-ds-store-parsing/
