@@ -64,6 +64,7 @@ settings.date_format_posts = "%d %b %Y"
 
 social.github = "SkypLabs"
 social.docker_hub = "skyplabs"
+social.mastodon = "@Skyper@fosstodon.org"
 social.twitter = "SkypLabs"
 social.linkedin = "peraoul"
 social.keybase = "skyplabs"
