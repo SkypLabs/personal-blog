@@ -43,6 +43,12 @@
           config.extra.social.docker_hub }}" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
         {% endif %}
 
+        {% if config.extra.social.mastodon %}
+        {% set mastodon_username = config.extra.social.mastodon | split(pat="@") | nth(n=1)  %}
+        {% set mastodon_host = config.extra.social.mastodon | split(pat="@") | nth(n=2)  %}
+        <a class="icon-mastodon" href="https://{{ mastodon_host }}/@{{ mastodon_username }}" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        {% endif %}
+
         {% if config.extra.social.twitter %}
         <a class="icon-twitter" href="https://twitter.com/{{ config.extra.social.twitter }}" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
         {% endif %}
