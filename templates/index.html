@@ -11,6 +11,19 @@
   <meta name="author" content="{{ config.extra.author.first_name }} {{
   config.extra.author.last_name}}">
 
+  {% if config.extra.favicon.apple_touch_icon %}
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ config.extra.favicon.apple_touch_icon }}" />
+  {% endif %}
+  {% if config.extra.favicon.favicon_16x16 %}
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ config.extra.favicon.favicon_16x16 }}" />
+  {% endif %}
+  {% if config.extra.favicon.favicon_32x32 %}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ config.extra.favicon.favicon_32x32 }}" />
+  {% endif %}
+  {% if config.extra.favicon.webmanifest %}
+  <link rel="manifest" href="{{ config.extra.favicon.webmanifest }}" />
+  {% endif %}
+
   <title>{{ config.title }}</title>
 
   <link rel="stylesheet" href="{{ get_url(path="css/style.css") | safe }}">
