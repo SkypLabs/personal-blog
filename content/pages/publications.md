@@ -11,7 +11,9 @@ path = "publications/"
 
 ### Magazines
 
-* [Raoul, Paul-Emmanuel. "ProbeQuest", Hakin9 Magazine, vol. 13, no. 05, Jul.
+* [P.-E. Raoul, "Kaitai Struct: one parser to rule them all!", PagedOut!, no.
+  3, p. 28, Dec-2023.][pagedout-kaitai-struct]
+* [Raoul, P-E. "ProbeQuest", Hakin9 Magazine, vol. 13, no. 05, Jul.
   2018, pp. 180-190][hakin9-vol13-no05]
 
 ### Research Papers
@@ -41,5 +43,6 @@ path = "publications/"
  [CVE-2021-23732]: https://security.snyk.io/vuln/SNYK-JS-DOCKERCLIJS-1568516
  [git-slideshow]: https://skyplabs.github.io/git-slideshow/
  [hakin9-vol13-no05]: https://files.skyplabs.net/Hakin9%20Magazine%2C%20VOL.13%2C%20NO.%2005%2C%20%22Open%20Source%20Hacking%20Tools%22.pdf
+ [pagedout-kaitai-struct]: https://pagedout.institute/download/PagedOut_003_beta1.pdf
  [semantics-2017-demo-paper]: http://ceur-ws.org/Vol-2044/paper18/
  [zap-ds-store]: https://www.zaproxy.org/blog/2023-09-08-ds-store-parsing/
