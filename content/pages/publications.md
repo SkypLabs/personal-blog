@@ -30,6 +30,8 @@ path = "publications/"
 
 ### Vulnerabilities
 
+* [CVE-2023-50974 - Too permissive access on preferences file affecting Appwrite
+  CLI versions 2.0.2 and older][CVE-2023-50974]
 * [CVE-2021-23632 - Arbitrary code execution affecting git NPM package
   versions 0.1.5 and older][CVE-2021-23632]
 * [CVE-2021-23732 - Arbitrary code execution affecting docker-cli-js NPM package
@@ -43,6 +45,7 @@ path = "publications/"
  [CVE-2017-1000448]: https://nvd.nist.gov/vuln/detail/CVE-2017-1000448
  [CVE-2021-23632]: https://security.snyk.io/vuln/SNYK-JS-GIT-1568518
  [CVE-2021-23732]: https://security.snyk.io/vuln/SNYK-JS-DOCKERCLIJS-1568516
+ [CVE-2023-50974]: https://www.cve.org/CVERecord?id=CVE-2023-50974
  [git-slideshow]: https://skyplabs.github.io/git-slideshow/
  [hakin9-vol13-no05]: https://files.skyplabs.net/Hakin9%20Magazine%2C%20VOL.13%2C%20NO.%2005%2C%20%22Open%20Source%20Hacking%20Tools%22.pdf
  [pagedout-kaitai-struct]: https://pagedout.institute/download/PagedOut_003_beta1.pdf
