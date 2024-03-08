@@ -28,8 +28,8 @@ please follow these steps:
 2. Encrypt the password with [this online tool][keybase-encrypt-tool]. Only me
    will be able to decrypt it.
 3. Copy the encrypted password and send it to me at {{ mailto() }}.
-4. I will answer you with a password-encrypted email via the [Tutanota
-   webmail][tutanota].
+4. I will answer you with a password-protected end-to-end encrypted email via
+   the [Tuta webmail][tuta].
 
 ### Keybase :key:
 
@@ -45,4 +45,4 @@ You can also contact me publicly via my [Twitter account][my-twitter].
  [my-keybase-profile]: https://keybase.io/skyplabs
  [my-twitter]: https://twitter.com/SkypLabs
  [openpgp]: https://www.openpgp.org/
- [tutanota]: https://www.tutanota.com/
+ [tuta]: https://www.tuta.com/
