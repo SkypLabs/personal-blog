@@ -37,3 +37,9 @@ meta.keywords = ""
 plausible = ""
 
 settings.date_format_posts = "%d %b %Y"
+
+[extra.favicon]
+apple_touch_icon = "/favicon/apple-touch-icon.png"
+favicon_16x16 = "/favicon/favicon-16x16.png"
+favicon_32x32 = "/favicon/favicon-32x32.png"
+webmanifest = "/favicon/site.webmanifest"

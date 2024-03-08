@@ -1,0 +1,3 @@
+{% set mastodon_username = config.extra.social.mastodon | split(pat="@") | nth(n=1)  %}
+{% set mastodon_host = config.extra.social.mastodon | split(pat="@") | nth(n=2)  %}
+<a href="https://{{ mastodon_host }}/@{{ mastodon_username }}" title="My Mastodon profile" target="_blank" rel="noopener noreferrer">{{ config.extra.social.mastodon }}</a>
