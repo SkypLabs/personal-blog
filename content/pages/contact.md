@@ -9,7 +9,7 @@ Here is my email address: {{ mailto() }}
 
 #### With PGP :closed_lock_with_key:
 
-If you have something confidential to share, please use [PGP][pgp]/[GPG][gpg]
+If you have something confidential to share, please use [PGP][openpgp]
 encryption to secure our communication.
 
 My public key can be downloaded from my [Keybase][keybase] profile:
@@ -40,10 +40,9 @@ me by going on [my profile][my-keybase-profile].
 
 You can also contact me publicly via my [Twitter account][my-twitter].
 
- [gpg]: https://gnupg.org/
  [keybase]: https://keybase.io/
  [keybase-encrypt-tool]: https://keybase.io/encrypt#skyplabs
  [my-keybase-profile]: https://keybase.io/skyplabs
  [my-twitter]: https://twitter.com/SkypLabs
- [pgp]: https://en.wikipedia.org/wiki/Pretty_Good_Privacy
+ [openpgp]: https://www.openpgp.org/
  [tutanota]: https://www.tutanota.com/
