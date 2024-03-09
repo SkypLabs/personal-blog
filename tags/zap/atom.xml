@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - ZAP</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/zap/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2020-07-07T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/zap/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Hacker 101 - Capture the Flags with a Regex</title>
+        <published>2020-07-07T00:00:00+00:00</published>
+        <updated>2020-07-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/hacker101-flag-regex/"/>
+        <id>https://blog.skyplabs.net/posts/hacker101-flag-regex/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/hacker101-flag-regex/">&lt;p&gt;Enjoying &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ctf.hacker101.com&quot;&gt;HackerOne&#x27;s CTF&lt;&#x2F;a&gt;?&lt;&#x2F;p&gt;
+&lt;p&gt;If you want to make sure not to inadvertently miss any single flag while
+skimming through web pages, you can ask &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;zaproxy.org&quot;&gt;ZAP&lt;&#x2F;a&gt; to catch them for you with
+this regex: &lt;code&gt;\^FLAG\^[\w\d]{64}\$FLAG\$&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;hacker101-flag-regex&#x2F;hacker101_zap_flag_regex_settings.jpg&quot; alt=&quot;ZAP settings to capture Hacker 101 flags automatically&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;A &amp;quot;Flag&amp;quot; tag will appear next the requests containing a flag in their response:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;hacker101-flag-regex&#x2F;hacker101_zap_flag_regex_captured.jpg&quot; alt=&quot;HTTP request captured with ZAP containing a Hacker 101 flag&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;This technique is particularly useful when a flag appears in a non-obvious
+location such as an HTML comment.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

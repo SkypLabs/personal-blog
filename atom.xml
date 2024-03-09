@@ -1,0 +1,2075 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-07-27T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Detect whether you are inside a container or not</title>
+        <published>2023-07-27T00:00:00+00:00</published>
+        <updated>2023-07-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/container-detection/"/>
+        <id>https://blog.skyplabs.net/posts/container-detection/</id>
+        
+        <summary type="html">&lt;p&gt;Container technologies (&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;chroot&quot;&gt;chroot&lt;&#x2F;a&gt;, &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;linuxcontainers.org&#x2F;&quot;&gt;LXC&lt;&#x2F;a&gt;, …) are very common these
+days, especially since the massive adoption of &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.docker.com&#x2F;&quot;&gt;Docker&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;One of the use cases of container technologies is to isolate services from each
+others and from the host system. As a result, in case of an intrusion, the
+attacker would be in theory trapped inside a container. From the attacker’s
+perspective, it is important to be able to detect if a compromised service lives
+in a restricted environment such as a Docker container or if it runs directly on
+the host operating system.&lt;&#x2F;p&gt;
+&lt;p&gt;One way to do so is to have a look at the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Inode&quot;&gt;inode&lt;&#x2F;a&gt; of the &lt;code&gt;&#x2F;&lt;&#x2F;code&gt; mount point
+(&lt;code&gt;ls -id &#x2F;&lt;&#x2F;code&gt;).  On the host system it will be very low (generally 1 or 2) whereas
+in a container it will generally be quite high (4851522 in the asciicast):&lt;&#x2F;p&gt;
+&lt;script id=&quot;asciicast-318880&quot; src=&quot;https:&#x2F;&#x2F;asciinema.org&#x2F;a&#x2F;318880.js&quot; async&gt;&lt;&#x2F;script&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>VPN, Security and Improper HTTP Redirects</title>
+        <published>2023-01-28T00:00:00+00:00</published>
+        <updated>2023-01-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/vpn-security-improper-http-redirects/"/>
+        <id>https://blog.skyplabs.net/posts/vpn-security-improper-http-redirects/</id>
+        
+        <summary type="html">&lt;p&gt;As you probably have already noticed, the number of VPN providers has grown
+massively in the recent years, and you can now stumble on ads for VPN
+subscriptions on every corner of the Internet. Of course, not all of these
+providers are equal in terms of quality of service, security or privacy. At the
+contrary, some of them falsely claim to have a zero-log policy or to even
+protect you from malicious actors.&lt;&#x2F;p&gt;
+&lt;p&gt;Having said that, using a public VPN service is not necessarily a bad idea if
+you choose it correctly. It&#x27;s a matter of trust after all. Who do you trust the
+most for keeping your traffic private, your ISP, or a carefully selected VPN
+provider? (I said carefully here because you have a larger number of VPN
+providers on the market than ISPs available where you live).&lt;&#x2F;p&gt;
+&lt;p&gt;If you trust your VPN provider, you get in theory a higher degree of online
+privacy by proxying your connections through it (even if, as of today, nothing
+can fully replace &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;The Tor project&quot; href=&quot;https:&#x2F;&#x2F;www.torproject.org&#x2F;&quot;&gt;Tor&lt;&#x2F;a&gt;). But what about security? From a theoretical
+standpoint once again, TLS is well enough to guarantee the security of your
+online activity. And thanks to projects like &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Let&#x27;s Encrypt&quot; href=&quot;https:&#x2F;&#x2F;letsencrypt.org&#x2F;&quot;&gt;Let&#x27;s Encrypt&lt;&#x2F;a&gt;, most
+websites are accessible via HTTPS these days.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Qubes OS] Make Docker use private storage</title>
+        <published>2023-01-20T00:00:00+00:00</published>
+        <updated>2023-01-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/qubes-os-docker-storage/"/>
+        <id>https://blog.skyplabs.net/posts/qubes-os-docker-storage/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/qubes-os-docker-storage/">&lt;p&gt;The Docker engine stores all image layers in &lt;code&gt;&#x2F;var&#x2F;lib&#x2F;docker&lt;&#x2F;code&gt; by default, which
+is not compatible with Qubes OS&#x27; template system. You would lose all your saved
+images each time you restart the app qube in question.&lt;&#x2F;p&gt;
+&lt;p&gt;You can change the Docker engine&#x27;s root data directory by editing
+&lt;code&gt;&#x2F;etc&#x2F;docker&#x2F;daemon.json&lt;&#x2F;code&gt; in your template:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;json&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-json &quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;data-root&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;docker&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The list of the directories that can be used to store Docker&#x27;s data persistently
+across reboots can be found &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Qubes OS - Inheritance and Persistence&quot; href=&quot;https:&#x2F;&#x2F;www.qubes-os.org&#x2F;doc&#x2F;templates&#x2F;#inheritance-and-persistence&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Once the configuration file in place in your template, you can then boot up any
+app qube using this template and check if the new location has correctly been
+taken into account:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;raw&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-raw &quot;&gt;&lt;code class=&quot;language-raw&quot; data-lang=&quot;raw&quot;&gt;&lt;span&gt;$ sudo docker info | grep -i &amp;#39;root dir&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt; Docker Root Dir: &#x2F;usr&#x2F;local&#x2F;lib&#x2F;docker
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Please note that if you already had Docker images stored in an qube app before
+making this configuration change, they won&#x27;t be available in Docker any more.
+You would need to move them to the new location or download them again.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Vim] Set up CodeQL LSP</title>
+        <published>2022-07-10T00:00:00+00:00</published>
+        <updated>2022-07-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/codeql-lsp-vim/"/>
+        <id>https://blog.skyplabs.net/posts/codeql-lsp-vim/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/codeql-lsp-vim/">&lt;p&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;CodeQL CLI Documentation&quot; href=&quot;https:&#x2F;&#x2F;codeql.github.com&#x2F;docs&#x2F;codeql-cli&#x2F;&quot;&gt;CodeQL CLI&lt;&#x2F;a&gt; includes a language server which can be easily set up
+in &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;coc.nvim GitHub repository&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;neoclide&#x2F;coc.nvim&quot;&gt;coc.nvim&lt;&#x2F;a&gt; by adding the content of this &lt;code&gt;coc-settings.json&lt;&#x2F;code&gt; file
+to your own configuration file:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;json&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-json &quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;languageserver&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;:{
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;codeql&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;command&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;codeql&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;args&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;execute&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;language-server&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;--check-errors&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;ON_CHANGE&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;-q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;      ],
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;filetypes&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;codeql&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;ql&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;      ],
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;initializationOptions&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: {},
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;settings&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: {}
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Given that coc.nvim uses Vim filetype detection system and not file extensions,
+you need to let Vim know about &lt;code&gt;*.ql&lt;&#x2F;code&gt; files being CodeQL files. One way to do
+that is to add &lt;code&gt;codeql.vim&lt;&#x2F;code&gt; to &lt;code&gt;~&#x2F;.vim&#x2F;ftdetect&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;vim&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-vim &quot;&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot; Set &amp;#39;.ql&amp;#39; files as CodeQL files.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;au &lt;&#x2F;span&gt;&lt;span&gt;BufRead,BufNewFile &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;*.&lt;&#x2F;span&gt;&lt;span&gt;ql &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;set filetype&lt;&#x2F;span&gt;&lt;span&gt;=codeql
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Docker] Explore a container&#x27;s file system from scratch</title>
+        <published>2022-04-13T00:00:00+00:00</published>
+        <updated>2022-04-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/docker-explore-from-scratch/"/>
+        <id>https://blog.skyplabs.net/posts/docker-explore-from-scratch/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/docker-explore-from-scratch/">&lt;p&gt;Generally, when I want to explore the file system of a Docker container, I do it
+interactively by executing a shell inside it, something like:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ docker exec -it container_name sh
+&lt;&#x2F;span&gt;&lt;span&gt;$ ls
+&lt;&#x2F;span&gt;&lt;span&gt;...
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;But sometimes the image of the container I want to explore does not contain any
+tools for this purpose. No &lt;code&gt;ls&lt;&#x2F;code&gt;, no &lt;code&gt;cat&lt;&#x2F;code&gt;, not even a shell.  It is especially
+the case when building Docker images &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hub.docker.com&#x2F;_&#x2F;scratch&#x2F;&quot;&gt;from scratch&lt;&#x2F;a&gt;, which
+is very common with &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.docker.com&#x2F;develop&#x2F;develop-images&#x2F;multistage-build&#x2F;&quot;&gt;multi-stage builds&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;One solution is to rely on the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;reference&#x2F;commandline&#x2F;export&#x2F;&quot;&gt;&lt;code&gt;docker export&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; tool which
+allows to &amp;quot;export a container&#x27;s filesystem as a tar archive&amp;quot;. By default, it
+writes the tar archive to &lt;code&gt;STDOUT&lt;&#x2F;code&gt;, which means it can be easily piped into the
+&lt;code&gt;tar&lt;&#x2F;code&gt; command-line tool to list its contents on the fly:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ docker export 7c1f2edd42c4 | tar -tv | tee filesystem.txt
+&lt;&#x2F;span&gt;&lt;span&gt;-rwxr-xr-x root&#x2F;root         0 2022-04-04 09:46 .dockerenv
+&lt;&#x2F;span&gt;&lt;span&gt;drwxr-xr-x root&#x2F;root         0 2022-03-19 15:52 bin&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;-rwxr-xr-x root&#x2F;root  45687736 2022-03-19 15:52 bin&#x2F;node
+&lt;&#x2F;span&gt;&lt;span&gt;...
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[HTB] Admirer</title>
+        <published>2020-10-02T00:00:00+00:00</published>
+        <updated>2020-10-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/htb-admirer/"/>
+        <id>https://blog.skyplabs.net/posts/htb-admirer/</id>
+        
+        <summary type="html">&lt;p&gt;Admirer is an easy &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Hack The Box - Main Website&quot; href=&quot;https:&#x2F;&#x2F;hackthebox.eu&#x2F;&quot;&gt;Hack The Box&lt;&#x2F;a&gt; Linux-based machine released on the 2nd
+of May 2020 and reachable on the IP address &lt;code&gt;10.10.10.187&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;For whose who don&#x27;t know it yet, Hack The Box is an online platform where
+vulnerable machines are deployed in a private network accessible via VPN, and
+where users need to hack their way into the systems to collect flags as proofs
+of their success.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;htb-admirer&#x2F;htb-admirer-info-card.jpg&quot; alt=&quot;HTB Admirer information card&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[HTB] Traceback</title>
+        <published>2020-08-25T00:00:00+00:00</published>
+        <updated>2020-08-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/htb-traceback/"/>
+        <id>https://blog.skyplabs.net/posts/htb-traceback/</id>
+        
+        <summary type="html">&lt;p&gt;Traceback is an easy Linux-based machine released on the 14th of March 2020 and
+reachable on the IP address &lt;code&gt;10.10.10.181&lt;&#x2F;code&gt; (despite what&#x27;s written on the info
+card).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;htb-traceback&#x2F;htb-traceback-info-card.jpg&quot; alt=&quot;HTB Traceback information card&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Hacker 101 - Capture the Flags with a Regex</title>
+        <published>2020-07-07T00:00:00+00:00</published>
+        <updated>2020-07-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/hacker101-flag-regex/"/>
+        <id>https://blog.skyplabs.net/posts/hacker101-flag-regex/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/hacker101-flag-regex/">&lt;p&gt;Enjoying &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ctf.hacker101.com&quot;&gt;HackerOne&#x27;s CTF&lt;&#x2F;a&gt;?&lt;&#x2F;p&gt;
+&lt;p&gt;If you want to make sure not to inadvertently miss any single flag while
+skimming through web pages, you can ask &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;zaproxy.org&quot;&gt;ZAP&lt;&#x2F;a&gt; to catch them for you with
+this regex: &lt;code&gt;\^FLAG\^[\w\d]{64}\$FLAG\$&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;hacker101-flag-regex&#x2F;hacker101_zap_flag_regex_settings.jpg&quot; alt=&quot;ZAP settings to capture Hacker 101 flags automatically&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;A &amp;quot;Flag&amp;quot; tag will appear next the requests containing a flag in their response:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;hacker101-flag-regex&#x2F;hacker101_zap_flag_regex_captured.jpg&quot; alt=&quot;HTTP request captured with ZAP containing a Hacker 101 flag&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;This technique is particularly useful when a flag appears in a non-obvious
+location such as an HTML comment.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Python] Sniffing inside a thread with Scapy</title>
+        <published>2018-03-01T00:00:00+00:00</published>
+        <updated>2018-03-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/python-sniffing-inside-thread/"/>
+        <id>https://blog.skyplabs.net/posts/python-sniffing-inside-thread/</id>
+        
+        <summary type="html">&lt;p&gt;Scapy is an incredible tool when it comes to playing with the network. As it is
+written on its &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;scapy.net&#x2F;&quot;&gt;official website&lt;&#x2F;a&gt;, Scapy can replace a majority
+of network tools such as nmap, hping and tcpdump.&lt;&#x2F;p&gt;
+&lt;p&gt;One of the features offered by Scapy is to sniff the network packets passing
+through a computer&#x27;s NIC. Below is a small example:&lt;&#x2F;p&gt;
+&lt;div &gt;
+    &lt;script src=&quot;https:&amp;#x2F;&amp;#x2F;gist.github.com&amp;#x2F;SkypLabs&amp;#x2F;06bd7f414f51d700e04be705cb32659d.js?file=sniff_main_thread.py&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;This little sniffer displays the source and the destination of all packets
+having an IP layer:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ sudo python3 sniff_main_thread.py
+&lt;&#x2F;span&gt;&lt;span&gt;[*] Start sniffing...
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 10.137.2.1
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 10.137.2.1
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.1 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.1 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 216.58.198.68 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 216.58.198.68 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 216.58.198.68 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 216.58.198.68 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;^C[*] Stop sniffing
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It will continue to sniff network packets until it receives a keyboard
+interruption (&lt;code&gt;CTRL+C&lt;&#x2F;code&gt;).&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Angular] Different sharing mechanisms for different situations</title>
+        <published>2017-11-30T00:00:00+00:00</published>
+        <updated>2017-11-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/angular-sharing-mechanisms/"/>
+        <id>https://blog.skyplabs.net/posts/angular-sharing-mechanisms/</id>
+        
+        <summary type="html">&lt;p&gt;Angular has different mechanisms for sharing data between components. The choice
+of the sharing method mostly depends on the relationship of the related
+components. Typically, within the context of a parent-child topology, the most
+straightforward choice would be to use the &lt;code&gt;@Input&lt;&#x2F;code&gt; and &lt;code&gt;@Output&lt;&#x2F;code&gt; decorators.
+For sibling components, relying on a data sharing service seems to be the most
+obvious solution. In any case, once you have settled on the choice of a
+communication topology, you need to decide which data propagating mechanism to
+use.&lt;&#x2F;p&gt;
+&lt;p&gt;Generally, components use &lt;code&gt;EventEmmiter&lt;&#x2F;code&gt; objects to share data with each other.
+When you pass data into an Angular component with an &lt;code&gt;@Input&lt;&#x2F;code&gt; decorator, you are
+actually using an &lt;code&gt;EventEmitter&lt;&#x2F;code&gt; object. Although this solution is appropriate
+for the majority of situations, this is not always the case. Let&#x27;s consider the
+following example:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;angular-sharing-mechanisms&#x2F;EventEmitter.svg&quot; alt=&quot;Diagram of the data propagation using an EventEmitter&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Angular] Running unit tests with Chromium in a Docker container</title>
+        <published>2017-08-29T00:00:00+00:00</published>
+        <updated>2017-08-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/angular-unit-tests-chromium-docker/"/>
+        <id>https://blog.skyplabs.net/posts/angular-unit-tests-chromium-docker/</id>
+        
+        <summary type="html">&lt;p&gt;Running unit tests for front-end web applications require them to be tested in a
+web browser. While it&#x27;s not an issue on a workstation, it can become tedious
+when running in a restricted environment such as a Docker container. In fact,
+these execution environments are generally lightweight and do not contain any
+graphical environment.&lt;&#x2F;p&gt;
+&lt;p&gt;One solution to work around this issue is to use a headless web browser designed
+for development purposes, like &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;phantomjs.org&#x2F;&quot;&gt;PhantomJS&lt;&#x2F;a&gt;. While it&#x27;s an elegant
+solution for testing an application, it would be even better to test it directly
+in a web browser which will be used by the end-users in order to match real
+conditions of use, for examples Firefox or Chromium&#x2F;Google Chrome. However, as
+mentioned above, it is needed to find a way to execute a regular web browser in
+a restricted environment.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Improve the security of your online payments</title>
+        <published>2017-03-22T00:00:00+00:00</published>
+        <updated>2017-03-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/improve-security-online-payments/"/>
+        <id>https://blog.skyplabs.net/posts/improve-security-online-payments/</id>
+        
+        <summary type="html">&lt;p&gt;I think it is obvious to say that the security of your online payments is
+critical if you don&#x27;t want to have an unpleasant surprise one day when checking
+your account statement. That&#x27;s why most banks have added a two-step
+authentification security process to their online payment system. That way, you
+have to confirm your online payment with a one-time password sent via text
+message or other method by your bank. However, not every website supports this
+feature, leaving you defenceless if someone steals your credit card information.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[ndh2k16] Hello Friend</title>
+        <published>2016-07-05T00:00:00+00:00</published>
+        <updated>2016-07-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/ndh2k16-hello-friend/"/>
+        <id>https://blog.skyplabs.net/posts/ndh2k16-hello-friend/</id>
+        
+        <summary type="html">&lt;p&gt;Une des épreuves du wargame de la nuit du hack 2016 était de retrouver un code
+de validation à partir de cette image :&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;files.skyplabs.net&#x2F;hellofriend.jpg&quot; alt=&quot;Fichier JPEG utilisé pour le challenge &amp;quot;hello friend&amp;quot; lors de la nuit du hack 2016&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Calcul des angles d&#x27;Euler avec un accéléromètre</title>
+        <published>2016-01-17T00:00:00+00:00</published>
+        <updated>2016-01-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/euler-angles-accelerometer/"/>
+        <id>https://blog.skyplabs.net/posts/euler-angles-accelerometer/</id>
+        
+        <summary type="html">&lt;p&gt;Les angles d&#x27;Euler sont 3 angles qui permettent de décrire l&#x27;orientation d&#x27;un
+objet dans un espace tridimensionnel.&lt;&#x2F;p&gt;
+&lt;p&gt;Si nous prenons par exemple un objet quelconque, le centre de masse \(m\) de
+cet objet est une coordonnée dans notre espace à 3 dimensions. Tout point dans
+un espace à \(n\) dimensions peut être atteint par \(n\) translations.
+Ainsi, le point \(m\) est atteint par 3 translations, quelque soit l&#x27;origine
+du repère.&lt;&#x2F;p&gt;
+&lt;p&gt;De façon semblable à une coordonnée, une orientation dans cet espace
+tridimensionnel est obtenue par trois rotations. Ces rotations sont effectuées
+successivement dans un ordre arbitraire, chacune autour d&#x27;un des trois axes du
+repère. Cela revient à effectuer une rotation dans le plan formé par deux axes
+autour d&#x27;un troisième, et cela trois fois de suite.&lt;&#x2F;p&gt;
+&lt;p&gt;Nous allons ici chercher à démontrer qu&#x27;il est possible de calculer les angles
+d&#x27;Euler (et donc l&#x27;orientation de l&#x27;objet) en utilisant uniquement un
+accéléromètre triaxial (c&#x27;est à dire 3 accéléromètres 1 axe montés
+orthogonalement). Pour rappel, un accéléromètre permet de mesurer l&#x27;accélération
+linéaire que subit un corps auquel ce capteur serait attaché.&lt;&#x2F;p&gt;
+&lt;p&gt;La sortie de l&#x27;accéléromètre peut être modélisée de la façon suivante :&lt;&#x2F;p&gt;
+&lt;p&gt;\[
+\vec{a_{S}} =
+\left( \begin{array}{c} a_{Sx} \\ a_{Sy} \\ a_{Sz} \end{array} \right) =
+\vec{a_{B}} + R_{I}^{B} \vec{g}
+\]&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Docker] Votre script Python laisse anormalement la sortie standard vide</title>
+        <published>2015-11-16T00:00:00+00:00</published>
+        <updated>2015-11-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/docker-python-empty-std-output/"/>
+        <id>https://blog.skyplabs.net/posts/docker-python-empty-std-output/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/docker-python-empty-std-output/">&lt;p&gt;Lors de l&#x27;exécution d&#x27;un programme écrit en Python dans un conteneur Docker, il
+arrive régulièrement que la sortie standard reste anormalement vide :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ docker logs my-app
+&lt;&#x2F;span&gt;&lt;span&gt;$
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;La raison est généralement que par défaut, l&#x27;interpréteur Python utilise une
+mémoire tampon pour les écritures vers &lt;code&gt;stdout&lt;&#x2F;code&gt;. Les écritures sont donc
+différées et cela peut prendre un moment avant de voir apparaitre la moindre
+ligne d&#x27;écriture (selon la verbosité de votre programme).&lt;&#x2F;p&gt;
+&lt;p&gt;Une solution est d&#x27;utiliser l&#x27;option &lt;code&gt;-u&lt;&#x2F;code&gt; lors de l&#x27;appel à l&#x27;interpréteur
+Python. Votre &lt;code&gt;Dockerfile&lt;&#x2F;code&gt; devra contenir une ligne ressemblant à ceci :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;dockerfile&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-dockerfile &quot;&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt;&lt;span&gt;CMD [&amp;quot;python3&amp;quot;, &amp;quot;-u&amp;quot;, &amp;quot;my-app.py&amp;quot;]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Et ainsi :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ docker logs my-app
+&lt;&#x2F;span&gt;&lt;span&gt;It works !
+&lt;&#x2F;span&gt;&lt;span&gt;$
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Fedora] Installer de quoi utiliser le Leap Motion</title>
+        <published>2015-07-04T00:00:00+00:00</published>
+        <updated>2015-07-04T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/fedora-leap-motion/"/>
+        <id>https://blog.skyplabs.net/posts/fedora-leap-motion/</id>
+        
+        <summary type="html">&lt;p&gt;L&#x27;utilisation du &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.leapmotion.com&#x2F;&quot;&gt;Leap Motion&lt;&#x2F;a&gt; sur les systèmes GNU&#x2F;Linux est
+officiellement supportée mais seul un paquet DEB est fourni. Nous allons donc
+voir comment le convertir en paquet RPM fonctionnel pour Fedora.&lt;&#x2F;p&gt;
+&lt;p&gt;Tout d&#x27;abord, vous devez télécharger la dernière version du &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;warehouse.leapmotion.com&#x2F;apps&#x2F;4186&#x2F;download&quot;&gt;Leap Motion
+Setup&lt;&#x2F;a&gt; pour Linux :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;wget https:&#x2F;&#x2F;warehouse.leapmotion.com&#x2F;apps&#x2F;4143&#x2F;download -O leap-setup.tgz
+&lt;&#x2F;span&gt;&lt;span&gt;tar zxvf leap-setup.tgz
+&lt;&#x2F;span&gt;&lt;span&gt;cd Leap_Motion_Installer_Packages_release_public_linux&#x2F;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Ensuite, nous allons utiliser l&#x27;outil &lt;code&gt;alien&lt;&#x2F;code&gt; pour faire la conversion. Si ce
+dernier n&#x27;est pas installé :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;# Pour Fedora &amp;lt;= 21
+&lt;&#x2F;span&gt;&lt;span&gt;sudo yum install alien
+&lt;&#x2F;span&gt;&lt;span&gt;# Pour Fedora &amp;gt; 21
+&lt;&#x2F;span&gt;&lt;span&gt;sudo dnf install alien
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Compresser un dossier local à travers un lien FTP</title>
+        <published>2015-05-28T00:00:00+00:00</published>
+        <updated>2015-05-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/compress-folder-through-ftp-stream/"/>
+        <id>https://blog.skyplabs.net/posts/compress-folder-through-ftp-stream/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/compress-folder-through-ftp-stream/">&lt;p&gt;J&#x27;ai récemment dû faire une sauvegarde d&#x27;un dossier se trouvant sur un serveur
+distant afin de l&#x27;envoyer sur un serveur FTP. Cependant, il m&#x27;a été impossible
+de créer une archive compressée de ce dossier sur le serveur distant car pas
+assez d&#x27;espace libre. La solution a été de ne pas stocker le résultat de la
+compression en local sur le serveur sur lequel se trouve le dossier à
+sauvegarder, mais de l&#x27;envoyer directement sur le FTP.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour ce faire, une fois connecté au serveur FTP depuis le serveur distant en
+utilisant l&#x27;outil &lt;code&gt;ftp&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;ftp&amp;gt; put &amp;quot;| tar cvf - folder&#x2F; | gzip &amp;quot; folder.tar.gz
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;folder&lt;&#x2F;code&gt; correspond donc au dossier local à sauvegarder et &lt;code&gt;folder.tar.gz&lt;&#x2F;code&gt; au
+nom de l&#x27;archive compressée qui résultera de ce procédé (placée sur le FTP
+donc).&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Quelle est la différence entre chiffrer et coder une information ?</title>
+        <published>2015-03-26T00:00:00+00:00</published>
+        <updated>2015-03-26T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/diff-btw-encrypting-and-coding/"/>
+        <id>https://blog.skyplabs.net/posts/diff-btw-encrypting-and-coding/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/diff-btw-encrypting-and-coding/">&lt;p&gt;Dans un &lt;a href=&quot;https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;crypter-does-not-exist-in-french&#x2F;&quot;&gt;précédent article&lt;&#x2F;a&gt;,
+j&#x27;avais expliqué pourquoi le mot &amp;quot;crypter&amp;quot; n&#x27;a aucun sens en français. Je vais
+continuer sur ma lancée pour maintenant expliquer la différence entre chiffrer
+et coder un message.&lt;&#x2F;p&gt;
+&lt;p&gt;Lorsque l&#x27;on parle de coder un message, on sous-entend l&#x27;utilisation d&#x27;un code
+de référence qui va permettre aux personnes le connaissant de transformer le
+message de notre langue commune à une forme codée et vice versa. Un des exemples
+les plus connus est le Morse. Toute personne connaissant le Morse est capable de
+comprendre les messages codés avec ce dernier.&lt;&#x2F;p&gt;
+&lt;p&gt;Contrairement aux codes comme le Morse, les algorithmes de chiffrement assurent
+une confidentialité des messages, que le système cryptographique soit connu ou
+non. En effet, dans le cas du chiffrement, seule la clé est confidentielle.
+C&#x27;est ce qu&#x27;énonce le &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Principe de Kerckhoffs&quot; href=&quot;https:&#x2F;&#x2F;fr.wikipedia.org&#x2F;wiki&#x2F;Principe_de_Kerckhoffs&quot;&gt;principe de Kerckhoffs&lt;&#x2F;a&gt;, également
+repris par Shannon avec sa maxime :&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;L&#x27;adversaire connaît le système&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Il est donc évident qu&#x27;utiliser un algorithme de chiffrement est bien plus
+judicieux qu&#x27;utiliser un code pour rendre ses données confidentielles.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Docker] Développer sur le BLE Micro de Seeed Studio</title>
+        <published>2014-12-08T00:00:00+00:00</published>
+        <updated>2014-12-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/docker-ble-micro/"/>
+        <id>https://blog.skyplabs.net/posts/docker-ble-micro/</id>
+        
+        <summary type="html">&lt;p&gt;Le &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.seeedstudio.com&#x2F;Seeed-Micro-BLE-Module-w-Cortex-M0-Based-nRF51822-SoC-p-1975.html&quot;&gt;BLE Micro&lt;&#x2F;a&gt; est une petite carte électronique produite par [Seeed
+Studio][seeed-studio] embarquant le SoC &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.nordicsemi.com&#x2F;Products&#x2F;Low-power-short-range-wireless&#x2F;nRF51822&#x2F;GetStarted&quot;&gt;nRF51822&lt;&#x2F;a&gt; de Nordic
+Semiconductor. Ce dernier est un module de communication &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Bluetooth_low_energy&quot;&gt;Bluetooth Low
+Energy&lt;&#x2F;a&gt; (BLE) basé un Cortex M0.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;docker-ble-micro&#x2F;ble_micro.jpg&quot; alt=&quot;BLE Micro de Seeed Studio&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Test de la carte de développement à capteurs inertiels ATAVRSBIN1 d&#x27;Atmel</title>
+        <published>2014-10-06T00:00:00+00:00</published>
+        <updated>2014-10-06T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/test-atmel-atavrsbin1/"/>
+        <id>https://blog.skyplabs.net/posts/test-atmel-atavrsbin1/</id>
+        
+        <summary type="html">&lt;p&gt;Avant toute chose, nous allons commencer par un petit rappel de vocabulaire
+autour des différents capteurs inertiels existants :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;fr.wikipedia.org&#x2F;wiki&#x2F;Gyroscope&quot;&gt;&lt;strong&gt;Gyroscope&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt; : Capteur indiquant la position angulaire.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;fr.wikipedia.org&#x2F;wiki&#x2F;Gyrom%C3%A8tre&quot;&gt;&lt;strong&gt;Gyromètre&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt; : Capteur indiquant la vitesse angulaire.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;fr.wikipedia.org&#x2F;wiki&#x2F;Acc%C3%A9l%C3%A9rom%C3%A8tre&quot;&gt;&lt;strong&gt;Accéléromètre&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt; : Capteur indiquant l&#x27;accélération
+linéaire.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;fr.wikipedia.org&#x2F;wiki&#x2F;Centrale_%C3%A0_inertie&quot;&gt;&lt;strong&gt;Centrale inertielle&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt; : Capteur embarquant un
+gyromètre à trois axes et un accéléromètre à trois axes et permettant de
+déterminer la position du mobile sur lequel il a été fixé à condition de
+connaître la position d&#x27;origine de ce dernier (technologie utilisée à bord des
+avions par exemple).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;La carte de développement &lt;strong&gt;ATAVRSBIN1&lt;&#x2F;strong&gt; que nous allons tester au cours de cet
+article est équipée de deux de ces capteurs : elle embarque un &lt;strong&gt;gyromètre&lt;&#x2F;strong&gt;
+(ITG-3200) et un &lt;strong&gt;accéléromètre&lt;&#x2F;strong&gt; (BMA-150). Le ITG-3200 est pourtant vendu
+comme étant un gyroscope, mais en regardant sa datasheet, on s&#x27;aperçoit qu&#x27;il
+retourne une mesure en °&#x2F;s. C&#x27;est une erreur très commune donc prenez garde la
+prochaine fois que vous sélectionnerez un produit de la sorte.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Ruby] &quot;Failed to build gem native extension&quot;</title>
+        <published>2014-08-20T00:00:00+00:00</published>
+        <updated>2014-08-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/ruby-failed-to-build-gem-native-extension/"/>
+        <id>https://blog.skyplabs.net/posts/ruby-failed-to-build-gem-native-extension/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/ruby-failed-to-build-gem-native-extension/">&lt;p&gt;Si vous obtenez ce message d&#x27;erreur lors de la première utilisation de l&#x27;outil
+&lt;strong&gt;gem&lt;&#x2F;strong&gt;, c&#x27;est qu&#x27;il vous manque certaines dépendances nécessaires à la création
+de la &lt;code&gt;gem native extension&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour les installer sous Fedora :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;sudo yum install -y gcc ruby-devel libxml2 libxml2-devel libxslt libxslt-devel
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Après cela, vous pouvez relancer l&#x27;installation de votre gem en utilisant
+l&#x27;option &lt;code&gt;--use-system-libraries&lt;&#x2F;code&gt; permettant d&#x27;utiliser les bibliothèques du
+système (ici, &lt;em&gt;libxml2&lt;&#x2F;em&gt; et &lt;em&gt;libxslt&lt;&#x2F;em&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;Par exemple, pour installer la gem &lt;strong&gt;gollum&lt;&#x2F;strong&gt; :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;gem install gollum -- --use-system-libraries
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Cisco IOS] Mettre à jour IOS uniquement en console</title>
+        <published>2014-08-08T00:00:00+00:00</published>
+        <updated>2014-08-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/cisco-ios-update-ios-via-terminal/"/>
+        <id>https://blog.skyplabs.net/posts/cisco-ios-update-ios-via-terminal/</id>
+        
+        <summary type="html">&lt;p&gt;Le première chose à faire avant de chercher à envoyer le nouveau firmware sur
+l&#x27;équipement est de vérifier l&#x27;espace disponible dans la mémoire flash interne :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;dir flash:
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;La dernière ligne retournée sera quelque chose ressemblant à ceci :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;7741440 bytes total (2983424 bytes free)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Dans le cas éventuel où vous devez libérer de la place :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;delete flash:&amp;lt;file to delete&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Maintenant passons aux choses sérieuses. Pour envoyer le nouveau firmware en
+utilisant le câble console, nous allons utiliser le protocole &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Wikipédia : xmodem&quot; href=&quot;https:&#x2F;&#x2F;fr.wikipedia.org&#x2F;wiki&#x2F;Xmodem&quot;&gt;xmodem&lt;&#x2F;a&gt;.
+Pour cela, assurez-vous que le programme &lt;strong&gt;sx&lt;&#x2F;strong&gt; est installé sur votre machine.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>L&#x27;assembleur n&#x27;est pas un langage !</title>
+        <published>2014-05-29T00:00:00+00:00</published>
+        <updated>2014-05-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/assembly-not-a-language/"/>
+        <id>https://blog.skyplabs.net/posts/assembly-not-a-language/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/assembly-not-a-language/">&lt;p&gt;En effet, comme le titre de cet article l&#x27;indique, l&#x27;assembleur n&#x27;est pas un
+langage. C&#x27;est le logiciel qui va convertir un programme écrit en langage
+d&#x27;assemblage en instructions machines directement compréhensibles par le
+processeur concerné. C&#x27;est donc un amalgame que de dire qu&#x27;un programme est
+écrit en assembleur. Par conséquent, nous devrions parler de &lt;strong&gt;langage
+d&#x27;assemblage&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;De la même façon, la compilation d&#x27;un programme n&#x27;est qu&#x27;une des étapes
+réalisées par un compilateur. Elle consiste à traduire un programme écrit dans
+un langage de plus haut niveau comme le C en langage d&#x27;assemblage. L&#x27;étape
+suivante est donc celle de l&#x27;assemblage réalisée à l&#x27;aide d&#x27;un assembleur.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Bash] De la couleur dans vos scripts</title>
+        <published>2014-05-15T00:00:00+00:00</published>
+        <updated>2014-05-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bash-add-colours-to-your-scripts/"/>
+        <id>https://blog.skyplabs.net/posts/bash-add-colours-to-your-scripts/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bash-add-colours-to-your-scripts/">&lt;p&gt;Voici quelques fonctions bien utiles permettant d&#x27;écrire des messages dans un
+terminal avec un code couleur correspondant au type de l&#x27;information à afficher
+:&lt;&#x2F;p&gt;
+&lt;div &gt;
+    &lt;script src=&quot;https:&amp;#x2F;&amp;#x2F;gist.github.com&amp;#x2F;SkypLabs&amp;#x2F;4775d15424f68d16fbdee5818917072c.js?file=echo_color.sh&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Bash] Supprimer toutes les lignes d&#x27;un fichier texte</title>
+        <published>2014-04-30T00:00:00+00:00</published>
+        <updated>2014-04-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bash-empty-text-file/"/>
+        <id>https://blog.skyplabs.net/posts/bash-empty-text-file/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bash-empty-text-file/">&lt;p&gt;En toute simplicité :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;&amp;gt; &amp;lt;fichier&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Par exemple, pour vider la liste des serveurs DNS à utiliser :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;&amp;gt; &#x2F;etc&#x2F;resolv.conf
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Cette syntaxe est également utile pour créer un fichier texte vierge.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Bash] Remplacement de la forme key=value dans un fichier texte</title>
+        <published>2014-04-30T00:00:00+00:00</published>
+        <updated>2014-04-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bash-replace-key-value-pairs/"/>
+        <id>https://blog.skyplabs.net/posts/bash-replace-key-value-pairs/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bash-replace-key-value-pairs/">&lt;p&gt;La regex ci-dessous utilisée avec le programme &lt;code&gt;sed&lt;&#x2F;code&gt; permet de remplacer
+l&#x27;ancienne valeur attribuée à &lt;code&gt;KEY&lt;&#x2F;code&gt; par la nouvelle valeur &lt;code&gt;VALUE&lt;&#x2F;code&gt; dans le
+fichier &lt;code&gt;file&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sed -i &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s&#x2F;\(KEY *= *\).*&#x2F;\1VALUE&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &amp;lt;file&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Par exemple, pour remplacer le nom d&#x27;hôte d&#x27;un système CentOS par la valeur
+contenue dans &lt;code&gt;$host_name&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sed -i &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s&#x2F;\(HOSTNAME *= *\).*&#x2F;\1&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;host_name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &#x2F;etc&#x2F;sysconfig&#x2F;network
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Debian] Équivalent de &quot;yum whatprovides&quot;</title>
+        <published>2014-04-27T00:00:00+00:00</published>
+        <updated>2014-04-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/debian-yum-whatprovides-equivalent/"/>
+        <id>https://blog.skyplabs.net/posts/debian-yum-whatprovides-equivalent/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/debian-yum-whatprovides-equivalent/">&lt;p&gt;Les outils &lt;strong&gt;apt-get&lt;&#x2F;strong&gt; et &lt;strong&gt;aptitude&lt;&#x2F;strong&gt; ne possèdent pas d&#x27;équivalent à l&#x27;option
+&lt;code&gt;whatprovides&lt;&#x2F;code&gt; de Yum. Cependant, il existe un logiciel nommé &lt;strong&gt;apt-file&lt;&#x2F;strong&gt;
+capable de remplir cette tâche :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;aptitude install apt-file
+&lt;&#x2F;span&gt;&lt;span&gt;apt-file update
+&lt;&#x2F;span&gt;&lt;span&gt;apt-file search &amp;lt;file&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Linux] Mettre à jour l&#x27;heure de son système par internet sans NTP</title>
+        <published>2014-04-25T00:00:00+00:00</published>
+        <updated>2014-04-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/linux-update-datetime-without-ntp/"/>
+        <id>https://blog.skyplabs.net/posts/linux-update-datetime-without-ntp/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/linux-update-datetime-without-ntp/">&lt;p&gt;Voici une astuce trouvée sur un &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;How to use ntpdate behind a proxy&quot; href=&quot;https:&#x2F;&#x2F;superuser.com&#x2F;questions&#x2F;307158&#x2F;how-to-use-ntpdate-behind-a-proxy&#x2F;465838#465838&quot;&gt;forum&lt;&#x2F;a&gt; permettant de mettre à jour
+l&#x27;heure d&#x27;un système sous Linux par internet mais sans utiliser NTP :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date -s &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;wget -S  &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;https:&#x2F;&#x2F;www.google.com&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;grep -E &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;^[[:space:]]*[dD]ate:&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sed &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s&#x2F;^[[:space:]]*[dD]ate:[[:space:]]*&#x2F;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;head -1l &lt;&#x2F;span&gt;&lt;span&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;awk &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{print $1, $3, $2,  $5 ,&amp;quot;GMT&amp;quot;, $4 }&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sed &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s&#x2F;,&#x2F;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Le principe est d&#x27;utiliser le champ &lt;code&gt;Date&lt;&#x2F;code&gt; se trouvant dans les en-têtes
+&lt;strong&gt;HTTP&lt;&#x2F;strong&gt; de la réponse d&#x27;un serveur web lors d&#x27;une requête vers celui-ci. Il
+faut cependant s&#x27;assurer que le serveur web contacté soit à l&#x27;heure, lui ! Le
+choix du moteur de recherche Google est donc une bonne idée.&lt;&#x2F;p&gt;
+&lt;p&gt;L&#x27;utilisation de cette méthode se justifie lorsque l&#x27;on veut mettre à jour
+l&#x27;heure d&#x27;une machine se trouvant derrière un proxy.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Fedora] Autoriser le partage DLNA sous Netfilter</title>
+        <published>2014-04-22T00:00:00+00:00</published>
+        <updated>2014-04-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/fedora-netfilter-dlna/"/>
+        <id>https://blog.skyplabs.net/posts/fedora-netfilter-dlna/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/fedora-netfilter-dlna/">&lt;p&gt;GNOME 3 intègre dans le panel des options une rubrique de partage permettant
+entre autres de diffuser du contenu multimédia en DLNA. Le serveur sous-jacent
+utilisé se nomme &lt;strong&gt;rygel&lt;&#x2F;strong&gt; et ce dernier utilise un port d&#x27;écoute TCP dynamique.&lt;&#x2F;p&gt;
+&lt;p&gt;Seulement voila, &lt;strong&gt;Netfilter&lt;&#x2F;strong&gt; n&#x27;est pas configuré par défaut pour laisser
+passer le trafic DLNA, et encore moins pour détecter quel port d&#x27;écoute est
+utilisé par rygel. Il est donc nécessaire d&#x27;entreprendre quelques actions pour
+rectifier la situation :&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Modifier le port d&#x27;écoute de rygel. Pour cela, il faut modifier la ligne
+&lt;code&gt;port=0&lt;&#x2F;code&gt; (dynamique) par &lt;code&gt;port=65530&lt;&#x2F;code&gt; dans le fichier de configuration
+&lt;code&gt;&#x2F;etc&#x2F;rygel.conf&lt;&#x2F;code&gt;. Bien entendu, le choix du numéro du port est complètement
+arbitraire.&lt;&#x2F;li&gt;
+&lt;li&gt;Autoriser le port &lt;strong&gt;TCP 65530&lt;&#x2F;strong&gt; et le port &lt;strong&gt;UDP 1900&lt;&#x2F;strong&gt; en entrée dans la
+configuration de Netfilter. On pourra utiliser l&#x27;outil graphique &amp;quot;firewall&amp;quot;
+par exemple pour réaliser cette tâche.&lt;&#x2F;li&gt;
+&lt;li&gt;Redémarrer rygel.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Il ne vous reste plus qu&#x27;à tester le bon fonctionnement de votre modification en
+utilisant un client DLNA sur un autre appareil pour lancer la lecture d&#x27;un film
+par exemple 🙂&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Bash] Tester une adresse IPv4</title>
+        <published>2014-04-14T00:00:00+00:00</published>
+        <updated>2014-04-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bash-test-ipv4/"/>
+        <id>https://blog.skyplabs.net/posts/bash-test-ipv4/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bash-test-ipv4/">&lt;p&gt;La fonction ci-dessous permet de tester une adresse IPv4 pour vérifier qu&#x27;elle
+est bien formée :&lt;&#x2F;p&gt;
+&lt;div &gt;
+    &lt;script src=&quot;https:&amp;#x2F;&amp;#x2F;gist.github.com&amp;#x2F;SkypLabs&amp;#x2F;8758fa2aa63201b028d0ac680b2a90c4.js?file=is_ipv4.sh&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Et voici un exemple d&#x27;utilisation :&lt;&#x2F;p&gt;
+&lt;div &gt;
+    &lt;script src=&quot;https:&amp;#x2F;&amp;#x2F;gist.github.com&amp;#x2F;SkypLabs&amp;#x2F;8758fa2aa63201b028d0ac680b2a90c4.js?file=is_ipv4_example.sh&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[GNOME 3] Associer l&#x27;ouverture d&#x27;un programme à une extension de fichier</title>
+        <published>2014-01-07T00:00:00+00:00</published>
+        <updated>2014-01-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/gnome-3-link-file-extension-with-program/"/>
+        <id>https://blog.skyplabs.net/posts/gnome-3-link-file-extension-with-program/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/gnome-3-link-file-extension-with-program/">&lt;p&gt;Sous GNOME 3, l&#x27;association d&#x27;une extension de fichier à un programme référencé
+par un fichier de configuration dans &lt;code&gt;&#x2F;usr&#x2F;share&#x2F;applications&lt;&#x2F;code&gt; se fait à travers
+le fichier &lt;code&gt;&#x2F;usr&#x2F;share&#x2F;applications&#x2F;defaults.list&lt;&#x2F;code&gt; de la manière suivante :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;application&#x2F;x-&amp;lt;extension&amp;gt;=&amp;lt;app&amp;gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Vous devez remplacer &lt;em&gt;extension&lt;&#x2F;em&gt; par le nom de l&#x27;extension concernée et &lt;em&gt;app&lt;&#x2F;em&gt;
+par le nom du fichier de configuration du programme qui doit être utilisé.&lt;&#x2F;p&gt;
+&lt;p&gt;Par exemple dans mon cas, pour associer &lt;strong&gt;xournal&lt;&#x2F;strong&gt; comme programme permettant
+d&#x27;ouvrir les fichiers &lt;strong&gt;xoj&lt;&#x2F;strong&gt;, j&#x27;ai ajouté la ligne suivante dans le fichier
+&lt;code&gt;&#x2F;usr&#x2F;share&#x2F;applications&#x2F;defaults.list&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;application&#x2F;x-xoj=xournal.desktop;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[OpenSSH] Too many authentication failures for root</title>
+        <published>2013-10-02T00:00:00+00:00</published>
+        <updated>2013-10-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/openssh-too-many-auth-failures/"/>
+        <id>https://blog.skyplabs.net/posts/openssh-too-many-auth-failures/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/openssh-too-many-auth-failures/">&lt;p&gt;Si vous recevez le message &amp;quot;&lt;em&gt;Too many authentication failures for root&lt;&#x2F;em&gt;&amp;quot; lors de
+l&#x27;établissement d&#x27;une connexion SSH, c&#x27;est généralement dû à un trop grand
+nombre de tentatives de connexion par clé publique. En effet, si le serveur
+autorise les connexions par clé et que celle destinée à ce serveur n&#x27;est pas
+spécifiée au client SSH, ce dernier va tester toutes les clés disponibles au
+moment de la connexion.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour palier ce problème, trois solutions s&#x27;offrent à nous :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Soit forcer l&#x27;utilisation du mot de passe de la façon suivante :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;ssh -o &amp;quot;PubkeyAuthentication no&amp;quot; user@host
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Soit forcer l&#x27;utilisation d&#x27;une clé à l&#x27;aide de l&#x27;option &lt;code&gt;-i&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;ssh -i &amp;lt;chemin&#x2F;vers&#x2F;la&#x2F;clé&amp;gt; user@host
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Soit spécifier la clé à utiliser dans le fichier de configuration du client
+SSH (&lt;code&gt;&#x2F;etc&#x2F;ssh&#x2F;ssh_config&lt;&#x2F;code&gt;) :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Host &amp;lt;host&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;IdentityFile &amp;lt;chemin&#x2F;vers&#x2F;la&#x2F;clé&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;IdentitiesOnly yes
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[GNOME 3] Désactiver le bluetooth au démarrage</title>
+        <published>2013-09-22T00:00:00+00:00</published>
+        <updated>2013-09-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/gnome-3-deactivate-bluetooth-on-boot/"/>
+        <id>https://blog.skyplabs.net/posts/gnome-3-deactivate-bluetooth-on-boot/</id>
+        
+        <summary type="html">&lt;p&gt;Pour modifier l&#x27;état de l&#x27;interface Bluetooth de votre ordinateur, nous allons
+utiliser le programme &lt;strong&gt;rfkill&lt;&#x2F;strong&gt;. Assurez-vous qu&#x27;il soit bien installé sur
+votre machine :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;yum install rfkill
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Voici les commandes de base de l&#x27;outil :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Pour afficher l&#x27;état actuel de votre interface Bluetooth :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;rfkill list bluetooth
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Pour activer l&#x27;interface Bluetooth :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;rfkill unblock bluetooth
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Pour désactiver l&#x27;interface Bluetooth :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;rfkill block bluetooth
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Convertir automatiquement une define C&#x2F;C++ en constante C#</title>
+        <published>2013-07-08T00:00:00+00:00</published>
+        <updated>2013-07-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/cpp-define-into-csharp-const/"/>
+        <id>https://blog.skyplabs.net/posts/cpp-define-into-csharp-const/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/cpp-define-into-csharp-const/">&lt;p&gt;Je développe actuellement en C# pour les besoins de mon entreprise. Devant
+réécrire un code C++ contenant un grand nombre de defines en C#, voici comment
+j&#x27;ai automatisé la tâche :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;awk&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-awk &quot;&gt;&lt;code class=&quot;language-awk&quot; data-lang=&quot;awk&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;awk&lt;&#x2F;span&gt;&lt;span&gt; &amp;#39;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;print &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;public const UInt16 &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$2 &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; = &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;substr&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;index&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$3&lt;&#x2F;span&gt;&lt;span&gt;)) &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;}&amp;#39; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;defines_c&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Le fichier &lt;code&gt;defines_c.txt&lt;&#x2F;code&gt; contient les defines à convertir. Et voici le
+résultat :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Avant :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;TEST &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Après :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;cs&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-cs &quot;&gt;&lt;code class=&quot;language-cs&quot; data-lang=&quot;cs&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;public const &lt;&#x2F;span&gt;&lt;span&gt;UInt16 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;TEST &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Fedora] Reconstruire la base de données des paquets RPM</title>
+        <published>2013-04-21T00:00:00+00:00</published>
+        <updated>2013-04-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/fedora-rebuild-rpm-database/"/>
+        <id>https://blog.skyplabs.net/posts/fedora-rebuild-rpm-database/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/fedora-rebuild-rpm-database/">&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;rm -rf &#x2F;var&#x2F;lib&#x2F;rpm&#x2F;__db*
+&lt;&#x2F;span&gt;&lt;span&gt;rpm --rebuilddb
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Fedora] Problème avec Steam et OpenGL sur un système en 64 bits</title>
+        <published>2013-04-21T00:00:00+00:00</published>
+        <updated>2013-04-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/fedora-steam-opengl-64bits/"/>
+        <id>https://blog.skyplabs.net/posts/fedora-steam-opengl-64bits/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/fedora-steam-opengl-64bits/">&lt;p&gt;Si Steam vous affiche un message d&#x27;erreur lors de son lancement au sujet
+d&#x27;OpenGL sous Fedora en 64 bits et que vous utilisez le driver propriétaire de
+Nvidia, il faut seulement installer la bibliothèque Nvidia 32 bits en utilisant
+la commande suivante :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;yum install xorg-x11-drv-nvidia-libs.i686
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[FreeBSD] Mise à jour du port git-1.8.1.1</title>
+        <published>2013-01-27T00:00:00+00:00</published>
+        <updated>2013-01-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/freebsd-update-issue-git-1-8-1-1/"/>
+        <id>https://blog.skyplabs.net/posts/freebsd-update-issue-git-1-8-1-1/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/freebsd-update-issue-git-1-8-1-1/">&lt;p&gt;Si vous aussi vous avez eu quelques difficultés à mettre à jour git vers la
+version 1.8.1.1 au moyen de son port sous FreeBSD, voici la démarche à suivre
+pour solutionner votre problème :&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;On commence par supprimer le groupe &lt;code&gt;git_daemon&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;pw group del git_daemon
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;On supprime la ligne correspondant à l&#x27;utilisateur &lt;code&gt;git_daemon&lt;&#x2F;code&gt; dans les
+fichiers &lt;code&gt;&#x2F;etc&#x2F;passwd&lt;&#x2F;code&gt; et &lt;code&gt;&#x2F;etc&#x2F;master.passwd&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;On met à jour la base de données des mots de passe :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;pwd_mkdb -p &#x2F;etc&#x2F;master.passwd
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Après ceci vous ne devriez plus avoir de problème.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Le mot crypter n&#x27;existe pas !</title>
+        <published>2012-12-04T00:00:00+00:00</published>
+        <updated>2012-12-04T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/crypter-does-not-exist-in-french/"/>
+        <id>https://blog.skyplabs.net/posts/crypter-does-not-exist-in-french/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/crypter-does-not-exist-in-french/">&lt;p&gt;J&#x27;entends énormément de gens dire &amp;quot;crypter des données ...&amp;quot;. Cependant, c&#x27;est
+une mauvaise habitude car &lt;strong&gt;le mot crypter n&#x27;a pas de sens en français&lt;&#x2F;strong&gt; !&lt;&#x2F;p&gt;
+&lt;p&gt;En effet, le terme crypter est un &lt;strong&gt;anglicisme&lt;&#x2F;strong&gt;. En français, on devrait dire
+&amp;quot;&lt;strong&gt;chiffrer&lt;&#x2F;strong&gt; des données ...&amp;quot;. En voici la raison :&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Lorsque deux personnes (désignées par les lettres A et B pour plus de
+facilité) veulent s&#x27;échanger un message de manière sécurisée sur un canal de
+transmission qui lui ne l&#x27;est pas, elles vont devoir utiliser une méthode de
+chiffrement. La personne A va donc &lt;strong&gt;chiffrer&lt;&#x2F;strong&gt; son message à l&#x27;aide d&#x27;une clé
+de chiffrement avant de l&#x27;envoyer à destination de la personne B.&lt;&#x2F;li&gt;
+&lt;li&gt;La personne B va pouvoir &lt;strong&gt;déchiffrer&lt;&#x2F;strong&gt; le message reçu étant donné qu&#x27;elle
+possède elle aussi la clé de chiffrement.&lt;&#x2F;li&gt;
+&lt;li&gt;Si un attaquant appelé C intercepte le message chiffré et tente de retrouver
+le message d&#x27;origine sans posséder la clé de chiffrement, on dit qu&#x27;il
+cherche à &lt;strong&gt;décrypter&lt;&#x2F;strong&gt; le message.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;À présent, vous comprendrez que le terme crypter n&#x27;a pas de sens car cela
+signifierait qu&#x27;une personne X chercherait à chiffrer un message sans posséder
+de clé de chiffrement, ce qui est bien évidement absurde !&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Tracer des diagrammes de Bode, Nyquist et Black en LaTeX</title>
+        <published>2012-11-16T00:00:00+00:00</published>
+        <updated>2012-11-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bode-nyquist-black-plots-in-latex/"/>
+        <id>https://blog.skyplabs.net/posts/bode-nyquist-black-plots-in-latex/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bode-nyquist-black-plots-in-latex/">&lt;p&gt;La meilleure façon de tracer des diagrammes de Bode, Nyquist et Black en LaTeX
+est d&#x27;utiliser le package &lt;code&gt;bodegraph&lt;&#x2F;code&gt;. Ce dernier utilise à son tour le package
+&lt;code&gt;Tikz&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Voici la démarche à suivre pour les installer tous les deux (en utilisant la
+distribution &lt;strong&gt;TexLive&lt;&#x2F;strong&gt;) :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;mkdir -p  ~&#x2F;texmf&#x2F;tex&#x2F;latex
+&lt;&#x2F;span&gt;&lt;span&gt;cd ~&#x2F;texmf&#x2F;tex&#x2F;latex
+&lt;&#x2F;span&gt;&lt;span&gt;cvs -z3 -d:pserver:anonymous@pgf.cvs.sourceforge.net:&#x2F;cvsroot&#x2F;pgf co -P pgf
+&lt;&#x2F;span&gt;&lt;span&gt;wget https:&#x2F;&#x2F;sciences-indus-cpge.papanicola.info&#x2F;IMG&#x2F;zip&#x2F;bodegraph.zip
+&lt;&#x2F;span&gt;&lt;span&gt;unzip bodegraph.zip
+&lt;&#x2F;span&gt;&lt;span&gt;rm bodegraph.zip
+&lt;&#x2F;span&gt;&lt;span&gt;texhash ~&#x2F;texmf
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Et voici une &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Documentation de bodegraph&quot; href=&quot;http:&#x2F;&#x2F;ctan.mines-albi.fr&#x2F;graphics&#x2F;pgf&#x2F;contrib&#x2F;bodegraph&#x2F;bodegraph.pdf&quot;&gt;documentation pour bodegraph&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>LaTeX sur MediaWiki 1.19.2</title>
+        <published>2012-10-20T00:00:00+00:00</published>
+        <updated>2012-10-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/latex-on-mediawiki-1-19-2/"/>
+        <id>https://blog.skyplabs.net/posts/latex-on-mediawiki-1-19-2/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/latex-on-mediawiki-1-19-2/">&lt;p&gt;Cela faisait plusieurs jours que j&#x27;essayais de faire fonctionner l&#x27;extension
+&lt;strong&gt;Math&lt;&#x2F;strong&gt; de MediaWiki pour pouvoir afficher des équations mathématiques en
+LaTeX. Mais lors de mes tests, j&#x27;obtenais toujours une erreur HTTP 500
+(&lt;em&gt;Internal Server Error&lt;&#x2F;em&gt;) et le message suivant dans mes logs :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Call to undefined method TempFSFile::autocollect()
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;On peut donc en conclure que la dernière version de l&#x27;extension Math n&#x27;est pas
+compatible avec MediaWiki 1.19.2. Pour résoudre cette situation, il est
+nécessaire de revenir à une version antérieure :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;cd extensions
+&lt;&#x2F;span&gt;&lt;span&gt;git clone https:&#x2F;&#x2F;gerrit.wikimedia.org&#x2F;r&#x2F;p&#x2F;mediawiki&#x2F;extensions&#x2F;Math.git
+&lt;&#x2F;span&gt;&lt;span&gt;cd Math
+&lt;&#x2F;span&gt;&lt;span&gt;git reset --hard 29a0a80e8fbb2d33507760075e4da9103439cbd9
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Merci à &lt;strong&gt;Cgeroux&lt;&#x2F;strong&gt; pour sa contribution &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.mediawiki.org&#x2F;wiki&#x2F;Extension_talk:Math&quot;&gt;(lien vers ses
+explications)&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[MediaWiki] Impossible de créer la miniature d&#x27;un fichier image</title>
+        <published>2012-10-13T00:00:00+00:00</published>
+        <updated>2012-10-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/mediawiki-thumbnail-creation-issue/"/>
+        <id>https://blog.skyplabs.net/posts/mediawiki-thumbnail-creation-issue/</id>
+        
+        <summary type="html">&lt;p&gt;Lorsque j&#x27;envoyais une image sur MediaWiki (installé sur ma FreeBSD), j&#x27;avais
+droit à une erreur de ce type :&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Erreur lors de la création de la miniature : Impossible d&#x27;enregistrer la
+vignette sur la destination&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Pourtant, c&#x27;était pas faute d&#x27;avoir configuré le répertoire temporaire qui va
+bien (avec les bons droits d&#x27;accès) dans le fichier &lt;code&gt;LocalSettings.php&lt;&#x2F;code&gt; grâce à
+la directive &lt;code&gt;$wgTmpDirectory&lt;&#x2F;code&gt;. Seulement le problème venait du fait que
+MediaWiki utilise la fonction suivante pour déterminer l&#x27;emplacement du
+répertoire temporaire à utiliser :&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[FreeBSD] adjkerntz dans une jail</title>
+        <published>2012-09-22T00:00:00+00:00</published>
+        <updated>2012-09-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/freebsd-adjkerntz-inside-jail/"/>
+        <id>https://blog.skyplabs.net/posts/freebsd-adjkerntz-inside-jail/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/freebsd-adjkerntz-inside-jail/">&lt;p&gt;Le programme adjkerntz (installé par défaut sous FreeBSD) permet de maintenir
+une relation cohérente entre l&#x27;horloge du noyau, qui est toujours configurée à
+l&#x27;heure UTC, et l&#x27;horloge locale CMOS, qui peut être configurée au fuseau local.&lt;&#x2F;p&gt;
+&lt;p&gt;Cependant, au sein d&#x27;une jail, seul le fuseau horaire peut être modifié. La jail
+utilise donc la même heure que celle configurée sur le système hôte.
+L&#x27;utilisation de la commande adjkerntz va donc provoquer une erreur :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Sep 22 05:31:00 www adjkerntz[23948]: sysctl(set: &amp;quot;machdep.wall_cmos_clock&amp;quot;): Operation not permitted
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Si vous rencontrez des messages similaires dans vos logs, c&#x27;est tout simplement
+parce que la commande &lt;code&gt;adjkerntz&lt;&#x2F;code&gt; est invoquée régulièrement par &lt;strong&gt;cron&lt;&#x2F;strong&gt;. Pour
+résoudre ce problème, il suffit de commenter la ligne suivante dans le fichier
+&lt;code&gt;&#x2F;etc&#x2F;crontab&lt;&#x2F;code&gt; de vos jails :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;# Adjust the time zone if the CMOS clock keeps local time, as opposed to
+&lt;&#x2F;span&gt;&lt;span&gt;# UTC time.  See adjkerntz(8) for details.
+&lt;&#x2F;span&gt;&lt;span&gt;#1,31   0-5     *       *       *       root    adjkerntz -a
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Vos logs seront plus propres désormais.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Modifier la présentation du prompt sous MySQL</title>
+        <published>2012-07-25T00:00:00+00:00</published>
+        <updated>2012-07-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/custom-mysql-prompt/"/>
+        <id>https://blog.skyplabs.net/posts/custom-mysql-prompt/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/custom-mysql-prompt/">&lt;p&gt;Pour modifier la présentation du prompt sous MySQL, il faut éditer la variable
+d&#x27;environnement &lt;code&gt;MYSQL_PS1&lt;&#x2F;code&gt; comme dans l&#x27;exemple ci-dessous :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;export &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;MYSQL_PS1&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;(\u@\h) [\d]&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;\u&lt;&#x2F;code&gt;, &lt;code&gt;\h&lt;&#x2F;code&gt; et &lt;code&gt;\d&lt;&#x2F;code&gt; désignent respectivement l&#x27;utilisateur, l&#x27;hôte et la base de
+données.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour conserver cette modification, le mieux est d&#x27;ajouter cette ligne dans le
+fichier &lt;code&gt;~&#x2F;.bashrc&lt;&#x2F;code&gt; de l&#x27;utilisateur courant (dans le cas du shell Bash) ou dans
+le fichier &lt;code&gt;&#x2F;etc&#x2F;profile&lt;&#x2F;code&gt; pour cibler tous les utilisateurs.&lt;&#x2F;p&gt;
+&lt;p&gt;Cependant, ce n&#x27;est pas la seule façon de procéder. Pour plus d&#x27;informations,
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Documentation MySQL : MySQL commands&quot; href=&quot;https:&#x2F;&#x2F;dev.mysql.com&#x2F;doc&#x2F;refman&#x2F;5.7&#x2F;en&#x2F;mysql-commands.html&quot;&gt;cliquez ici&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[FreeBSD] Créer une interface de loopback au démarrage</title>
+        <published>2012-07-12T00:00:00+00:00</published>
+        <updated>2012-07-12T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/freebsd-create-loopback-interface/"/>
+        <id>https://blog.skyplabs.net/posts/freebsd-create-loopback-interface/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/freebsd-create-loopback-interface/">&lt;p&gt;Sous FreeBSD, pour créer une interface virtuelle de type loopback au démarrage
+du système (nommée &lt;code&gt;lo1&lt;&#x2F;code&gt; pour l&#x27;exemple), il faut ajouter le fichier
+&lt;code&gt;&#x2F;etc&#x2F;start_if.lo1&lt;&#x2F;code&gt; et ce dernier devra contenir la commande suivante :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;&#x2F;sbin&#x2F;ifconfig lo1 create
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Pour la configuration de l&#x27;interface, cela se passe dans le fichier
+&lt;code&gt;&#x2F;etc&#x2F;rc.conf&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Télécommander sa télévision et ses autres appareils à infrarouge depuis son smartphone</title>
+        <published>2012-06-10T00:00:00+00:00</published>
+        <updated>2012-06-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/ir-remote-control-from-smartphone/"/>
+        <id>https://blog.skyplabs.net/posts/ir-remote-control-from-smartphone/</id>
+        
+        <summary type="html">&lt;p&gt;Je ne sais pas pour vous, mais moi j&#x27;ai toujours eu horreur de devoir jongler
+avec plusieurs télécommandes alors que je ne cherchais qu&#x27;à réaliser des tâches
+plutôt triviales. Une télécommande pour allumer la télévision, une autre pour
+allumer le home cinema... et plus on multiplie les appareils électroniques dans
+son salon, plus on collectionne de télécommandes !&lt;&#x2F;p&gt;
+&lt;p&gt;Dans le but de me simplifier la vie, j&#x27;ai donc décidé de réaliser un montage
+électronique pour pouvoir piloter mes appareils à infrarouge depuis un système
+informatique classique, en particulier depuis mon téléphone portable. Je vais
+donc détailler dans cet article les différentes étapes de la réalisation ainsi
+que les différents éléments permettant de reproduire à l&#x27;identique le système
+que j&#x27;ai développé.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Empêcher Bash d&#x27;écrire dans l&#x27;historique des commandes</title>
+        <published>2012-02-29T00:00:00+00:00</published>
+        <updated>2012-02-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/stop-bash-from-writing-command-history/"/>
+        <id>https://blog.skyplabs.net/posts/stop-bash-from-writing-command-history/</id>
+        
+        <summary type="html">&lt;p&gt;&lt;strong&gt;Edit&lt;&#x2F;strong&gt; : Une autre solution beaucoup plus propre m&#x27;a été proposée pour
+réaliser exactement la même chose :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;export &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;HISTFILE&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;dev&#x2F;null
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Après ceci, l&#x27;écriture de l&#x27;historique des commandes par Bash aura lieu dans
+&lt;code&gt;&#x2F;dev&#x2F;null&lt;&#x2F;code&gt;, ce qui revient à écrire dans le vide.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Comme vous devez le savoir, le shell Bash conserve un historique des dernières
+commandes que l&#x27;utilisateur a entré dans son terminal. Cela permet de garder une
+trace de ce qui a été fait, chose particulièrement importante sur un serveur,
+surtout si plusieurs personnes travaillent sur la même machine avec le même
+compte. La liste des commandes est stockée par défaut dans le fichier
+&lt;code&gt;~&#x2F;.bash_history&lt;&#x2F;code&gt; et il est possible d&#x27;afficher cette liste avec la commande
+&lt;code&gt;history&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Programmer une carte Arduino depuis la Asus Transformer Prime</title>
+        <published>2012-02-24T00:00:00+00:00</published>
+        <updated>2012-02-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/program-arduino-from-android-debian-chroot/"/>
+        <id>https://blog.skyplabs.net/posts/program-arduino-from-android-debian-chroot/</id>
+        
+        <summary type="html">&lt;p&gt;Maintenant que nous disposons d&#x27;une Debian sur notre Transformer Prime (cf :
+&lt;a href=&quot;https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;debian-chroot-on-android&#x2F;&quot;&gt;Allier Android en GUI et Debian en CLI sur la Asus Transformer
+Prime&lt;&#x2F;a&gt;), il est grand temps de commencer à
+jouer avec. C&#x27;est dans cette optique que j&#x27;ai décidé de détailler dans cet
+article la marche à suivre pour programmer une carte Arduino (&lt;strong&gt;Uno&lt;&#x2F;strong&gt; dans mon
+cas).&lt;&#x2F;p&gt;
+&lt;p&gt;Dans un premier temps, il nous faut préparer notre environnement de
+développement au sein de la Debian. Un petit coup de &lt;code&gt;aptitude&lt;&#x2F;code&gt; (ou &lt;code&gt;apt-get&lt;&#x2F;code&gt;,
+selon vos préférences) et le tour est joué :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;aptitude update
+&lt;&#x2F;span&gt;&lt;span&gt;aptitude install gcc-avr avrdude avr-libc
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Il va également nous falloir de quoi écrire notre code. Pour ma part, mon choix
+s&#x27;est tourné vers &lt;strong&gt;Vim&lt;&#x2F;strong&gt;. De plus, l&#x27;utilisation d&#x27;un Makefile va grandement
+nous faciliter la vie. Prenez donc le temps d&#x27;installer &lt;strong&gt;make&lt;&#x2F;strong&gt; en plus du
+reste.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Allier Android en GUI et Debian en CLI sur la Asus Transformer Prime</title>
+        <published>2012-01-20T00:00:00+00:00</published>
+        <updated>2012-01-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/debian-chroot-on-android/"/>
+        <id>https://blog.skyplabs.net/posts/debian-chroot-on-android/</id>
+        
+        <summary type="html">&lt;p&gt;Ça y est, j&#x27;ai enfin reçu ma tablette tactile, la Asus Transformer Prime !&lt;&#x2F;p&gt;
+&lt;p&gt;Pour ceux qui ne la connaissent pas, c&#x27;est une tablette qui a la particularité
+d&#x27;être vendue avec un dock clavier (une station d&#x27;accueil) lui permettant de se
+transformer (d&#x27;où son nom) en petit ordinateur. Une fois montée sur le dock, on
+a réellement l&#x27;impression que c&#x27;est un netbook.&lt;&#x2F;p&gt;
+&lt;p&gt;Le principal intérêt de cette tablette est donc son utilisation en tant
+qu&#x27;ordinateur. C&#x27;est pour cette raison que je trouvais dommage de devoir se
+limiter aux applications Android qui ne sont pas particulièrement adaptées à
+l&#x27;ensemble des usages qu&#x27;en ferait une personne expérimentée dans le domaine de
+l&#x27;informatique. Par exemple, comment compiler un programme développé en C sous
+Android ? Et comment implémenter ce dernier dans une carte microcontrôleur ? Ou
+comment scanner un réseau dans le but de faire un audit de sécurité ? C&#x27;est donc
+pour combler ces manques que je me suis décidé à installer une distribution
+Debian dans un environnement confiné au sein de l&#x27;arborescence du système
+Android afin de pouvoir récupérer facilement l&#x27;ensemble des outils dont j&#x27;ai
+besoin.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[FreeBSD] Recharger le fichier &#x2F;etc&#x2F;rc.conf sans redémarrer votre machine</title>
+        <published>2011-12-31T00:00:00+00:00</published>
+        <updated>2011-12-31T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/freebsd-reload-rc-conf/"/>
+        <id>https://blog.skyplabs.net/posts/freebsd-reload-rc-conf/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/freebsd-reload-rc-conf/">&lt;p&gt;Voici une petite astuce permettant de gagner du temps :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;shutdown now
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Le fait d&#x27;utiliser la commande &lt;code&gt;shutdown&lt;&#x2F;code&gt; sans les arguments &lt;code&gt;-r&lt;&#x2F;code&gt; ou &lt;code&gt;-h&lt;&#x2F;code&gt; (ou
+encore &lt;code&gt;-p&lt;&#x2F;code&gt;) permet de passer le système en mode &lt;strong&gt;single user&lt;&#x2F;strong&gt;. Après ceci,
+quand le système vous le propose, appuyez sur la touche entrée pour récupérer un
+shell. Puis, utilisez la commande &lt;code&gt;exit&lt;&#x2F;code&gt; (ou la combinaison &lt;code&gt;ctrl + D&lt;&#x2F;code&gt;) pour
+revenir en mode &lt;strong&gt;multi user&lt;&#x2F;strong&gt; et ainsi recharger le fichier &lt;code&gt;&#x2F;etc&#x2F;rc.conf&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Ayez cependant conscience que l&#x27;ensemble de vos services vont être relancés
+pendant cette procédure.&lt;&#x2F;p&gt;
+&lt;p&gt;Bonne année à tous 🙂&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Problème d&#x27;utilisation de Droidwall depuis la version 4 d&#x27;Android</title>
+        <published>2011-12-29T00:00:00+00:00</published>
+        <updated>2011-12-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/droidwall-issue-android-4/"/>
+        <id>https://blog.skyplabs.net/posts/droidwall-issue-android-4/</id>
+        
+        <summary type="html">&lt;p&gt;Edit : Depuis Jelly Bean (version 4.1.2 dans mon cas), la variable &lt;code&gt;$IPTABLES&lt;&#x2F;code&gt;
+fournit par Droidwall n&#x27;est plus valide. Une petite mise à jour du script
+s&#x27;impose :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;## Netfilter Script by Skyper - https:&#x2F;&#x2F;blog.skyplabs.net ##
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Permet de corriger un problème d&amp;#39;exploitation de Droidwall depuis ICS.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;IPTABLES&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;system&#x2F;bin&#x2F;iptables
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;IPTABLES -D&lt;&#x2F;span&gt;&lt;span&gt; OUTPUT&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -j&lt;&#x2F;span&gt;&lt;span&gt; droidwall
+&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;IPTABLES -I&lt;&#x2F;span&gt;&lt;span&gt; OUTPUT 2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -j&lt;&#x2F;span&gt;&lt;span&gt; droidwall
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Droidwall est une application Android permettant d&#x27;autoriser ou non l&#x27;accès au
+réseau à une application installée sur le système en question. Pour ce faire,
+elle rajoute une série de règles &lt;strong&gt;Netfilter&lt;&#x2F;strong&gt; (via l&#x27;utilitaire &amp;quot;userland&amp;quot;
+&lt;strong&gt;iptables&lt;&#x2F;strong&gt;) selon la configuration donnée par l&#x27;utilisateur.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Android] Supprimer une application native à une ROM</title>
+        <published>2011-12-24T00:00:00+00:00</published>
+        <updated>2011-12-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/android-remove-system-app/"/>
+        <id>https://blog.skyplabs.net/posts/android-remove-system-app/</id>
+        
+        <summary type="html">&lt;p&gt;Les différents composants du système d&#x27;exploitation Android sont installés sur
+différentes partitions de manière à séparer les données du système de celles des
+applications utilisateurs. On retrouve donc la partition &lt;code&gt;system&lt;&#x2F;code&gt; qui est
+montée en lecture seule (&lt;em&gt;ro&lt;&#x2F;em&gt;), et la partition &lt;code&gt;data&lt;&#x2F;code&gt; qui elle est montée en
+lecture&#x2F;écriture (&lt;em&gt;rw&lt;&#x2F;em&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;Cependant, il arrive de trouver dans certaines ROMs des applications
+utilisateurs installées par défaut dans la partition système. C&#x27;était justement
+le cas de la ROM SFR installée sur le Nexus One de ma copine. L&#x27;application
+Twitter y était installée nativement sans possibilité de la désinstaller.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour remédier à ce désagrément, il est nécessaire d&#x27;avoir accès au compte
+&lt;strong&gt;root&lt;&#x2F;strong&gt; pour pouvoir monter temporairement la partition système en &lt;em&gt;rw&lt;&#x2F;em&gt;. De plus,
+l&#x27;installation de &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Android Debug Bridge (adb)&quot; href=&quot;https:&#x2F;&#x2F;developer.android.com&#x2F;studio&#x2F;command-line&#x2F;adb&quot;&gt;&lt;code&gt;adb&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; va nous permettre de récupérer le shell
+de notre androphone directement depuis un ordinateur (pour pouvoir utiliser un
+vrai clavier physique).&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Impossible de démarrer Google Chrome sous Fedora 15</title>
+        <published>2011-10-15T00:00:00+00:00</published>
+        <updated>2011-10-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/fedora-15-error-launching-google-chrome/"/>
+        <id>https://blog.skyplabs.net/posts/fedora-15-error-launching-google-chrome/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/fedora-15-error-launching-google-chrome/">&lt;p&gt;Mon ordinateur portable tournant sous &lt;strong&gt;Fedora 15&lt;&#x2F;strong&gt;, j&#x27;ai récemment eu quelques
+soucis pour démarrer &lt;strong&gt;Google Chrome&lt;&#x2F;strong&gt; après avoir fait les dernières mises à
+jour officielles du dépôt de Google. La dernière mise à jour en date étant la
+suivante : &lt;code&gt;google-chrome-stable-15.0.874.106-107270.i386&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Le problème provient d&#x27;un conflit de permissions lié à &lt;strong&gt;SELinux&lt;&#x2F;strong&gt;. Pour
+corriger cela, il faut modifier le type du contexte de sécurité de l&#x27;application
+&lt;strong&gt;chrome-sandbox&lt;&#x2F;strong&gt; :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;chcon -t usr_t  &#x2F;opt&#x2F;google&#x2F;chrome&#x2F;chrome-sandbox
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Apérobot - Première édition</title>
+        <published>2011-09-24T00:00:00+00:00</published>
+        <updated>2011-09-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/aperobot-first-edition/"/>
+        <id>https://blog.skyplabs.net/posts/aperobot-first-edition/</id>
+        
+        <summary type="html">&lt;p&gt;Apérobot, quel pertinent jeu de mots, pas vrai ? Ce dernier décrit en effet un
+rassemblement de passionnés de robotique - et plus généralement d&#x27;électronique -
+autour d&#x27;un apéritif et dans un cadre bon enfant et convivial.&lt;&#x2F;p&gt;
+&lt;p&gt;L&#x27;idée d&#x27;un tel événement a été lancée lors du dernier salon du modélisme en
+juin 2011 alors que &lt;strong&gt;l&#x27;association de robotique de Caliban&lt;&#x2F;strong&gt; et la société
+&lt;strong&gt;Teknobot&lt;&#x2F;strong&gt; (plus connue sous le nom de &lt;strong&gt;World of Robot&lt;&#x2F;strong&gt;) partageaient un
+stand. Et voici le résultat d&#x27;une telle rencontre :&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;aperobot-first-edition&#x2F;aperobot-premiere-edition-1.jpg&quot; alt=&quot;Apérobot - Salon du modélisme&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Modifier la configuration de PHP depuis Apache</title>
+        <published>2011-06-19T00:00:00+00:00</published>
+        <updated>2011-06-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/apache-edit-php-config/"/>
+        <id>https://blog.skyplabs.net/posts/apache-edit-php-config/</id>
+        
+        <summary type="html">&lt;p&gt;Traditionnellement, la configuration de PHP se définit dans le fichier
+&lt;code&gt;php.ini&lt;&#x2F;code&gt;. Par exemple, sur une Debian, le fichier de configuration de PHP pour
+une utilisation depuis Apache se trouve à cet emplacement :
+&lt;code&gt;&#x2F;etc&#x2F;php5&#x2F;apache2&#x2F;php.ini&lt;&#x2F;code&gt; (pour une installation depuis les dépôts).&lt;&#x2F;p&gt;
+&lt;p&gt;Seulement voilà, on a parfois besoin d&#x27;appliquer une configuration PHP seulement
+à un &lt;strong&gt;virtual host&lt;&#x2F;strong&gt; en particulier et non aux autres. Par exemple, on peut
+souhaiter activer l&#x27;affichage des erreurs de PHP pour une application web encore
+en développement sans modifier la configuration des applications en production.
+Pour réaliser cette tâche, Apache met à notre disposition les instructions
+suivantes (valables uniquement pour le module PHP d&#x27;Apache) :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;php_value &amp;lt;directive&amp;gt; &amp;lt;valeur&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;php_admin_value &amp;lt;directive&amp;gt; &amp;lt;valeur&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;php_flag &amp;lt;directive&amp;gt; &amp;lt;on|off&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;php_admin_flag &amp;lt;directive&amp;gt; &amp;lt;on|off&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Erreur du Metasploit : &quot;svn: Working copy &#x27;.&#x27; locked&quot;</title>
+        <published>2011-06-11T00:00:00+00:00</published>
+        <updated>2011-06-11T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/metasploit-svn-error/"/>
+        <id>https://blog.skyplabs.net/posts/metasploit-svn-error/</id>
+        
+        <summary type="html">&lt;p&gt;Le projet Metasploit utilise des dépôts &lt;strong&gt;Subversion&lt;&#x2F;strong&gt; pour la mise à jour de
+l&#x27;ensemble de ses composants. Traditionnellement, il faut utiliser le script
+&lt;code&gt;msfupdate&lt;&#x2F;code&gt; pour effectuer cette tâche.&lt;&#x2F;p&gt;
+&lt;p&gt;Seulement voilà, la dernière fois que j&#x27;ai voulu le mettre à jour, j&#x27;ai eu droit
+à l&#x27;erreur suivante :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;svn: Working copy &amp;#39;.&amp;#39; locked
+&lt;&#x2F;span&gt;&lt;span&gt;svn: run &amp;#39;svn cleanup&amp;#39; to remove locks (type &amp;#39;svn help cleanup&amp;#39; for details)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Salon des solutions Linux &#x2F; Open Source 2011</title>
+        <published>2011-05-30T00:00:00+00:00</published>
+        <updated>2011-05-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/solutions-linux-open-source-2011/"/>
+        <id>https://blog.skyplabs.net/posts/solutions-linux-open-source-2011/</id>
+        
+        <summary type="html">&lt;p&gt;Le salon des solutions Linux et Open Source 2011 s&#x27;est déroulé du 10 au 12 Mai
+dans le Hall Marie Curie du CNIT à la défense - Paris. C&#x27;est un salon consacré à
+tout l&#x27;univers du libre dans le monde professionnel.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour ne pas changer mes habitudes, je m&#x27;y suis rendu une fois de plus le jeudi,
+accompagné du même et fidèle compagnon que la dernière fois pour le salon RTS
+Embedded Systems. On ne change pas une équipe qui gagne !&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Restreindre l&#x27;accès à la commande &#x27;su&#x27; sous Linux</title>
+        <published>2011-05-18T00:00:00+00:00</published>
+        <updated>2011-05-18T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/restrict-su-access/"/>
+        <id>https://blog.skyplabs.net/posts/restrict-su-access/</id>
+        
+        <summary type="html">&lt;p&gt;&lt;strong&gt;Edit&lt;&#x2F;strong&gt;: Sur certaines distributions, comme par exemple Fedora, RHEL et CentOS,
+la restriction de la commande &lt;code&gt;su&lt;&#x2F;code&gt; est déjà intégrée. Il est seulement
+nécessaire de l&#x27;activer en décommentant la ligne suivante dans le fichier
+&lt;code&gt;&#x2F;etc&#x2F;pam.d&#x2F;su&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;# Uncomment the following line to implicitly trust users in the &amp;quot;wheel&amp;quot; group.
+&lt;&#x2F;span&gt;&lt;span&gt;auth           sufficient      pam_wheel.so trust use_uid
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;La commande &lt;code&gt;su&lt;&#x2F;code&gt; permet de changer temporairement son identité pour celle d&#x27;un
+autre utilisateur lorsque l&#x27;on est déjà connecté sur une machine UNIX.
+D&#x27;ailleurs, &lt;code&gt;su&lt;&#x2F;code&gt; veut dire &amp;quot;Substitute User&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;Il peut être très intéressant de restreindre l&#x27;accès à cette commande dans le
+but de renforcer la sécurité de sa machine. On va donc autoriser son exécution
+seulement aux utilisateurs qui en ont vraiment besoin.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Salon RTS Embedded Systems 2011</title>
+        <published>2011-04-13T00:00:00+00:00</published>
+        <updated>2011-04-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/rts-embedded-systems-2011/"/>
+        <id>https://blog.skyplabs.net/posts/rts-embedded-systems-2011/</id>
+        
+        <summary type="html">&lt;p&gt;Le RTS Embedded Systems est un salon professionnel sur le thème de
+l&#x27;électronique qui s&#x27;est déroulé le 29, 30 et 31 mars à Porte de Versailles -
+Paris.&lt;&#x2F;p&gt;
+&lt;p&gt;Je m&#x27;y suis donc rendu le jeudi 31 accompagné d&#x27;un de mes fidèles compagnons de
+route pour une journée de conférences, rencontres et aussi - il faut bien le
+dire - de déconnade.&lt;&#x2F;p&gt;
+&lt;p&gt;Après un rapide tour des lieux, on s&#x27;est vite rendu compte qu&#x27;il n&#x27;y avait pas
+grand chose susceptible d&#x27;attirer notre attention. Ce salon étant réservé aux
+professionnels, on savait à quoi nous attendre. Cependant, il n&#x27;est pas rare de
+rencontrer des gens passionnés et vraiment intéressants dans ce genre d&#x27;endroit,
+et c&#x27;était principalement le but de notre visite.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Afficher les erreurs SQL de PHP seulement aux personnes concernées</title>
+        <published>2011-03-19T00:00:00+00:00</published>
+        <updated>2011-03-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/display-php-errors-admin-only/"/>
+        <id>https://blog.skyplabs.net/posts/display-php-errors-admin-only/</id>
+        
+        <summary type="html">&lt;p&gt;Il est très fortement conseillé de désactiver l&#x27;affichage des erreurs PHP
+(directive &lt;code&gt;display_errors&lt;&#x2F;code&gt; du &lt;code&gt;php.ini&lt;&#x2F;code&gt;) de vos applications web pour ne pas
+révéler des informations pouvant compromettre la sécurité de votre serveur (dans
+le cas d&#x27;un serveur en production).&lt;&#x2F;p&gt;
+&lt;p&gt;Seulement voilà, cacher ces erreurs peut gêner l&#x27;administrateur à traquer les
+bugs ainsi que les problèmes liés à la base de données. En effet, c&#x27;est beaucoup
+plus facile de repérer une erreur si elle est affichée lors de l&#x27;exécution de la
+page plutôt que de passer son temps à analyser les logs du service.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Ubuntu] Récupérer le PATH de l&#x27;utilisateur courant avec sudo</title>
+        <published>2011-03-12T00:00:00+00:00</published>
+        <updated>2011-03-12T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/recover-user-path-after-sudo/"/>
+        <id>https://blog.skyplabs.net/posts/recover-user-path-after-sudo/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/recover-user-path-after-sudo/">&lt;p&gt;Pour ceux qui se servent de la commande &lt;code&gt;sudo&lt;&#x2F;code&gt; sous Ubuntu, vous avez surement
+remarqué que le PATH de l&#x27;utilisateur courant n&#x27;est pas conservé lors de son
+utilisation. Ça peut être très énervant à la longue.&lt;&#x2F;p&gt;
+&lt;p&gt;La raison est simple : sous Ubuntu, la commande &lt;code&gt;sudo&lt;&#x2F;code&gt; a été compilée avec
+l&#x27;option &lt;code&gt;--with-secure-path&lt;&#x2F;code&gt; qui permet de définir un PATH différent de celui
+de l&#x27;utilisateur courant pour des raisons de sécurité.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour passer outre cette restriction, il suffit de rajouter cet alias dans votre
+&lt;code&gt;.bashrc&lt;&#x2F;code&gt; par exemple :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;alias &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt;=&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;sudo env PATH=$PATH&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;En effet, la commande &lt;code&gt;env&lt;&#x2F;code&gt; permet de lancer un processus en positionnant des
+valeurs d’environnement.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour plus d&#x27;informations sur les options de compilation de &lt;code&gt;sudo&lt;&#x2F;code&gt; :
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.sudo.ws&#x2F;install.html&quot;&gt;https:&#x2F;&#x2F;www.sudo.ws&#x2F;install.html&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Retirer la version de WordPress des en-têtes HTML</title>
+        <published>2011-03-11T00:00:00+00:00</published>
+        <updated>2011-03-11T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/remove-wordpress-version/"/>
+        <id>https://blog.skyplabs.net/posts/remove-wordpress-version/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/remove-wordpress-version/">&lt;p&gt;La version de WordPress apparaît par défaut dans les en-têtes HTML, ce qui n&#x27;est
+bien entendu pas une bonne chose d&#x27;un point de vue sécurité. Pour la supprimer,
+il faut rajouter ce bout de code à la fin du fichier &lt;code&gt;functions.php&lt;&#x2F;code&gt; de votre
+thème :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;php&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-php &quot;&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;&amp;lt;?php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; Pour retirer l&amp;#39;affichage de la version de WordPress dans les en-têtes HTML.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;remove_action&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;wp_head&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;wp_generator&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;?&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Pour ce faire, vous pouvez soit modifier le fichier &lt;code&gt;functions.php&lt;&#x2F;code&gt; de votre
+thème à la main (il se trouve normalement dans &lt;code&gt;wp-content&#x2F;themes&#x2F;&amp;lt;votre thème&amp;gt;&#x2F;functions.php&lt;&#x2F;code&gt;), soit le modifier depuis l&#x27;interface d&#x27;édition de
+WordPress (Menu &lt;em&gt;Apparence&lt;&#x2F;em&gt; =&amp;gt; &lt;em&gt;Éditeur&lt;&#x2F;em&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;Pour plus d&#x27;informations sur la fonction &lt;code&gt;remove_action&lt;&#x2F;code&gt;, &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;codex.wordpress.org : Remove Action&quot; href=&quot;https:&#x2F;&#x2F;codex.wordpress.org&#x2F;Function_Reference&#x2F;remove_action&quot;&gt;cliquez
+ici&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Pensez également à supprimer le fichier &lt;code&gt;readme.html&lt;&#x2F;code&gt; présent à la racine de
+votre site. Ce dernier contient également le numéro de version de WordPress.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Sniffer le réseau avec Wireshark sans le compte root</title>
+        <published>2011-02-09T00:00:00+00:00</published>
+        <updated>2011-02-09T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/sniff-network-wireshark-no-root/"/>
+        <id>https://blog.skyplabs.net/posts/sniff-network-wireshark-no-root/</id>
+        
+        <summary type="html">&lt;p&gt;Wireshark est un outil d&#x27;analyse qui permet de &amp;quot;sniffer&amp;quot; les informations qui
+passent à travers les interfaces réseau du système sur lequel il est installé.
+Il est très utilisé car c&#x27;est un logiciel complet, multiplateforme et libre. Je
+me demande d&#x27;ailleurs pourquoi je perds mon temps à vous le présenter étant
+donné que je suis sûr qu&#x27;il est déjà installé sur votre ordinateur ou même sur
+votre téléphone pour les plus bidouilleurs d&#x27;entre vous ...&lt;&#x2F;p&gt;
+&lt;p&gt;Ceci étant, pour pouvoir sniffer le réseau avec cet outil, vous devez le lancer
+depuis le compte root pour qu&#x27;il puisse passer la carte réseau sélectionnée pour
+la capture en mode &lt;strong&gt;promiscuous&lt;&#x2F;strong&gt;, ce qui n&#x27;est pas très bon pour la sécurité
+de votre machine. En effet, Wireshark n&#x27;est pas réputé pour sa sécurité sans
+faille. D&#x27;ailleurs, une simple recherche dans la &lt;strong&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;nvd.nist.gov&#x2F;&quot;&gt;National Vulnerability
+Database&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (NVD) retourne 110 résultats, ce qui est déjà pas mal.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Quitter sa console sans stopper les processus en cours d&#x27;exécution</title>
+        <published>2011-02-08T00:00:00+00:00</published>
+        <updated>2011-02-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/exit-terminal-without-stopping-processes/"/>
+        <id>https://blog.skyplabs.net/posts/exit-terminal-without-stopping-processes/</id>
+        
+        <summary type="html">&lt;p&gt;Ne vous est-il jamais arrivé de devoir quitter votre session actuelle alors
+qu&#x27;un programme en cours d&#x27;exécution n&#x27;a pas terminé son traitement ? Le
+contraire serait étonnant. Par exemple, vous avez lancé l&#x27;extraction d&#x27;une base
+de données par SSH pour en faire un backup et vous n&#x27;avez pas le temps
+d&#x27;attendre gentiment devant votre terminal que son exécution se termine.&lt;&#x2F;p&gt;
+&lt;p&gt;Le fait est que lorsqu&#x27;on demande de fermer sa session (commande &lt;code&gt;exit&lt;&#x2F;code&gt;,
+&lt;code&gt;CTRL+D&lt;&#x2F;code&gt;, ...), le processus faisant tourner le shell envoie un signal
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;SIGHUP&quot;&gt;SIGHUP&lt;&#x2F;a&gt; à tous ses enfants pour demander leur arrêt. Des tâches comme
+l&#x27;extraction d&#x27;une base de données citée dans mon exemple prendront fin à
+l&#x27;instant où la session sera fermée.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Faire un update-grub depuis un live CD&#x2F;USB</title>
+        <published>2011-02-03T00:00:00+00:00</published>
+        <updated>2011-02-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/update-grub-from-live-cdusb/"/>
+        <id>https://blog.skyplabs.net/posts/update-grub-from-live-cdusb/</id>
+        
+        <summary type="html">&lt;p&gt;Sur toutes les machines dont je dispose à mon domicile, je n&#x27;ai installé Windows
+que sur une seule d&#x27;entre elles en multiboot avec Ubuntu (et oui, il faut avouer
+qu&#x27;avoir un Windows sous la main est toujours utile malgré tout). Cependant, ce
+vilain petit canard m&#x27;a causé quelques soucis lorsque j&#x27;ai réinstallé mes
+systèmes sur cet ordinateur (à cause d&#x27;un changement de disque dur).&lt;&#x2F;p&gt;
+&lt;p&gt;En effet, j&#x27;ai installé Ubuntu avant Windows car je n&#x27;avais pas son disque de
+réinstallation à ce moment là (prêté à quelqu&#x27;un). J&#x27;ai donc laissé 100 Go au
+début de mon disque dur pour le futur Windows et installé Ubuntu sur le reste de
+l&#x27;espace disponible. Lors de l&#x27;installation de Windows, ce dernier m&#x27;a écrasé le
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Master_boot_record&quot;&gt;MBR&lt;&#x2F;a&gt; (comme d&#x27;hab ...) mais j&#x27;avais prévu le coup, ayant installé Grub
+dans le &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Volume_boot_record&quot;&gt;PBR&lt;&#x2F;a&gt; (ou &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Volume_boot_record&quot;&gt;VBR&lt;&#x2F;a&gt;) de ma partition. Malgré tout, Ubuntu refuse
+de démarrer (contrairement à Windows, lancé depuis un bootloader appelé
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;gag.sourceforge.net&#x2F;&quot;&gt;GAG&lt;&#x2F;a&gt; installé dans le &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Master_boot_record&quot;&gt;MBR&lt;&#x2F;a&gt;), une belle console de récupération Grub
+à l&#x27;écran ...&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

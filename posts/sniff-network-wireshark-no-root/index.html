@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">Sniffer le réseau avec Wireshark sans le compte root</h2>
+    
+
+    <time class="post-date" datetime="2011-02-09 00:00"
+      property="datePublished">09 Feb 2011</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>Wireshark est un outil d'analyse qui permet de &quot;sniffer&quot; les informations qui
+passent à travers les interfaces réseau du système sur lequel il est installé.
+Il est très utilisé car c'est un logiciel complet, multiplateforme et libre. Je
+me demande d'ailleurs pourquoi je perds mon temps à vous le présenter étant
+donné que je suis sûr qu'il est déjà installé sur votre ordinateur ou même sur
+votre téléphone pour les plus bidouilleurs d'entre vous ...</p>
+<p>Ceci étant, pour pouvoir sniffer le réseau avec cet outil, vous devez le lancer
+depuis le compte root pour qu'il puisse passer la carte réseau sélectionnée pour
+la capture en mode <strong>promiscuous</strong>, ce qui n'est pas très bon pour la sécurité
+de votre machine. En effet, Wireshark n'est pas réputé pour sa sécurité sans
+faille. D'ailleurs, une simple recherche dans la <strong><a rel="noopener nofollow noreferrer" target="_blank" href="https://nvd.nist.gov/">National Vulnerability
+Database</a></strong> (NVD) retourne 110 résultats, ce qui est déjà pas mal.</p>
+<span id="continue-reading"></span>
+<p><img src="https://blog.skyplabs.net/posts/sniff-network-wireshark-no-root/nvd-wireshark.png" alt="Capture d'écran du résultat de la recherche à propos de Wireshark sur le site de la NVD" title="Capture d'écran du résultat de la recherche à propos de Wireshark sur le site de la NVD" /></p>
+<p>Pour pouvoir quand même récupérer le trafic réseau sans lancer Wireshark avec le
+compte root, nous allons nous servir de l'outil <code>dumpcap</code> (qui est inclus dans
+le paquet <code>wireshark-common</code>) pour la capture et Wireshark servira seulement à
+traiter les informations recueillies. Voici donc comment faire :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>sudo dumpcap -i eth0 -w - | wireshark -k -i -
+</span></code></pre>
+<p>Grâce à cette méthode, vous pouvez utiliser pleinement les fonctionnalités de
+Wireshark en live en prenant un minimum de risques.</p>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;network&#x2F;">Network</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;security&#x2F;">Security</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;wireshark&#x2F;">Wireshark</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

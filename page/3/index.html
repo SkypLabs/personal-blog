@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+    <div id="search-container">
+      <input type="search" id="search-input" placeholder="Search for a post, a tag, a category...">
+      <div class="search-results">
+        <ul class="search-results-items"></ul>
+      </div>
+    </div>
+
+    <div class="posts">
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;angular-unit-tests-chromium-docker&#x2F;">
+        [Angular] Running unit tests with Chromium in a Docker container
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2017-08-29 00:00"
+      property="datePublished">29 Aug 2017</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p>Running unit tests for front-end web applications require them to be tested in a
+web browser. While it's not an issue on a workstation, it can become tedious
+when running in a restricted environment such as a Docker container. In fact,
+these execution environments are generally lightweight and do not contain any
+graphical environment.</p>
+<p>One solution to work around this issue is to use a headless web browser designed
+for development purposes, like <a rel="noopener nofollow noreferrer" target="_blank" href="http://phantomjs.org/">PhantomJS</a>. While it's an elegant
+solution for testing an application, it would be even better to test it directly
+in a web browser which will be used by the end-users in order to match real
+conditions of use, for examples Firefox or Chromium/Google Chrome. However, as
+mentioned above, it is needed to find a way to execute a regular web browser in
+a restricted environment.</p>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;angular-unit-tests-chromium-docker&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;programming&#x2F;">Programming</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;angular&#x2F;">Angular</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;chromium&#x2F;">Chromium</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;docker&#x2F;">Docker</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;web&#x2F;">Web</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;improve-security-online-payments&#x2F;">
+        Improve the security of your online payments
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2017-03-22 00:00"
+      property="datePublished">22 Mar 2017</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p>I think it is obvious to say that the security of your online payments is
+critical if you don't want to have an unpleasant surprise one day when checking
+your account statement. That's why most banks have added a two-step
+authentification security process to their online payment system. That way, you
+have to confirm your online payment with a one-time password sent via text
+message or other method by your bank. However, not every website supports this
+feature, leaving you defenceless if someone steals your credit card information.</p>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;improve-security-online-payments&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;security&#x2F;">Security</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;payment&#x2F;">Payment</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;credit-card&#x2F;">Credit Card</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;ndh2k16-hello-friend&#x2F;">
+        [ndh2k16] Hello Friend
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2016-07-05 00:00"
+      property="datePublished">05 Jul 2016</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p>Une des épreuves du wargame de la nuit du hack 2016 était de retrouver un code
+de validation à partir de cette image :</p>
+<p><img src="https://files.skyplabs.net/hellofriend.jpg" alt="Fichier JPEG utilisé pour le challenge &quot;hello friend&quot; lors de la nuit du hack 2016" /></p>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;ndh2k16-hello-friend&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;security&#x2F;">Security</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;steganography&#x2F;">Steganography</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;ctf&#x2F;">CTF</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;wargame&#x2F;">Wargame</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;write-up&#x2F;">Write-up</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;euler-angles-accelerometer&#x2F;">
+        Calcul des angles d'Euler avec un accéléromètre
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2016-01-17 00:00"
+      property="datePublished">17 Jan 2016</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p>Les angles d'Euler sont 3 angles qui permettent de décrire l'orientation d'un
+objet dans un espace tridimensionnel.</p>
+<p>Si nous prenons par exemple un objet quelconque, le centre de masse \(m\) de
+cet objet est une coordonnée dans notre espace à 3 dimensions. Tout point dans
+un espace à \(n\) dimensions peut être atteint par \(n\) translations.
+Ainsi, le point \(m\) est atteint par 3 translations, quelque soit l'origine
+du repère.</p>
+<p>De façon semblable à une coordonnée, une orientation dans cet espace
+tridimensionnel est obtenue par trois rotations. Ces rotations sont effectuées
+successivement dans un ordre arbitraire, chacune autour d'un des trois axes du
+repère. Cela revient à effectuer une rotation dans le plan formé par deux axes
+autour d'un troisième, et cela trois fois de suite.</p>
+<p>Nous allons ici chercher à démontrer qu'il est possible de calculer les angles
+d'Euler (et donc l'orientation de l'objet) en utilisant uniquement un
+accéléromètre triaxial (c'est à dire 3 accéléromètres 1 axe montés
+orthogonalement). Pour rappel, un accéléromètre permet de mesurer l'accélération
+linéaire que subit un corps auquel ce capteur serait attaché.</p>
+<p>La sortie de l'accéléromètre peut être modélisée de la façon suivante :</p>
+<p>\[
+\vec{a_{S}} =
+\left( \begin{array}{c} a_{Sx} \\ a_{Sy} \\ a_{Sz} \end{array} \right) =
+\vec{a_{B}} + R_{I}^{B} \vec{g}
+\]</p>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;euler-angles-accelerometer&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;physics&#x2F;">Physics</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;electronics&#x2F;">Electronics</a>
+    
+    
+  </span>
+  
+
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;docker-python-empty-std-output&#x2F;">
+        [Docker] Votre script Python laisse anormalement la sortie standard vide
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2015-11-16 00:00"
+      property="datePublished">16 Nov 2015</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>Lors de l'exécution d'un programme écrit en Python dans un conteneur Docker, il
+arrive régulièrement que la sortie standard reste anormalement vide :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ docker logs my-app
+</span><span>$
+</span></code></pre>
+<p>La raison est généralement que par défaut, l'interpréteur Python utilise une
+mémoire tampon pour les écritures vers <code>stdout</code>. Les écritures sont donc
+différées et cela peut prendre un moment avant de voir apparaitre la moindre
+ligne d'écriture (selon la verbosité de votre programme).</p>
+<p>Une solution est d'utiliser l'option <code>-u</code> lors de l'appel à l'interpréteur
+Python. Votre <code>Dockerfile</code> devra contenir une ligne ressemblant à ceci :</p>
+<pre data-lang="dockerfile" style="background-color:#2b303b;color:#c0c5ce;" class="language-dockerfile "><code class="language-dockerfile" data-lang="dockerfile"><span>CMD [&quot;python3&quot;, &quot;-u&quot;, &quot;my-app.py&quot;]
+</span></code></pre>
+<p>Et ainsi :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ docker logs my-app
+</span><span>It works !
+</span><span>$
+</span></code></pre>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;programming&#x2F;">Programming</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;docker&#x2F;">Docker</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;python&#x2F;">Python</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+    </div>
+
+    <nav class="pagination">
+      
+      <span class="pagination-item older"><a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;page&#x2F;2&#x2F;">← Previous</a></span>
+      
+
+      
+      <span class="pagination-item newer"><a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;page&#x2F;4&#x2F;">Next →</a></span>
+      
+    </nav>
+    
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

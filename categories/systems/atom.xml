@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Systems</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/categories/systems/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2011-12-29T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/categories/systems/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Problème d&#x27;utilisation de Droidwall depuis la version 4 d&#x27;Android</title>
+        <published>2011-12-29T00:00:00+00:00</published>
+        <updated>2011-12-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/droidwall-issue-android-4/"/>
+        <id>https://blog.skyplabs.net/posts/droidwall-issue-android-4/</id>
+        
+        <summary type="html">&lt;p&gt;Edit : Depuis Jelly Bean (version 4.1.2 dans mon cas), la variable &lt;code&gt;$IPTABLES&lt;&#x2F;code&gt;
+fournit par Droidwall n&#x27;est plus valide. Une petite mise à jour du script
+s&#x27;impose :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;## Netfilter Script by Skyper - https:&#x2F;&#x2F;blog.skyplabs.net ##
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Permet de corriger un problème d&amp;#39;exploitation de Droidwall depuis ICS.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;IPTABLES&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;system&#x2F;bin&#x2F;iptables
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;IPTABLES -D&lt;&#x2F;span&gt;&lt;span&gt; OUTPUT&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -j&lt;&#x2F;span&gt;&lt;span&gt; droidwall
+&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;IPTABLES -I&lt;&#x2F;span&gt;&lt;span&gt; OUTPUT 2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -j&lt;&#x2F;span&gt;&lt;span&gt; droidwall
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Droidwall est une application Android permettant d&#x27;autoriser ou non l&#x27;accès au
+réseau à une application installée sur le système en question. Pour ce faire,
+elle rajoute une série de règles &lt;strong&gt;Netfilter&lt;&#x2F;strong&gt; (via l&#x27;utilitaire &amp;quot;userland&amp;quot;
+&lt;strong&gt;iptables&lt;&#x2F;strong&gt;) selon la configuration donnée par l&#x27;utilisateur.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

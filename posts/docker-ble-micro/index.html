@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">[Docker] Développer sur le BLE Micro de Seeed Studio</h2>
+    
+
+    <time class="post-date" datetime="2014-12-08 00:00"
+      property="datePublished">08 Dec 2014</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>Le <a rel="noopener nofollow noreferrer" target="_blank" href="https://www.seeedstudio.com/Seeed-Micro-BLE-Module-w-Cortex-M0-Based-nRF51822-SoC-p-1975.html">BLE Micro</a> est une petite carte électronique produite par [Seeed
+Studio][seeed-studio] embarquant le SoC <a rel="noopener nofollow noreferrer" target="_blank" href="https://www.nordicsemi.com/Products/Low-power-short-range-wireless/nRF51822/GetStarted">nRF51822</a> de Nordic
+Semiconductor. Ce dernier est un module de communication <a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Bluetooth_low_energy">Bluetooth Low
+Energy</a> (BLE) basé un Cortex M0.</p>
+<p><img src="/posts/docker-ble-micro/ble_micro.jpg" alt="BLE Micro de Seeed Studio" /></p>
+<span id="continue-reading"></span>
+<p>Pour développer un programme à destination de ce circuit, le <a rel="noopener nofollow noreferrer" target="_blank" href="http://wiki.seeedstudio.com/BLE_Micro">wiki officiel du
+BLE Micro</a> nous renvoie sur <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/Seeed-Studio/mbed_ble/tree/softdevice_v6">une page GitHub</a>
+contenant un SDK dédié. Ce dernier est basé sur le <a rel="noopener nofollow noreferrer" target="_blank" href="https://os.mbed.com/handbook/mbed-SDK">mbed SDK</a> de ARM
+avec son <a rel="noopener nofollow noreferrer" target="_blank" href="https://os.mbed.com/teams/Bluetooth-Low-Energy/">API pour le BLE</a>. La compilation du code nécessite la
+toolchain <a rel="noopener nofollow noreferrer" target="_blank" href="https://launchpad.net/gcc-arm-embedded">gcc-arm-embedded</a> avec certaines dépendances comme
+la newlib-nano.</p>
+<p>Afin de ne pas perdre de temps à préparer l'environnement de développement
+adéquat, j'ai mis en ligne un conteneur Docker disponible sur le <a rel="noopener nofollow noreferrer" target="_blank" href="https://hub.docker.com/r/skyplabs/ble-micro/">Docker
+Hub</a>. Après un échange d'e-mails avec la personne s'occupant
+du BLE Micro chez Seeed Studio, le lien vers mon conteneur a été ajouté sur le
+wiki officiel :</p>
+<blockquote>
+<p>If you are familiar with the Docker, there is a Docker container created by
+Paul for you to setup toolchain quickly. You can follow the instructions on
+the Docker page to get started.</p>
+</blockquote>
+<p>N'hésitez pas à me faire part de votre avis concernant l'utilisation de ce
+produit ou de mon conteneur Docker.</p>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;programming&#x2F;">Programming</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;electronics&#x2F;">Electronics</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;docker&#x2F;">Docker</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

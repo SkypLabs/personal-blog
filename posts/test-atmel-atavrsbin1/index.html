@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">Test de la carte de développement à capteurs inertiels ATAVRSBIN1 d'Atmel</h2>
+    
+
+    <time class="post-date" datetime="2014-10-06 00:00"
+      property="datePublished">06 Oct 2014</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>Avant toute chose, nous allons commencer par un petit rappel de vocabulaire
+autour des différents capteurs inertiels existants :</p>
+<ul>
+<li><a rel="noopener nofollow noreferrer" target="_blank" href="https://fr.wikipedia.org/wiki/Gyroscope"><strong>Gyroscope</strong></a> : Capteur indiquant la position angulaire.</li>
+<li><a rel="noopener nofollow noreferrer" target="_blank" href="https://fr.wikipedia.org/wiki/Gyrom%C3%A8tre"><strong>Gyromètre</strong></a> : Capteur indiquant la vitesse angulaire.</li>
+<li><a rel="noopener nofollow noreferrer" target="_blank" href="https://fr.wikipedia.org/wiki/Acc%C3%A9l%C3%A9rom%C3%A8tre"><strong>Accéléromètre</strong></a> : Capteur indiquant l'accélération
+linéaire.</li>
+<li><a rel="noopener nofollow noreferrer" target="_blank" href="https://fr.wikipedia.org/wiki/Centrale_%C3%A0_inertie"><strong>Centrale inertielle</strong></a> : Capteur embarquant un
+gyromètre à trois axes et un accéléromètre à trois axes et permettant de
+déterminer la position du mobile sur lequel il a été fixé à condition de
+connaître la position d'origine de ce dernier (technologie utilisée à bord des
+avions par exemple).</li>
+</ul>
+<p>La carte de développement <strong>ATAVRSBIN1</strong> que nous allons tester au cours de cet
+article est équipée de deux de ces capteurs : elle embarque un <strong>gyromètre</strong>
+(ITG-3200) et un <strong>accéléromètre</strong> (BMA-150). Le ITG-3200 est pourtant vendu
+comme étant un gyroscope, mais en regardant sa datasheet, on s'aperçoit qu'il
+retourne une mesure en °/s. C'est une erreur très commune donc prenez garde la
+prochaine fois que vous sélectionnerez un produit de la sorte.</p>
+<span id="continue-reading"></span>
+<p>La ATAVRSBIN1 possède également une <strong>boussole électronique</strong> à effet de Hall
+(AK8975). Cette dernière ne repose donc pas sur le principe d'inertie et n'est
+par conséquent pas un capteur inertiel contrairement à l'intitulé du produit.</p>
+<p>Une autre petite subtilité : les circuits ITG-3200 et BMA-150, en plus de faire
+office respectivement de gyromètre et d’accéléromètre, embarquent également un
+<strong>capteur de température</strong>.</p>
+<p>Tous les circuits cités plus haut utilisent un bus <a rel="noopener nofollow noreferrer" target="_blank" href="https://fr.wikipedia.org/wiki/I2C"><strong>I²C</strong></a> pour
+s'interconnecter avec d'autres systèmes électroniques.</p>
+<p>Enfin, la carte est disponible chez <a rel="noopener nofollow noreferrer" target="_blank" href="https://fr.farnell.com/">Farnell</a>.</p>
+<h2 id="montage-de-test">Montage de test</h2>
+<p>Pour ce test, j'ai utilisé une carte microcontrôleur Arduino Uno (rev3) afin de
+lire les valeurs renvoyées par les différents capteurs au moyen d'une liaison
+I²C. Le câblage est le suivant :</p>
+<p><img src="https://blog.skyplabs.net/posts/test-atmel-atavrsbin1/ATAVRSBIN1_wiring.png" alt="Schéma du montage de test de la carte ATAVRSBIN1" /></p>
+<h2 id="communication-i2c-avec-les-capteurs">Communication I²C avec les capteurs</h2>
+<p>La <a rel="noopener nofollow noreferrer" target="_blank" href="https://ww1.microchip.com/downloads/en/AppNotes/doc8354.pdf">datasheet</a> de la carte ATAVRSBIN1 nous donne les
+adresses I²C suivantes :</p>
+<ul>
+<li>AK8975 : 0x0C</li>
+<li>BMA-150 : 0x38</li>
+<li>ITG-3200 : 0x68</li>
+</ul>
+<p>Côté logiciel, j'ai utilisé la bibliothèque <a rel="noopener nofollow noreferrer" target="_blank" href="https://arduino.cc/en/reference/wire">Wire</a> du projet Arduino.</p>
+<h2 id="exemple-avec-le-gyrometre-itg-3200">Exemple avec le gyromètre ITG-3200</h2>
+<p>Plusieurs bibliothèques pour Arduino sont <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/jrowberg/i2cdevlib/tree/master/Arduino">disponibles</a> afin de
+communiquer avec les différents circuits de la carte ATAVRSBIN1. Je ne vais donc
+pas réinventer la roue mais plutôt donner un exemple à titre pédagogique sur
+comment établir la communication I²C afin de récupérer les valeurs qui nous
+intéressent. Pour cela, j'ai choisi de me concentrer sur le gyromètre ITG-3200.</p>
+<p>Les registres internes contenant les valeurs retournées par les capteurs sont
+données dans la <a rel="noopener nofollow noreferrer" target="_blank" href="https://www.sparkfun.com/datasheets/Sensors/Gyro/PS-ITG-3200-00-01.4.pdf">datasheet</a> sous forme du tableau suivant :</p>
+<p><img src="https://blog.skyplabs.net/posts/test-atmel-atavrsbin1/ITG-3200_registers.png" alt="Tableau des registres du ITG-3200" /></p>
+<p>Chaque capteur retourne une valeur sur 16 bits codée en code complément à 2.
+Étant donné que la lecture se fait octet par octet sur un bus I²C, il sera
+nécessaire d'utiliser des décalages par 8 pour reconstituer nos valeurs sur 16
+bits.</p>
+<p>Nous allons récupérer l'ensemble de ces valeurs d'un seul coup en lisant 8
+octets à partir de l'adresse du premier registre, à savoir 0x1B. La séquence de
+&quot;burst read&quot; utilisée pour lire plusieurs octets en une seule interrogation I²C
+est la suivante :</p>
+<p><img src="https://blog.skyplabs.net/posts/test-atmel-atavrsbin1/ITG-3200_burst_read.png" alt="Schéma d'une séquence de &quot;burst read&quot; pour le ITG-3200" /></p>
+<p>Une fois les valeurs récupérées, il sera nécessaire d'effectuer quelques
+opérations mathématiques afin d'obtenir des unités lisibles, à savoir des °C
+pour le capteur de température et des degrés par seconde pour les trois axes du
+gyromètre.</p>
+<p>Enfin, voici le code utilisé pour cet exemple :</p>
+<div >
+    <script src="https:&#x2F;&#x2F;gist.github.com&#x2F;SkypLabs&#x2F;763b20801f95d84267486450e8dcf515.js?file=ATAVRSBIN1_i2c.ino"></script>
+</div>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;electronics&#x2F;">Electronics</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;atmel&#x2F;">Atmel</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Linux</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/linux/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2014-04-25T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/linux/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[Linux] Mettre à jour l&#x27;heure de son système par internet sans NTP</title>
+        <published>2014-04-25T00:00:00+00:00</published>
+        <updated>2014-04-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/linux-update-datetime-without-ntp/"/>
+        <id>https://blog.skyplabs.net/posts/linux-update-datetime-without-ntp/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/linux-update-datetime-without-ntp/">&lt;p&gt;Voici une astuce trouvée sur un &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;How to use ntpdate behind a proxy&quot; href=&quot;https:&#x2F;&#x2F;superuser.com&#x2F;questions&#x2F;307158&#x2F;how-to-use-ntpdate-behind-a-proxy&#x2F;465838#465838&quot;&gt;forum&lt;&#x2F;a&gt; permettant de mettre à jour
+l&#x27;heure d&#x27;un système sous Linux par internet mais sans utiliser NTP :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;date -s &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;wget -S  &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;https:&#x2F;&#x2F;www.google.com&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;grep -E &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;^[[:space:]]*[dD]ate:&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sed &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s&#x2F;^[[:space:]]*[dD]ate:[[:space:]]*&#x2F;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;head -1l &lt;&#x2F;span&gt;&lt;span&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;awk &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{print $1, $3, $2,  $5 ,&amp;quot;GMT&amp;quot;, $4 }&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sed &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s&#x2F;,&#x2F;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Le principe est d&#x27;utiliser le champ &lt;code&gt;Date&lt;&#x2F;code&gt; se trouvant dans les en-têtes
+&lt;strong&gt;HTTP&lt;&#x2F;strong&gt; de la réponse d&#x27;un serveur web lors d&#x27;une requête vers celui-ci. Il
+faut cependant s&#x27;assurer que le serveur web contacté soit à l&#x27;heure, lui ! Le
+choix du moteur de recherche Google est donc une bonne idée.&lt;&#x2F;p&gt;
+&lt;p&gt;L&#x27;utilisation de cette méthode se justifie lorsque l&#x27;on veut mettre à jour
+l&#x27;heure d&#x27;une machine se trouvant derrière un proxy.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Salon des solutions Linux &#x2F; Open Source 2011</title>
+        <published>2011-05-30T00:00:00+00:00</published>
+        <updated>2011-05-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/solutions-linux-open-source-2011/"/>
+        <id>https://blog.skyplabs.net/posts/solutions-linux-open-source-2011/</id>
+        
+        <summary type="html">&lt;p&gt;Le salon des solutions Linux et Open Source 2011 s&#x27;est déroulé du 10 au 12 Mai
+dans le Hall Marie Curie du CNIT à la défense - Paris. C&#x27;est un salon consacré à
+tout l&#x27;univers du libre dans le monde professionnel.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour ne pas changer mes habitudes, je m&#x27;y suis rendu une fois de plus le jeudi,
+accompagné du même et fidèle compagnon que la dernière fois pour le salon RTS
+Embedded Systems. On ne change pas une équipe qui gagne !&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Restreindre l&#x27;accès à la commande &#x27;su&#x27; sous Linux</title>
+        <published>2011-05-18T00:00:00+00:00</published>
+        <updated>2011-05-18T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/restrict-su-access/"/>
+        <id>https://blog.skyplabs.net/posts/restrict-su-access/</id>
+        
+        <summary type="html">&lt;p&gt;&lt;strong&gt;Edit&lt;&#x2F;strong&gt;: Sur certaines distributions, comme par exemple Fedora, RHEL et CentOS,
+la restriction de la commande &lt;code&gt;su&lt;&#x2F;code&gt; est déjà intégrée. Il est seulement
+nécessaire de l&#x27;activer en décommentant la ligne suivante dans le fichier
+&lt;code&gt;&#x2F;etc&#x2F;pam.d&#x2F;su&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;# Uncomment the following line to implicitly trust users in the &amp;quot;wheel&amp;quot; group.
+&lt;&#x2F;span&gt;&lt;span&gt;auth           sufficient      pam_wheel.so trust use_uid
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;La commande &lt;code&gt;su&lt;&#x2F;code&gt; permet de changer temporairement son identité pour celle d&#x27;un
+autre utilisateur lorsque l&#x27;on est déjà connecté sur une machine UNIX.
+D&#x27;ailleurs, &lt;code&gt;su&lt;&#x2F;code&gt; veut dire &amp;quot;Substitute User&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;Il peut être très intéressant de restreindre l&#x27;accès à cette commande dans le
+but de renforcer la sécurité de sa machine. On va donc autoriser son exécution
+seulement aux utilisateurs qui en ont vraiment besoin.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

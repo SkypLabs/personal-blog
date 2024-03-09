@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - LaTeX</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/latex/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2012-11-16T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/latex/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Tracer des diagrammes de Bode, Nyquist et Black en LaTeX</title>
+        <published>2012-11-16T00:00:00+00:00</published>
+        <updated>2012-11-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bode-nyquist-black-plots-in-latex/"/>
+        <id>https://blog.skyplabs.net/posts/bode-nyquist-black-plots-in-latex/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bode-nyquist-black-plots-in-latex/">&lt;p&gt;La meilleure façon de tracer des diagrammes de Bode, Nyquist et Black en LaTeX
+est d&#x27;utiliser le package &lt;code&gt;bodegraph&lt;&#x2F;code&gt;. Ce dernier utilise à son tour le package
+&lt;code&gt;Tikz&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Voici la démarche à suivre pour les installer tous les deux (en utilisant la
+distribution &lt;strong&gt;TexLive&lt;&#x2F;strong&gt;) :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;mkdir -p  ~&#x2F;texmf&#x2F;tex&#x2F;latex
+&lt;&#x2F;span&gt;&lt;span&gt;cd ~&#x2F;texmf&#x2F;tex&#x2F;latex
+&lt;&#x2F;span&gt;&lt;span&gt;cvs -z3 -d:pserver:anonymous@pgf.cvs.sourceforge.net:&#x2F;cvsroot&#x2F;pgf co -P pgf
+&lt;&#x2F;span&gt;&lt;span&gt;wget https:&#x2F;&#x2F;sciences-indus-cpge.papanicola.info&#x2F;IMG&#x2F;zip&#x2F;bodegraph.zip
+&lt;&#x2F;span&gt;&lt;span&gt;unzip bodegraph.zip
+&lt;&#x2F;span&gt;&lt;span&gt;rm bodegraph.zip
+&lt;&#x2F;span&gt;&lt;span&gt;texhash ~&#x2F;texmf
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Et voici une &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Documentation de bodegraph&quot; href=&quot;http:&#x2F;&#x2F;ctan.mines-albi.fr&#x2F;graphics&#x2F;pgf&#x2F;contrib&#x2F;bodegraph&#x2F;bodegraph.pdf&quot;&gt;documentation pour bodegraph&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>LaTeX sur MediaWiki 1.19.2</title>
+        <published>2012-10-20T00:00:00+00:00</published>
+        <updated>2012-10-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/latex-on-mediawiki-1-19-2/"/>
+        <id>https://blog.skyplabs.net/posts/latex-on-mediawiki-1-19-2/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/latex-on-mediawiki-1-19-2/">&lt;p&gt;Cela faisait plusieurs jours que j&#x27;essayais de faire fonctionner l&#x27;extension
+&lt;strong&gt;Math&lt;&#x2F;strong&gt; de MediaWiki pour pouvoir afficher des équations mathématiques en
+LaTeX. Mais lors de mes tests, j&#x27;obtenais toujours une erreur HTTP 500
+(&lt;em&gt;Internal Server Error&lt;&#x2F;em&gt;) et le message suivant dans mes logs :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Call to undefined method TempFSFile::autocollect()
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;On peut donc en conclure que la dernière version de l&#x27;extension Math n&#x27;est pas
+compatible avec MediaWiki 1.19.2. Pour résoudre cette situation, il est
+nécessaire de revenir à une version antérieure :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;cd extensions
+&lt;&#x2F;span&gt;&lt;span&gt;git clone https:&#x2F;&#x2F;gerrit.wikimedia.org&#x2F;r&#x2F;p&#x2F;mediawiki&#x2F;extensions&#x2F;Math.git
+&lt;&#x2F;span&gt;&lt;span&gt;cd Math
+&lt;&#x2F;span&gt;&lt;span&gt;git reset --hard 29a0a80e8fbb2d33507760075e4da9103439cbd9
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Merci à &lt;strong&gt;Cgeroux&lt;&#x2F;strong&gt; pour sa contribution &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.mediawiki.org&#x2F;wiki&#x2F;Extension_talk:Math&quot;&gt;(lien vers ses
+explications)&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

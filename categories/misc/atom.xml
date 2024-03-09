@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Misc.</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/categories/misc/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2015-03-26T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/categories/misc/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Quelle est la différence entre chiffrer et coder une information ?</title>
+        <published>2015-03-26T00:00:00+00:00</published>
+        <updated>2015-03-26T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/diff-btw-encrypting-and-coding/"/>
+        <id>https://blog.skyplabs.net/posts/diff-btw-encrypting-and-coding/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/diff-btw-encrypting-and-coding/">&lt;p&gt;Dans un &lt;a href=&quot;https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;crypter-does-not-exist-in-french&#x2F;&quot;&gt;précédent article&lt;&#x2F;a&gt;,
+j&#x27;avais expliqué pourquoi le mot &amp;quot;crypter&amp;quot; n&#x27;a aucun sens en français. Je vais
+continuer sur ma lancée pour maintenant expliquer la différence entre chiffrer
+et coder un message.&lt;&#x2F;p&gt;
+&lt;p&gt;Lorsque l&#x27;on parle de coder un message, on sous-entend l&#x27;utilisation d&#x27;un code
+de référence qui va permettre aux personnes le connaissant de transformer le
+message de notre langue commune à une forme codée et vice versa. Un des exemples
+les plus connus est le Morse. Toute personne connaissant le Morse est capable de
+comprendre les messages codés avec ce dernier.&lt;&#x2F;p&gt;
+&lt;p&gt;Contrairement aux codes comme le Morse, les algorithmes de chiffrement assurent
+une confidentialité des messages, que le système cryptographique soit connu ou
+non. En effet, dans le cas du chiffrement, seule la clé est confidentielle.
+C&#x27;est ce qu&#x27;énonce le &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Principe de Kerckhoffs&quot; href=&quot;https:&#x2F;&#x2F;fr.wikipedia.org&#x2F;wiki&#x2F;Principe_de_Kerckhoffs&quot;&gt;principe de Kerckhoffs&lt;&#x2F;a&gt;, également
+repris par Shannon avec sa maxime :&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;L&#x27;adversaire connaît le système&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Il est donc évident qu&#x27;utiliser un algorithme de chiffrement est bien plus
+judicieux qu&#x27;utiliser un code pour rendre ses données confidentielles.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>L&#x27;assembleur n&#x27;est pas un langage !</title>
+        <published>2014-05-29T00:00:00+00:00</published>
+        <updated>2014-05-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/assembly-not-a-language/"/>
+        <id>https://blog.skyplabs.net/posts/assembly-not-a-language/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/assembly-not-a-language/">&lt;p&gt;En effet, comme le titre de cet article l&#x27;indique, l&#x27;assembleur n&#x27;est pas un
+langage. C&#x27;est le logiciel qui va convertir un programme écrit en langage
+d&#x27;assemblage en instructions machines directement compréhensibles par le
+processeur concerné. C&#x27;est donc un amalgame que de dire qu&#x27;un programme est
+écrit en assembleur. Par conséquent, nous devrions parler de &lt;strong&gt;langage
+d&#x27;assemblage&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;De la même façon, la compilation d&#x27;un programme n&#x27;est qu&#x27;une des étapes
+réalisées par un compilateur. Elle consiste à traduire un programme écrit dans
+un langage de plus haut niveau comme le C en langage d&#x27;assemblage. L&#x27;étape
+suivante est donc celle de l&#x27;assemblage réalisée à l&#x27;aide d&#x27;un assembleur.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Le mot crypter n&#x27;existe pas !</title>
+        <published>2012-12-04T00:00:00+00:00</published>
+        <updated>2012-12-04T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/crypter-does-not-exist-in-french/"/>
+        <id>https://blog.skyplabs.net/posts/crypter-does-not-exist-in-french/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/crypter-does-not-exist-in-french/">&lt;p&gt;J&#x27;entends énormément de gens dire &amp;quot;crypter des données ...&amp;quot;. Cependant, c&#x27;est
+une mauvaise habitude car &lt;strong&gt;le mot crypter n&#x27;a pas de sens en français&lt;&#x2F;strong&gt; !&lt;&#x2F;p&gt;
+&lt;p&gt;En effet, le terme crypter est un &lt;strong&gt;anglicisme&lt;&#x2F;strong&gt;. En français, on devrait dire
+&amp;quot;&lt;strong&gt;chiffrer&lt;&#x2F;strong&gt; des données ...&amp;quot;. En voici la raison :&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Lorsque deux personnes (désignées par les lettres A et B pour plus de
+facilité) veulent s&#x27;échanger un message de manière sécurisée sur un canal de
+transmission qui lui ne l&#x27;est pas, elles vont devoir utiliser une méthode de
+chiffrement. La personne A va donc &lt;strong&gt;chiffrer&lt;&#x2F;strong&gt; son message à l&#x27;aide d&#x27;une clé
+de chiffrement avant de l&#x27;envoyer à destination de la personne B.&lt;&#x2F;li&gt;
+&lt;li&gt;La personne B va pouvoir &lt;strong&gt;déchiffrer&lt;&#x2F;strong&gt; le message reçu étant donné qu&#x27;elle
+possède elle aussi la clé de chiffrement.&lt;&#x2F;li&gt;
+&lt;li&gt;Si un attaquant appelé C intercepte le message chiffré et tente de retrouver
+le message d&#x27;origine sans posséder la clé de chiffrement, on dit qu&#x27;il
+cherche à &lt;strong&gt;décrypter&lt;&#x2F;strong&gt; le message.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;À présent, vous comprendrez que le terme crypter n&#x27;a pas de sens car cela
+signifierait qu&#x27;une personne X chercherait à chiffrer un message sans posséder
+de clé de chiffrement, ce qui est bien évidement absurde !&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Steganography</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/categories/steganography/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2016-07-05T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/categories/steganography/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[ndh2k16] Hello Friend</title>
+        <published>2016-07-05T00:00:00+00:00</published>
+        <updated>2016-07-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/ndh2k16-hello-friend/"/>
+        <id>https://blog.skyplabs.net/posts/ndh2k16-hello-friend/</id>
+        
+        <summary type="html">&lt;p&gt;Une des épreuves du wargame de la nuit du hack 2016 était de retrouver un code
+de validation à partir de cette image :&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;files.skyplabs.net&#x2F;hellofriend.jpg&quot; alt=&quot;Fichier JPEG utilisé pour le challenge &amp;quot;hello friend&amp;quot; lors de la nuit du hack 2016&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

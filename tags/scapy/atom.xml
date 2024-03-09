@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Scapy</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/scapy/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2018-03-01T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/scapy/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[Python] Sniffing inside a thread with Scapy</title>
+        <published>2018-03-01T00:00:00+00:00</published>
+        <updated>2018-03-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/python-sniffing-inside-thread/"/>
+        <id>https://blog.skyplabs.net/posts/python-sniffing-inside-thread/</id>
+        
+        <summary type="html">&lt;p&gt;Scapy is an incredible tool when it comes to playing with the network. As it is
+written on its &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;scapy.net&#x2F;&quot;&gt;official website&lt;&#x2F;a&gt;, Scapy can replace a majority
+of network tools such as nmap, hping and tcpdump.&lt;&#x2F;p&gt;
+&lt;p&gt;One of the features offered by Scapy is to sniff the network packets passing
+through a computer&#x27;s NIC. Below is a small example:&lt;&#x2F;p&gt;
+&lt;div &gt;
+    &lt;script src=&quot;https:&amp;#x2F;&amp;#x2F;gist.github.com&amp;#x2F;SkypLabs&amp;#x2F;06bd7f414f51d700e04be705cb32659d.js?file=sniff_main_thread.py&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;This little sniffer displays the source and the destination of all packets
+having an IP layer:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ sudo python3 sniff_main_thread.py
+&lt;&#x2F;span&gt;&lt;span&gt;[*] Start sniffing...
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 10.137.2.1
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 10.137.2.1
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.1 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.1 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 216.58.198.68 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 216.58.198.68 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 216.58.198.68 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 216.58.198.68 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;^C[*] Stop sniffing
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It will continue to sniff network packets until it receives a keyboard
+interruption (&lt;code&gt;CTRL+C&lt;&#x2F;code&gt;).&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+    <div id="search-container">
+      <input type="search" id="search-input" placeholder="Search for a post, a tag, a category...">
+      <div class="search-results">
+        <ul class="search-results-items"></ul>
+      </div>
+    </div>
+
+    <div class="posts">
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;gnome-3-link-file-extension-with-program&#x2F;">
+        [GNOME 3] Associer l'ouverture d'un programme à une extension de fichier
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2014-01-07 00:00"
+      property="datePublished">07 Jan 2014</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>Sous GNOME 3, l'association d'une extension de fichier à un programme référencé
+par un fichier de configuration dans <code>/usr/share/applications</code> se fait à travers
+le fichier <code>/usr/share/applications/defaults.list</code> de la manière suivante :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>application/x-&lt;extension&gt;=&lt;app&gt;;
+</span></code></pre>
+<p>Vous devez remplacer <em>extension</em> par le nom de l'extension concernée et <em>app</em>
+par le nom du fichier de configuration du programme qui doit être utilisé.</p>
+<p>Par exemple dans mon cas, pour associer <strong>xournal</strong> comme programme permettant
+d'ouvrir les fichiers <strong>xoj</strong>, j'ai ajouté la ligne suivante dans le fichier
+<code>/usr/share/applications/defaults.list</code> :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>application/x-xoj=xournal.desktop;
+</span></code></pre>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;gnome-3&#x2F;">GNOME 3</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;openssh-too-many-auth-failures&#x2F;">
+        [OpenSSH] Too many authentication failures for root
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2013-10-02 00:00"
+      property="datePublished">02 Oct 2013</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>Si vous recevez le message &quot;<em>Too many authentication failures for root</em>&quot; lors de
+l'établissement d'une connexion SSH, c'est généralement dû à un trop grand
+nombre de tentatives de connexion par clé publique. En effet, si le serveur
+autorise les connexions par clé et que celle destinée à ce serveur n'est pas
+spécifiée au client SSH, ce dernier va tester toutes les clés disponibles au
+moment de la connexion.</p>
+<p>Pour palier ce problème, trois solutions s'offrent à nous :</p>
+<ul>
+<li>
+<p>Soit forcer l'utilisation du mot de passe de la façon suivante :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>ssh -o &quot;PubkeyAuthentication no&quot; user@host
+</span></code></pre>
+</li>
+<li>
+<p>Soit forcer l'utilisation d'une clé à l'aide de l'option <code>-i</code> :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>ssh -i &lt;chemin/vers/la/clé&gt; user@host
+</span></code></pre>
+</li>
+<li>
+<p>Soit spécifier la clé à utiliser dans le fichier de configuration du client
+SSH (<code>/etc/ssh/ssh_config</code>) :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Host &lt;host&gt;
+</span><span>IdentityFile &lt;chemin/vers/la/clé&gt;
+</span><span>IdentitiesOnly yes
+</span></code></pre>
+</li>
+</ul>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;openssh&#x2F;">OpenSSH</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;gnome-3-deactivate-bluetooth-on-boot&#x2F;">
+        [GNOME 3] Désactiver le bluetooth au démarrage
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2013-09-22 00:00"
+      property="datePublished">22 Sep 2013</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p>Pour modifier l'état de l'interface Bluetooth de votre ordinateur, nous allons
+utiliser le programme <strong>rfkill</strong>. Assurez-vous qu'il soit bien installé sur
+votre machine :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>yum install rfkill
+</span></code></pre>
+<p>Voici les commandes de base de l'outil :</p>
+<ul>
+<li>
+<p>Pour afficher l'état actuel de votre interface Bluetooth :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>rfkill list bluetooth
+</span></code></pre>
+</li>
+<li>
+<p>Pour activer l'interface Bluetooth :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>rfkill unblock bluetooth
+</span></code></pre>
+</li>
+<li>
+<p>Pour désactiver l'interface Bluetooth :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>rfkill block bluetooth
+</span></code></pre>
+</li>
+</ul>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;gnome-3-deactivate-bluetooth-on-boot&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;gnome-3&#x2F;">GNOME 3</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;bluetooth&#x2F;">Bluetooth</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;cpp-define-into-csharp-const&#x2F;">
+        Convertir automatiquement une define C/C++ en constante C#
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2013-07-08 00:00"
+      property="datePublished">08 Jul 2013</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>Je développe actuellement en C# pour les besoins de mon entreprise. Devant
+réécrire un code C++ contenant un grand nombre de defines en C#, voici comment
+j'ai automatisé la tâche :</p>
+<pre data-lang="awk" style="background-color:#2b303b;color:#c0c5ce;" class="language-awk "><code class="language-awk" data-lang="awk"><span style="color:#bf616a;">awk</span><span> &#39;{</span><span style="color:#b48ead;">print </span><span>&quot;</span><span style="color:#a3be8c;">public const UInt16 </span><span>&quot; </span><span style="color:#bf616a;">$2 </span><span>&quot;</span><span style="color:#a3be8c;"> = </span><span>&quot; </span><span style="color:#96b5b4;">substr</span><span>(</span><span style="color:#bf616a;">$0</span><span>, </span><span style="color:#96b5b4;">index</span><span>(</span><span style="color:#bf616a;">$0</span><span>, </span><span style="color:#bf616a;">$3</span><span>)) &quot;</span><span style="color:#a3be8c;">;</span><span>&quot;}&#39; </span><span style="color:#bf616a;">defines_c</span><span>.</span><span style="color:#bf616a;">txt
+</span></code></pre>
+<p>Le fichier <code>defines_c.txt</code> contient les defines à convertir. Et voici le
+résultat :</p>
+<ul>
+<li>
+<p>Avant :</p>
+<pre data-lang="c" style="background-color:#2b303b;color:#c0c5ce;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#b48ead;">#define </span><span>TEST </span><span style="color:#d08770;">2
+</span></code></pre>
+</li>
+<li>
+<p>Après :</p>
+<pre data-lang="cs" style="background-color:#2b303b;color:#c0c5ce;" class="language-cs "><code class="language-cs" data-lang="cs"><span style="color:#b48ead;">public const </span><span>UInt16 </span><span style="color:#bf616a;">TEST </span><span>= </span><span style="color:#d08770;">2</span><span>;
+</span></code></pre>
+</li>
+</ul>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;programming&#x2F;">Programming</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;c&#x2F;">C</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;c&#x2F;">C++</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;c&#x2F;">C#</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;fedora-rebuild-rpm-database&#x2F;">
+        [Fedora] Reconstruire la base de données des paquets RPM
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2013-04-21 00:00"
+      property="datePublished">21 Apr 2013</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>rm -rf /var/lib/rpm/__db*
+</span><span>rpm --rebuilddb
+</span></code></pre>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;rpm&#x2F;">RPM</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+    </div>
+
+    <nav class="pagination">
+      
+      <span class="pagination-item older"><a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;page&#x2F;6&#x2F;">← Previous</a></span>
+      
+
+      
+      <span class="pagination-item newer"><a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;page&#x2F;8&#x2F;">Next →</a></span>
+      
+    </nav>
+    
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

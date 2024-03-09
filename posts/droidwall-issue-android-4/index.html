@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">Problème d'utilisation de Droidwall depuis la version 4 d'Android</h2>
+    
+
+    <time class="post-date" datetime="2011-12-29 00:00"
+      property="datePublished">29 Dec 2011</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>Edit : Depuis Jelly Bean (version 4.1.2 dans mon cas), la variable <code>$IPTABLES</code>
+fournit par Droidwall n'est plus valide. Une petite mise à jour du script
+s'impose :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;">## Netfilter Script by Skyper - https://blog.skyplabs.net ##
+</span><span>
+</span><span style="color:#65737e;"># Permet de corriger un problème d&#39;exploitation de Droidwall depuis ICS.
+</span><span>
+</span><span style="color:#bf616a;">IPTABLES</span><span>=</span><span style="color:#a3be8c;">/system/bin/iptables
+</span><span>
+</span><span>$</span><span style="color:#bf616a;">IPTABLES -D</span><span> OUTPUT</span><span style="color:#bf616a;"> -j</span><span> droidwall
+</span><span>$</span><span style="color:#bf616a;">IPTABLES -I</span><span> OUTPUT 2</span><span style="color:#bf616a;"> -j</span><span> droidwall
+</span></code></pre>
+<hr />
+<p>Droidwall est une application Android permettant d'autoriser ou non l'accès au
+réseau à une application installée sur le système en question. Pour ce faire,
+elle rajoute une série de règles <strong>Netfilter</strong> (via l'utilitaire &quot;userland&quot;
+<strong>iptables</strong>) selon la configuration donnée par l'utilisateur.</p>
+<span id="continue-reading"></span>
+<p>Mais depuis la version 4 d'Android (nommée <strong>Ice Cream Sandwich</strong>), Google a
+intégré à son système la possibilité de visualiser la consommation data réalisée
+par l'ensemble des applications qui y sont installées. Cela se traduit par
+l'ajout de nouvelles règles Netfilter dans les chaînes <code>INPUT</code> et <code>OUTPUT</code>. Le
+souci est que ces nouvelles règles viennent perturber le bon fonctionnement de
+Droidwall. Voyez par vous même :</p>
+<p><img src="https://blog.skyplabs.net/posts/droidwall-issue-android-4/probleme-droidwall-1.png" alt="Screenshot Netfilter Android - before" /></p>
+<p>La règle correspondante à Droiwall se situe après celle qui autorise l'ensemble
+du trafic à sortir. Pour corriger ce problème, j'ai écrit un petit script de
+règles Netfilter que je fais exécuter par Droidwall (via une de ses options)
+pour modifier la position de la règle citée plus haut. Voici le script en
+question :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;">## Netfilter Script by Skyper - https://blog.skyplabs.net ##
+</span><span>
+</span><span style="color:#65737e;"># Permet de corriger un problème d&#39;exploitation de Droidwall depuis ICS.
+</span><span>
+</span><span>$</span><span style="color:#bf616a;">IPTABLES -D</span><span> OUTPUT</span><span style="color:#bf616a;"> -j</span><span> droidwall
+</span><span>$</span><span style="color:#bf616a;">IPTABLES -I</span><span> OUTPUT 2</span><span style="color:#bf616a;"> -j</span><span> droidwall
+</span></code></pre>
+<p>Après avoir copié ce petit script sur votre carte SD, il vous faut utiliser
+l'option &quot;Set Custom Script&quot; de Droidwall pour lui demander de l'exécuter à
+chacune de ses activations. Dans la zone de texte prévue à cet effet, il vous
+faut écrire :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>. /chemin/vers/le/script
+</span></code></pre>
+<p>Et voici le résultat en image :</p>
+<p><img src="https://blog.skyplabs.net/posts/droidwall-issue-android-4/probleme-droidwall-2.png" alt="Screenshot Netfilter Android - after" /></p>
+<p>Cette méthode permet de résoudre le problème mais je vais prendre le temps de
+contacter le développeur de l'application Droidwall pour le lui signaler et
+ainsi éviter toutes ces manipulations.</p>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;systems&#x2F;">Systems</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;android&#x2F;">Android</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;netfilter&#x2F;">Netfilter</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

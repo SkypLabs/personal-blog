@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - SQL</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/sql/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2011-03-19T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/sql/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Afficher les erreurs SQL de PHP seulement aux personnes concernées</title>
+        <published>2011-03-19T00:00:00+00:00</published>
+        <updated>2011-03-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/display-php-errors-admin-only/"/>
+        <id>https://blog.skyplabs.net/posts/display-php-errors-admin-only/</id>
+        
+        <summary type="html">&lt;p&gt;Il est très fortement conseillé de désactiver l&#x27;affichage des erreurs PHP
+(directive &lt;code&gt;display_errors&lt;&#x2F;code&gt; du &lt;code&gt;php.ini&lt;&#x2F;code&gt;) de vos applications web pour ne pas
+révéler des informations pouvant compromettre la sécurité de votre serveur (dans
+le cas d&#x27;un serveur en production).&lt;&#x2F;p&gt;
+&lt;p&gt;Seulement voilà, cacher ces erreurs peut gêner l&#x27;administrateur à traquer les
+bugs ainsi que les problèmes liés à la base de données. En effet, c&#x27;est beaucoup
+plus facile de repérer une erreur si elle est affichée lors de l&#x27;exécution de la
+page plutôt que de passer son temps à analyser les logs du service.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

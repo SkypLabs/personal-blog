@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">[Fedora] Installer de quoi utiliser le Leap Motion</h2>
+    
+
+    <time class="post-date" datetime="2015-07-04 00:00"
+      property="datePublished">04 Jul 2015</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>L'utilisation du <a rel="noopener nofollow noreferrer" target="_blank" href="https://www.leapmotion.com/">Leap Motion</a> sur les systèmes GNU/Linux est
+officiellement supportée mais seul un paquet DEB est fourni. Nous allons donc
+voir comment le convertir en paquet RPM fonctionnel pour Fedora.</p>
+<p>Tout d'abord, vous devez télécharger la dernière version du <a rel="noopener nofollow noreferrer" target="_blank" href="https://warehouse.leapmotion.com/apps/4186/download">Leap Motion
+Setup</a> pour Linux :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>wget https://warehouse.leapmotion.com/apps/4143/download -O leap-setup.tgz
+</span><span>tar zxvf leap-setup.tgz
+</span><span>cd Leap_Motion_Installer_Packages_release_public_linux/
+</span></code></pre>
+<p>Ensuite, nous allons utiliser l'outil <code>alien</code> pour faire la conversion. Si ce
+dernier n'est pas installé :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># Pour Fedora &lt;= 21
+</span><span>sudo yum install alien
+</span><span># Pour Fedora &gt; 21
+</span><span>sudo dnf install alien
+</span></code></pre>
+<span id="continue-reading"></span>
+<p>Nous pouvons maintenant procéder à la conversion :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>sudo alien -r Leap-*-x64.deb
+</span></code></pre>
+<p>Nous pourrions nous dire que notre paquet RPM est prêt à être installé mais
+voici ce qui se passe lorsque l'on tente l'installation dans l'état actuel des
+choses :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>sudo rpm -ivh leap-*.x86_64.rpm
+</span><span>Preparing...                          ################################# [100%]
+</span><span>file /lib from install of leap-2.2.7+30199-2.x86_64 conflicts with file from package filesystem-3.2-28.fc21.x86_64
+</span><span>file /usr/lib from install of leap-2.2.7+30199-2.x86_64 conflicts with file from package filesystem-3.2-28.fc21.x86_64
+</span><span>file /usr/bin from install of leap-2.2.7+30199-2.x86_64 conflicts with file from package filesystem-3.2-28.fc21.x86_64
+</span><span>file /usr/sbin from install of leap-2.2.7+30199-2.x86_64 conflicts with file from package filesystem-3.2-28.fc21.x86_64
+</span></code></pre>
+<p>Pour résoudre les conflits avec le paquet <code>filesystem</code>, nous allons utiliser
+l'outil <code>rpmrebuild</code> :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># Pour Fedora &lt;= 21
+</span><span>sudo yum install rpmrebuild
+</span><span># Pour Fedora &gt; 21
+</span><span>sudo dnf install rpmrebuild
+</span></code></pre>
+<p>Ce dernier nous permet d'éditer le fichier <code>Spec</code> d'un paquet RPM. Il est
+possible de préciser quel éditeur de texte nous souhaitons utiliser à l'aide de
+la variable d'environnement <code>EDITOR</code> :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">EDITOR</span><span>=</span><span style="color:#a3be8c;">/usr/bin/vim
+</span></code></pre>
+<p>Nous pouvons maintenant exécuter <code>rpmrebuild</code> :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>rpmrebuild -pe leap-*.x86_64.rpm
+</span></code></pre>
+<p>Il nous faut maintenant supprimer les lignes <code>%dir</code> qui posent problème, à
+savoir :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>%dir %attr(0755, root, root) &quot;/lib&quot;
+</span><span>%dir %attr(0755, root, root) &quot;/usr/bin&quot;
+</span><span>%dir %attr(0755, root, root) &quot;/usr/lib&quot;
+</span><span>%dir %attr(0755, root, root) &quot;/usr/sbin&quot;
+</span></code></pre>
+<p>Une fois supprimées, vous pouvez enregistrer et quitter l'éditeur de texte. Une
+confirmation vous sera demandée par la suite, à laquelle il faut répondre oui.
+Le nouveau paquet RPM sera disponible dans <code>~/rpmbuild/RPMS/x86_64</code>. Il ne vous
+reste plus qu'à procéder à l'installation :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>cd ~/rpmbuild/RPMS/x86_64
+</span><span>sudo rpm -ivh leap-*.x86_64.rpm
+</span></code></pre>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;leap-motion&#x2F;">Leap Motion</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;rpm&#x2F;">RPM</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

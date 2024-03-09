@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">[Angular] Different sharing mechanisms for different situations</h2>
+    
+
+    <time class="post-date" datetime="2017-11-30 00:00"
+      property="datePublished">30 Nov 2017</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>Angular has different mechanisms for sharing data between components. The choice
+of the sharing method mostly depends on the relationship of the related
+components. Typically, within the context of a parent-child topology, the most
+straightforward choice would be to use the <code>@Input</code> and <code>@Output</code> decorators.
+For sibling components, relying on a data sharing service seems to be the most
+obvious solution. In any case, once you have settled on the choice of a
+communication topology, you need to decide which data propagating mechanism to
+use.</p>
+<p>Generally, components use <code>EventEmmiter</code> objects to share data with each other.
+When you pass data into an Angular component with an <code>@Input</code> decorator, you are
+actually using an <code>EventEmitter</code> object. Although this solution is appropriate
+for the majority of situations, this is not always the case. Let's consider the
+following example:</p>
+<p><img src="/posts/angular-sharing-mechanisms/EventEmitter.svg" alt="Diagram of the data propagation using an EventEmitter" /></p>
+<span id="continue-reading"></span>
+<p>An emitter component fires an event when a certain situation happens using an
+<code>EventEmitter</code> object. The event is designed to be received by the two
+receivers. These two components are independent from each other and they are
+controlled by a router which means that only one of them is executed at once.
+However, we want both receivers to be able to process the latest version of the
+shared data sent by the emitter component. The problem here is that the emitter
+sends its data only once as soon as the trigger event is fired. Only the active
+receiver will receive the shared data.</p>
+<p>Below is an interactive demo of this example:</p>
+<iframe style="width: 100%; height: 600px"
+src="https://embed.plnkr.co/fZbjw7?show=preview" frameborder="0"
+allowfullscren="allowfullscren"></iframe>
+<p>A sidebar component (the emitter) contains a drop-down menu with different value
+choices. When a user selects one or more of these choices, the related values
+are sent to the currently displayed receiver (receiver 1 at start-up). The
+displayed receiver is nested inside a router component. Since only one of the
+components controlled by the router is executed at once, the drop-down menu's
+values are not propagated when the user decides to display the second receiver
+by clicking on the second tab. Consequently, the user's input selection is lost,
+even when going back and forth from receiver 1 to receiver 2.</p>
+<p>Angular's sharing mechanisms rely on the <a rel="noopener nofollow noreferrer" target="_blank" href="http://reactivex.io/">ReactiveX library</a>. The
+<a rel="noopener nofollow noreferrer" target="_blank" href="https://angular.io/api/core/EventEmitter">EventEmitter definition</a> extends the ReactiveX library's
+<code>Subject</code> class:</p>
+<pre data-lang="typescript" style="background-color:#2b303b;color:#c0c5ce;" class="language-typescript "><code class="language-typescript" data-lang="typescript"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">EventEmitter</span><span style="color:#eff1f5;">&lt;T&gt; </span><span style="color:#b48ead;">extends </span><span style="color:#a3be8c;">Subject </span><span style="color:#eff1f5;">{
+</span><span style="color:#eff1f5;">  </span><span>...
+</span><span style="color:#eff1f5;">}
+</span></code></pre>
+<p>As a result, any of the <a rel="noopener nofollow noreferrer" target="_blank" href="http://reactivex.io/documentation/subject.html">varieties of Subject</a> is suitable to be used
+instead of <code>EventEmitter</code>. For the present use case, a <code>ReplaySubject</code> object
+with a buffer size of 1 seems to be a good solution to solve the issue
+previously described. That way, the latest version of the shared data sent by
+the emitter will be sent again each time a new receiver will subscribe to its
+data stream:</p>
+<p><img src="https://blog.skyplabs.net/posts/angular-sharing-mechanisms/ReplaySubject.svg" alt="Diagram of the data propagation using a ReplaySubject" /></p>
+<p>See the result for yourself:</p>
+<iframe style="width: 100%; height: 600px"
+src="https://embed.plnkr.co/sJYnOO?show=preview" frameborder="0"
+allowfullscren="allowfullscren"></iframe>
+<p>As you can see, the communication topology is not the only thing to think about
+when designing the software architecture of your Angular application. Take the
+time to read about the different <a rel="noopener nofollow noreferrer" target="_blank" href="http://reactivex.io/documentation/subject.html">Subject classes</a> from the <a rel="noopener nofollow noreferrer" target="_blank" href="http://reactivex.io/">ReactiveX
+library</a> before implementing your own homemade solution.</p>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;programming&#x2F;">Programming</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;angular&#x2F;">Angular</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;web&#x2F;">Web</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

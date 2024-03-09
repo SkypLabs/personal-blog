@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Web</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/web/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2020-10-02T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/web/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[HTB] Admirer</title>
+        <published>2020-10-02T00:00:00+00:00</published>
+        <updated>2020-10-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/htb-admirer/"/>
+        <id>https://blog.skyplabs.net/posts/htb-admirer/</id>
+        
+        <summary type="html">&lt;p&gt;Admirer is an easy &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Hack The Box - Main Website&quot; href=&quot;https:&#x2F;&#x2F;hackthebox.eu&#x2F;&quot;&gt;Hack The Box&lt;&#x2F;a&gt; Linux-based machine released on the 2nd
+of May 2020 and reachable on the IP address &lt;code&gt;10.10.10.187&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;For whose who don&#x27;t know it yet, Hack The Box is an online platform where
+vulnerable machines are deployed in a private network accessible via VPN, and
+where users need to hack their way into the systems to collect flags as proofs
+of their success.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;htb-admirer&#x2F;htb-admirer-info-card.jpg&quot; alt=&quot;HTB Admirer information card&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[HTB] Traceback</title>
+        <published>2020-08-25T00:00:00+00:00</published>
+        <updated>2020-08-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/htb-traceback/"/>
+        <id>https://blog.skyplabs.net/posts/htb-traceback/</id>
+        
+        <summary type="html">&lt;p&gt;Traceback is an easy Linux-based machine released on the 14th of March 2020 and
+reachable on the IP address &lt;code&gt;10.10.10.181&lt;&#x2F;code&gt; (despite what&#x27;s written on the info
+card).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;htb-traceback&#x2F;htb-traceback-info-card.jpg&quot; alt=&quot;HTB Traceback information card&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Hacker 101 - Capture the Flags with a Regex</title>
+        <published>2020-07-07T00:00:00+00:00</published>
+        <updated>2020-07-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/hacker101-flag-regex/"/>
+        <id>https://blog.skyplabs.net/posts/hacker101-flag-regex/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/hacker101-flag-regex/">&lt;p&gt;Enjoying &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ctf.hacker101.com&quot;&gt;HackerOne&#x27;s CTF&lt;&#x2F;a&gt;?&lt;&#x2F;p&gt;
+&lt;p&gt;If you want to make sure not to inadvertently miss any single flag while
+skimming through web pages, you can ask &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;zaproxy.org&quot;&gt;ZAP&lt;&#x2F;a&gt; to catch them for you with
+this regex: &lt;code&gt;\^FLAG\^[\w\d]{64}\$FLAG\$&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;hacker101-flag-regex&#x2F;hacker101_zap_flag_regex_settings.jpg&quot; alt=&quot;ZAP settings to capture Hacker 101 flags automatically&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;A &amp;quot;Flag&amp;quot; tag will appear next the requests containing a flag in their response:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;hacker101-flag-regex&#x2F;hacker101_zap_flag_regex_captured.jpg&quot; alt=&quot;HTTP request captured with ZAP containing a Hacker 101 flag&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;This technique is particularly useful when a flag appears in a non-obvious
+location such as an HTML comment.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Angular] Different sharing mechanisms for different situations</title>
+        <published>2017-11-30T00:00:00+00:00</published>
+        <updated>2017-11-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/angular-sharing-mechanisms/"/>
+        <id>https://blog.skyplabs.net/posts/angular-sharing-mechanisms/</id>
+        
+        <summary type="html">&lt;p&gt;Angular has different mechanisms for sharing data between components. The choice
+of the sharing method mostly depends on the relationship of the related
+components. Typically, within the context of a parent-child topology, the most
+straightforward choice would be to use the &lt;code&gt;@Input&lt;&#x2F;code&gt; and &lt;code&gt;@Output&lt;&#x2F;code&gt; decorators.
+For sibling components, relying on a data sharing service seems to be the most
+obvious solution. In any case, once you have settled on the choice of a
+communication topology, you need to decide which data propagating mechanism to
+use.&lt;&#x2F;p&gt;
+&lt;p&gt;Generally, components use &lt;code&gt;EventEmmiter&lt;&#x2F;code&gt; objects to share data with each other.
+When you pass data into an Angular component with an &lt;code&gt;@Input&lt;&#x2F;code&gt; decorator, you are
+actually using an &lt;code&gt;EventEmitter&lt;&#x2F;code&gt; object. Although this solution is appropriate
+for the majority of situations, this is not always the case. Let&#x27;s consider the
+following example:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;angular-sharing-mechanisms&#x2F;EventEmitter.svg&quot; alt=&quot;Diagram of the data propagation using an EventEmitter&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Angular] Running unit tests with Chromium in a Docker container</title>
+        <published>2017-08-29T00:00:00+00:00</published>
+        <updated>2017-08-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/angular-unit-tests-chromium-docker/"/>
+        <id>https://blog.skyplabs.net/posts/angular-unit-tests-chromium-docker/</id>
+        
+        <summary type="html">&lt;p&gt;Running unit tests for front-end web applications require them to be tested in a
+web browser. While it&#x27;s not an issue on a workstation, it can become tedious
+when running in a restricted environment such as a Docker container. In fact,
+these execution environments are generally lightweight and do not contain any
+graphical environment.&lt;&#x2F;p&gt;
+&lt;p&gt;One solution to work around this issue is to use a headless web browser designed
+for development purposes, like &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;phantomjs.org&#x2F;&quot;&gt;PhantomJS&lt;&#x2F;a&gt;. While it&#x27;s an elegant
+solution for testing an application, it would be even better to test it directly
+in a web browser which will be used by the end-users in order to match real
+conditions of use, for examples Firefox or Chromium&#x2F;Google Chrome. However, as
+mentioned above, it is needed to find a way to execute a regular web browser in
+a restricted environment.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

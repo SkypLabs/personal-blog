@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Arduino</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/arduino/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2012-06-10T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/arduino/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Télécommander sa télévision et ses autres appareils à infrarouge depuis son smartphone</title>
+        <published>2012-06-10T00:00:00+00:00</published>
+        <updated>2012-06-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/ir-remote-control-from-smartphone/"/>
+        <id>https://blog.skyplabs.net/posts/ir-remote-control-from-smartphone/</id>
+        
+        <summary type="html">&lt;p&gt;Je ne sais pas pour vous, mais moi j&#x27;ai toujours eu horreur de devoir jongler
+avec plusieurs télécommandes alors que je ne cherchais qu&#x27;à réaliser des tâches
+plutôt triviales. Une télécommande pour allumer la télévision, une autre pour
+allumer le home cinema... et plus on multiplie les appareils électroniques dans
+son salon, plus on collectionne de télécommandes !&lt;&#x2F;p&gt;
+&lt;p&gt;Dans le but de me simplifier la vie, j&#x27;ai donc décidé de réaliser un montage
+électronique pour pouvoir piloter mes appareils à infrarouge depuis un système
+informatique classique, en particulier depuis mon téléphone portable. Je vais
+donc détailler dans cet article les différentes étapes de la réalisation ainsi
+que les différents éléments permettant de reproduire à l&#x27;identique le système
+que j&#x27;ai développé.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Programmer une carte Arduino depuis la Asus Transformer Prime</title>
+        <published>2012-02-24T00:00:00+00:00</published>
+        <updated>2012-02-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/program-arduino-from-android-debian-chroot/"/>
+        <id>https://blog.skyplabs.net/posts/program-arduino-from-android-debian-chroot/</id>
+        
+        <summary type="html">&lt;p&gt;Maintenant que nous disposons d&#x27;une Debian sur notre Transformer Prime (cf :
+&lt;a href=&quot;https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;debian-chroot-on-android&#x2F;&quot;&gt;Allier Android en GUI et Debian en CLI sur la Asus Transformer
+Prime&lt;&#x2F;a&gt;), il est grand temps de commencer à
+jouer avec. C&#x27;est dans cette optique que j&#x27;ai décidé de détailler dans cet
+article la marche à suivre pour programmer une carte Arduino (&lt;strong&gt;Uno&lt;&#x2F;strong&gt; dans mon
+cas).&lt;&#x2F;p&gt;
+&lt;p&gt;Dans un premier temps, il nous faut préparer notre environnement de
+développement au sein de la Debian. Un petit coup de &lt;code&gt;aptitude&lt;&#x2F;code&gt; (ou &lt;code&gt;apt-get&lt;&#x2F;code&gt;,
+selon vos préférences) et le tour est joué :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;aptitude update
+&lt;&#x2F;span&gt;&lt;span&gt;aptitude install gcc-avr avrdude avr-libc
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Il va également nous falloir de quoi écrire notre code. Pour ma part, mon choix
+s&#x27;est tourné vers &lt;strong&gt;Vim&lt;&#x2F;strong&gt;. De plus, l&#x27;utilisation d&#x27;un Makefile va grandement
+nous faciliter la vie. Prenez donc le temps d&#x27;installer &lt;strong&gt;make&lt;&#x2F;strong&gt; en plus du
+reste.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

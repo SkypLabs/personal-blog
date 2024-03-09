@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+    <div id="search-container">
+      <input type="search" id="search-input" placeholder="Search for a post, a tag, a category...">
+      <div class="search-results">
+        <ul class="search-results-items"></ul>
+      </div>
+    </div>
+
+    <div class="posts">
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;remove-wordpress-version&#x2F;">
+        Retirer la version de WordPress des en-têtes HTML
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2011-03-11 00:00"
+      property="datePublished">11 Mar 2011</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>La version de WordPress apparaît par défaut dans les en-têtes HTML, ce qui n'est
+bien entendu pas une bonne chose d'un point de vue sécurité. Pour la supprimer,
+il faut rajouter ce bout de code à la fin du fichier <code>functions.php</code> de votre
+thème :</p>
+<pre data-lang="php" style="background-color:#2b303b;color:#c0c5ce;" class="language-php "><code class="language-php" data-lang="php"><span style="color:#ab7967;">&lt;?php
+</span><span style="color:#65737e;">// Pour retirer l&#39;affichage de la version de WordPress dans les en-têtes HTML.
+</span><span style="color:#bf616a;">remove_action</span><span>(&#39;</span><span style="color:#a3be8c;">wp_head</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">wp_generator</span><span>&#39;);
+</span><span style="color:#ab7967;">?&gt;
+</span></code></pre>
+<p>Pour ce faire, vous pouvez soit modifier le fichier <code>functions.php</code> de votre
+thème à la main (il se trouve normalement dans <code>wp-content/themes/&lt;votre thème&gt;/functions.php</code>), soit le modifier depuis l'interface d'édition de
+WordPress (Menu <em>Apparence</em> =&gt; <em>Éditeur</em>).</p>
+<p>Pour plus d'informations sur la fonction <code>remove_action</code>, <a rel="noopener nofollow noreferrer" target="_blank" title="codex.wordpress.org : Remove Action" href="https://codex.wordpress.org/Function_Reference/remove_action">cliquez
+ici</a>.</p>
+<p>Pensez également à supprimer le fichier <code>readme.html</code> présent à la racine de
+votre site. Ce dernier contient également le numéro de version de WordPress.</p>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;security&#x2F;">Security</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;wordpress&#x2F;">WordPress</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;sniff-network-wireshark-no-root&#x2F;">
+        Sniffer le réseau avec Wireshark sans le compte root
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2011-02-09 00:00"
+      property="datePublished">09 Feb 2011</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p>Wireshark est un outil d'analyse qui permet de &quot;sniffer&quot; les informations qui
+passent à travers les interfaces réseau du système sur lequel il est installé.
+Il est très utilisé car c'est un logiciel complet, multiplateforme et libre. Je
+me demande d'ailleurs pourquoi je perds mon temps à vous le présenter étant
+donné que je suis sûr qu'il est déjà installé sur votre ordinateur ou même sur
+votre téléphone pour les plus bidouilleurs d'entre vous ...</p>
+<p>Ceci étant, pour pouvoir sniffer le réseau avec cet outil, vous devez le lancer
+depuis le compte root pour qu'il puisse passer la carte réseau sélectionnée pour
+la capture en mode <strong>promiscuous</strong>, ce qui n'est pas très bon pour la sécurité
+de votre machine. En effet, Wireshark n'est pas réputé pour sa sécurité sans
+faille. D'ailleurs, une simple recherche dans la <strong><a rel="noopener nofollow noreferrer" target="_blank" href="https://nvd.nist.gov/">National Vulnerability
+Database</a></strong> (NVD) retourne 110 résultats, ce qui est déjà pas mal.</p>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;sniff-network-wireshark-no-root&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;network&#x2F;">Network</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;security&#x2F;">Security</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;wireshark&#x2F;">Wireshark</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;exit-terminal-without-stopping-processes&#x2F;">
+        Quitter sa console sans stopper les processus en cours d'exécution
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2011-02-08 00:00"
+      property="datePublished">08 Feb 2011</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p>Ne vous est-il jamais arrivé de devoir quitter votre session actuelle alors
+qu'un programme en cours d'exécution n'a pas terminé son traitement ? Le
+contraire serait étonnant. Par exemple, vous avez lancé l'extraction d'une base
+de données par SSH pour en faire un backup et vous n'avez pas le temps
+d'attendre gentiment devant votre terminal que son exécution se termine.</p>
+<p>Le fait est que lorsqu'on demande de fermer sa session (commande <code>exit</code>,
+<code>CTRL+D</code>, ...), le processus faisant tourner le shell envoie un signal
+<a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/SIGHUP">SIGHUP</a> à tous ses enfants pour demander leur arrêt. Des tâches comme
+l'extraction d'une base de données citée dans mon exemple prendront fin à
+l'instant où la session sera fermée.</p>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;exit-terminal-without-stopping-processes&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;nohup&#x2F;">nohup</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;update-grub-from-live-cdusb&#x2F;">
+        Faire un update-grub depuis un live CD/USB
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2011-02-03 00:00"
+      property="datePublished">03 Feb 2011</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p>Sur toutes les machines dont je dispose à mon domicile, je n'ai installé Windows
+que sur une seule d'entre elles en multiboot avec Ubuntu (et oui, il faut avouer
+qu'avoir un Windows sous la main est toujours utile malgré tout). Cependant, ce
+vilain petit canard m'a causé quelques soucis lorsque j'ai réinstallé mes
+systèmes sur cet ordinateur (à cause d'un changement de disque dur).</p>
+<p>En effet, j'ai installé Ubuntu avant Windows car je n'avais pas son disque de
+réinstallation à ce moment là (prêté à quelqu'un). J'ai donc laissé 100 Go au
+début de mon disque dur pour le futur Windows et installé Ubuntu sur le reste de
+l'espace disponible. Lors de l'installation de Windows, ce dernier m'a écrasé le
+<a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Master_boot_record">MBR</a> (comme d'hab ...) mais j'avais prévu le coup, ayant installé Grub
+dans le <a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Volume_boot_record">PBR</a> (ou <a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Volume_boot_record">VBR</a>) de ma partition. Malgré tout, Ubuntu refuse
+de démarrer (contrairement à Windows, lancé depuis un bootloader appelé
+<a rel="noopener nofollow noreferrer" target="_blank" href="http://gag.sourceforge.net/">GAG</a> installé dans le <a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Master_boot_record">MBR</a>), une belle console de récupération Grub
+à l'écran ...</p>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;update-grub-from-live-cdusb&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;grub&#x2F;">GRUB</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+    </div>
+
+    <nav class="pagination">
+      
+      <span class="pagination-item older"><a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;page&#x2F;12&#x2F;">← Previous</a></span>
+      
+
+      
+      <span class="pagination-item newer">Next →</span>
+      
+    </nav>
+    
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

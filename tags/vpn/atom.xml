@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - VPN</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/vpn/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-01-28T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/vpn/atom.xml</id>
+    <entry xml:lang="en">
+        <title>VPN, Security and Improper HTTP Redirects</title>
+        <published>2023-01-28T00:00:00+00:00</published>
+        <updated>2023-01-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/vpn-security-improper-http-redirects/"/>
+        <id>https://blog.skyplabs.net/posts/vpn-security-improper-http-redirects/</id>
+        
+        <summary type="html">&lt;p&gt;As you probably have already noticed, the number of VPN providers has grown
+massively in the recent years, and you can now stumble on ads for VPN
+subscriptions on every corner of the Internet. Of course, not all of these
+providers are equal in terms of quality of service, security or privacy. At the
+contrary, some of them falsely claim to have a zero-log policy or to even
+protect you from malicious actors.&lt;&#x2F;p&gt;
+&lt;p&gt;Having said that, using a public VPN service is not necessarily a bad idea if
+you choose it correctly. It&#x27;s a matter of trust after all. Who do you trust the
+most for keeping your traffic private, your ISP, or a carefully selected VPN
+provider? (I said carefully here because you have a larger number of VPN
+providers on the market than ISPs available where you live).&lt;&#x2F;p&gt;
+&lt;p&gt;If you trust your VPN provider, you get in theory a higher degree of online
+privacy by proxying your connections through it (even if, as of today, nothing
+can fully replace &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;The Tor project&quot; href=&quot;https:&#x2F;&#x2F;www.torproject.org&#x2F;&quot;&gt;Tor&lt;&#x2F;a&gt;). But what about security? From a theoretical
+standpoint once again, TLS is well enough to guarantee the security of your
+online activity. And thanks to projects like &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Let&#x27;s Encrypt&quot; href=&quot;https:&#x2F;&#x2F;letsencrypt.org&#x2F;&quot;&gt;Let&#x27;s Encrypt&lt;&#x2F;a&gt;, most
+websites are accessible via HTTPS these days.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

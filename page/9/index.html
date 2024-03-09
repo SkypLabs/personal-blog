@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+    <div id="search-container">
+      <input type="search" id="search-input" placeholder="Search for a post, a tag, a category...">
+      <div class="search-results">
+        <ul class="search-results-items"></ul>
+      </div>
+    </div>
+
+    <div class="posts">
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;mediawiki-thumbnail-creation-issue&#x2F;">
+        [MediaWiki] Impossible de créer la miniature d'un fichier image
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2012-10-13 00:00"
+      property="datePublished">13 Oct 2012</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p>Lorsque j'envoyais une image sur MediaWiki (installé sur ma FreeBSD), j'avais
+droit à une erreur de ce type :</p>
+<blockquote>
+<p>Erreur lors de la création de la miniature : Impossible d'enregistrer la
+vignette sur la destination</p>
+</blockquote>
+<p>Pourtant, c'était pas faute d'avoir configuré le répertoire temporaire qui va
+bien (avec les bons droits d'accès) dans le fichier <code>LocalSettings.php</code> grâce à
+la directive <code>$wgTmpDirectory</code>. Seulement le problème venait du fait que
+MediaWiki utilise la fonction suivante pour déterminer l'emplacement du
+répertoire temporaire à utiliser :</p>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;mediawiki-thumbnail-creation-issue&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;web&#x2F;">Web</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;mediawiki&#x2F;">MediaWiki</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;php&#x2F;">PHP</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;freebsd-adjkerntz-inside-jail&#x2F;">
+        [FreeBSD] adjkerntz dans une jail
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2012-09-22 00:00"
+      property="datePublished">22 Sep 2012</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>Le programme adjkerntz (installé par défaut sous FreeBSD) permet de maintenir
+une relation cohérente entre l'horloge du noyau, qui est toujours configurée à
+l'heure UTC, et l'horloge locale CMOS, qui peut être configurée au fuseau local.</p>
+<p>Cependant, au sein d'une jail, seul le fuseau horaire peut être modifié. La jail
+utilise donc la même heure que celle configurée sur le système hôte.
+L'utilisation de la commande adjkerntz va donc provoquer une erreur :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Sep 22 05:31:00 www adjkerntz[23948]: sysctl(set: &quot;machdep.wall_cmos_clock&quot;): Operation not permitted
+</span></code></pre>
+<p>Si vous rencontrez des messages similaires dans vos logs, c'est tout simplement
+parce que la commande <code>adjkerntz</code> est invoquée régulièrement par <strong>cron</strong>. Pour
+résoudre ce problème, il suffit de commenter la ligne suivante dans le fichier
+<code>/etc/crontab</code> de vos jails :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># Adjust the time zone if the CMOS clock keeps local time, as opposed to
+</span><span># UTC time.  See adjkerntz(8) for details.
+</span><span>#1,31   0-5     *       *       *       root    adjkerntz -a
+</span></code></pre>
+<p>Vos logs seront plus propres désormais.</p>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;freebsd&#x2F;">FreeBSD</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;ntp&#x2F;">NTP</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;custom-mysql-prompt&#x2F;">
+        Modifier la présentation du prompt sous MySQL
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2012-07-25 00:00"
+      property="datePublished">25 Jul 2012</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>Pour modifier la présentation du prompt sous MySQL, il faut éditer la variable
+d'environnement <code>MYSQL_PS1</code> comme dans l'exemple ci-dessous :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">MYSQL_PS1</span><span>=&quot;</span><span style="color:#a3be8c;">(\u@\h) [\d]&gt; </span><span>&quot;
+</span></code></pre>
+<p><code>\u</code>, <code>\h</code> et <code>\d</code> désignent respectivement l'utilisateur, l'hôte et la base de
+données.</p>
+<p>Pour conserver cette modification, le mieux est d'ajouter cette ligne dans le
+fichier <code>~/.bashrc</code> de l'utilisateur courant (dans le cas du shell Bash) ou dans
+le fichier <code>/etc/profile</code> pour cibler tous les utilisateurs.</p>
+<p>Cependant, ce n'est pas la seule façon de procéder. Pour plus d'informations,
+<a rel="noopener nofollow noreferrer" target="_blank" title="Documentation MySQL : MySQL commands" href="https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html">cliquez ici</a>.</p>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;mysql&#x2F;">MySQL</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;freebsd-create-loopback-interface&#x2F;">
+        [FreeBSD] Créer une interface de loopback au démarrage
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2012-07-12 00:00"
+      property="datePublished">12 Jul 2012</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>Sous FreeBSD, pour créer une interface virtuelle de type loopback au démarrage
+du système (nommée <code>lo1</code> pour l'exemple), il faut ajouter le fichier
+<code>/etc/start_if.lo1</code> et ce dernier devra contenir la commande suivante :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>/sbin/ifconfig lo1 create
+</span></code></pre>
+<p>Pour la configuration de l'interface, cela se passe dans le fichier
+<code>/etc/rc.conf</code>.</p>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;network&#x2F;">Network</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;freebsd&#x2F;">FreeBSD</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;ir-remote-control-from-smartphone&#x2F;">
+        Télécommander sa télévision et ses autres appareils à infrarouge depuis son smartphone
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2012-06-10 00:00"
+      property="datePublished">10 Jun 2012</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p>Je ne sais pas pour vous, mais moi j'ai toujours eu horreur de devoir jongler
+avec plusieurs télécommandes alors que je ne cherchais qu'à réaliser des tâches
+plutôt triviales. Une télécommande pour allumer la télévision, une autre pour
+allumer le home cinema... et plus on multiplie les appareils électroniques dans
+son salon, plus on collectionne de télécommandes !</p>
+<p>Dans le but de me simplifier la vie, j'ai donc décidé de réaliser un montage
+électronique pour pouvoir piloter mes appareils à infrarouge depuis un système
+informatique classique, en particulier depuis mon téléphone portable. Je vais
+donc détailler dans cet article les différentes étapes de la réalisation ainsi
+que les différents éléments permettant de reproduire à l'identique le système
+que j'ai développé.</p>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;ir-remote-control-from-smartphone&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;electronics&#x2F;">Electronics</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;programming&#x2F;">Programming</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;android&#x2F;">Android</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;arduino&#x2F;">Arduino</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;infrared&#x2F;">Infrared</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;bluetooth&#x2F;">Bluetooth</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+    </div>
+
+    <nav class="pagination">
+      
+      <span class="pagination-item older"><a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;page&#x2F;8&#x2F;">← Previous</a></span>
+      
+
+      
+      <span class="pagination-item newer"><a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;page&#x2F;10&#x2F;">Next →</a></span>
+      
+    </nav>
+    
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

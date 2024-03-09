@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+    <div id="search-container">
+      <input type="search" id="search-input" placeholder="Search for a post, a tag, a category...">
+      <div class="search-results">
+        <ul class="search-results-items"></ul>
+      </div>
+    </div>
+
+    <div class="posts">
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;stop-bash-from-writing-command-history&#x2F;">
+        Empêcher Bash d'écrire dans l'historique des commandes
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2012-02-29 00:00"
+      property="datePublished">29 Feb 2012</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p><strong>Edit</strong> : Une autre solution beaucoup plus propre m'a été proposée pour
+réaliser exactement la même chose :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">HISTFILE</span><span>=</span><span style="color:#a3be8c;">/dev/null
+</span></code></pre>
+<p>Après ceci, l'écriture de l'historique des commandes par Bash aura lieu dans
+<code>/dev/null</code>, ce qui revient à écrire dans le vide.</p>
+<hr />
+<p>Comme vous devez le savoir, le shell Bash conserve un historique des dernières
+commandes que l'utilisateur a entré dans son terminal. Cela permet de garder une
+trace de ce qui a été fait, chose particulièrement importante sur un serveur,
+surtout si plusieurs personnes travaillent sur la même machine avec le même
+compte. La liste des commandes est stockée par défaut dans le fichier
+<code>~/.bash_history</code> et il est possible d'afficher cette liste avec la commande
+<code>history</code>.</p>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;stop-bash-from-writing-command-history&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;bash&#x2F;">Bash</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;program-arduino-from-android-debian-chroot&#x2F;">
+        Programmer une carte Arduino depuis la Asus Transformer Prime
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2012-02-24 00:00"
+      property="datePublished">24 Feb 2012</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p>Maintenant que nous disposons d'une Debian sur notre Transformer Prime (cf :
+<a href="https://blog.skyplabs.net/posts/debian-chroot-on-android/">Allier Android en GUI et Debian en CLI sur la Asus Transformer
+Prime</a>), il est grand temps de commencer à
+jouer avec. C'est dans cette optique que j'ai décidé de détailler dans cet
+article la marche à suivre pour programmer une carte Arduino (<strong>Uno</strong> dans mon
+cas).</p>
+<p>Dans un premier temps, il nous faut préparer notre environnement de
+développement au sein de la Debian. Un petit coup de <code>aptitude</code> (ou <code>apt-get</code>,
+selon vos préférences) et le tour est joué :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>aptitude update
+</span><span>aptitude install gcc-avr avrdude avr-libc
+</span></code></pre>
+<p>Il va également nous falloir de quoi écrire notre code. Pour ma part, mon choix
+s'est tourné vers <strong>Vim</strong>. De plus, l'utilisation d'un Makefile va grandement
+nous faciliter la vie. Prenez donc le temps d'installer <strong>make</strong> en plus du
+reste.</p>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;program-arduino-from-android-debian-chroot&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;programming&#x2F;">Programming</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;android&#x2F;">Android</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;debian&#x2F;">Debian</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;arduino&#x2F;">Arduino</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;debian-chroot-on-android&#x2F;">
+        Allier Android en GUI et Debian en CLI sur la Asus Transformer Prime
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2012-01-20 00:00"
+      property="datePublished">20 Jan 2012</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p>Ça y est, j'ai enfin reçu ma tablette tactile, la Asus Transformer Prime !</p>
+<p>Pour ceux qui ne la connaissent pas, c'est une tablette qui a la particularité
+d'être vendue avec un dock clavier (une station d'accueil) lui permettant de se
+transformer (d'où son nom) en petit ordinateur. Une fois montée sur le dock, on
+a réellement l'impression que c'est un netbook.</p>
+<p>Le principal intérêt de cette tablette est donc son utilisation en tant
+qu'ordinateur. C'est pour cette raison que je trouvais dommage de devoir se
+limiter aux applications Android qui ne sont pas particulièrement adaptées à
+l'ensemble des usages qu'en ferait une personne expérimentée dans le domaine de
+l'informatique. Par exemple, comment compiler un programme développé en C sous
+Android ? Et comment implémenter ce dernier dans une carte microcontrôleur ? Ou
+comment scanner un réseau dans le but de faire un audit de sécurité ? C'est donc
+pour combler ces manques que je me suis décidé à installer une distribution
+Debian dans un environnement confiné au sein de l'arborescence du système
+Android afin de pouvoir récupérer facilement l'ensemble des outils dont j'ai
+besoin.</p>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;debian-chroot-on-android&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;android&#x2F;">Android</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;debian&#x2F;">Debian</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;freebsd-reload-rc-conf&#x2F;">
+        [FreeBSD] Recharger le fichier /etc/rc.conf sans redémarrer votre machine
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2011-12-31 00:00"
+      property="datePublished">31 Dec 2011</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>Voici une petite astuce permettant de gagner du temps :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>shutdown now
+</span></code></pre>
+<p>Le fait d'utiliser la commande <code>shutdown</code> sans les arguments <code>-r</code> ou <code>-h</code> (ou
+encore <code>-p</code>) permet de passer le système en mode <strong>single user</strong>. Après ceci,
+quand le système vous le propose, appuyez sur la touche entrée pour récupérer un
+shell. Puis, utilisez la commande <code>exit</code> (ou la combinaison <code>ctrl + D</code>) pour
+revenir en mode <strong>multi user</strong> et ainsi recharger le fichier <code>/etc/rc.conf</code>.</p>
+<p>Ayez cependant conscience que l'ensemble de vos services vont être relancés
+pendant cette procédure.</p>
+<p>Bonne année à tous 🙂</p>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;freebsd&#x2F;">FreeBSD</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;droidwall-issue-android-4&#x2F;">
+        Problème d'utilisation de Droidwall depuis la version 4 d'Android
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2011-12-29 00:00"
+      property="datePublished">29 Dec 2011</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="description">
+          <p>Edit : Depuis Jelly Bean (version 4.1.2 dans mon cas), la variable <code>$IPTABLES</code>
+fournit par Droidwall n'est plus valide. Une petite mise à jour du script
+s'impose :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;">## Netfilter Script by Skyper - https://blog.skyplabs.net ##
+</span><span>
+</span><span style="color:#65737e;"># Permet de corriger un problème d&#39;exploitation de Droidwall depuis ICS.
+</span><span>
+</span><span style="color:#bf616a;">IPTABLES</span><span>=</span><span style="color:#a3be8c;">/system/bin/iptables
+</span><span>
+</span><span>$</span><span style="color:#bf616a;">IPTABLES -D</span><span> OUTPUT</span><span style="color:#bf616a;"> -j</span><span> droidwall
+</span><span>$</span><span style="color:#bf616a;">IPTABLES -I</span><span> OUTPUT 2</span><span style="color:#bf616a;"> -j</span><span> droidwall
+</span></code></pre>
+<hr />
+<p>Droidwall est une application Android permettant d'autoriser ou non l'accès au
+réseau à une application installée sur le système en question. Pour ce faire,
+elle rajoute une série de règles <strong>Netfilter</strong> (via l'utilitaire &quot;userland&quot;
+<strong>iptables</strong>) selon la configuration donnée par l'utilisateur.</p>
+
+        </div>
+
+        <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;droidwall-issue-android-4&#x2F;">Read more</a>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;systems&#x2F;">Systems</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;android&#x2F;">Android</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;netfilter&#x2F;">Netfilter</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+    </div>
+
+    <nav class="pagination">
+      
+      <span class="pagination-item older"><a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;page&#x2F;9&#x2F;">← Previous</a></span>
+      
+
+      
+      <span class="pagination-item newer"><a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;page&#x2F;11&#x2F;">Next →</a></span>
+      
+    </nav>
+    
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

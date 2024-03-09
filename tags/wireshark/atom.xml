@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Wireshark</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/wireshark/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2011-02-09T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/wireshark/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Sniffer le réseau avec Wireshark sans le compte root</title>
+        <published>2011-02-09T00:00:00+00:00</published>
+        <updated>2011-02-09T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/sniff-network-wireshark-no-root/"/>
+        <id>https://blog.skyplabs.net/posts/sniff-network-wireshark-no-root/</id>
+        
+        <summary type="html">&lt;p&gt;Wireshark est un outil d&#x27;analyse qui permet de &amp;quot;sniffer&amp;quot; les informations qui
+passent à travers les interfaces réseau du système sur lequel il est installé.
+Il est très utilisé car c&#x27;est un logiciel complet, multiplateforme et libre. Je
+me demande d&#x27;ailleurs pourquoi je perds mon temps à vous le présenter étant
+donné que je suis sûr qu&#x27;il est déjà installé sur votre ordinateur ou même sur
+votre téléphone pour les plus bidouilleurs d&#x27;entre vous ...&lt;&#x2F;p&gt;
+&lt;p&gt;Ceci étant, pour pouvoir sniffer le réseau avec cet outil, vous devez le lancer
+depuis le compte root pour qu&#x27;il puisse passer la carte réseau sélectionnée pour
+la capture en mode &lt;strong&gt;promiscuous&lt;&#x2F;strong&gt;, ce qui n&#x27;est pas très bon pour la sécurité
+de votre machine. En effet, Wireshark n&#x27;est pas réputé pour sa sécurité sans
+faille. D&#x27;ailleurs, une simple recherche dans la &lt;strong&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;nvd.nist.gov&#x2F;&quot;&gt;National Vulnerability
+Database&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (NVD) retourne 110 résultats, ce qui est déjà pas mal.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

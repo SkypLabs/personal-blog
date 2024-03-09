@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Debian</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/debian/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2012-02-24T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/debian/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Programmer une carte Arduino depuis la Asus Transformer Prime</title>
+        <published>2012-02-24T00:00:00+00:00</published>
+        <updated>2012-02-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/program-arduino-from-android-debian-chroot/"/>
+        <id>https://blog.skyplabs.net/posts/program-arduino-from-android-debian-chroot/</id>
+        
+        <summary type="html">&lt;p&gt;Maintenant que nous disposons d&#x27;une Debian sur notre Transformer Prime (cf :
+&lt;a href=&quot;https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;debian-chroot-on-android&#x2F;&quot;&gt;Allier Android en GUI et Debian en CLI sur la Asus Transformer
+Prime&lt;&#x2F;a&gt;), il est grand temps de commencer à
+jouer avec. C&#x27;est dans cette optique que j&#x27;ai décidé de détailler dans cet
+article la marche à suivre pour programmer une carte Arduino (&lt;strong&gt;Uno&lt;&#x2F;strong&gt; dans mon
+cas).&lt;&#x2F;p&gt;
+&lt;p&gt;Dans un premier temps, il nous faut préparer notre environnement de
+développement au sein de la Debian. Un petit coup de &lt;code&gt;aptitude&lt;&#x2F;code&gt; (ou &lt;code&gt;apt-get&lt;&#x2F;code&gt;,
+selon vos préférences) et le tour est joué :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;aptitude update
+&lt;&#x2F;span&gt;&lt;span&gt;aptitude install gcc-avr avrdude avr-libc
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Il va également nous falloir de quoi écrire notre code. Pour ma part, mon choix
+s&#x27;est tourné vers &lt;strong&gt;Vim&lt;&#x2F;strong&gt;. De plus, l&#x27;utilisation d&#x27;un Makefile va grandement
+nous faciliter la vie. Prenez donc le temps d&#x27;installer &lt;strong&gt;make&lt;&#x2F;strong&gt; en plus du
+reste.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Allier Android en GUI et Debian en CLI sur la Asus Transformer Prime</title>
+        <published>2012-01-20T00:00:00+00:00</published>
+        <updated>2012-01-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/debian-chroot-on-android/"/>
+        <id>https://blog.skyplabs.net/posts/debian-chroot-on-android/</id>
+        
+        <summary type="html">&lt;p&gt;Ça y est, j&#x27;ai enfin reçu ma tablette tactile, la Asus Transformer Prime !&lt;&#x2F;p&gt;
+&lt;p&gt;Pour ceux qui ne la connaissent pas, c&#x27;est une tablette qui a la particularité
+d&#x27;être vendue avec un dock clavier (une station d&#x27;accueil) lui permettant de se
+transformer (d&#x27;où son nom) en petit ordinateur. Une fois montée sur le dock, on
+a réellement l&#x27;impression que c&#x27;est un netbook.&lt;&#x2F;p&gt;
+&lt;p&gt;Le principal intérêt de cette tablette est donc son utilisation en tant
+qu&#x27;ordinateur. C&#x27;est pour cette raison que je trouvais dommage de devoir se
+limiter aux applications Android qui ne sont pas particulièrement adaptées à
+l&#x27;ensemble des usages qu&#x27;en ferait une personne expérimentée dans le domaine de
+l&#x27;informatique. Par exemple, comment compiler un programme développé en C sous
+Android ? Et comment implémenter ce dernier dans une carte microcontrôleur ? Ou
+comment scanner un réseau dans le but de faire un audit de sécurité ? C&#x27;est donc
+pour combler ces manques que je me suis décidé à installer une distribution
+Debian dans un environnement confiné au sein de l&#x27;arborescence du système
+Android afin de pouvoir récupérer facilement l&#x27;ensemble des outils dont j&#x27;ai
+besoin.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

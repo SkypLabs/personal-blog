@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Bash</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/bash/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2014-05-15T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/bash/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[Bash] De la couleur dans vos scripts</title>
+        <published>2014-05-15T00:00:00+00:00</published>
+        <updated>2014-05-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bash-add-colours-to-your-scripts/"/>
+        <id>https://blog.skyplabs.net/posts/bash-add-colours-to-your-scripts/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bash-add-colours-to-your-scripts/">&lt;p&gt;Voici quelques fonctions bien utiles permettant d&#x27;écrire des messages dans un
+terminal avec un code couleur correspondant au type de l&#x27;information à afficher
+:&lt;&#x2F;p&gt;
+&lt;div &gt;
+    &lt;script src=&quot;https:&amp;#x2F;&amp;#x2F;gist.github.com&amp;#x2F;SkypLabs&amp;#x2F;4775d15424f68d16fbdee5818917072c.js?file=echo_color.sh&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Bash] Supprimer toutes les lignes d&#x27;un fichier texte</title>
+        <published>2014-04-30T00:00:00+00:00</published>
+        <updated>2014-04-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bash-empty-text-file/"/>
+        <id>https://blog.skyplabs.net/posts/bash-empty-text-file/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bash-empty-text-file/">&lt;p&gt;En toute simplicité :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;&amp;gt; &amp;lt;fichier&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Par exemple, pour vider la liste des serveurs DNS à utiliser :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;&amp;gt; &#x2F;etc&#x2F;resolv.conf
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Cette syntaxe est également utile pour créer un fichier texte vierge.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Bash] Remplacement de la forme key=value dans un fichier texte</title>
+        <published>2014-04-30T00:00:00+00:00</published>
+        <updated>2014-04-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bash-replace-key-value-pairs/"/>
+        <id>https://blog.skyplabs.net/posts/bash-replace-key-value-pairs/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bash-replace-key-value-pairs/">&lt;p&gt;La regex ci-dessous utilisée avec le programme &lt;code&gt;sed&lt;&#x2F;code&gt; permet de remplacer
+l&#x27;ancienne valeur attribuée à &lt;code&gt;KEY&lt;&#x2F;code&gt; par la nouvelle valeur &lt;code&gt;VALUE&lt;&#x2F;code&gt; dans le
+fichier &lt;code&gt;file&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sed -i &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s&#x2F;\(KEY *= *\).*&#x2F;\1VALUE&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &amp;lt;file&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Par exemple, pour remplacer le nom d&#x27;hôte d&#x27;un système CentOS par la valeur
+contenue dans &lt;code&gt;$host_name&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sed -i &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s&#x2F;\(HOSTNAME *= *\).*&#x2F;\1&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;host_name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &#x2F;etc&#x2F;sysconfig&#x2F;network
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Bash] Tester une adresse IPv4</title>
+        <published>2014-04-14T00:00:00+00:00</published>
+        <updated>2014-04-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bash-test-ipv4/"/>
+        <id>https://blog.skyplabs.net/posts/bash-test-ipv4/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bash-test-ipv4/">&lt;p&gt;La fonction ci-dessous permet de tester une adresse IPv4 pour vérifier qu&#x27;elle
+est bien formée :&lt;&#x2F;p&gt;
+&lt;div &gt;
+    &lt;script src=&quot;https:&amp;#x2F;&amp;#x2F;gist.github.com&amp;#x2F;SkypLabs&amp;#x2F;8758fa2aa63201b028d0ac680b2a90c4.js?file=is_ipv4.sh&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Et voici un exemple d&#x27;utilisation :&lt;&#x2F;p&gt;
+&lt;div &gt;
+    &lt;script src=&quot;https:&amp;#x2F;&amp;#x2F;gist.github.com&amp;#x2F;SkypLabs&amp;#x2F;8758fa2aa63201b028d0ac680b2a90c4.js?file=is_ipv4_example.sh&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Empêcher Bash d&#x27;écrire dans l&#x27;historique des commandes</title>
+        <published>2012-02-29T00:00:00+00:00</published>
+        <updated>2012-02-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/stop-bash-from-writing-command-history/"/>
+        <id>https://blog.skyplabs.net/posts/stop-bash-from-writing-command-history/</id>
+        
+        <summary type="html">&lt;p&gt;&lt;strong&gt;Edit&lt;&#x2F;strong&gt; : Une autre solution beaucoup plus propre m&#x27;a été proposée pour
+réaliser exactement la même chose :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;export &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;HISTFILE&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;dev&#x2F;null
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Après ceci, l&#x27;écriture de l&#x27;historique des commandes par Bash aura lieu dans
+&lt;code&gt;&#x2F;dev&#x2F;null&lt;&#x2F;code&gt;, ce qui revient à écrire dans le vide.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Comme vous devez le savoir, le shell Bash conserve un historique des dernières
+commandes que l&#x27;utilisateur a entré dans son terminal. Cela permet de garder une
+trace de ce qui a été fait, chose particulièrement importante sur un serveur,
+surtout si plusieurs personnes travaillent sur la même machine avec le même
+compte. La liste des commandes est stockée par défaut dans le fichier
+&lt;code&gt;~&#x2F;.bash_history&lt;&#x2F;code&gt; et il est possible d&#x27;afficher cette liste avec la commande
+&lt;code&gt;history&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

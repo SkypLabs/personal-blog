@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - nohup</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/nohup/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2011-02-08T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/nohup/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Quitter sa console sans stopper les processus en cours d&#x27;exécution</title>
+        <published>2011-02-08T00:00:00+00:00</published>
+        <updated>2011-02-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/exit-terminal-without-stopping-processes/"/>
+        <id>https://blog.skyplabs.net/posts/exit-terminal-without-stopping-processes/</id>
+        
+        <summary type="html">&lt;p&gt;Ne vous est-il jamais arrivé de devoir quitter votre session actuelle alors
+qu&#x27;un programme en cours d&#x27;exécution n&#x27;a pas terminé son traitement ? Le
+contraire serait étonnant. Par exemple, vous avez lancé l&#x27;extraction d&#x27;une base
+de données par SSH pour en faire un backup et vous n&#x27;avez pas le temps
+d&#x27;attendre gentiment devant votre terminal que son exécution se termine.&lt;&#x2F;p&gt;
+&lt;p&gt;Le fait est que lorsqu&#x27;on demande de fermer sa session (commande &lt;code&gt;exit&lt;&#x2F;code&gt;,
+&lt;code&gt;CTRL+D&lt;&#x2F;code&gt;, ...), le processus faisant tourner le shell envoie un signal
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;SIGHUP&quot;&gt;SIGHUP&lt;&#x2F;a&gt; à tous ses enfants pour demander leur arrêt. Des tâches comme
+l&#x27;extraction d&#x27;une base de données citée dans mon exemple prendront fin à
+l&#x27;instant où la session sera fermée.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

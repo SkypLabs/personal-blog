@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Security</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/categories/security/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-07-27T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/categories/security/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Detect whether you are inside a container or not</title>
+        <published>2023-07-27T00:00:00+00:00</published>
+        <updated>2023-07-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/container-detection/"/>
+        <id>https://blog.skyplabs.net/posts/container-detection/</id>
+        
+        <summary type="html">&lt;p&gt;Container technologies (&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;chroot&quot;&gt;chroot&lt;&#x2F;a&gt;, &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;linuxcontainers.org&#x2F;&quot;&gt;LXC&lt;&#x2F;a&gt;, …) are very common these
+days, especially since the massive adoption of &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.docker.com&#x2F;&quot;&gt;Docker&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;One of the use cases of container technologies is to isolate services from each
+others and from the host system. As a result, in case of an intrusion, the
+attacker would be in theory trapped inside a container. From the attacker’s
+perspective, it is important to be able to detect if a compromised service lives
+in a restricted environment such as a Docker container or if it runs directly on
+the host operating system.&lt;&#x2F;p&gt;
+&lt;p&gt;One way to do so is to have a look at the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Inode&quot;&gt;inode&lt;&#x2F;a&gt; of the &lt;code&gt;&#x2F;&lt;&#x2F;code&gt; mount point
+(&lt;code&gt;ls -id &#x2F;&lt;&#x2F;code&gt;).  On the host system it will be very low (generally 1 or 2) whereas
+in a container it will generally be quite high (4851522 in the asciicast):&lt;&#x2F;p&gt;
+&lt;script id=&quot;asciicast-318880&quot; src=&quot;https:&#x2F;&#x2F;asciinema.org&#x2F;a&#x2F;318880.js&quot; async&gt;&lt;&#x2F;script&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>VPN, Security and Improper HTTP Redirects</title>
+        <published>2023-01-28T00:00:00+00:00</published>
+        <updated>2023-01-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/vpn-security-improper-http-redirects/"/>
+        <id>https://blog.skyplabs.net/posts/vpn-security-improper-http-redirects/</id>
+        
+        <summary type="html">&lt;p&gt;As you probably have already noticed, the number of VPN providers has grown
+massively in the recent years, and you can now stumble on ads for VPN
+subscriptions on every corner of the Internet. Of course, not all of these
+providers are equal in terms of quality of service, security or privacy. At the
+contrary, some of them falsely claim to have a zero-log policy or to even
+protect you from malicious actors.&lt;&#x2F;p&gt;
+&lt;p&gt;Having said that, using a public VPN service is not necessarily a bad idea if
+you choose it correctly. It&#x27;s a matter of trust after all. Who do you trust the
+most for keeping your traffic private, your ISP, or a carefully selected VPN
+provider? (I said carefully here because you have a larger number of VPN
+providers on the market than ISPs available where you live).&lt;&#x2F;p&gt;
+&lt;p&gt;If you trust your VPN provider, you get in theory a higher degree of online
+privacy by proxying your connections through it (even if, as of today, nothing
+can fully replace &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;The Tor project&quot; href=&quot;https:&#x2F;&#x2F;www.torproject.org&#x2F;&quot;&gt;Tor&lt;&#x2F;a&gt;). But what about security? From a theoretical
+standpoint once again, TLS is well enough to guarantee the security of your
+online activity. And thanks to projects like &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Let&#x27;s Encrypt&quot; href=&quot;https:&#x2F;&#x2F;letsencrypt.org&#x2F;&quot;&gt;Let&#x27;s Encrypt&lt;&#x2F;a&gt;, most
+websites are accessible via HTTPS these days.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[HTB] Admirer</title>
+        <published>2020-10-02T00:00:00+00:00</published>
+        <updated>2020-10-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/htb-admirer/"/>
+        <id>https://blog.skyplabs.net/posts/htb-admirer/</id>
+        
+        <summary type="html">&lt;p&gt;Admirer is an easy &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Hack The Box - Main Website&quot; href=&quot;https:&#x2F;&#x2F;hackthebox.eu&#x2F;&quot;&gt;Hack The Box&lt;&#x2F;a&gt; Linux-based machine released on the 2nd
+of May 2020 and reachable on the IP address &lt;code&gt;10.10.10.187&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;For whose who don&#x27;t know it yet, Hack The Box is an online platform where
+vulnerable machines are deployed in a private network accessible via VPN, and
+where users need to hack their way into the systems to collect flags as proofs
+of their success.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;htb-admirer&#x2F;htb-admirer-info-card.jpg&quot; alt=&quot;HTB Admirer information card&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[HTB] Traceback</title>
+        <published>2020-08-25T00:00:00+00:00</published>
+        <updated>2020-08-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/htb-traceback/"/>
+        <id>https://blog.skyplabs.net/posts/htb-traceback/</id>
+        
+        <summary type="html">&lt;p&gt;Traceback is an easy Linux-based machine released on the 14th of March 2020 and
+reachable on the IP address &lt;code&gt;10.10.10.181&lt;&#x2F;code&gt; (despite what&#x27;s written on the info
+card).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;htb-traceback&#x2F;htb-traceback-info-card.jpg&quot; alt=&quot;HTB Traceback information card&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Hacker 101 - Capture the Flags with a Regex</title>
+        <published>2020-07-07T00:00:00+00:00</published>
+        <updated>2020-07-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/hacker101-flag-regex/"/>
+        <id>https://blog.skyplabs.net/posts/hacker101-flag-regex/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/hacker101-flag-regex/">&lt;p&gt;Enjoying &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ctf.hacker101.com&quot;&gt;HackerOne&#x27;s CTF&lt;&#x2F;a&gt;?&lt;&#x2F;p&gt;
+&lt;p&gt;If you want to make sure not to inadvertently miss any single flag while
+skimming through web pages, you can ask &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;zaproxy.org&quot;&gt;ZAP&lt;&#x2F;a&gt; to catch them for you with
+this regex: &lt;code&gt;\^FLAG\^[\w\d]{64}\$FLAG\$&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;hacker101-flag-regex&#x2F;hacker101_zap_flag_regex_settings.jpg&quot; alt=&quot;ZAP settings to capture Hacker 101 flags automatically&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;A &amp;quot;Flag&amp;quot; tag will appear next the requests containing a flag in their response:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;hacker101-flag-regex&#x2F;hacker101_zap_flag_regex_captured.jpg&quot; alt=&quot;HTTP request captured with ZAP containing a Hacker 101 flag&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;This technique is particularly useful when a flag appears in a non-obvious
+location such as an HTML comment.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Improve the security of your online payments</title>
+        <published>2017-03-22T00:00:00+00:00</published>
+        <updated>2017-03-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/improve-security-online-payments/"/>
+        <id>https://blog.skyplabs.net/posts/improve-security-online-payments/</id>
+        
+        <summary type="html">&lt;p&gt;I think it is obvious to say that the security of your online payments is
+critical if you don&#x27;t want to have an unpleasant surprise one day when checking
+your account statement. That&#x27;s why most banks have added a two-step
+authentification security process to their online payment system. That way, you
+have to confirm your online payment with a one-time password sent via text
+message or other method by your bank. However, not every website supports this
+feature, leaving you defenceless if someone steals your credit card information.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[ndh2k16] Hello Friend</title>
+        <published>2016-07-05T00:00:00+00:00</published>
+        <updated>2016-07-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/ndh2k16-hello-friend/"/>
+        <id>https://blog.skyplabs.net/posts/ndh2k16-hello-friend/</id>
+        
+        <summary type="html">&lt;p&gt;Une des épreuves du wargame de la nuit du hack 2016 était de retrouver un code
+de validation à partir de cette image :&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;files.skyplabs.net&#x2F;hellofriend.jpg&quot; alt=&quot;Fichier JPEG utilisé pour le challenge &amp;quot;hello friend&amp;quot; lors de la nuit du hack 2016&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Erreur du Metasploit : &quot;svn: Working copy &#x27;.&#x27; locked&quot;</title>
+        <published>2011-06-11T00:00:00+00:00</published>
+        <updated>2011-06-11T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/metasploit-svn-error/"/>
+        <id>https://blog.skyplabs.net/posts/metasploit-svn-error/</id>
+        
+        <summary type="html">&lt;p&gt;Le projet Metasploit utilise des dépôts &lt;strong&gt;Subversion&lt;&#x2F;strong&gt; pour la mise à jour de
+l&#x27;ensemble de ses composants. Traditionnellement, il faut utiliser le script
+&lt;code&gt;msfupdate&lt;&#x2F;code&gt; pour effectuer cette tâche.&lt;&#x2F;p&gt;
+&lt;p&gt;Seulement voilà, la dernière fois que j&#x27;ai voulu le mettre à jour, j&#x27;ai eu droit
+à l&#x27;erreur suivante :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;svn: Working copy &amp;#39;.&amp;#39; locked
+&lt;&#x2F;span&gt;&lt;span&gt;svn: run &amp;#39;svn cleanup&amp;#39; to remove locks (type &amp;#39;svn help cleanup&amp;#39; for details)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Restreindre l&#x27;accès à la commande &#x27;su&#x27; sous Linux</title>
+        <published>2011-05-18T00:00:00+00:00</published>
+        <updated>2011-05-18T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/restrict-su-access/"/>
+        <id>https://blog.skyplabs.net/posts/restrict-su-access/</id>
+        
+        <summary type="html">&lt;p&gt;&lt;strong&gt;Edit&lt;&#x2F;strong&gt;: Sur certaines distributions, comme par exemple Fedora, RHEL et CentOS,
+la restriction de la commande &lt;code&gt;su&lt;&#x2F;code&gt; est déjà intégrée. Il est seulement
+nécessaire de l&#x27;activer en décommentant la ligne suivante dans le fichier
+&lt;code&gt;&#x2F;etc&#x2F;pam.d&#x2F;su&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;# Uncomment the following line to implicitly trust users in the &amp;quot;wheel&amp;quot; group.
+&lt;&#x2F;span&gt;&lt;span&gt;auth           sufficient      pam_wheel.so trust use_uid
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;La commande &lt;code&gt;su&lt;&#x2F;code&gt; permet de changer temporairement son identité pour celle d&#x27;un
+autre utilisateur lorsque l&#x27;on est déjà connecté sur une machine UNIX.
+D&#x27;ailleurs, &lt;code&gt;su&lt;&#x2F;code&gt; veut dire &amp;quot;Substitute User&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;Il peut être très intéressant de restreindre l&#x27;accès à cette commande dans le
+but de renforcer la sécurité de sa machine. On va donc autoriser son exécution
+seulement aux utilisateurs qui en ont vraiment besoin.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Afficher les erreurs SQL de PHP seulement aux personnes concernées</title>
+        <published>2011-03-19T00:00:00+00:00</published>
+        <updated>2011-03-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/display-php-errors-admin-only/"/>
+        <id>https://blog.skyplabs.net/posts/display-php-errors-admin-only/</id>
+        
+        <summary type="html">&lt;p&gt;Il est très fortement conseillé de désactiver l&#x27;affichage des erreurs PHP
+(directive &lt;code&gt;display_errors&lt;&#x2F;code&gt; du &lt;code&gt;php.ini&lt;&#x2F;code&gt;) de vos applications web pour ne pas
+révéler des informations pouvant compromettre la sécurité de votre serveur (dans
+le cas d&#x27;un serveur en production).&lt;&#x2F;p&gt;
+&lt;p&gt;Seulement voilà, cacher ces erreurs peut gêner l&#x27;administrateur à traquer les
+bugs ainsi que les problèmes liés à la base de données. En effet, c&#x27;est beaucoup
+plus facile de repérer une erreur si elle est affichée lors de l&#x27;exécution de la
+page plutôt que de passer son temps à analyser les logs du service.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Retirer la version de WordPress des en-têtes HTML</title>
+        <published>2011-03-11T00:00:00+00:00</published>
+        <updated>2011-03-11T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/remove-wordpress-version/"/>
+        <id>https://blog.skyplabs.net/posts/remove-wordpress-version/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/remove-wordpress-version/">&lt;p&gt;La version de WordPress apparaît par défaut dans les en-têtes HTML, ce qui n&#x27;est
+bien entendu pas une bonne chose d&#x27;un point de vue sécurité. Pour la supprimer,
+il faut rajouter ce bout de code à la fin du fichier &lt;code&gt;functions.php&lt;&#x2F;code&gt; de votre
+thème :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;php&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-php &quot;&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;&amp;lt;?php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; Pour retirer l&amp;#39;affichage de la version de WordPress dans les en-têtes HTML.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;remove_action&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;wp_head&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;wp_generator&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;?&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Pour ce faire, vous pouvez soit modifier le fichier &lt;code&gt;functions.php&lt;&#x2F;code&gt; de votre
+thème à la main (il se trouve normalement dans &lt;code&gt;wp-content&#x2F;themes&#x2F;&amp;lt;votre thème&amp;gt;&#x2F;functions.php&lt;&#x2F;code&gt;), soit le modifier depuis l&#x27;interface d&#x27;édition de
+WordPress (Menu &lt;em&gt;Apparence&lt;&#x2F;em&gt; =&amp;gt; &lt;em&gt;Éditeur&lt;&#x2F;em&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;Pour plus d&#x27;informations sur la fonction &lt;code&gt;remove_action&lt;&#x2F;code&gt;, &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;codex.wordpress.org : Remove Action&quot; href=&quot;https:&#x2F;&#x2F;codex.wordpress.org&#x2F;Function_Reference&#x2F;remove_action&quot;&gt;cliquez
+ici&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Pensez également à supprimer le fichier &lt;code&gt;readme.html&lt;&#x2F;code&gt; présent à la racine de
+votre site. Ce dernier contient également le numéro de version de WordPress.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Sniffer le réseau avec Wireshark sans le compte root</title>
+        <published>2011-02-09T00:00:00+00:00</published>
+        <updated>2011-02-09T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/sniff-network-wireshark-no-root/"/>
+        <id>https://blog.skyplabs.net/posts/sniff-network-wireshark-no-root/</id>
+        
+        <summary type="html">&lt;p&gt;Wireshark est un outil d&#x27;analyse qui permet de &amp;quot;sniffer&amp;quot; les informations qui
+passent à travers les interfaces réseau du système sur lequel il est installé.
+Il est très utilisé car c&#x27;est un logiciel complet, multiplateforme et libre. Je
+me demande d&#x27;ailleurs pourquoi je perds mon temps à vous le présenter étant
+donné que je suis sûr qu&#x27;il est déjà installé sur votre ordinateur ou même sur
+votre téléphone pour les plus bidouilleurs d&#x27;entre vous ...&lt;&#x2F;p&gt;
+&lt;p&gt;Ceci étant, pour pouvoir sniffer le réseau avec cet outil, vous devez le lancer
+depuis le compte root pour qu&#x27;il puisse passer la carte réseau sélectionnée pour
+la capture en mode &lt;strong&gt;promiscuous&lt;&#x2F;strong&gt;, ce qui n&#x27;est pas très bon pour la sécurité
+de votre machine. En effet, Wireshark n&#x27;est pas réputé pour sa sécurité sans
+faille. D&#x27;ailleurs, une simple recherche dans la &lt;strong&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;nvd.nist.gov&#x2F;&quot;&gt;National Vulnerability
+Database&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; (NVD) retourne 110 résultats, ce qui est déjà pas mal.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

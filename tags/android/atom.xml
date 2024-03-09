@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Android</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/android/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2012-06-10T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/android/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Télécommander sa télévision et ses autres appareils à infrarouge depuis son smartphone</title>
+        <published>2012-06-10T00:00:00+00:00</published>
+        <updated>2012-06-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/ir-remote-control-from-smartphone/"/>
+        <id>https://blog.skyplabs.net/posts/ir-remote-control-from-smartphone/</id>
+        
+        <summary type="html">&lt;p&gt;Je ne sais pas pour vous, mais moi j&#x27;ai toujours eu horreur de devoir jongler
+avec plusieurs télécommandes alors que je ne cherchais qu&#x27;à réaliser des tâches
+plutôt triviales. Une télécommande pour allumer la télévision, une autre pour
+allumer le home cinema... et plus on multiplie les appareils électroniques dans
+son salon, plus on collectionne de télécommandes !&lt;&#x2F;p&gt;
+&lt;p&gt;Dans le but de me simplifier la vie, j&#x27;ai donc décidé de réaliser un montage
+électronique pour pouvoir piloter mes appareils à infrarouge depuis un système
+informatique classique, en particulier depuis mon téléphone portable. Je vais
+donc détailler dans cet article les différentes étapes de la réalisation ainsi
+que les différents éléments permettant de reproduire à l&#x27;identique le système
+que j&#x27;ai développé.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Programmer une carte Arduino depuis la Asus Transformer Prime</title>
+        <published>2012-02-24T00:00:00+00:00</published>
+        <updated>2012-02-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/program-arduino-from-android-debian-chroot/"/>
+        <id>https://blog.skyplabs.net/posts/program-arduino-from-android-debian-chroot/</id>
+        
+        <summary type="html">&lt;p&gt;Maintenant que nous disposons d&#x27;une Debian sur notre Transformer Prime (cf :
+&lt;a href=&quot;https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;debian-chroot-on-android&#x2F;&quot;&gt;Allier Android en GUI et Debian en CLI sur la Asus Transformer
+Prime&lt;&#x2F;a&gt;), il est grand temps de commencer à
+jouer avec. C&#x27;est dans cette optique que j&#x27;ai décidé de détailler dans cet
+article la marche à suivre pour programmer une carte Arduino (&lt;strong&gt;Uno&lt;&#x2F;strong&gt; dans mon
+cas).&lt;&#x2F;p&gt;
+&lt;p&gt;Dans un premier temps, il nous faut préparer notre environnement de
+développement au sein de la Debian. Un petit coup de &lt;code&gt;aptitude&lt;&#x2F;code&gt; (ou &lt;code&gt;apt-get&lt;&#x2F;code&gt;,
+selon vos préférences) et le tour est joué :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;aptitude update
+&lt;&#x2F;span&gt;&lt;span&gt;aptitude install gcc-avr avrdude avr-libc
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Il va également nous falloir de quoi écrire notre code. Pour ma part, mon choix
+s&#x27;est tourné vers &lt;strong&gt;Vim&lt;&#x2F;strong&gt;. De plus, l&#x27;utilisation d&#x27;un Makefile va grandement
+nous faciliter la vie. Prenez donc le temps d&#x27;installer &lt;strong&gt;make&lt;&#x2F;strong&gt; en plus du
+reste.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Allier Android en GUI et Debian en CLI sur la Asus Transformer Prime</title>
+        <published>2012-01-20T00:00:00+00:00</published>
+        <updated>2012-01-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/debian-chroot-on-android/"/>
+        <id>https://blog.skyplabs.net/posts/debian-chroot-on-android/</id>
+        
+        <summary type="html">&lt;p&gt;Ça y est, j&#x27;ai enfin reçu ma tablette tactile, la Asus Transformer Prime !&lt;&#x2F;p&gt;
+&lt;p&gt;Pour ceux qui ne la connaissent pas, c&#x27;est une tablette qui a la particularité
+d&#x27;être vendue avec un dock clavier (une station d&#x27;accueil) lui permettant de se
+transformer (d&#x27;où son nom) en petit ordinateur. Une fois montée sur le dock, on
+a réellement l&#x27;impression que c&#x27;est un netbook.&lt;&#x2F;p&gt;
+&lt;p&gt;Le principal intérêt de cette tablette est donc son utilisation en tant
+qu&#x27;ordinateur. C&#x27;est pour cette raison que je trouvais dommage de devoir se
+limiter aux applications Android qui ne sont pas particulièrement adaptées à
+l&#x27;ensemble des usages qu&#x27;en ferait une personne expérimentée dans le domaine de
+l&#x27;informatique. Par exemple, comment compiler un programme développé en C sous
+Android ? Et comment implémenter ce dernier dans une carte microcontrôleur ? Ou
+comment scanner un réseau dans le but de faire un audit de sécurité ? C&#x27;est donc
+pour combler ces manques que je me suis décidé à installer une distribution
+Debian dans un environnement confiné au sein de l&#x27;arborescence du système
+Android afin de pouvoir récupérer facilement l&#x27;ensemble des outils dont j&#x27;ai
+besoin.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Problème d&#x27;utilisation de Droidwall depuis la version 4 d&#x27;Android</title>
+        <published>2011-12-29T00:00:00+00:00</published>
+        <updated>2011-12-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/droidwall-issue-android-4/"/>
+        <id>https://blog.skyplabs.net/posts/droidwall-issue-android-4/</id>
+        
+        <summary type="html">&lt;p&gt;Edit : Depuis Jelly Bean (version 4.1.2 dans mon cas), la variable &lt;code&gt;$IPTABLES&lt;&#x2F;code&gt;
+fournit par Droidwall n&#x27;est plus valide. Une petite mise à jour du script
+s&#x27;impose :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;## Netfilter Script by Skyper - https:&#x2F;&#x2F;blog.skyplabs.net ##
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Permet de corriger un problème d&amp;#39;exploitation de Droidwall depuis ICS.
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;IPTABLES&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;system&#x2F;bin&#x2F;iptables
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;IPTABLES -D&lt;&#x2F;span&gt;&lt;span&gt; OUTPUT&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -j&lt;&#x2F;span&gt;&lt;span&gt; droidwall
+&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;IPTABLES -I&lt;&#x2F;span&gt;&lt;span&gt; OUTPUT 2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -j&lt;&#x2F;span&gt;&lt;span&gt; droidwall
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;Droidwall est une application Android permettant d&#x27;autoriser ou non l&#x27;accès au
+réseau à une application installée sur le système en question. Pour ce faire,
+elle rajoute une série de règles &lt;strong&gt;Netfilter&lt;&#x2F;strong&gt; (via l&#x27;utilitaire &amp;quot;userland&amp;quot;
+&lt;strong&gt;iptables&lt;&#x2F;strong&gt;) selon la configuration donnée par l&#x27;utilisateur.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Android] Supprimer une application native à une ROM</title>
+        <published>2011-12-24T00:00:00+00:00</published>
+        <updated>2011-12-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/android-remove-system-app/"/>
+        <id>https://blog.skyplabs.net/posts/android-remove-system-app/</id>
+        
+        <summary type="html">&lt;p&gt;Les différents composants du système d&#x27;exploitation Android sont installés sur
+différentes partitions de manière à séparer les données du système de celles des
+applications utilisateurs. On retrouve donc la partition &lt;code&gt;system&lt;&#x2F;code&gt; qui est
+montée en lecture seule (&lt;em&gt;ro&lt;&#x2F;em&gt;), et la partition &lt;code&gt;data&lt;&#x2F;code&gt; qui elle est montée en
+lecture&#x2F;écriture (&lt;em&gt;rw&lt;&#x2F;em&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;Cependant, il arrive de trouver dans certaines ROMs des applications
+utilisateurs installées par défaut dans la partition système. C&#x27;était justement
+le cas de la ROM SFR installée sur le Nexus One de ma copine. L&#x27;application
+Twitter y était installée nativement sans possibilité de la désinstaller.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour remédier à ce désagrément, il est nécessaire d&#x27;avoir accès au compte
+&lt;strong&gt;root&lt;&#x2F;strong&gt; pour pouvoir monter temporairement la partition système en &lt;em&gt;rw&lt;&#x2F;em&gt;. De plus,
+l&#x27;installation de &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Android Debug Bridge (adb)&quot; href=&quot;https:&#x2F;&#x2F;developer.android.com&#x2F;studio&#x2F;command-line&#x2F;adb&quot;&gt;&lt;code&gt;adb&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; va nous permettre de récupérer le shell
+de notre androphone directement depuis un ordinateur (pour pouvoir utiliser un
+vrai clavier physique).&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Fedora</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/fedora/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2014-04-22T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/fedora/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[Fedora] Autoriser le partage DLNA sous Netfilter</title>
+        <published>2014-04-22T00:00:00+00:00</published>
+        <updated>2014-04-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/fedora-netfilter-dlna/"/>
+        <id>https://blog.skyplabs.net/posts/fedora-netfilter-dlna/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/fedora-netfilter-dlna/">&lt;p&gt;GNOME 3 intègre dans le panel des options une rubrique de partage permettant
+entre autres de diffuser du contenu multimédia en DLNA. Le serveur sous-jacent
+utilisé se nomme &lt;strong&gt;rygel&lt;&#x2F;strong&gt; et ce dernier utilise un port d&#x27;écoute TCP dynamique.&lt;&#x2F;p&gt;
+&lt;p&gt;Seulement voila, &lt;strong&gt;Netfilter&lt;&#x2F;strong&gt; n&#x27;est pas configuré par défaut pour laisser
+passer le trafic DLNA, et encore moins pour détecter quel port d&#x27;écoute est
+utilisé par rygel. Il est donc nécessaire d&#x27;entreprendre quelques actions pour
+rectifier la situation :&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Modifier le port d&#x27;écoute de rygel. Pour cela, il faut modifier la ligne
+&lt;code&gt;port=0&lt;&#x2F;code&gt; (dynamique) par &lt;code&gt;port=65530&lt;&#x2F;code&gt; dans le fichier de configuration
+&lt;code&gt;&#x2F;etc&#x2F;rygel.conf&lt;&#x2F;code&gt;. Bien entendu, le choix du numéro du port est complètement
+arbitraire.&lt;&#x2F;li&gt;
+&lt;li&gt;Autoriser le port &lt;strong&gt;TCP 65530&lt;&#x2F;strong&gt; et le port &lt;strong&gt;UDP 1900&lt;&#x2F;strong&gt; en entrée dans la
+configuration de Netfilter. On pourra utiliser l&#x27;outil graphique &amp;quot;firewall&amp;quot;
+par exemple pour réaliser cette tâche.&lt;&#x2F;li&gt;
+&lt;li&gt;Redémarrer rygel.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Il ne vous reste plus qu&#x27;à tester le bon fonctionnement de votre modification en
+utilisant un client DLNA sur un autre appareil pour lancer la lecture d&#x27;un film
+par exemple 🙂&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Impossible de démarrer Google Chrome sous Fedora 15</title>
+        <published>2011-10-15T00:00:00+00:00</published>
+        <updated>2011-10-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/fedora-15-error-launching-google-chrome/"/>
+        <id>https://blog.skyplabs.net/posts/fedora-15-error-launching-google-chrome/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/fedora-15-error-launching-google-chrome/">&lt;p&gt;Mon ordinateur portable tournant sous &lt;strong&gt;Fedora 15&lt;&#x2F;strong&gt;, j&#x27;ai récemment eu quelques
+soucis pour démarrer &lt;strong&gt;Google Chrome&lt;&#x2F;strong&gt; après avoir fait les dernières mises à
+jour officielles du dépôt de Google. La dernière mise à jour en date étant la
+suivante : &lt;code&gt;google-chrome-stable-15.0.874.106-107270.i386&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Le problème provient d&#x27;un conflit de permissions lié à &lt;strong&gt;SELinux&lt;&#x2F;strong&gt;. Pour
+corriger cela, il faut modifier le type du contexte de sécurité de l&#x27;application
+&lt;strong&gt;chrome-sandbox&lt;&#x2F;strong&gt; :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;chcon -t usr_t  &#x2F;opt&#x2F;google&#x2F;chrome&#x2F;chrome-sandbox
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+</feed>

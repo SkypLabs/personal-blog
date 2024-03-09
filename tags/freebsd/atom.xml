@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - FreeBSD</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/freebsd/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2013-01-27T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/freebsd/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[FreeBSD] Mise à jour du port git-1.8.1.1</title>
+        <published>2013-01-27T00:00:00+00:00</published>
+        <updated>2013-01-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/freebsd-update-issue-git-1-8-1-1/"/>
+        <id>https://blog.skyplabs.net/posts/freebsd-update-issue-git-1-8-1-1/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/freebsd-update-issue-git-1-8-1-1/">&lt;p&gt;Si vous aussi vous avez eu quelques difficultés à mettre à jour git vers la
+version 1.8.1.1 au moyen de son port sous FreeBSD, voici la démarche à suivre
+pour solutionner votre problème :&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;On commence par supprimer le groupe &lt;code&gt;git_daemon&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;pw group del git_daemon
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;On supprime la ligne correspondant à l&#x27;utilisateur &lt;code&gt;git_daemon&lt;&#x2F;code&gt; dans les
+fichiers &lt;code&gt;&#x2F;etc&#x2F;passwd&lt;&#x2F;code&gt; et &lt;code&gt;&#x2F;etc&#x2F;master.passwd&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;On met à jour la base de données des mots de passe :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;pwd_mkdb -p &#x2F;etc&#x2F;master.passwd
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Après ceci vous ne devriez plus avoir de problème.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[FreeBSD] adjkerntz dans une jail</title>
+        <published>2012-09-22T00:00:00+00:00</published>
+        <updated>2012-09-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/freebsd-adjkerntz-inside-jail/"/>
+        <id>https://blog.skyplabs.net/posts/freebsd-adjkerntz-inside-jail/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/freebsd-adjkerntz-inside-jail/">&lt;p&gt;Le programme adjkerntz (installé par défaut sous FreeBSD) permet de maintenir
+une relation cohérente entre l&#x27;horloge du noyau, qui est toujours configurée à
+l&#x27;heure UTC, et l&#x27;horloge locale CMOS, qui peut être configurée au fuseau local.&lt;&#x2F;p&gt;
+&lt;p&gt;Cependant, au sein d&#x27;une jail, seul le fuseau horaire peut être modifié. La jail
+utilise donc la même heure que celle configurée sur le système hôte.
+L&#x27;utilisation de la commande adjkerntz va donc provoquer une erreur :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Sep 22 05:31:00 www adjkerntz[23948]: sysctl(set: &amp;quot;machdep.wall_cmos_clock&amp;quot;): Operation not permitted
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Si vous rencontrez des messages similaires dans vos logs, c&#x27;est tout simplement
+parce que la commande &lt;code&gt;adjkerntz&lt;&#x2F;code&gt; est invoquée régulièrement par &lt;strong&gt;cron&lt;&#x2F;strong&gt;. Pour
+résoudre ce problème, il suffit de commenter la ligne suivante dans le fichier
+&lt;code&gt;&#x2F;etc&#x2F;crontab&lt;&#x2F;code&gt; de vos jails :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;# Adjust the time zone if the CMOS clock keeps local time, as opposed to
+&lt;&#x2F;span&gt;&lt;span&gt;# UTC time.  See adjkerntz(8) for details.
+&lt;&#x2F;span&gt;&lt;span&gt;#1,31   0-5     *       *       *       root    adjkerntz -a
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Vos logs seront plus propres désormais.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[FreeBSD] Créer une interface de loopback au démarrage</title>
+        <published>2012-07-12T00:00:00+00:00</published>
+        <updated>2012-07-12T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/freebsd-create-loopback-interface/"/>
+        <id>https://blog.skyplabs.net/posts/freebsd-create-loopback-interface/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/freebsd-create-loopback-interface/">&lt;p&gt;Sous FreeBSD, pour créer une interface virtuelle de type loopback au démarrage
+du système (nommée &lt;code&gt;lo1&lt;&#x2F;code&gt; pour l&#x27;exemple), il faut ajouter le fichier
+&lt;code&gt;&#x2F;etc&#x2F;start_if.lo1&lt;&#x2F;code&gt; et ce dernier devra contenir la commande suivante :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;&#x2F;sbin&#x2F;ifconfig lo1 create
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Pour la configuration de l&#x27;interface, cela se passe dans le fichier
+&lt;code&gt;&#x2F;etc&#x2F;rc.conf&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[FreeBSD] Recharger le fichier &#x2F;etc&#x2F;rc.conf sans redémarrer votre machine</title>
+        <published>2011-12-31T00:00:00+00:00</published>
+        <updated>2011-12-31T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/freebsd-reload-rc-conf/"/>
+        <id>https://blog.skyplabs.net/posts/freebsd-reload-rc-conf/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/freebsd-reload-rc-conf/">&lt;p&gt;Voici une petite astuce permettant de gagner du temps :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;shutdown now
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Le fait d&#x27;utiliser la commande &lt;code&gt;shutdown&lt;&#x2F;code&gt; sans les arguments &lt;code&gt;-r&lt;&#x2F;code&gt; ou &lt;code&gt;-h&lt;&#x2F;code&gt; (ou
+encore &lt;code&gt;-p&lt;&#x2F;code&gt;) permet de passer le système en mode &lt;strong&gt;single user&lt;&#x2F;strong&gt;. Après ceci,
+quand le système vous le propose, appuyez sur la touche entrée pour récupérer un
+shell. Puis, utilisez la commande &lt;code&gt;exit&lt;&#x2F;code&gt; (ou la combinaison &lt;code&gt;ctrl + D&lt;&#x2F;code&gt;) pour
+revenir en mode &lt;strong&gt;multi user&lt;&#x2F;strong&gt; et ainsi recharger le fichier &lt;code&gt;&#x2F;etc&#x2F;rc.conf&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Ayez cependant conscience que l&#x27;ensemble de vos services vont être relancés
+pendant cette procédure.&lt;&#x2F;p&gt;
+&lt;p&gt;Bonne année à tous 🙂&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

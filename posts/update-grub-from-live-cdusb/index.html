@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">Faire un update-grub depuis un live CD/USB</h2>
+    
+
+    <time class="post-date" datetime="2011-02-03 00:00"
+      property="datePublished">03 Feb 2011</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>Sur toutes les machines dont je dispose à mon domicile, je n'ai installé Windows
+que sur une seule d'entre elles en multiboot avec Ubuntu (et oui, il faut avouer
+qu'avoir un Windows sous la main est toujours utile malgré tout). Cependant, ce
+vilain petit canard m'a causé quelques soucis lorsque j'ai réinstallé mes
+systèmes sur cet ordinateur (à cause d'un changement de disque dur).</p>
+<p>En effet, j'ai installé Ubuntu avant Windows car je n'avais pas son disque de
+réinstallation à ce moment là (prêté à quelqu'un). J'ai donc laissé 100 Go au
+début de mon disque dur pour le futur Windows et installé Ubuntu sur le reste de
+l'espace disponible. Lors de l'installation de Windows, ce dernier m'a écrasé le
+<a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Master_boot_record">MBR</a> (comme d'hab ...) mais j'avais prévu le coup, ayant installé Grub
+dans le <a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Volume_boot_record">PBR</a> (ou <a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Volume_boot_record">VBR</a>) de ma partition. Malgré tout, Ubuntu refuse
+de démarrer (contrairement à Windows, lancé depuis un bootloader appelé
+<a rel="noopener nofollow noreferrer" target="_blank" href="http://gag.sourceforge.net/">GAG</a> installé dans le <a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Master_boot_record">MBR</a>), une belle console de récupération Grub
+à l'écran ...</p>
+<span id="continue-reading"></span>
+<p>Ce n'est qu'après coup que j'ai compris le soucis : après l'installation de
+Windows, l'ordre des partitions a changé et Grub essaye de charger le noyau
+Linux depuis une mauvaise partition. Pour régler ce problème, il suffit de
+lancer la commande <code>update-grub</code> pour mettre à jour la configuration de ce
+dernier. Seul soucis : comment lancer cette commande si on est pas déjà sur le
+système ? C'est là qu'on sort son bon vieux <strong>Live CD/USB</strong> !</p>
+<p>Donc pour la manipulation (sur le Live CD/USB), en supposant que la partition du
+système GNU/Linux à récupérer soit <code>sdb1</code> :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>mount /dev/sdb1 /mnt
+</span><span>mount --bind /dev /mnt/dev
+</span><span>mount --bind /proc /mnt/proc
+</span><span>mount --bind /sys /mnt/sys
+</span><span>chroot /mnt
+</span><span>update-grub
+</span></code></pre>
+<p>Logiquement, tout devrait bien se passer. Une fois la configuration de Grub mise
+à jour, vous pouvez redémarrer l'ordinateur et profiter de votre distribution
+fraîchement installée !</p>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;grub&#x2F;">GRUB</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

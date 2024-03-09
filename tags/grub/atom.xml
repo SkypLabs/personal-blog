@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - GRUB</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/grub/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2011-02-03T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/grub/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Faire un update-grub depuis un live CD&#x2F;USB</title>
+        <published>2011-02-03T00:00:00+00:00</published>
+        <updated>2011-02-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/update-grub-from-live-cdusb/"/>
+        <id>https://blog.skyplabs.net/posts/update-grub-from-live-cdusb/</id>
+        
+        <summary type="html">&lt;p&gt;Sur toutes les machines dont je dispose à mon domicile, je n&#x27;ai installé Windows
+que sur une seule d&#x27;entre elles en multiboot avec Ubuntu (et oui, il faut avouer
+qu&#x27;avoir un Windows sous la main est toujours utile malgré tout). Cependant, ce
+vilain petit canard m&#x27;a causé quelques soucis lorsque j&#x27;ai réinstallé mes
+systèmes sur cet ordinateur (à cause d&#x27;un changement de disque dur).&lt;&#x2F;p&gt;
+&lt;p&gt;En effet, j&#x27;ai installé Ubuntu avant Windows car je n&#x27;avais pas son disque de
+réinstallation à ce moment là (prêté à quelqu&#x27;un). J&#x27;ai donc laissé 100 Go au
+début de mon disque dur pour le futur Windows et installé Ubuntu sur le reste de
+l&#x27;espace disponible. Lors de l&#x27;installation de Windows, ce dernier m&#x27;a écrasé le
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Master_boot_record&quot;&gt;MBR&lt;&#x2F;a&gt; (comme d&#x27;hab ...) mais j&#x27;avais prévu le coup, ayant installé Grub
+dans le &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Volume_boot_record&quot;&gt;PBR&lt;&#x2F;a&gt; (ou &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Volume_boot_record&quot;&gt;VBR&lt;&#x2F;a&gt;) de ma partition. Malgré tout, Ubuntu refuse
+de démarrer (contrairement à Windows, lancé depuis un bootloader appelé
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;gag.sourceforge.net&#x2F;&quot;&gt;GAG&lt;&#x2F;a&gt; installé dans le &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Master_boot_record&quot;&gt;MBR&lt;&#x2F;a&gt;), une belle console de récupération Grub
+à l&#x27;écran ...&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

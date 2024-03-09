@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">VPN, Security and Improper HTTP Redirects</h2>
+    
+
+    <time class="post-date" datetime="2023-01-28 00:00"
+      property="datePublished">28 Jan 2023</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>As you probably have already noticed, the number of VPN providers has grown
+massively in the recent years, and you can now stumble on ads for VPN
+subscriptions on every corner of the Internet. Of course, not all of these
+providers are equal in terms of quality of service, security or privacy. At the
+contrary, some of them falsely claim to have a zero-log policy or to even
+protect you from malicious actors.</p>
+<p>Having said that, using a public VPN service is not necessarily a bad idea if
+you choose it correctly. It's a matter of trust after all. Who do you trust the
+most for keeping your traffic private, your ISP, or a carefully selected VPN
+provider? (I said carefully here because you have a larger number of VPN
+providers on the market than ISPs available where you live).</p>
+<p>If you trust your VPN provider, you get in theory a higher degree of online
+privacy by proxying your connections through it (even if, as of today, nothing
+can fully replace <a rel="noopener nofollow noreferrer" target="_blank" title="The Tor project" href="https://www.torproject.org/">Tor</a>). But what about security? From a theoretical
+standpoint once again, TLS is well enough to guarantee the security of your
+online activity. And thanks to projects like <a rel="noopener nofollow noreferrer" target="_blank" title="Let's Encrypt" href="https://letsencrypt.org/">Let's Encrypt</a>, most
+websites are accessible via HTTPS these days.</p>
+<span id="continue-reading"></span>
+<p>So, using a VPN doesn't give you a better security? Well, in practice, it's not
+that simple, and for one simple reason: there are lots of misconfigured web
+servers out there! And it is actually the reason I wanted to write this blog
+post. To be more precise, it is <a rel="noopener nofollow noreferrer" target="_blank" href="https://twitter.com/SchmiegSophie/status/1489986563677196288">this Twitter
+thread</a> which made
+me realise that even experienced information security people can miss this
+point:</p>
+<blockquote>
+<p>&quot;Please stop with your misinformation campaign. VPNs are completely
+unnecessary to protect someone in this scenario, https works just fine.&quot;
+<a rel="noopener nofollow noreferrer" target="_blank" href="https://twitter.com/SchmiegSophie">@SchmiegSophie</a></p>
+</blockquote>
+<p>Sophie is right here, HTTPS works fine, but only when properly configured. As a
+matter of fact, I use an online accounting web application called
+<a rel="noopener nofollow noreferrer" target="_blank" title="Bullet HQ" href="https://www.bullethq.com/">Bullet</a> for the needs of <a rel="noopener nofollow noreferrer" target="_blank" title="SkypLabs" href="https://skyplabs.com">my company</a>. When I try to log
+into my Bullet account, here is what happens:</p>
+<p><img src="https://blog.skyplabs.net/posts/vpn-security-improper-http-redirects/./bullet-improper-http-redirect.png" alt="Firefox HTTPS-only mode alert page stating that &quot;Secure Site Not Available&quot; on Bullet's login page." /></p>
+<p>As you can see, I am redirected to an HTTP page, leaking the session cookie
+because it is not marked as <a rel="noopener nofollow noreferrer" target="_blank" title="MDN - Restrict access to cookies" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#restrict_access_to_cookies"><code>Secure</code></a>. I let the company
+know about this security issue months ago but to this date, they still haven't
+taken any actions to fix it, hence the public disclosure here.</p>
+<p>This category of issues is unfortunately quite common. Just the other day, the
+same thing happened to me once again on the Help Desk tool of a cloud provider
+specialised in Healthcare Data Solutions (HDS). It goes without saying that
+impersonating an account used to request actions on production systems is
+something not desired... If I were to be connected to a public Wi-Fi while
+triggering one of those improper HTTP redirects, a malicious actor on the same
+network could have stolen my session token, and indeed, tunnelling my network
+traffic using a VPN is a way to prevent it.</p>
+<p>Another less costly way to prevent your browser from leaking personal data,
+including session cookies, is to turn on the HTTPS-only mode of your web browser
+as I did with <a rel="noopener nofollow noreferrer" target="_blank" title="Firefox HTTPS-only mode" href="https://support.mozilla.org/en-US/kb/https-only-prefs">Firefox</a>. The result is the one of the above
+screenshot: Firefox warns you when plaintext data is about to be sent.</p>
+<p>To conclude, the decision to use or not a VPN is yours, and my intention was
+solely to help you weight the pros and cons on that matter. If you think a VPN
+can fit your needs, I recommend <a rel="noopener nofollow noreferrer" target="_blank" title="Mullvad VPN" href="https://mullvad.net/">Mullvad VPN</a> (this is my personal
+opinion, not a sponsor) for the following main reasons: EU-based company,
+<a rel="noopener nofollow noreferrer" target="_blank" title="Mullvad VPN's diskless infrastructure" href="https://www.mullvad.net/en/blog/2022/8/1/expanding-diskless-infrastructure-to-more-locations-system-transparency-stboot/">diskless infrastructure</a>, <a rel="noopener nofollow noreferrer" target="_blank" title="Mullvad VPN's post-quantum cryptography" href="https://www.mullvad.net/en/blog/2022/11/8/post-quantum-safe-vpn-tunnels-available-on-all-wireguard-servers/">post-quantum
+cryptography</a>, open-source software without trackers (and
+written in Rust!), <a rel="noopener nofollow noreferrer" target="_blank" title="Mullvad VPN continously donating to Qubes OS" href="https://www.mullvad.net/en/blog/2022/6/15/mullvad-is-now-continuously-donating-to-qubes-os/">supporting open-source projects such as Qubes
+OS</a>, and <a rel="noopener nofollow noreferrer" target="_blank" title="Mullvad VPN's latest security audit of their apps" href="https://www.mullvad.net/en/blog/2022/10/21/security-audit-report-for-our-app-available/">transparent security audit
+reports</a>.</p>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;essay&#x2F;">Essay</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;security&#x2F;">Security</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;web&#x2F;">Web</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;firefox&#x2F;">Firefox</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;tls&#x2F;">TLS</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;vpn&#x2F;">VPN</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

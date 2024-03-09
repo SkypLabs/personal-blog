@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Angular</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/angular/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2017-11-30T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/angular/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[Angular] Different sharing mechanisms for different situations</title>
+        <published>2017-11-30T00:00:00+00:00</published>
+        <updated>2017-11-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/angular-sharing-mechanisms/"/>
+        <id>https://blog.skyplabs.net/posts/angular-sharing-mechanisms/</id>
+        
+        <summary type="html">&lt;p&gt;Angular has different mechanisms for sharing data between components. The choice
+of the sharing method mostly depends on the relationship of the related
+components. Typically, within the context of a parent-child topology, the most
+straightforward choice would be to use the &lt;code&gt;@Input&lt;&#x2F;code&gt; and &lt;code&gt;@Output&lt;&#x2F;code&gt; decorators.
+For sibling components, relying on a data sharing service seems to be the most
+obvious solution. In any case, once you have settled on the choice of a
+communication topology, you need to decide which data propagating mechanism to
+use.&lt;&#x2F;p&gt;
+&lt;p&gt;Generally, components use &lt;code&gt;EventEmmiter&lt;&#x2F;code&gt; objects to share data with each other.
+When you pass data into an Angular component with an &lt;code&gt;@Input&lt;&#x2F;code&gt; decorator, you are
+actually using an &lt;code&gt;EventEmitter&lt;&#x2F;code&gt; object. Although this solution is appropriate
+for the majority of situations, this is not always the case. Let&#x27;s consider the
+following example:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;angular-sharing-mechanisms&#x2F;EventEmitter.svg&quot; alt=&quot;Diagram of the data propagation using an EventEmitter&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Angular] Running unit tests with Chromium in a Docker container</title>
+        <published>2017-08-29T00:00:00+00:00</published>
+        <updated>2017-08-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/angular-unit-tests-chromium-docker/"/>
+        <id>https://blog.skyplabs.net/posts/angular-unit-tests-chromium-docker/</id>
+        
+        <summary type="html">&lt;p&gt;Running unit tests for front-end web applications require them to be tested in a
+web browser. While it&#x27;s not an issue on a workstation, it can become tedious
+when running in a restricted environment such as a Docker container. In fact,
+these execution environments are generally lightweight and do not contain any
+graphical environment.&lt;&#x2F;p&gt;
+&lt;p&gt;One solution to work around this issue is to use a headless web browser designed
+for development purposes, like &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;phantomjs.org&#x2F;&quot;&gt;PhantomJS&lt;&#x2F;a&gt;. While it&#x27;s an elegant
+solution for testing an application, it would be even better to test it directly
+in a web browser which will be used by the end-users in order to match real
+conditions of use, for examples Firefox or Chromium&#x2F;Google Chrome. However, as
+mentioned above, it is needed to find a way to execute a regular web browser in
+a restricted environment.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

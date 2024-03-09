@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Ruby</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/ruby/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2014-08-20T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/ruby/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[Ruby] &quot;Failed to build gem native extension&quot;</title>
+        <published>2014-08-20T00:00:00+00:00</published>
+        <updated>2014-08-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/ruby-failed-to-build-gem-native-extension/"/>
+        <id>https://blog.skyplabs.net/posts/ruby-failed-to-build-gem-native-extension/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/ruby-failed-to-build-gem-native-extension/">&lt;p&gt;Si vous obtenez ce message d&#x27;erreur lors de la première utilisation de l&#x27;outil
+&lt;strong&gt;gem&lt;&#x2F;strong&gt;, c&#x27;est qu&#x27;il vous manque certaines dépendances nécessaires à la création
+de la &lt;code&gt;gem native extension&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour les installer sous Fedora :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;sudo yum install -y gcc ruby-devel libxml2 libxml2-devel libxslt libxslt-devel
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Après cela, vous pouvez relancer l&#x27;installation de votre gem en utilisant
+l&#x27;option &lt;code&gt;--use-system-libraries&lt;&#x2F;code&gt; permettant d&#x27;utiliser les bibliothèques du
+système (ici, &lt;em&gt;libxml2&lt;&#x2F;em&gt; et &lt;em&gt;libxslt&lt;&#x2F;em&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;Par exemple, pour installer la gem &lt;strong&gt;gollum&lt;&#x2F;strong&gt; :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;gem install gollum -- --use-system-libraries
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+</feed>

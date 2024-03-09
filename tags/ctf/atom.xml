@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - CTF</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/ctf/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2020-10-02T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/ctf/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[HTB] Admirer</title>
+        <published>2020-10-02T00:00:00+00:00</published>
+        <updated>2020-10-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/htb-admirer/"/>
+        <id>https://blog.skyplabs.net/posts/htb-admirer/</id>
+        
+        <summary type="html">&lt;p&gt;Admirer is an easy &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Hack The Box - Main Website&quot; href=&quot;https:&#x2F;&#x2F;hackthebox.eu&#x2F;&quot;&gt;Hack The Box&lt;&#x2F;a&gt; Linux-based machine released on the 2nd
+of May 2020 and reachable on the IP address &lt;code&gt;10.10.10.187&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;For whose who don&#x27;t know it yet, Hack The Box is an online platform where
+vulnerable machines are deployed in a private network accessible via VPN, and
+where users need to hack their way into the systems to collect flags as proofs
+of their success.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;htb-admirer&#x2F;htb-admirer-info-card.jpg&quot; alt=&quot;HTB Admirer information card&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[HTB] Traceback</title>
+        <published>2020-08-25T00:00:00+00:00</published>
+        <updated>2020-08-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/htb-traceback/"/>
+        <id>https://blog.skyplabs.net/posts/htb-traceback/</id>
+        
+        <summary type="html">&lt;p&gt;Traceback is an easy Linux-based machine released on the 14th of March 2020 and
+reachable on the IP address &lt;code&gt;10.10.10.181&lt;&#x2F;code&gt; (despite what&#x27;s written on the info
+card).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;htb-traceback&#x2F;htb-traceback-info-card.jpg&quot; alt=&quot;HTB Traceback information card&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Hacker 101 - Capture the Flags with a Regex</title>
+        <published>2020-07-07T00:00:00+00:00</published>
+        <updated>2020-07-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/hacker101-flag-regex/"/>
+        <id>https://blog.skyplabs.net/posts/hacker101-flag-regex/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/hacker101-flag-regex/">&lt;p&gt;Enjoying &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ctf.hacker101.com&quot;&gt;HackerOne&#x27;s CTF&lt;&#x2F;a&gt;?&lt;&#x2F;p&gt;
+&lt;p&gt;If you want to make sure not to inadvertently miss any single flag while
+skimming through web pages, you can ask &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;zaproxy.org&quot;&gt;ZAP&lt;&#x2F;a&gt; to catch them for you with
+this regex: &lt;code&gt;\^FLAG\^[\w\d]{64}\$FLAG\$&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;hacker101-flag-regex&#x2F;hacker101_zap_flag_regex_settings.jpg&quot; alt=&quot;ZAP settings to capture Hacker 101 flags automatically&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;A &amp;quot;Flag&amp;quot; tag will appear next the requests containing a flag in their response:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;hacker101-flag-regex&#x2F;hacker101_zap_flag_regex_captured.jpg&quot; alt=&quot;HTTP request captured with ZAP containing a Hacker 101 flag&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;This technique is particularly useful when a flag appears in a non-obvious
+location such as an HTML comment.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[ndh2k16] Hello Friend</title>
+        <published>2016-07-05T00:00:00+00:00</published>
+        <updated>2016-07-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/ndh2k16-hello-friend/"/>
+        <id>https://blog.skyplabs.net/posts/ndh2k16-hello-friend/</id>
+        
+        <summary type="html">&lt;p&gt;Une des épreuves du wargame de la nuit du hack 2016 était de retrouver un code
+de validation à partir de cette image :&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;files.skyplabs.net&#x2F;hellofriend.jpg&quot; alt=&quot;Fichier JPEG utilisé pour le challenge &amp;quot;hello friend&amp;quot; lors de la nuit du hack 2016&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

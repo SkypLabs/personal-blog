@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">Allier Android en GUI et Debian en CLI sur la Asus Transformer Prime</h2>
+    
+
+    <time class="post-date" datetime="2012-01-20 00:00"
+      property="datePublished">20 Jan 2012</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>Ça y est, j'ai enfin reçu ma tablette tactile, la Asus Transformer Prime !</p>
+<p>Pour ceux qui ne la connaissent pas, c'est une tablette qui a la particularité
+d'être vendue avec un dock clavier (une station d'accueil) lui permettant de se
+transformer (d'où son nom) en petit ordinateur. Une fois montée sur le dock, on
+a réellement l'impression que c'est un netbook.</p>
+<p>Le principal intérêt de cette tablette est donc son utilisation en tant
+qu'ordinateur. C'est pour cette raison que je trouvais dommage de devoir se
+limiter aux applications Android qui ne sont pas particulièrement adaptées à
+l'ensemble des usages qu'en ferait une personne expérimentée dans le domaine de
+l'informatique. Par exemple, comment compiler un programme développé en C sous
+Android ? Et comment implémenter ce dernier dans une carte microcontrôleur ? Ou
+comment scanner un réseau dans le but de faire un audit de sécurité ? C'est donc
+pour combler ces manques que je me suis décidé à installer une distribution
+Debian dans un environnement confiné au sein de l'arborescence du système
+Android afin de pouvoir récupérer facilement l'ensemble des outils dont j'ai
+besoin.</p>
+<span id="continue-reading"></span>
+<p>Les systèmes Android et Debian reposent tous les deux sur un noyau Linux, ce qui
+va nous permettre de les faire cohabiter. Dans un premier temps, il est
+nécessaire de récupérer le compte <strong>root</strong> de la machine, sans quoi aucune des
+manipulations qui vont suivre ne seront possibles. Étant donné que les
+constructeurs refusent de donner l'accès à ce compte aux utilisateurs et que le
+bootloader de la Asus Transformer Prime est verrouillé par défaut, le seul moyen
+restant est d'utiliser un <strong>local exploit root</strong>. Pour cela, je vous laisse
+trouver les informations et exploits nécessaires sur le web, en particulier sur
+le forum de <a rel="noopener nofollow noreferrer" target="_blank" title="How to Root Any Device - XDA Developers" href="https://www.xda-developers.com/root/">XDA Developers</a>. Une fois le compte root
+récupéré, je vous conseille d'utiliser l'application <strong>OTA RootKeeper</strong>
+(disponible sur l'Android Market) qui permet de faire une &quot;sauvegarde du compte
+root&quot; pour ne pas le perde après une mise à jour du firmware.</p>
+<p>Il est maintenant temps de passer aux choses sérieuses. Nous allons déployer
+l'arborescence d'une distribution Debian dans un dossier du file system
+d'Android pour ensuite pouvoir y accéder grâce à l'appel système <code>chroot</code>. Pour
+commencer, occupons nous de construire notre futur environnement Debian. Nous
+allons utiliser l'outil <strong>debootstap</strong> pour remplir cet objectif. Depuis un
+ordinateur classique :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">debootstrap --foreign --arch</span><span> armel wheezy mydebian
+</span><span style="color:#bf616a;">tar</span><span> cf mydebian.tar mydebian
+</span></code></pre>
+<p>Pour la suite, il va nous falloir transférer l'archive de la Debian fraîchement
+crée sur la Transformer Prime. Pour cela, on peut soit monter la partition
+sdcard de la tablette sur l'ordinateur, soit utiliser l'utilitaire <strong>adb</strong> du
+SDK d'Android :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">adb</span><span> push mydebian.tar /sdcard/mydebian.tar
+</span></code></pre>
+<p>Et maintenant, il ne reste plus qu'à tout extraire et à finaliser l'installation
+(sur la tablette, en utilisant les outils de busybox de préférence) :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">cd</span><span> /data/local/tmp
+</span><span style="color:#bf616a;">tar</span><span> xf /sdcard/mydebian.tar
+</span><span style="color:#bf616a;">MYDEB</span><span>=</span><span style="color:#a3be8c;">/data/local/tmp/mydebian
+</span><span style="color:#bf616a;">mount --bind</span><span> /dev $</span><span style="color:#bf616a;">MYDEB</span><span>/dev
+</span><span style="color:#bf616a;">mount --bind</span><span> /proc $</span><span style="color:#bf616a;">MYDEB</span><span>/proc
+</span><span style="color:#bf616a;">mount --bind</span><span> /sys $</span><span style="color:#bf616a;">MYDEB</span><span>/sys
+</span><span style="color:#bf616a;">mount --bind</span><span> /dev/pts $</span><span style="color:#bf616a;">MYDEB</span><span>/dev/pts
+</span><span style="color:#bf616a;">mount</span><span> /data</span><span style="color:#bf616a;"> -o</span><span> remount,dev
+</span><span style="color:#b48ead;">export </span><span style="color:#bf616a;">PATH</span><span>=</span><span style="color:#a3be8c;">/bin:/sbin:/usr/bin:/usr/sbin
+</span><span style="color:#bf616a;">/system/xbin/chroot </span><span>$</span><span style="color:#bf616a;">MYDEB</span><span> /debootstrap/debootstrap</span><span style="color:#bf616a;"> --second-stage
+</span><span style="color:#bf616a;">mount</span><span> /data</span><span style="color:#bf616a;"> -o</span><span> remount,nodev
+</span></code></pre>
+<p>Votre distribution Debian est maintenant complètement installée sur votre
+Transformer Prime ! Il faut maintenant procéder à quelques réglages de routine
+dont voici une liste non exhaustive :</p>
+<ul>
+<li>
+<p>Changer le hostname :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>sysctl kernel.hostname=&lt;nouveau_nom&gt;
+</span></code></pre>
+</li>
+<li>
+<p>Ajouter un DNS publique pour pouvoir y accéder de n'importe où
+(personnellement, j'utilise celui de Google, à savoir 8.8.8.8) :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">nameserver 8.8.8.8</span><span>&quot; &gt; /etc/resolv.conf
+</span></code></pre>
+</li>
+<li>
+<p>Remplir le fichier <code>/etc/apt/sources.list</code> pour pouvoir utiliser <strong>aptitude</strong>
+ou <strong>apt-get</strong> :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">deb http://ftp.fr.debian.org/debian/ sid main</span><span>&quot; &gt; /etc/apt/sources.list
+</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">deb-src http://ftp.fr.debian.org/debian/ sid main</span><span>&quot; &gt;&gt; /etc/apt/sources.list
+</span></code></pre>
+</li>
+</ul>
+<p>Et pour pouvoir revenir facilement dans l'environnement confiné de la Debian,
+j'utilise le script suivant (initialement écrit par mon ami <strong>Peck</strong> - <a rel="noopener nofollow noreferrer" target="_blank" title="Une distribution GNU sur Android - Linux Attitude" href="http://linux-attitude.fr/post/une-distribution-gnu-sur-android#more-1380">Une
+distribution GNU sur Android - Linux-attitude</a>) :</p>
+<div >
+    <script src="https:&#x2F;&#x2F;gist.github.com&#x2F;SkypLabs&#x2F;af5e18de8bbb846438f45315552007c8.js?file=go2deb.sh"></script>
+</div>
+<p>Il ne reste plus qu'à automatiser notre passage de l'environnement Android vers
+notre nouvel environnement Debian. J'utilise pour ma part l'application Android
+<strong>Terminal emulator</strong> (disponible sur l'Android Market) comme console locale
+avec l'option <strong>initial command</strong> configurée de cette manière (le script
+<code>go2deb.sh</code> est celui affiché plus haut) :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">PATH</span><span>=</span><span style="color:#a3be8c;">/system/xbin:</span><span>$</span><span style="color:#bf616a;">PATH</span><span>; </span><span style="color:#96b5b4;">cd</span><span> /data/local/tmp; </span><span style="color:#bf616a;">su -c </span><span>&quot;</span><span style="color:#a3be8c;">./go2deb.sh</span><span>&quot;
+</span></code></pre>
+<p>De cette façon, à chaque lancement d'un nouveau terminal, on arrivera
+directement dans la Debian.</p>
+<p>Vous pouvez maintenant profiter pleinement de votre Transformer Prime, que ce
+soit en tablette sous Android ou en ordinateur sous Debian.</p>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;android&#x2F;">Android</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;debian&#x2F;">Debian</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

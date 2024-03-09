@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Docker</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/docker/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-07-27T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/docker/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Detect whether you are inside a container or not</title>
+        <published>2023-07-27T00:00:00+00:00</published>
+        <updated>2023-07-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/container-detection/"/>
+        <id>https://blog.skyplabs.net/posts/container-detection/</id>
+        
+        <summary type="html">&lt;p&gt;Container technologies (&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;chroot&quot;&gt;chroot&lt;&#x2F;a&gt;, &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;linuxcontainers.org&#x2F;&quot;&gt;LXC&lt;&#x2F;a&gt;, …) are very common these
+days, especially since the massive adoption of &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.docker.com&#x2F;&quot;&gt;Docker&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;One of the use cases of container technologies is to isolate services from each
+others and from the host system. As a result, in case of an intrusion, the
+attacker would be in theory trapped inside a container. From the attacker’s
+perspective, it is important to be able to detect if a compromised service lives
+in a restricted environment such as a Docker container or if it runs directly on
+the host operating system.&lt;&#x2F;p&gt;
+&lt;p&gt;One way to do so is to have a look at the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Inode&quot;&gt;inode&lt;&#x2F;a&gt; of the &lt;code&gt;&#x2F;&lt;&#x2F;code&gt; mount point
+(&lt;code&gt;ls -id &#x2F;&lt;&#x2F;code&gt;).  On the host system it will be very low (generally 1 or 2) whereas
+in a container it will generally be quite high (4851522 in the asciicast):&lt;&#x2F;p&gt;
+&lt;script id=&quot;asciicast-318880&quot; src=&quot;https:&#x2F;&#x2F;asciinema.org&#x2F;a&#x2F;318880.js&quot; async&gt;&lt;&#x2F;script&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Qubes OS] Make Docker use private storage</title>
+        <published>2023-01-20T00:00:00+00:00</published>
+        <updated>2023-01-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/qubes-os-docker-storage/"/>
+        <id>https://blog.skyplabs.net/posts/qubes-os-docker-storage/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/qubes-os-docker-storage/">&lt;p&gt;The Docker engine stores all image layers in &lt;code&gt;&#x2F;var&#x2F;lib&#x2F;docker&lt;&#x2F;code&gt; by default, which
+is not compatible with Qubes OS&#x27; template system. You would lose all your saved
+images each time you restart the app qube in question.&lt;&#x2F;p&gt;
+&lt;p&gt;You can change the Docker engine&#x27;s root data directory by editing
+&lt;code&gt;&#x2F;etc&#x2F;docker&#x2F;daemon.json&lt;&#x2F;code&gt; in your template:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;json&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-json &quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;data-root&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;usr&#x2F;local&#x2F;lib&#x2F;docker&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The list of the directories that can be used to store Docker&#x27;s data persistently
+across reboots can be found &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Qubes OS - Inheritance and Persistence&quot; href=&quot;https:&#x2F;&#x2F;www.qubes-os.org&#x2F;doc&#x2F;templates&#x2F;#inheritance-and-persistence&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Once the configuration file in place in your template, you can then boot up any
+app qube using this template and check if the new location has correctly been
+taken into account:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;raw&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-raw &quot;&gt;&lt;code class=&quot;language-raw&quot; data-lang=&quot;raw&quot;&gt;&lt;span&gt;$ sudo docker info | grep -i &amp;#39;root dir&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt; Docker Root Dir: &#x2F;usr&#x2F;local&#x2F;lib&#x2F;docker
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Please note that if you already had Docker images stored in an qube app before
+making this configuration change, they won&#x27;t be available in Docker any more.
+You would need to move them to the new location or download them again.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Docker] Explore a container&#x27;s file system from scratch</title>
+        <published>2022-04-13T00:00:00+00:00</published>
+        <updated>2022-04-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/docker-explore-from-scratch/"/>
+        <id>https://blog.skyplabs.net/posts/docker-explore-from-scratch/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/docker-explore-from-scratch/">&lt;p&gt;Generally, when I want to explore the file system of a Docker container, I do it
+interactively by executing a shell inside it, something like:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ docker exec -it container_name sh
+&lt;&#x2F;span&gt;&lt;span&gt;$ ls
+&lt;&#x2F;span&gt;&lt;span&gt;...
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;But sometimes the image of the container I want to explore does not contain any
+tools for this purpose. No &lt;code&gt;ls&lt;&#x2F;code&gt;, no &lt;code&gt;cat&lt;&#x2F;code&gt;, not even a shell.  It is especially
+the case when building Docker images &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hub.docker.com&#x2F;_&#x2F;scratch&#x2F;&quot;&gt;from scratch&lt;&#x2F;a&gt;, which
+is very common with &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.docker.com&#x2F;develop&#x2F;develop-images&#x2F;multistage-build&#x2F;&quot;&gt;multi-stage builds&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;One solution is to rely on the &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;reference&#x2F;commandline&#x2F;export&#x2F;&quot;&gt;&lt;code&gt;docker export&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; tool which
+allows to &amp;quot;export a container&#x27;s filesystem as a tar archive&amp;quot;. By default, it
+writes the tar archive to &lt;code&gt;STDOUT&lt;&#x2F;code&gt;, which means it can be easily piped into the
+&lt;code&gt;tar&lt;&#x2F;code&gt; command-line tool to list its contents on the fly:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ docker export 7c1f2edd42c4 | tar -tv | tee filesystem.txt
+&lt;&#x2F;span&gt;&lt;span&gt;-rwxr-xr-x root&#x2F;root         0 2022-04-04 09:46 .dockerenv
+&lt;&#x2F;span&gt;&lt;span&gt;drwxr-xr-x root&#x2F;root         0 2022-03-19 15:52 bin&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;-rwxr-xr-x root&#x2F;root  45687736 2022-03-19 15:52 bin&#x2F;node
+&lt;&#x2F;span&gt;&lt;span&gt;...
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Angular] Running unit tests with Chromium in a Docker container</title>
+        <published>2017-08-29T00:00:00+00:00</published>
+        <updated>2017-08-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/angular-unit-tests-chromium-docker/"/>
+        <id>https://blog.skyplabs.net/posts/angular-unit-tests-chromium-docker/</id>
+        
+        <summary type="html">&lt;p&gt;Running unit tests for front-end web applications require them to be tested in a
+web browser. While it&#x27;s not an issue on a workstation, it can become tedious
+when running in a restricted environment such as a Docker container. In fact,
+these execution environments are generally lightweight and do not contain any
+graphical environment.&lt;&#x2F;p&gt;
+&lt;p&gt;One solution to work around this issue is to use a headless web browser designed
+for development purposes, like &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;phantomjs.org&#x2F;&quot;&gt;PhantomJS&lt;&#x2F;a&gt;. While it&#x27;s an elegant
+solution for testing an application, it would be even better to test it directly
+in a web browser which will be used by the end-users in order to match real
+conditions of use, for examples Firefox or Chromium&#x2F;Google Chrome. However, as
+mentioned above, it is needed to find a way to execute a regular web browser in
+a restricted environment.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Docker] Votre script Python laisse anormalement la sortie standard vide</title>
+        <published>2015-11-16T00:00:00+00:00</published>
+        <updated>2015-11-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/docker-python-empty-std-output/"/>
+        <id>https://blog.skyplabs.net/posts/docker-python-empty-std-output/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/docker-python-empty-std-output/">&lt;p&gt;Lors de l&#x27;exécution d&#x27;un programme écrit en Python dans un conteneur Docker, il
+arrive régulièrement que la sortie standard reste anormalement vide :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ docker logs my-app
+&lt;&#x2F;span&gt;&lt;span&gt;$
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;La raison est généralement que par défaut, l&#x27;interpréteur Python utilise une
+mémoire tampon pour les écritures vers &lt;code&gt;stdout&lt;&#x2F;code&gt;. Les écritures sont donc
+différées et cela peut prendre un moment avant de voir apparaitre la moindre
+ligne d&#x27;écriture (selon la verbosité de votre programme).&lt;&#x2F;p&gt;
+&lt;p&gt;Une solution est d&#x27;utiliser l&#x27;option &lt;code&gt;-u&lt;&#x2F;code&gt; lors de l&#x27;appel à l&#x27;interpréteur
+Python. Votre &lt;code&gt;Dockerfile&lt;&#x2F;code&gt; devra contenir une ligne ressemblant à ceci :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;dockerfile&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-dockerfile &quot;&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt;&lt;span&gt;CMD [&amp;quot;python3&amp;quot;, &amp;quot;-u&amp;quot;, &amp;quot;my-app.py&amp;quot;]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Et ainsi :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ docker logs my-app
+&lt;&#x2F;span&gt;&lt;span&gt;It works !
+&lt;&#x2F;span&gt;&lt;span&gt;$
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Docker] Développer sur le BLE Micro de Seeed Studio</title>
+        <published>2014-12-08T00:00:00+00:00</published>
+        <updated>2014-12-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/docker-ble-micro/"/>
+        <id>https://blog.skyplabs.net/posts/docker-ble-micro/</id>
+        
+        <summary type="html">&lt;p&gt;Le &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.seeedstudio.com&#x2F;Seeed-Micro-BLE-Module-w-Cortex-M0-Based-nRF51822-SoC-p-1975.html&quot;&gt;BLE Micro&lt;&#x2F;a&gt; est une petite carte électronique produite par [Seeed
+Studio][seeed-studio] embarquant le SoC &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.nordicsemi.com&#x2F;Products&#x2F;Low-power-short-range-wireless&#x2F;nRF51822&#x2F;GetStarted&quot;&gt;nRF51822&lt;&#x2F;a&gt; de Nordic
+Semiconductor. Ce dernier est un module de communication &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Bluetooth_low_energy&quot;&gt;Bluetooth Low
+Energy&lt;&#x2F;a&gt; (BLE) basé un Cortex M0.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;docker-ble-micro&#x2F;ble_micro.jpg&quot; alt=&quot;BLE Micro de Seeed Studio&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

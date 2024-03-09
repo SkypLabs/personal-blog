@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+    <div id="search-container">
+      <input type="search" id="search-input" placeholder="Search for a post, a tag, a category...">
+      <div class="search-results">
+        <ul class="search-results-items"></ul>
+      </div>
+    </div>
+
+    <div class="posts">
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;bash-replace-key-value-pairs&#x2F;">
+        [Bash] Remplacement de la forme key=value dans un fichier texte
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2014-04-30 00:00"
+      property="datePublished">30 Apr 2014</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>La regex ci-dessous utilisée avec le programme <code>sed</code> permet de remplacer
+l'ancienne valeur attribuée à <code>KEY</code> par la nouvelle valeur <code>VALUE</code> dans le
+fichier <code>file</code> :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sed -i </span><span>&quot;</span><span style="color:#a3be8c;">s/\(KEY *= *\).*/\1VALUE/</span><span>&quot; &lt;file&gt;
+</span></code></pre>
+<p>Par exemple, pour remplacer le nom d'hôte d'un système CentOS par la valeur
+contenue dans <code>$host_name</code> :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sed -i </span><span>&quot;</span><span style="color:#a3be8c;">s/\(HOSTNAME *= *\).*/\1</span><span>$</span><span style="color:#bf616a;">host_name</span><span style="color:#a3be8c;">/</span><span>&quot; /etc/sysconfig/network
+</span></code></pre>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;programming&#x2F;">Programming</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;bash&#x2F;">Bash</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;debian-yum-whatprovides-equivalent&#x2F;">
+        [Debian] Équivalent de "yum whatprovides"
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2014-04-27 00:00"
+      property="datePublished">27 Apr 2014</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>Les outils <strong>apt-get</strong> et <strong>aptitude</strong> ne possèdent pas d'équivalent à l'option
+<code>whatprovides</code> de Yum. Cependant, il existe un logiciel nommé <strong>apt-file</strong>
+capable de remplir cette tâche :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>aptitude install apt-file
+</span><span>apt-file update
+</span><span>apt-file search &lt;file&gt;
+</span></code></pre>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;rpm&#x2F;">RPM</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;yum&#x2F;">Yum</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;linux-update-datetime-without-ntp&#x2F;">
+        [Linux] Mettre à jour l'heure de son système par internet sans NTP
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2014-04-25 00:00"
+      property="datePublished">25 Apr 2014</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>Voici une astuce trouvée sur un <a rel="noopener nofollow noreferrer" target="_blank" title="How to use ntpdate behind a proxy" href="https://superuser.com/questions/307158/how-to-use-ntpdate-behind-a-proxy/465838#465838">forum</a> permettant de mettre à jour
+l'heure d'un système sous Linux par internet mais sans utiliser NTP :</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">date -s </span><span>&quot;$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">wget -S  </span><span>&quot;</span><span style="color:#a3be8c;">https://www.google.com/</span><span>&quot; </span><span style="color:#d08770;">2</span><span>&gt;&amp;</span><span style="color:#d08770;">1 </span><span>| </span><span style="color:#bf616a;">grep -E </span><span>&#39;</span><span style="color:#a3be8c;">^[[:space:]]*[dD]ate:</span><span>&#39; | </span><span style="color:#bf616a;">sed </span><span>&#39;</span><span style="color:#a3be8c;">s/^[[:space:]]*[dD]ate:[[:space:]]*//</span><span>&#39; | </span><span style="color:#bf616a;">head -1l </span><span>| </span><span style="color:#bf616a;">awk </span><span>&#39;</span><span style="color:#a3be8c;">{print $1, $3, $2,  $5 ,&quot;GMT&quot;, $4 }</span><span>&#39; | </span><span style="color:#bf616a;">sed </span><span>&#39;</span><span style="color:#a3be8c;">s/,//</span><span>&#39;</span><span style="color:#a3be8c;">)</span><span>&quot;
+</span></code></pre>
+<p>Le principe est d'utiliser le champ <code>Date</code> se trouvant dans les en-têtes
+<strong>HTTP</strong> de la réponse d'un serveur web lors d'une requête vers celui-ci. Il
+faut cependant s'assurer que le serveur web contacté soit à l'heure, lui ! Le
+choix du moteur de recherche Google est donc une bonne idée.</p>
+<p>L'utilisation de cette méthode se justifie lorsque l'on veut mettre à jour
+l'heure d'une machine se trouvant derrière un proxy.</p>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;linux&#x2F;">Linux</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;ntp&#x2F;">NTP</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;fedora-netfilter-dlna&#x2F;">
+        [Fedora] Autoriser le partage DLNA sous Netfilter
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2014-04-22 00:00"
+      property="datePublished">22 Apr 2014</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>GNOME 3 intègre dans le panel des options une rubrique de partage permettant
+entre autres de diffuser du contenu multimédia en DLNA. Le serveur sous-jacent
+utilisé se nomme <strong>rygel</strong> et ce dernier utilise un port d'écoute TCP dynamique.</p>
+<p>Seulement voila, <strong>Netfilter</strong> n'est pas configuré par défaut pour laisser
+passer le trafic DLNA, et encore moins pour détecter quel port d'écoute est
+utilisé par rygel. Il est donc nécessaire d'entreprendre quelques actions pour
+rectifier la situation :</p>
+<ol>
+<li>Modifier le port d'écoute de rygel. Pour cela, il faut modifier la ligne
+<code>port=0</code> (dynamique) par <code>port=65530</code> dans le fichier de configuration
+<code>/etc/rygel.conf</code>. Bien entendu, le choix du numéro du port est complètement
+arbitraire.</li>
+<li>Autoriser le port <strong>TCP 65530</strong> et le port <strong>UDP 1900</strong> en entrée dans la
+configuration de Netfilter. On pourra utiliser l'outil graphique &quot;firewall&quot;
+par exemple pour réaliser cette tâche.</li>
+<li>Redémarrer rygel.</li>
+</ol>
+<p>Il ne vous reste plus qu'à tester le bon fonctionnement de votre modification en
+utilisant un client DLNA sur un autre appareil pour lancer la lecture d'un film
+par exemple 🙂</p>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;fedora&#x2F;">Fedora</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;gnome-3&#x2F;">GNOME 3</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;netfilter&#x2F;">Netfilter</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;dlna&#x2F;">DLNA</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;bash-test-ipv4&#x2F;">
+        [Bash] Tester une adresse IPv4
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2014-04-14 00:00"
+      property="datePublished">14 Apr 2014</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>La fonction ci-dessous permet de tester une adresse IPv4 pour vérifier qu'elle
+est bien formée :</p>
+<div >
+    <script src="https:&#x2F;&#x2F;gist.github.com&#x2F;SkypLabs&#x2F;8758fa2aa63201b028d0ac680b2a90c4.js?file=is_ipv4.sh"></script>
+</div>
+<p>Et voici un exemple d'utilisation :</p>
+<div >
+    <script src="https:&#x2F;&#x2F;gist.github.com&#x2F;SkypLabs&#x2F;8758fa2aa63201b028d0ac680b2a90c4.js?file=is_ipv4_example.sh"></script>
+</div>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;programming&#x2F;">Programming</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;bash&#x2F;">Bash</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+    </div>
+
+    <nav class="pagination">
+      
+      <span class="pagination-item older"><a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;page&#x2F;5&#x2F;">← Previous</a></span>
+      
+
+      
+      <span class="pagination-item newer"><a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;page&#x2F;7&#x2F;">Next →</a></span>
+      
+    </nav>
+    
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/skyplabs
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://blog.skyplabs.net
+  * I am skyplabs (https://keybase.io/skyplabs) on keybase.
+  * I have a public key ASBNXro1-eNI3eqtwQMsP3pCaIXrsqGyhjS5RB7TShhUygo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01209609e8b81ad5f4ccaa8145cf0990d059f0af2023c2450a6865de64ed77e807370a",
+      "host": "keybase.io",
+      "kid": "01204d5eba35f9e348ddeaadc1032c3f7a426885ebb2a1b28634b9441ed34a1854ca0a",
+      "uid": "04a50f232706251eeb6b98f4d8506819",
+      "username": "skyplabs"
+    },
+    "merkle_root": {
+      "ctime": 1597878154,
+      "hash": "5a1064c3a8622b92e2863b01793cafdfa81355927a198ed419fc28094ddda48c3bbeaf13221b9d808ec675acada296912dce47742b5b6d68e8e63a90df47a44a",
+      "hash_meta": "33200e900c8a1102c674a82eda3474e51136b817bdea041c61b6ef08c9083939",
+      "seqno": 17328971
+    },
+    "service": {
+      "entropy": "bXtco06elP00Cdt7RUPtvXE7",
+      "hostname": "blog.skyplabs.net",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.1"
+  },
+  "ctime": 1597878190,
+  "expire_in": 504576000,
+  "prev": "41ea3558c8f2ad112865ec7e6e0673782e3f499f785481c736aba8e4ea229493",
+  "seqno": 87,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgTV66NfnjSN3qrcEDLD96QmiF67KhsoY0uUQe00oYVMoKp3BheWxvYWTESpcCV8QgQeo1WMjyrREoZex+bgZzeC4/SZ94VIHHNquo5OoilJPEIOCS+9U88aidR881zCj/uWsNmwYqsBzFhwxv2cP9NyRHAgHCo3NpZ8RAb4TUmdpzWeHg1jnBJWU5poWtluSheyKaQ4Hx3aD2uh3T6R4Jn7pohM6B7zYNqV6xcM6GgjP6fN3RUG/3dSjNA6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIAlp0H3jQFuVynzQDr9D8FALtf6fZI8lTHzDksWZJKYJo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/skyplabs
+
+==================================================================

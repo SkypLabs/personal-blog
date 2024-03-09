@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Cisco IOS</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/cisco-ios/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2014-08-08T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/cisco-ios/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[Cisco IOS] Mettre à jour IOS uniquement en console</title>
+        <published>2014-08-08T00:00:00+00:00</published>
+        <updated>2014-08-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/cisco-ios-update-ios-via-terminal/"/>
+        <id>https://blog.skyplabs.net/posts/cisco-ios-update-ios-via-terminal/</id>
+        
+        <summary type="html">&lt;p&gt;Le première chose à faire avant de chercher à envoyer le nouveau firmware sur
+l&#x27;équipement est de vérifier l&#x27;espace disponible dans la mémoire flash interne :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;dir flash:
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;La dernière ligne retournée sera quelque chose ressemblant à ceci :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;7741440 bytes total (2983424 bytes free)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Dans le cas éventuel où vous devez libérer de la place :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;delete flash:&amp;lt;file to delete&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Maintenant passons aux choses sérieuses. Pour envoyer le nouveau firmware en
+utilisant le câble console, nous allons utiliser le protocole &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Wikipédia : xmodem&quot; href=&quot;https:&#x2F;&#x2F;fr.wikipedia.org&#x2F;wiki&#x2F;Xmodem&quot;&gt;xmodem&lt;&#x2F;a&gt;.
+Pour cela, assurez-vous que le programme &lt;strong&gt;sx&lt;&#x2F;strong&gt; est installé sur votre machine.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

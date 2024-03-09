@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Apache</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/apache/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2011-06-19T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/apache/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Modifier la configuration de PHP depuis Apache</title>
+        <published>2011-06-19T00:00:00+00:00</published>
+        <updated>2011-06-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/apache-edit-php-config/"/>
+        <id>https://blog.skyplabs.net/posts/apache-edit-php-config/</id>
+        
+        <summary type="html">&lt;p&gt;Traditionnellement, la configuration de PHP se définit dans le fichier
+&lt;code&gt;php.ini&lt;&#x2F;code&gt;. Par exemple, sur une Debian, le fichier de configuration de PHP pour
+une utilisation depuis Apache se trouve à cet emplacement :
+&lt;code&gt;&#x2F;etc&#x2F;php5&#x2F;apache2&#x2F;php.ini&lt;&#x2F;code&gt; (pour une installation depuis les dépôts).&lt;&#x2F;p&gt;
+&lt;p&gt;Seulement voilà, on a parfois besoin d&#x27;appliquer une configuration PHP seulement
+à un &lt;strong&gt;virtual host&lt;&#x2F;strong&gt; en particulier et non aux autres. Par exemple, on peut
+souhaiter activer l&#x27;affichage des erreurs de PHP pour une application web encore
+en développement sans modifier la configuration des applications en production.
+Pour réaliser cette tâche, Apache met à notre disposition les instructions
+suivantes (valables uniquement pour le module PHP d&#x27;Apache) :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;php_value &amp;lt;directive&amp;gt; &amp;lt;valeur&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;php_admin_value &amp;lt;directive&amp;gt; &amp;lt;valeur&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;php_flag &amp;lt;directive&amp;gt; &amp;lt;on|off&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;php_admin_flag &amp;lt;directive&amp;gt; &amp;lt;on|off&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</summary>
+        
+    </entry>
+</feed>

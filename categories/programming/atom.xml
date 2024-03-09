@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Programming</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/categories/programming/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-07-10T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/categories/programming/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[Vim] Set up CodeQL LSP</title>
+        <published>2022-07-10T00:00:00+00:00</published>
+        <updated>2022-07-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/codeql-lsp-vim/"/>
+        <id>https://blog.skyplabs.net/posts/codeql-lsp-vim/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/codeql-lsp-vim/">&lt;p&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;CodeQL CLI Documentation&quot; href=&quot;https:&#x2F;&#x2F;codeql.github.com&#x2F;docs&#x2F;codeql-cli&#x2F;&quot;&gt;CodeQL CLI&lt;&#x2F;a&gt; includes a language server which can be easily set up
+in &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;coc.nvim GitHub repository&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;neoclide&#x2F;coc.nvim&quot;&gt;coc.nvim&lt;&#x2F;a&gt; by adding the content of this &lt;code&gt;coc-settings.json&lt;&#x2F;code&gt; file
+to your own configuration file:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;json&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-json &quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;languageserver&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;:{
+&lt;&#x2F;span&gt;&lt;span&gt;    &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;codeql&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;command&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;codeql&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;args&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;execute&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;language-server&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;--check-errors&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;ON_CHANGE&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;-q&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;      ],
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;filetypes&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;codeql&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span&gt;        &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;ql&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;      ],
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;initializationOptions&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: {},
+&lt;&#x2F;span&gt;&lt;span&gt;      &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;settings&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;: {}
+&lt;&#x2F;span&gt;&lt;span&gt;    }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Given that coc.nvim uses Vim filetype detection system and not file extensions,
+you need to let Vim know about &lt;code&gt;*.ql&lt;&#x2F;code&gt; files being CodeQL files. One way to do
+that is to add &lt;code&gt;codeql.vim&lt;&#x2F;code&gt; to &lt;code&gt;~&#x2F;.vim&#x2F;ftdetect&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;vim&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-vim &quot;&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&amp;quot; Set &amp;#39;.ql&amp;#39; files as CodeQL files.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;au &lt;&#x2F;span&gt;&lt;span&gt;BufRead,BufNewFile &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;*.&lt;&#x2F;span&gt;&lt;span&gt;ql &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;set filetype&lt;&#x2F;span&gt;&lt;span&gt;=codeql
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Python] Sniffing inside a thread with Scapy</title>
+        <published>2018-03-01T00:00:00+00:00</published>
+        <updated>2018-03-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/python-sniffing-inside-thread/"/>
+        <id>https://blog.skyplabs.net/posts/python-sniffing-inside-thread/</id>
+        
+        <summary type="html">&lt;p&gt;Scapy is an incredible tool when it comes to playing with the network. As it is
+written on its &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;scapy.net&#x2F;&quot;&gt;official website&lt;&#x2F;a&gt;, Scapy can replace a majority
+of network tools such as nmap, hping and tcpdump.&lt;&#x2F;p&gt;
+&lt;p&gt;One of the features offered by Scapy is to sniff the network packets passing
+through a computer&#x27;s NIC. Below is a small example:&lt;&#x2F;p&gt;
+&lt;div &gt;
+    &lt;script src=&quot;https:&amp;#x2F;&amp;#x2F;gist.github.com&amp;#x2F;SkypLabs&amp;#x2F;06bd7f414f51d700e04be705cb32659d.js?file=sniff_main_thread.py&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;This little sniffer displays the source and the destination of all packets
+having an IP layer:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ sudo python3 sniff_main_thread.py
+&lt;&#x2F;span&gt;&lt;span&gt;[*] Start sniffing...
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 10.137.2.1
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 10.137.2.1
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.1 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.1 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 216.58.198.68 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 216.58.198.68 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 216.58.198.68 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 216.58.198.68 -&amp;gt; 10.137.2.30
+&lt;&#x2F;span&gt;&lt;span&gt;[!] New Packet: 10.137.2.30 -&amp;gt; 216.58.198.68
+&lt;&#x2F;span&gt;&lt;span&gt;^C[*] Stop sniffing
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It will continue to sniff network packets until it receives a keyboard
+interruption (&lt;code&gt;CTRL+C&lt;&#x2F;code&gt;).&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Angular] Different sharing mechanisms for different situations</title>
+        <published>2017-11-30T00:00:00+00:00</published>
+        <updated>2017-11-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/angular-sharing-mechanisms/"/>
+        <id>https://blog.skyplabs.net/posts/angular-sharing-mechanisms/</id>
+        
+        <summary type="html">&lt;p&gt;Angular has different mechanisms for sharing data between components. The choice
+of the sharing method mostly depends on the relationship of the related
+components. Typically, within the context of a parent-child topology, the most
+straightforward choice would be to use the &lt;code&gt;@Input&lt;&#x2F;code&gt; and &lt;code&gt;@Output&lt;&#x2F;code&gt; decorators.
+For sibling components, relying on a data sharing service seems to be the most
+obvious solution. In any case, once you have settled on the choice of a
+communication topology, you need to decide which data propagating mechanism to
+use.&lt;&#x2F;p&gt;
+&lt;p&gt;Generally, components use &lt;code&gt;EventEmmiter&lt;&#x2F;code&gt; objects to share data with each other.
+When you pass data into an Angular component with an &lt;code&gt;@Input&lt;&#x2F;code&gt; decorator, you are
+actually using an &lt;code&gt;EventEmitter&lt;&#x2F;code&gt; object. Although this solution is appropriate
+for the majority of situations, this is not always the case. Let&#x27;s consider the
+following example:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;angular-sharing-mechanisms&#x2F;EventEmitter.svg&quot; alt=&quot;Diagram of the data propagation using an EventEmitter&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Angular] Running unit tests with Chromium in a Docker container</title>
+        <published>2017-08-29T00:00:00+00:00</published>
+        <updated>2017-08-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/angular-unit-tests-chromium-docker/"/>
+        <id>https://blog.skyplabs.net/posts/angular-unit-tests-chromium-docker/</id>
+        
+        <summary type="html">&lt;p&gt;Running unit tests for front-end web applications require them to be tested in a
+web browser. While it&#x27;s not an issue on a workstation, it can become tedious
+when running in a restricted environment such as a Docker container. In fact,
+these execution environments are generally lightweight and do not contain any
+graphical environment.&lt;&#x2F;p&gt;
+&lt;p&gt;One solution to work around this issue is to use a headless web browser designed
+for development purposes, like &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;phantomjs.org&#x2F;&quot;&gt;PhantomJS&lt;&#x2F;a&gt;. While it&#x27;s an elegant
+solution for testing an application, it would be even better to test it directly
+in a web browser which will be used by the end-users in order to match real
+conditions of use, for examples Firefox or Chromium&#x2F;Google Chrome. However, as
+mentioned above, it is needed to find a way to execute a regular web browser in
+a restricted environment.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Docker] Votre script Python laisse anormalement la sortie standard vide</title>
+        <published>2015-11-16T00:00:00+00:00</published>
+        <updated>2015-11-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/docker-python-empty-std-output/"/>
+        <id>https://blog.skyplabs.net/posts/docker-python-empty-std-output/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/docker-python-empty-std-output/">&lt;p&gt;Lors de l&#x27;exécution d&#x27;un programme écrit en Python dans un conteneur Docker, il
+arrive régulièrement que la sortie standard reste anormalement vide :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ docker logs my-app
+&lt;&#x2F;span&gt;&lt;span&gt;$
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;La raison est généralement que par défaut, l&#x27;interpréteur Python utilise une
+mémoire tampon pour les écritures vers &lt;code&gt;stdout&lt;&#x2F;code&gt;. Les écritures sont donc
+différées et cela peut prendre un moment avant de voir apparaitre la moindre
+ligne d&#x27;écriture (selon la verbosité de votre programme).&lt;&#x2F;p&gt;
+&lt;p&gt;Une solution est d&#x27;utiliser l&#x27;option &lt;code&gt;-u&lt;&#x2F;code&gt; lors de l&#x27;appel à l&#x27;interpréteur
+Python. Votre &lt;code&gt;Dockerfile&lt;&#x2F;code&gt; devra contenir une ligne ressemblant à ceci :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;dockerfile&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-dockerfile &quot;&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt;&lt;span&gt;CMD [&amp;quot;python3&amp;quot;, &amp;quot;-u&amp;quot;, &amp;quot;my-app.py&amp;quot;]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Et ainsi :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;$ docker logs my-app
+&lt;&#x2F;span&gt;&lt;span&gt;It works !
+&lt;&#x2F;span&gt;&lt;span&gt;$
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Docker] Développer sur le BLE Micro de Seeed Studio</title>
+        <published>2014-12-08T00:00:00+00:00</published>
+        <updated>2014-12-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/docker-ble-micro/"/>
+        <id>https://blog.skyplabs.net/posts/docker-ble-micro/</id>
+        
+        <summary type="html">&lt;p&gt;Le &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.seeedstudio.com&#x2F;Seeed-Micro-BLE-Module-w-Cortex-M0-Based-nRF51822-SoC-p-1975.html&quot;&gt;BLE Micro&lt;&#x2F;a&gt; est une petite carte électronique produite par [Seeed
+Studio][seeed-studio] embarquant le SoC &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.nordicsemi.com&#x2F;Products&#x2F;Low-power-short-range-wireless&#x2F;nRF51822&#x2F;GetStarted&quot;&gt;nRF51822&lt;&#x2F;a&gt; de Nordic
+Semiconductor. Ce dernier est un module de communication &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Bluetooth_low_energy&quot;&gt;Bluetooth Low
+Energy&lt;&#x2F;a&gt; (BLE) basé un Cortex M0.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;docker-ble-micro&#x2F;ble_micro.jpg&quot; alt=&quot;BLE Micro de Seeed Studio&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Ruby] &quot;Failed to build gem native extension&quot;</title>
+        <published>2014-08-20T00:00:00+00:00</published>
+        <updated>2014-08-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/ruby-failed-to-build-gem-native-extension/"/>
+        <id>https://blog.skyplabs.net/posts/ruby-failed-to-build-gem-native-extension/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/ruby-failed-to-build-gem-native-extension/">&lt;p&gt;Si vous obtenez ce message d&#x27;erreur lors de la première utilisation de l&#x27;outil
+&lt;strong&gt;gem&lt;&#x2F;strong&gt;, c&#x27;est qu&#x27;il vous manque certaines dépendances nécessaires à la création
+de la &lt;code&gt;gem native extension&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour les installer sous Fedora :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;sudo yum install -y gcc ruby-devel libxml2 libxml2-devel libxslt libxslt-devel
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Après cela, vous pouvez relancer l&#x27;installation de votre gem en utilisant
+l&#x27;option &lt;code&gt;--use-system-libraries&lt;&#x2F;code&gt; permettant d&#x27;utiliser les bibliothèques du
+système (ici, &lt;em&gt;libxml2&lt;&#x2F;em&gt; et &lt;em&gt;libxslt&lt;&#x2F;em&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;Par exemple, pour installer la gem &lt;strong&gt;gollum&lt;&#x2F;strong&gt; :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;gem install gollum -- --use-system-libraries
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>L&#x27;assembleur n&#x27;est pas un langage !</title>
+        <published>2014-05-29T00:00:00+00:00</published>
+        <updated>2014-05-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/assembly-not-a-language/"/>
+        <id>https://blog.skyplabs.net/posts/assembly-not-a-language/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/assembly-not-a-language/">&lt;p&gt;En effet, comme le titre de cet article l&#x27;indique, l&#x27;assembleur n&#x27;est pas un
+langage. C&#x27;est le logiciel qui va convertir un programme écrit en langage
+d&#x27;assemblage en instructions machines directement compréhensibles par le
+processeur concerné. C&#x27;est donc un amalgame que de dire qu&#x27;un programme est
+écrit en assembleur. Par conséquent, nous devrions parler de &lt;strong&gt;langage
+d&#x27;assemblage&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;De la même façon, la compilation d&#x27;un programme n&#x27;est qu&#x27;une des étapes
+réalisées par un compilateur. Elle consiste à traduire un programme écrit dans
+un langage de plus haut niveau comme le C en langage d&#x27;assemblage. L&#x27;étape
+suivante est donc celle de l&#x27;assemblage réalisée à l&#x27;aide d&#x27;un assembleur.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Bash] De la couleur dans vos scripts</title>
+        <published>2014-05-15T00:00:00+00:00</published>
+        <updated>2014-05-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bash-add-colours-to-your-scripts/"/>
+        <id>https://blog.skyplabs.net/posts/bash-add-colours-to-your-scripts/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bash-add-colours-to-your-scripts/">&lt;p&gt;Voici quelques fonctions bien utiles permettant d&#x27;écrire des messages dans un
+terminal avec un code couleur correspondant au type de l&#x27;information à afficher
+:&lt;&#x2F;p&gt;
+&lt;div &gt;
+    &lt;script src=&quot;https:&amp;#x2F;&amp;#x2F;gist.github.com&amp;#x2F;SkypLabs&amp;#x2F;4775d15424f68d16fbdee5818917072c.js?file=echo_color.sh&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Bash] Supprimer toutes les lignes d&#x27;un fichier texte</title>
+        <published>2014-04-30T00:00:00+00:00</published>
+        <updated>2014-04-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bash-empty-text-file/"/>
+        <id>https://blog.skyplabs.net/posts/bash-empty-text-file/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bash-empty-text-file/">&lt;p&gt;En toute simplicité :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;&amp;gt; &amp;lt;fichier&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Par exemple, pour vider la liste des serveurs DNS à utiliser :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;&amp;gt; &#x2F;etc&#x2F;resolv.conf
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Cette syntaxe est également utile pour créer un fichier texte vierge.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Bash] Remplacement de la forme key=value dans un fichier texte</title>
+        <published>2014-04-30T00:00:00+00:00</published>
+        <updated>2014-04-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bash-replace-key-value-pairs/"/>
+        <id>https://blog.skyplabs.net/posts/bash-replace-key-value-pairs/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bash-replace-key-value-pairs/">&lt;p&gt;La regex ci-dessous utilisée avec le programme &lt;code&gt;sed&lt;&#x2F;code&gt; permet de remplacer
+l&#x27;ancienne valeur attribuée à &lt;code&gt;KEY&lt;&#x2F;code&gt; par la nouvelle valeur &lt;code&gt;VALUE&lt;&#x2F;code&gt; dans le
+fichier &lt;code&gt;file&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sed -i &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s&#x2F;\(KEY *= *\).*&#x2F;\1VALUE&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &amp;lt;file&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Par exemple, pour remplacer le nom d&#x27;hôte d&#x27;un système CentOS par la valeur
+contenue dans &lt;code&gt;$host_name&lt;&#x2F;code&gt; :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sed -i &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s&#x2F;\(HOSTNAME *= *\).*&#x2F;\1&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;host_name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &#x2F;etc&#x2F;sysconfig&#x2F;network
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Bash] Tester une adresse IPv4</title>
+        <published>2014-04-14T00:00:00+00:00</published>
+        <updated>2014-04-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bash-test-ipv4/"/>
+        <id>https://blog.skyplabs.net/posts/bash-test-ipv4/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bash-test-ipv4/">&lt;p&gt;La fonction ci-dessous permet de tester une adresse IPv4 pour vérifier qu&#x27;elle
+est bien formée :&lt;&#x2F;p&gt;
+&lt;div &gt;
+    &lt;script src=&quot;https:&amp;#x2F;&amp;#x2F;gist.github.com&amp;#x2F;SkypLabs&amp;#x2F;8758fa2aa63201b028d0ac680b2a90c4.js?file=is_ipv4.sh&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+&lt;p&gt;Et voici un exemple d&#x27;utilisation :&lt;&#x2F;p&gt;
+&lt;div &gt;
+    &lt;script src=&quot;https:&amp;#x2F;&amp;#x2F;gist.github.com&amp;#x2F;SkypLabs&amp;#x2F;8758fa2aa63201b028d0ac680b2a90c4.js?file=is_ipv4_example.sh&quot;&gt;&lt;&#x2F;script&gt;
+&lt;&#x2F;div&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Convertir automatiquement une define C&#x2F;C++ en constante C#</title>
+        <published>2013-07-08T00:00:00+00:00</published>
+        <updated>2013-07-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/cpp-define-into-csharp-const/"/>
+        <id>https://blog.skyplabs.net/posts/cpp-define-into-csharp-const/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/cpp-define-into-csharp-const/">&lt;p&gt;Je développe actuellement en C# pour les besoins de mon entreprise. Devant
+réécrire un code C++ contenant un grand nombre de defines en C#, voici comment
+j&#x27;ai automatisé la tâche :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;awk&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-awk &quot;&gt;&lt;code class=&quot;language-awk&quot; data-lang=&quot;awk&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;awk&lt;&#x2F;span&gt;&lt;span&gt; &amp;#39;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;print &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;public const UInt16 &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$2 &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; = &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;substr&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;index&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$0&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;$3&lt;&#x2F;span&gt;&lt;span&gt;)) &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;;&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;}&amp;#39; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;defines_c&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;txt
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Le fichier &lt;code&gt;defines_c.txt&lt;&#x2F;code&gt; contient les defines à convertir. Et voici le
+résultat :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Avant :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-c &quot;&gt;&lt;code class=&quot;language-c&quot; data-lang=&quot;c&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;#define &lt;&#x2F;span&gt;&lt;span&gt;TEST &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Après :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;cs&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-cs &quot;&gt;&lt;code class=&quot;language-cs&quot; data-lang=&quot;cs&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;public const &lt;&#x2F;span&gt;&lt;span&gt;UInt16 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;TEST &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Tracer des diagrammes de Bode, Nyquist et Black en LaTeX</title>
+        <published>2012-11-16T00:00:00+00:00</published>
+        <updated>2012-11-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/bode-nyquist-black-plots-in-latex/"/>
+        <id>https://blog.skyplabs.net/posts/bode-nyquist-black-plots-in-latex/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/bode-nyquist-black-plots-in-latex/">&lt;p&gt;La meilleure façon de tracer des diagrammes de Bode, Nyquist et Black en LaTeX
+est d&#x27;utiliser le package &lt;code&gt;bodegraph&lt;&#x2F;code&gt;. Ce dernier utilise à son tour le package
+&lt;code&gt;Tikz&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Voici la démarche à suivre pour les installer tous les deux (en utilisant la
+distribution &lt;strong&gt;TexLive&lt;&#x2F;strong&gt;) :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;mkdir -p  ~&#x2F;texmf&#x2F;tex&#x2F;latex
+&lt;&#x2F;span&gt;&lt;span&gt;cd ~&#x2F;texmf&#x2F;tex&#x2F;latex
+&lt;&#x2F;span&gt;&lt;span&gt;cvs -z3 -d:pserver:anonymous@pgf.cvs.sourceforge.net:&#x2F;cvsroot&#x2F;pgf co -P pgf
+&lt;&#x2F;span&gt;&lt;span&gt;wget https:&#x2F;&#x2F;sciences-indus-cpge.papanicola.info&#x2F;IMG&#x2F;zip&#x2F;bodegraph.zip
+&lt;&#x2F;span&gt;&lt;span&gt;unzip bodegraph.zip
+&lt;&#x2F;span&gt;&lt;span&gt;rm bodegraph.zip
+&lt;&#x2F;span&gt;&lt;span&gt;texhash ~&#x2F;texmf
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Et voici une &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Documentation de bodegraph&quot; href=&quot;http:&#x2F;&#x2F;ctan.mines-albi.fr&#x2F;graphics&#x2F;pgf&#x2F;contrib&#x2F;bodegraph&#x2F;bodegraph.pdf&quot;&gt;documentation pour bodegraph&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Télécommander sa télévision et ses autres appareils à infrarouge depuis son smartphone</title>
+        <published>2012-06-10T00:00:00+00:00</published>
+        <updated>2012-06-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/ir-remote-control-from-smartphone/"/>
+        <id>https://blog.skyplabs.net/posts/ir-remote-control-from-smartphone/</id>
+        
+        <summary type="html">&lt;p&gt;Je ne sais pas pour vous, mais moi j&#x27;ai toujours eu horreur de devoir jongler
+avec plusieurs télécommandes alors que je ne cherchais qu&#x27;à réaliser des tâches
+plutôt triviales. Une télécommande pour allumer la télévision, une autre pour
+allumer le home cinema... et plus on multiplie les appareils électroniques dans
+son salon, plus on collectionne de télécommandes !&lt;&#x2F;p&gt;
+&lt;p&gt;Dans le but de me simplifier la vie, j&#x27;ai donc décidé de réaliser un montage
+électronique pour pouvoir piloter mes appareils à infrarouge depuis un système
+informatique classique, en particulier depuis mon téléphone portable. Je vais
+donc détailler dans cet article les différentes étapes de la réalisation ainsi
+que les différents éléments permettant de reproduire à l&#x27;identique le système
+que j&#x27;ai développé.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Programmer une carte Arduino depuis la Asus Transformer Prime</title>
+        <published>2012-02-24T00:00:00+00:00</published>
+        <updated>2012-02-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/program-arduino-from-android-debian-chroot/"/>
+        <id>https://blog.skyplabs.net/posts/program-arduino-from-android-debian-chroot/</id>
+        
+        <summary type="html">&lt;p&gt;Maintenant que nous disposons d&#x27;une Debian sur notre Transformer Prime (cf :
+&lt;a href=&quot;https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;debian-chroot-on-android&#x2F;&quot;&gt;Allier Android en GUI et Debian en CLI sur la Asus Transformer
+Prime&lt;&#x2F;a&gt;), il est grand temps de commencer à
+jouer avec. C&#x27;est dans cette optique que j&#x27;ai décidé de détailler dans cet
+article la marche à suivre pour programmer une carte Arduino (&lt;strong&gt;Uno&lt;&#x2F;strong&gt; dans mon
+cas).&lt;&#x2F;p&gt;
+&lt;p&gt;Dans un premier temps, il nous faut préparer notre environnement de
+développement au sein de la Debian. Un petit coup de &lt;code&gt;aptitude&lt;&#x2F;code&gt; (ou &lt;code&gt;apt-get&lt;&#x2F;code&gt;,
+selon vos préférences) et le tour est joué :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;aptitude update
+&lt;&#x2F;span&gt;&lt;span&gt;aptitude install gcc-avr avrdude avr-libc
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Il va également nous falloir de quoi écrire notre code. Pour ma part, mon choix
+s&#x27;est tourné vers &lt;strong&gt;Vim&lt;&#x2F;strong&gt;. De plus, l&#x27;utilisation d&#x27;un Makefile va grandement
+nous faciliter la vie. Prenez donc le temps d&#x27;installer &lt;strong&gt;make&lt;&#x2F;strong&gt; en plus du
+reste.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Afficher les erreurs SQL de PHP seulement aux personnes concernées</title>
+        <published>2011-03-19T00:00:00+00:00</published>
+        <updated>2011-03-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/display-php-errors-admin-only/"/>
+        <id>https://blog.skyplabs.net/posts/display-php-errors-admin-only/</id>
+        
+        <summary type="html">&lt;p&gt;Il est très fortement conseillé de désactiver l&#x27;affichage des erreurs PHP
+(directive &lt;code&gt;display_errors&lt;&#x2F;code&gt; du &lt;code&gt;php.ini&lt;&#x2F;code&gt;) de vos applications web pour ne pas
+révéler des informations pouvant compromettre la sécurité de votre serveur (dans
+le cas d&#x27;un serveur en production).&lt;&#x2F;p&gt;
+&lt;p&gt;Seulement voilà, cacher ces erreurs peut gêner l&#x27;administrateur à traquer les
+bugs ainsi que les problèmes liés à la base de données. En effet, c&#x27;est beaucoup
+plus facile de repérer une erreur si elle est affichée lors de l&#x27;exécution de la
+page plutôt que de passer son temps à analyser les logs du service.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

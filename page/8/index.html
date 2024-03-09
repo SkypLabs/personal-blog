@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+    <div id="search-container">
+      <input type="search" id="search-input" placeholder="Search for a post, a tag, a category...">
+      <div class="search-results">
+        <ul class="search-results-items"></ul>
+      </div>
+    </div>
+
+    <div class="posts">
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;fedora-steam-opengl-64bits&#x2F;">
+        [Fedora] Problème avec Steam et OpenGL sur un système en 64 bits
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2013-04-21 00:00"
+      property="datePublished">21 Apr 2013</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>Si Steam vous affiche un message d'erreur lors de son lancement au sujet
+d'OpenGL sous Fedora en 64 bits et que vous utilisez le driver propriétaire de
+Nvidia, il faut seulement installer la bibliothèque Nvidia 32 bits en utilisant
+la commande suivante :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>yum install xorg-x11-drv-nvidia-libs.i686
+</span></code></pre>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;steam&#x2F;">Steam</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;opengl&#x2F;">OpenGL</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;freebsd-update-issue-git-1-8-1-1&#x2F;">
+        [FreeBSD] Mise à jour du port git-1.8.1.1
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2013-01-27 00:00"
+      property="datePublished">27 Jan 2013</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>Si vous aussi vous avez eu quelques difficultés à mettre à jour git vers la
+version 1.8.1.1 au moyen de son port sous FreeBSD, voici la démarche à suivre
+pour solutionner votre problème :</p>
+<ol>
+<li>
+<p>On commence par supprimer le groupe <code>git_daemon</code> :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pw group del git_daemon
+</span></code></pre>
+</li>
+<li>
+<p>On supprime la ligne correspondant à l'utilisateur <code>git_daemon</code> dans les
+fichiers <code>/etc/passwd</code> et <code>/etc/master.passwd</code>.</p>
+</li>
+<li>
+<p>On met à jour la base de données des mots de passe :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>pwd_mkdb -p /etc/master.passwd
+</span></code></pre>
+</li>
+</ol>
+<p>Après ceci vous ne devriez plus avoir de problème.</p>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;freebsd&#x2F;">FreeBSD</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;git&#x2F;">Git</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;crypter-does-not-exist-in-french&#x2F;">
+        Le mot crypter n'existe pas !
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2012-12-04 00:00"
+      property="datePublished">04 Dec 2012</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>J'entends énormément de gens dire &quot;crypter des données ...&quot;. Cependant, c'est
+une mauvaise habitude car <strong>le mot crypter n'a pas de sens en français</strong> !</p>
+<p>En effet, le terme crypter est un <strong>anglicisme</strong>. En français, on devrait dire
+&quot;<strong>chiffrer</strong> des données ...&quot;. En voici la raison :</p>
+<ol>
+<li>Lorsque deux personnes (désignées par les lettres A et B pour plus de
+facilité) veulent s'échanger un message de manière sécurisée sur un canal de
+transmission qui lui ne l'est pas, elles vont devoir utiliser une méthode de
+chiffrement. La personne A va donc <strong>chiffrer</strong> son message à l'aide d'une clé
+de chiffrement avant de l'envoyer à destination de la personne B.</li>
+<li>La personne B va pouvoir <strong>déchiffrer</strong> le message reçu étant donné qu'elle
+possède elle aussi la clé de chiffrement.</li>
+<li>Si un attaquant appelé C intercepte le message chiffré et tente de retrouver
+le message d'origine sans posséder la clé de chiffrement, on dit qu'il
+cherche à <strong>décrypter</strong> le message.</li>
+</ol>
+<p>À présent, vous comprendrez que le terme crypter n'a pas de sens car cela
+signifierait qu'une personne X chercherait à chiffrer un message sans posséder
+de clé de chiffrement, ce qui est bien évidement absurde !</p>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;cryptology&#x2F;">Cryptology</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;misc&#x2F;">Misc.</a>
+    
+    
+  </span>
+  
+
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;bode-nyquist-black-plots-in-latex&#x2F;">
+        Tracer des diagrammes de Bode, Nyquist et Black en LaTeX
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2012-11-16 00:00"
+      property="datePublished">16 Nov 2012</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>La meilleure façon de tracer des diagrammes de Bode, Nyquist et Black en LaTeX
+est d'utiliser le package <code>bodegraph</code>. Ce dernier utilise à son tour le package
+<code>Tikz</code>.</p>
+<p>Voici la démarche à suivre pour les installer tous les deux (en utilisant la
+distribution <strong>TexLive</strong>) :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>mkdir -p  ~/texmf/tex/latex
+</span><span>cd ~/texmf/tex/latex
+</span><span>cvs -z3 -d:pserver:anonymous@pgf.cvs.sourceforge.net:/cvsroot/pgf co -P pgf
+</span><span>wget https://sciences-indus-cpge.papanicola.info/IMG/zip/bodegraph.zip
+</span><span>unzip bodegraph.zip
+</span><span>rm bodegraph.zip
+</span><span>texhash ~/texmf
+</span></code></pre>
+<p>Et voici une <a rel="noopener nofollow noreferrer" target="_blank" title="Documentation de bodegraph" href="http://ctan.mines-albi.fr/graphics/pgf/contrib/bodegraph/bodegraph.pdf">documentation pour bodegraph</a>.</p>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;programming&#x2F;">Programming</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;latex&#x2F;">LaTeX</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+      <article class="post" property="blogPost" typeof="BlogPosting">
+        
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">
+      <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;posts&#x2F;latex-on-mediawiki-1-19-2&#x2F;">
+        LaTeX sur MediaWiki 1.19.2
+      </a>
+    </h2>
+    
+
+    <time class="post-date" datetime="2012-10-20 00:00"
+      property="datePublished">20 Oct 2012</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+        
+        <div class="post-content" property="articleBody">
+          <p>Cela faisait plusieurs jours que j'essayais de faire fonctionner l'extension
+<strong>Math</strong> de MediaWiki pour pouvoir afficher des équations mathématiques en
+LaTeX. Mais lors de mes tests, j'obtenais toujours une erreur HTTP 500
+(<em>Internal Server Error</em>) et le message suivant dans mes logs :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Call to undefined method TempFSFile::autocollect()
+</span></code></pre>
+<p>On peut donc en conclure que la dernière version de l'extension Math n'est pas
+compatible avec MediaWiki 1.19.2. Pour résoudre cette situation, il est
+nécessaire de revenir à une version antérieure :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>cd extensions
+</span><span>git clone https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Math.git
+</span><span>cd Math
+</span><span>git reset --hard 29a0a80e8fbb2d33507760075e4da9103439cbd9
+</span></code></pre>
+<p>Merci à <strong>Cgeroux</strong> pour sa contribution <a rel="noopener nofollow noreferrer" target="_blank" href="https://www.mediawiki.org/wiki/Extension_talk:Math">(lien vers ses
+explications)</a>.</p>
+
+        </div>
+        
+
+        
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;sysadmin&#x2F;">SysAdmin</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;web&#x2F;">Web</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;mediawiki&#x2F;">MediaWiki</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;latex&#x2F;">LaTeX</a>
+    
+    
+  </span>
+  
+
+      </article>
+      
+    </div>
+
+    <nav class="pagination">
+      
+      <span class="pagination-item older"><a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;page&#x2F;7&#x2F;">← Previous</a></span>
+      
+
+      
+      <span class="pagination-item newer"><a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;page&#x2F;9&#x2F;">Next →</a></span>
+      
+    </nav>
+    
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

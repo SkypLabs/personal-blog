@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Electronics</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/categories/electronics/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2016-01-17T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/categories/electronics/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Calcul des angles d&#x27;Euler avec un accéléromètre</title>
+        <published>2016-01-17T00:00:00+00:00</published>
+        <updated>2016-01-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/euler-angles-accelerometer/"/>
+        <id>https://blog.skyplabs.net/posts/euler-angles-accelerometer/</id>
+        
+        <summary type="html">&lt;p&gt;Les angles d&#x27;Euler sont 3 angles qui permettent de décrire l&#x27;orientation d&#x27;un
+objet dans un espace tridimensionnel.&lt;&#x2F;p&gt;
+&lt;p&gt;Si nous prenons par exemple un objet quelconque, le centre de masse \(m\) de
+cet objet est une coordonnée dans notre espace à 3 dimensions. Tout point dans
+un espace à \(n\) dimensions peut être atteint par \(n\) translations.
+Ainsi, le point \(m\) est atteint par 3 translations, quelque soit l&#x27;origine
+du repère.&lt;&#x2F;p&gt;
+&lt;p&gt;De façon semblable à une coordonnée, une orientation dans cet espace
+tridimensionnel est obtenue par trois rotations. Ces rotations sont effectuées
+successivement dans un ordre arbitraire, chacune autour d&#x27;un des trois axes du
+repère. Cela revient à effectuer une rotation dans le plan formé par deux axes
+autour d&#x27;un troisième, et cela trois fois de suite.&lt;&#x2F;p&gt;
+&lt;p&gt;Nous allons ici chercher à démontrer qu&#x27;il est possible de calculer les angles
+d&#x27;Euler (et donc l&#x27;orientation de l&#x27;objet) en utilisant uniquement un
+accéléromètre triaxial (c&#x27;est à dire 3 accéléromètres 1 axe montés
+orthogonalement). Pour rappel, un accéléromètre permet de mesurer l&#x27;accélération
+linéaire que subit un corps auquel ce capteur serait attaché.&lt;&#x2F;p&gt;
+&lt;p&gt;La sortie de l&#x27;accéléromètre peut être modélisée de la façon suivante :&lt;&#x2F;p&gt;
+&lt;p&gt;\[
+\vec{a_{S}} =
+\left( \begin{array}{c} a_{Sx} \\ a_{Sy} \\ a_{Sz} \end{array} \right) =
+\vec{a_{B}} + R_{I}^{B} \vec{g}
+\]&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[Docker] Développer sur le BLE Micro de Seeed Studio</title>
+        <published>2014-12-08T00:00:00+00:00</published>
+        <updated>2014-12-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/docker-ble-micro/"/>
+        <id>https://blog.skyplabs.net/posts/docker-ble-micro/</id>
+        
+        <summary type="html">&lt;p&gt;Le &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.seeedstudio.com&#x2F;Seeed-Micro-BLE-Module-w-Cortex-M0-Based-nRF51822-SoC-p-1975.html&quot;&gt;BLE Micro&lt;&#x2F;a&gt; est une petite carte électronique produite par [Seeed
+Studio][seeed-studio] embarquant le SoC &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.nordicsemi.com&#x2F;Products&#x2F;Low-power-short-range-wireless&#x2F;nRF51822&#x2F;GetStarted&quot;&gt;nRF51822&lt;&#x2F;a&gt; de Nordic
+Semiconductor. Ce dernier est un module de communication &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Bluetooth_low_energy&quot;&gt;Bluetooth Low
+Energy&lt;&#x2F;a&gt; (BLE) basé un Cortex M0.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;posts&#x2F;docker-ble-micro&#x2F;ble_micro.jpg&quot; alt=&quot;BLE Micro de Seeed Studio&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Test de la carte de développement à capteurs inertiels ATAVRSBIN1 d&#x27;Atmel</title>
+        <published>2014-10-06T00:00:00+00:00</published>
+        <updated>2014-10-06T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/test-atmel-atavrsbin1/"/>
+        <id>https://blog.skyplabs.net/posts/test-atmel-atavrsbin1/</id>
+        
+        <summary type="html">&lt;p&gt;Avant toute chose, nous allons commencer par un petit rappel de vocabulaire
+autour des différents capteurs inertiels existants :&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;fr.wikipedia.org&#x2F;wiki&#x2F;Gyroscope&quot;&gt;&lt;strong&gt;Gyroscope&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt; : Capteur indiquant la position angulaire.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;fr.wikipedia.org&#x2F;wiki&#x2F;Gyrom%C3%A8tre&quot;&gt;&lt;strong&gt;Gyromètre&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt; : Capteur indiquant la vitesse angulaire.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;fr.wikipedia.org&#x2F;wiki&#x2F;Acc%C3%A9l%C3%A9rom%C3%A8tre&quot;&gt;&lt;strong&gt;Accéléromètre&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt; : Capteur indiquant l&#x27;accélération
+linéaire.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;fr.wikipedia.org&#x2F;wiki&#x2F;Centrale_%C3%A0_inertie&quot;&gt;&lt;strong&gt;Centrale inertielle&lt;&#x2F;strong&gt;&lt;&#x2F;a&gt; : Capteur embarquant un
+gyromètre à trois axes et un accéléromètre à trois axes et permettant de
+déterminer la position du mobile sur lequel il a été fixé à condition de
+connaître la position d&#x27;origine de ce dernier (technologie utilisée à bord des
+avions par exemple).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;La carte de développement &lt;strong&gt;ATAVRSBIN1&lt;&#x2F;strong&gt; que nous allons tester au cours de cet
+article est équipée de deux de ces capteurs : elle embarque un &lt;strong&gt;gyromètre&lt;&#x2F;strong&gt;
+(ITG-3200) et un &lt;strong&gt;accéléromètre&lt;&#x2F;strong&gt; (BMA-150). Le ITG-3200 est pourtant vendu
+comme étant un gyroscope, mais en regardant sa datasheet, on s&#x27;aperçoit qu&#x27;il
+retourne une mesure en °&#x2F;s. C&#x27;est une erreur très commune donc prenez garde la
+prochaine fois que vous sélectionnerez un produit de la sorte.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Télécommander sa télévision et ses autres appareils à infrarouge depuis son smartphone</title>
+        <published>2012-06-10T00:00:00+00:00</published>
+        <updated>2012-06-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/ir-remote-control-from-smartphone/"/>
+        <id>https://blog.skyplabs.net/posts/ir-remote-control-from-smartphone/</id>
+        
+        <summary type="html">&lt;p&gt;Je ne sais pas pour vous, mais moi j&#x27;ai toujours eu horreur de devoir jongler
+avec plusieurs télécommandes alors que je ne cherchais qu&#x27;à réaliser des tâches
+plutôt triviales. Une télécommande pour allumer la télévision, une autre pour
+allumer le home cinema... et plus on multiplie les appareils électroniques dans
+son salon, plus on collectionne de télécommandes !&lt;&#x2F;p&gt;
+&lt;p&gt;Dans le but de me simplifier la vie, j&#x27;ai donc décidé de réaliser un montage
+électronique pour pouvoir piloter mes appareils à infrarouge depuis un système
+informatique classique, en particulier depuis mon téléphone portable. Je vais
+donc détailler dans cet article les différentes étapes de la réalisation ainsi
+que les différents éléments permettant de reproduire à l&#x27;identique le système
+que j&#x27;ai développé.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

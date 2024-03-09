@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - WordPress</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/wordpress/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2011-03-11T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/wordpress/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Retirer la version de WordPress des en-têtes HTML</title>
+        <published>2011-03-11T00:00:00+00:00</published>
+        <updated>2011-03-11T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/remove-wordpress-version/"/>
+        <id>https://blog.skyplabs.net/posts/remove-wordpress-version/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/remove-wordpress-version/">&lt;p&gt;La version de WordPress apparaît par défaut dans les en-têtes HTML, ce qui n&#x27;est
+bien entendu pas une bonne chose d&#x27;un point de vue sécurité. Pour la supprimer,
+il faut rajouter ce bout de code à la fin du fichier &lt;code&gt;functions.php&lt;&#x2F;code&gt; de votre
+thème :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;php&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-php &quot;&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;&amp;lt;?php
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;&#x2F;&#x2F; Pour retirer l&amp;#39;affichage de la version de WordPress dans les en-têtes HTML.
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;remove_action&lt;&#x2F;span&gt;&lt;span&gt;(&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;wp_head&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;, &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;wp_generator&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ab7967;&quot;&gt;?&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Pour ce faire, vous pouvez soit modifier le fichier &lt;code&gt;functions.php&lt;&#x2F;code&gt; de votre
+thème à la main (il se trouve normalement dans &lt;code&gt;wp-content&#x2F;themes&#x2F;&amp;lt;votre thème&amp;gt;&#x2F;functions.php&lt;&#x2F;code&gt;), soit le modifier depuis l&#x27;interface d&#x27;édition de
+WordPress (Menu &lt;em&gt;Apparence&lt;&#x2F;em&gt; =&amp;gt; &lt;em&gt;Éditeur&lt;&#x2F;em&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;Pour plus d&#x27;informations sur la fonction &lt;code&gt;remove_action&lt;&#x2F;code&gt;, &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;codex.wordpress.org : Remove Action&quot; href=&quot;https:&#x2F;&#x2F;codex.wordpress.org&#x2F;Function_Reference&#x2F;remove_action&quot;&gt;cliquez
+ici&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Pensez également à supprimer le fichier &lt;code&gt;readme.html&lt;&#x2F;code&gt; présent à la racine de
+votre site. Ce dernier contient également le numéro de version de WordPress.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

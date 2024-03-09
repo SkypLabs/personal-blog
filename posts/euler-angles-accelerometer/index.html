@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">Calcul des angles d'Euler avec un accéléromètre</h2>
+    
+
+    <time class="post-date" datetime="2016-01-17 00:00"
+      property="datePublished">17 Jan 2016</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>Les angles d'Euler sont 3 angles qui permettent de décrire l'orientation d'un
+objet dans un espace tridimensionnel.</p>
+<p>Si nous prenons par exemple un objet quelconque, le centre de masse \(m\) de
+cet objet est une coordonnée dans notre espace à 3 dimensions. Tout point dans
+un espace à \(n\) dimensions peut être atteint par \(n\) translations.
+Ainsi, le point \(m\) est atteint par 3 translations, quelque soit l'origine
+du repère.</p>
+<p>De façon semblable à une coordonnée, une orientation dans cet espace
+tridimensionnel est obtenue par trois rotations. Ces rotations sont effectuées
+successivement dans un ordre arbitraire, chacune autour d'un des trois axes du
+repère. Cela revient à effectuer une rotation dans le plan formé par deux axes
+autour d'un troisième, et cela trois fois de suite.</p>
+<p>Nous allons ici chercher à démontrer qu'il est possible de calculer les angles
+d'Euler (et donc l'orientation de l'objet) en utilisant uniquement un
+accéléromètre triaxial (c'est à dire 3 accéléromètres 1 axe montés
+orthogonalement). Pour rappel, un accéléromètre permet de mesurer l'accélération
+linéaire que subit un corps auquel ce capteur serait attaché.</p>
+<p>La sortie de l'accéléromètre peut être modélisée de la façon suivante :</p>
+<p>\[
+\vec{a_{S}} =
+\left( \begin{array}{c} a_{Sx} \\ a_{Sy} \\ a_{Sz} \end{array} \right) =
+\vec{a_{B}} + R_{I}^{B} \vec{g}
+\]</p>
+<span id="continue-reading"></span>
+<p>\(\vec{a_{S}}\) correspond à la sortie de l'accéléromètre. Elle est
+représentée par la somme de \(\vec{a_{B}}\), l'accélération subie par le corps
+en mouvement sur lequel est accroché l'accéléromètre, et \(\vec{g}\), la
+gravité terrestre. \(R_{I}^{B}\) est la matrice de rotation qui permet de
+projeter \(\vec{g}\) du référentiel inertiel terrestre au référentiel du corps
+en mouvement. Tous les vecteurs sont orientés selon la convention
+<a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/North_east_down">North-East-Down</a>.</p>
+<p>Lorsque \(\vec{a_{B}} = \vec{0}\) :</p>
+<p>\[
+\vec{a_{S}} =
+\left( \begin{array}{c} a_{Sx} \\ a_{Sy} \\ a_{Sz} \end{array} \right) =
+R_{I}^{B} \vec{g} =
+R_{I}^{B} \left( \begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right)
+\]</p>
+<p>Cela correspond à la situation dans laquelle le corps est au repos, c'est à dire
+qu'il ne subit aucune accélération. \(\vec{g} = (0,0,1)^{T} \) correspond à
+une fois la valeur de la gravité terrestre sur l'axe \(z\) du repère Terre.</p>
+<p>Nous allons maintenant chercher à résoudre cette équation. Regardons tout
+d'abord l'expression des <a rel="noopener nofollow noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Rotation_matrix">matrices de rotation</a> :</p>
+<p>\[
+R_{x}(\phi) =
+\left( \begin{array}{ccc} 1 &amp; 0 &amp; 0 \\ 0 &amp; \cos(\phi) &amp; sin(\phi) \\ 0 &amp; -\sin(\phi) &amp; \cos(\phi) \end{array} \right)
+\]</p>
+<p>\[
+R_{y}(\theta) =
+\left( \begin{array}{ccc} \cos(\theta) &amp; 0 &amp; -\sin(\theta) \\ 0 &amp; 1 &amp; 0 \\ \sin(\theta) &amp; 0 &amp; \cos(\theta) \end{array} \right)
+\]</p>
+<p>\[
+R_{z}(\psi) =
+\left( \begin{array}{ccc} \cos(\psi) &amp; \sin(\psi) &amp; 0 \\ -\sin(\psi) &amp; \cos(\psi) &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array} \right)
+\]</p>
+<p>Chacune de ces matrices correspond à une rotation autour d'un des axes du
+repère. Étant donné que nous voulons effectuer les trois rotations
+successivement, nous devons multiplier les matrices entre elles. Or, la
+multiplication de matrices n'est pas commutative. Nous devons choisir un ordre
+arbitraire à ces multiplications.</p>
+<p>Voici le détail des calculs pour \(R_{I}^{B} = R_{xyz}\) :</p>
+<p>\[
+\begin{align*}
+\vec{a_{S}} &amp;=
+\left( \begin{array}{c} a_{Sx} \\ a_{Sy} \\ a_{Sz} \end{array} \right) =
+R_{xyz}\left( \begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) =
+R_{x}(\phi)R_{y}(\theta)R_{z}(\psi) \left( \begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) \\ &amp;=
+\left( \begin{array}{ccc} 1 &amp; 0 &amp; 0 \\ 0 &amp; \cos(\phi) &amp; \sin(\phi) \\ 0 &amp; -\sin(\phi) &amp; \cos(\phi) \end{array} \right) \left( \begin{array}{ccc} \cos(\theta) &amp; 0 &amp; -\sin(\theta) \\ 0 &amp; 1 &amp; 0 \\ \sin(\theta) &amp; 0 &amp; \cos(\theta) \end{array} \right) \left( \begin{array}{ccc} \cos(\psi) &amp; \sin(\psi) &amp; 0 \\ -\sin(\psi) &amp; \cos(\psi) &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array} \right) \left( \begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) \\ &amp;=
+\left( \begin{array}{ccc} \cos(\theta) &amp; 0 &amp; -\sin(\theta) \\ \sin(\phi)\sin(\theta) &amp; \cos(\phi) &amp; \sin(\phi)\cos(\theta) \\ \cos(\phi)\sin(\theta) &amp; -\sin(\phi) &amp; \cos(\phi)\cos(\theta) \end{array} \right) \left( \begin{array}{ccc} \cos(\psi) &amp; \sin(\psi) &amp; 0 \\ -\sin(\psi) &amp; \cos(\psi) &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{array} \right) \left( \begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) \\ &amp;=
+\left( \begin{array}{c} \cos(\theta)\cos(\psi) &amp; \cos(\theta)\sin(\psi) &amp; -\sin(\theta) \\ \sin(\phi)\sin(\theta)\cos(\psi)-\cos(\phi)\sin(\psi) &amp; \sin(\phi)\sin(\theta)\sin(\psi)+\cos(\phi)\cos(\psi) &amp; \sin(\phi)\cos(\theta) \\ \cos(\phi)\sin(\theta)\cos(\psi)+\sin(\phi)\sin(\psi) &amp; \cos(\phi)\sin(\theta)\sin(\psi)-\sin(\phi)\cos(\psi) &amp; \cos(\phi)\cos(\theta) \end{array} \right) \left( \begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) \\ &amp;=
+\left( \begin{array}{c} -\sin(\theta) \\ \sin(\phi)\cos(\theta) \\ \cos(\phi)\cos(\theta) \end{array} \right)
+\end{align*}
+\]</p>
+<p>Sautons directement au résultat des cinq autres possibilités :</p>
+<p>\[
+R_{y}(\theta)R_{x}(\phi)R_{z}(\psi) \left( \begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) =
+\left( \begin{array}{c} -\sin(\theta)\cos(\phi) \\ \sin(\phi) \\ \cos(\theta)\cos(\phi) \end{array} \right)
+\]</p>
+<p>\[
+R_{x}(\phi)R_{z}(\psi)R_{y}(\theta) \left( \begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) =
+\left( \begin{array}{c} -\cos(\psi)\sin(\theta) \\ \cos(\theta)\sin(\phi)+\cos(\phi)\sin(\psi)\sin(\theta) \\ \cos(\phi)\cos(\theta)-\sin(\theta)\sin(\phi)\sin(\psi) \end{array} \right)
+\]</p>
+<p>\[
+R_{y}(\theta)R_{z}(\psi)R_{x}(\phi) \left( \begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) =
+\left( \begin{array}{ccc} \cos(\theta)\sin(\phi)\sin(\psi)-\cos(\phi)\sin(\theta) \\ \cos(\psi)\sin(\phi) \\ \cos(\theta)\cos(\phi)+\sin(\theta)\sin(\phi)\sin(\psi) \end{array} \right)
+\]</p>
+<p>\[
+R_{z}(\psi)R_{x}(\phi)R_{y}(\theta) \left( \begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) =
+\left( \begin{array}{ccc} \cos(\theta)\sin(\phi)\sin(\psi)-\cos(\psi)\sin(\theta) \\ \cos(\psi)\cos(\theta)\sin(\phi)+\sin(\theta)\sin(\psi) \\ \cos(\theta)\cos(\phi) \end{array} \right)
+\]</p>
+<p>\[
+R_{z}(\psi)R_{y}(\theta)R_{x}(\phi) \left( \begin{array}{c} 0 \\ 0 \\ 1 \end{array} \right) =
+\left( \begin{array}{ccc} \sin(\phi)\sin(\psi)-\cos(\phi)\cos(\psi)\sin(\theta) \\ \cos(\psi)\sin(\phi)+\cos(\phi)\sin(\psi)\sin(\theta) \\ \cos(\theta)\cos(\phi) \end{array} \right)
+\]</p>
+<p>En comparant les résultats, nous pouvons remarquer que dans les cas de
+\(R_{xyz}\) et de \(R_{yxz}\), les résultats ne dépendent que de \(\phi\)
+et \(\theta\), ce qui va nous permettre de résoudre l'équation. En effet, les
+autres solutions ne sont pas exploitables.</p>
+<p>Nous allons faire le choix arbitraire de  \(R_{I}^{B} = R_{xyz}\) pour la
+suite :</p>
+<p>\[
+\vec{a_{S}} =
+\left( \begin{array}{c} a_{Sx} \\ a_{Sy} \ a_{Sz} \end{array} \right) =
+\left( \begin{array}{c} -\sin(\theta) \\ \sin(\phi)\cos(\theta) \\ \cos(\phi)\cos(\theta) \end{array} \right)
+\]</p>
+<p>Ainsi, nous avons \(a_{Sx} = -\sin(\theta)\), \(a_{Sy} =
+\sin(\phi)\cos(\theta)\) et \(a_{Sz} = \cos(\phi)\cos(\theta)\). Cela nous
+permet d'obtenir les expressions suivants :</p>
+<p>\[
+\frac{a_{Sy}}{a_{Sz}} =
+\frac{\sin(\phi)\cos(\theta)}{\cos(\phi)\cos(\theta)} =
+\tan(\phi) \Rightarrow \phi =
+\tan^{-1} \left( \frac{a_{Sy}}{a_{Sz}} \right)
+\]</p>
+<p>\[
+a_{Sx} =
+-\sin(\theta) \Rightarrow \sin(\theta) =
+-a_{Sx}
+\]</p>
+<p>\[
+a_{Sy}^{2} + a_{Sz}^{2} =
+\cos^{2}(\theta) ; (\sin^{2}(\phi) + \cos^{2}(\phi)) =
+\cos^{2}(\theta) \Rightarrow \cos(\theta) =
+\sqrt{a_{Sy}^{2} + a_{Sz}^{2}}
+\]</p>
+<p>\[
+\tan(\theta) =
+\frac{\sin(\theta)}{\cos(\theta)} =
+\frac{-a_{Sx}}{\sqrt{a_{Sy}^{2} + a_{Sz}^{2}}} \Rightarrow \theta =
+\tan^{-1} \left( \frac{-a_{Sx}}{\sqrt{a_{Sy}^{2} + a_{Sz}^{2}}} \right)
+\]</p>
+<p>Nous sommes donc maintenant capable d'obtenir l'orientation de notre objet selon
+deux degrés de liberté uniquement en regardant la sortie de son accéléromètre
+embarqué. Pour rappel, cela est possible uniquement lorsque le corps sur lequel
+est attaché l'accéléromètre est au repos. Nous pouvons par exemple utiliser ce
+procédé lors d'une phase de calibration afin de déterminer l'orientation
+initiale de l'objet concerné.</p>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;physics&#x2F;">Physics</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;electronics&#x2F;">Electronics</a>
+    
+    
+  </span>
+  
+
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

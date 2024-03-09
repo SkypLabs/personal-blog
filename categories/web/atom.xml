@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Web</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/categories/web/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-01-28T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/categories/web/atom.xml</id>
+    <entry xml:lang="en">
+        <title>VPN, Security and Improper HTTP Redirects</title>
+        <published>2023-01-28T00:00:00+00:00</published>
+        <updated>2023-01-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/vpn-security-improper-http-redirects/"/>
+        <id>https://blog.skyplabs.net/posts/vpn-security-improper-http-redirects/</id>
+        
+        <summary type="html">&lt;p&gt;As you probably have already noticed, the number of VPN providers has grown
+massively in the recent years, and you can now stumble on ads for VPN
+subscriptions on every corner of the Internet. Of course, not all of these
+providers are equal in terms of quality of service, security or privacy. At the
+contrary, some of them falsely claim to have a zero-log policy or to even
+protect you from malicious actors.&lt;&#x2F;p&gt;
+&lt;p&gt;Having said that, using a public VPN service is not necessarily a bad idea if
+you choose it correctly. It&#x27;s a matter of trust after all. Who do you trust the
+most for keeping your traffic private, your ISP, or a carefully selected VPN
+provider? (I said carefully here because you have a larger number of VPN
+providers on the market than ISPs available where you live).&lt;&#x2F;p&gt;
+&lt;p&gt;If you trust your VPN provider, you get in theory a higher degree of online
+privacy by proxying your connections through it (even if, as of today, nothing
+can fully replace &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;The Tor project&quot; href=&quot;https:&#x2F;&#x2F;www.torproject.org&#x2F;&quot;&gt;Tor&lt;&#x2F;a&gt;). But what about security? From a theoretical
+standpoint once again, TLS is well enough to guarantee the security of your
+online activity. And thanks to projects like &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; title=&quot;Let&#x27;s Encrypt&quot; href=&quot;https:&#x2F;&#x2F;letsencrypt.org&#x2F;&quot;&gt;Let&#x27;s Encrypt&lt;&#x2F;a&gt;, most
+websites are accessible via HTTPS these days.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>LaTeX sur MediaWiki 1.19.2</title>
+        <published>2012-10-20T00:00:00+00:00</published>
+        <updated>2012-10-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/latex-on-mediawiki-1-19-2/"/>
+        <id>https://blog.skyplabs.net/posts/latex-on-mediawiki-1-19-2/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/latex-on-mediawiki-1-19-2/">&lt;p&gt;Cela faisait plusieurs jours que j&#x27;essayais de faire fonctionner l&#x27;extension
+&lt;strong&gt;Math&lt;&#x2F;strong&gt; de MediaWiki pour pouvoir afficher des équations mathématiques en
+LaTeX. Mais lors de mes tests, j&#x27;obtenais toujours une erreur HTTP 500
+(&lt;em&gt;Internal Server Error&lt;&#x2F;em&gt;) et le message suivant dans mes logs :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;Call to undefined method TempFSFile::autocollect()
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;On peut donc en conclure que la dernière version de l&#x27;extension Math n&#x27;est pas
+compatible avec MediaWiki 1.19.2. Pour résoudre cette situation, il est
+nécessaire de revenir à une version antérieure :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;cd extensions
+&lt;&#x2F;span&gt;&lt;span&gt;git clone https:&#x2F;&#x2F;gerrit.wikimedia.org&#x2F;r&#x2F;p&#x2F;mediawiki&#x2F;extensions&#x2F;Math.git
+&lt;&#x2F;span&gt;&lt;span&gt;cd Math
+&lt;&#x2F;span&gt;&lt;span&gt;git reset --hard 29a0a80e8fbb2d33507760075e4da9103439cbd9
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Merci à &lt;strong&gt;Cgeroux&lt;&#x2F;strong&gt; pour sa contribution &lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.mediawiki.org&#x2F;wiki&#x2F;Extension_talk:Math&quot;&gt;(lien vers ses
+explications)&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>[MediaWiki] Impossible de créer la miniature d&#x27;un fichier image</title>
+        <published>2012-10-13T00:00:00+00:00</published>
+        <updated>2012-10-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/mediawiki-thumbnail-creation-issue/"/>
+        <id>https://blog.skyplabs.net/posts/mediawiki-thumbnail-creation-issue/</id>
+        
+        <summary type="html">&lt;p&gt;Lorsque j&#x27;envoyais une image sur MediaWiki (installé sur ma FreeBSD), j&#x27;avais
+droit à une erreur de ce type :&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Erreur lors de la création de la miniature : Impossible d&#x27;enregistrer la
+vignette sur la destination&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Pourtant, c&#x27;était pas faute d&#x27;avoir configuré le répertoire temporaire qui va
+bien (avec les bons droits d&#x27;accès) dans le fichier &lt;code&gt;LocalSettings.php&lt;&#x2F;code&gt; grâce à
+la directive &lt;code&gt;$wgTmpDirectory&lt;&#x2F;code&gt;. Seulement le problème venait du fait que
+MediaWiki utilise la fonction suivante pour déterminer l&#x27;emplacement du
+répertoire temporaire à utiliser :&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

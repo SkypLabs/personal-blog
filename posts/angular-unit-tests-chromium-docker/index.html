@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">[Angular] Running unit tests with Chromium in a Docker container</h2>
+    
+
+    <time class="post-date" datetime="2017-08-29 00:00"
+      property="datePublished">29 Aug 2017</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>Running unit tests for front-end web applications require them to be tested in a
+web browser. While it's not an issue on a workstation, it can become tedious
+when running in a restricted environment such as a Docker container. In fact,
+these execution environments are generally lightweight and do not contain any
+graphical environment.</p>
+<p>One solution to work around this issue is to use a headless web browser designed
+for development purposes, like <a rel="noopener nofollow noreferrer" target="_blank" href="http://phantomjs.org/">PhantomJS</a>. While it's an elegant
+solution for testing an application, it would be even better to test it directly
+in a web browser which will be used by the end-users in order to match real
+conditions of use, for examples Firefox or Chromium/Google Chrome. However, as
+mentioned above, it is needed to find a way to execute a regular web browser in
+a restricted environment.</p>
+<span id="continue-reading"></span>
+<p>The main issue is that regular web browsers need a graphical environment to be
+executed. A widely used workaround is to rely on <a rel="noopener nofollow noreferrer" target="_blank" href="https://www.x.org/releases/X11R7.6/doc/man/man1/Xvfb.1.xhtml">xvfb</a> to provide &quot;an X
+server that can run on machines with no display hardware and no physical input
+devices&quot;. While this method works well, it requires you to install additional
+software on the restricted environment and the configuration can be a bit
+tricky. Thankfully for us, some web browsers designed for end-users now come
+with a headless mode. This last one doesn't require any graphical rendering
+server to work. Chromium/Google Chrome has already <a rel="noopener nofollow noreferrer" target="_blank" href="https://developers.google.com/web/updates/2017/04/headless-chrome">implemented this
+feature</a> while Mozilla <a rel="noopener nofollow noreferrer" target="_blank" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1338004">is still working on
+it</a> to add it to Firefox.</p>
+<p>So, what are we waiting for? Let's create a testing environment in a Docker
+container! For that purpose, the testing environment will rely on the <a rel="noopener nofollow noreferrer" target="_blank" href="https://hub.docker.com/_/node/">official
+Node.js Docker image</a> as base image and Chromium as web browser. I
+will suppose that you have an Angular project bootstrapped with <a rel="noopener nofollow noreferrer" target="_blank" href="https://cli.angular.io/">Angular
+CLI</a>.</p>
+<p>Chromium/Google Chrome is shipped with the headless mode since version 59. The
+official Node.js Docker image is based on Debian Jessie by default and to this
+date, the latest version of Chromium in Debian Jessie's repositories is 57 since
+it is 59 for Debian Stretch. It is possible to use an official Node.js Docker
+image based on Debian Stretch using the appropriate tag. In our case,
+<code>8-stretch</code>:</p>
+<div >
+    <script src="https:&#x2F;&#x2F;gist.github.com&#x2F;SkypLabs&#x2F;aa27e9f37471280c12d75e265a067d9e.js?file=Dockerfile"></script>
+</div>
+<p>Now, it is needed to configure Karma to use Chromium with the headless mode. The
+<a rel="noopener nofollow noreferrer" target="_blank" href="https://www.npmjs.com/package/karma-chrome-launcher">karma-chrome-launcher</a> supports natively
+<code>ChromeHeadless</code> as web browser. To define it as default web browser in
+<code>karma.conf.js</code>:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>...
+</span><span>browsers: [&#39;ChromeHeadless&#39;],
+</span><span>...
+</span></code></pre>
+<p>It is now possible to build the Docker image and to use it to run the unit
+tests. Navigate to the folder containing the source code of your Angular project
+and the above <code>Dockerfile</code>, then:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>docker build -t angular-dev .
+</span><span>docker run --rm -v $(pwd):/usr/src/app:z angular-dev npm test
+</span></code></pre>
+<p>Everything should work well. However, on some continuous integration
+environments, the Chromium's sandbox feature <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/jessfraz/dockerfiles/issues/65">can present a
+problem</a>. To fix it, add an additional web browser
+called <code>ChromeHeadlessCI</code> to the Karma configuration which will be based on
+<code>ChromeHeadless</code> but with the <code>--no-sandbox</code> flag this time:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>...
+</span><span>customLaunchers: {
+</span><span>  ChromeHeadlessCI: {
+</span><span>    base: &#39;ChromeHeadless&#39;,
+</span><span>    flags: [&#39;--no-sandbox&#39;]
+</span><span>  }
+</span><span>},
+</span><span>...
+</span></code></pre>
+<p>Also, increase the browser's no activity timeout to be sure that the continuous
+integration pipeline doesn't fail because the duration value is too short:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>...
+</span><span>browserNoActivityTimeout: 60000
+</span><span>...
+</span></code></pre>
+<p>The complete <code>karma.conf.js</code> should look like this:</p>
+<div >
+    <script src="https:&#x2F;&#x2F;gist.github.com&#x2F;SkypLabs&#x2F;aa27e9f37471280c12d75e265a067d9e.js?file=karma.conf.js"></script>
+</div>
+<p>Finally, add an npm script to run <code>ng test</code> using <code>ChromeHeadlessCI</code> and with
+the <code>--single-run=true</code> option:</p>
+<div >
+    <script src="https:&#x2F;&#x2F;gist.github.com&#x2F;SkypLabs&#x2F;aa27e9f37471280c12d75e265a067d9e.js?file=package.json"></script>
+</div>
+<p>With this done, it is now possible to run the continuous integration tests
+inside a Docker container:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>docker run --rm -v $(pwd):/usr/src/app:z angular-dev npm run test:ci
+</span></code></pre>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;programming&#x2F;">Programming</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;angular&#x2F;">Angular</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;chromium&#x2F;">Chromium</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;docker&#x2F;">Docker</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;web&#x2F;">Web</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

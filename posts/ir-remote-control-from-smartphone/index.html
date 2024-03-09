@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">Télécommander sa télévision et ses autres appareils à infrarouge depuis son smartphone</h2>
+    
+
+    <time class="post-date" datetime="2012-06-10 00:00"
+      property="datePublished">10 Jun 2012</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>Je ne sais pas pour vous, mais moi j'ai toujours eu horreur de devoir jongler
+avec plusieurs télécommandes alors que je ne cherchais qu'à réaliser des tâches
+plutôt triviales. Une télécommande pour allumer la télévision, une autre pour
+allumer le home cinema... et plus on multiplie les appareils électroniques dans
+son salon, plus on collectionne de télécommandes !</p>
+<p>Dans le but de me simplifier la vie, j'ai donc décidé de réaliser un montage
+électronique pour pouvoir piloter mes appareils à infrarouge depuis un système
+informatique classique, en particulier depuis mon téléphone portable. Je vais
+donc détailler dans cet article les différentes étapes de la réalisation ainsi
+que les différents éléments permettant de reproduire à l'identique le système
+que j'ai développé.</p>
+<span id="continue-reading"></span>
+<p>Pour commencer, un petit aperçu de la réalisation s'impose. Les principaux
+appareils que je désirais pouvoir contrôler à distance depuis mon smartphone
+sont ma télévision et mon home cinema. Le principal obstacle à cela est qu'aucun
+téléphone récent ne possède d'interface <strong>infrarouge</strong>. Il est donc impossible
+de faire communiquer le téléphone directement avec mon installation multimédia,
+d'où la réalisation d'un montage électronique qui servira d'intermédiaire. En
+effet, ce petit montage va jouer le rôle de &quot;proxy&quot;, l'échange entre le
+téléphone et ce dernier se faisant en <strong>Bluetooth</strong>. Ce choix m'est apparu
+évident pour deux raisons simples. Premièrement, le Bluetooth est une
+technologie omniprésente qui est embarquée dans tous les smartphones qui se
+respectent. Deuxièmement, un ami m'avait récemment offert un module Bluetooth et
+je ne m'en étais pas encore servi :)</p>
+<p>Voici donc la liste des éléments utilisés pour la réalisation complète :</p>
+<ul>
+<li>Un smartphone (Nexus S sous Android).</li>
+<li>Une carte Arduino (Uno).</li>
+<li>Un module Bluetooth (Sparkfun Bluetooth Mate Gold).</li>
+<li>Une diode à infrarouge émettrice (CQY 89).</li>
+<li>Une carte électronique conçue spécifiquement pour relier les différents
+éléments entre eux.</li>
+</ul>
+<h2 id="a-la-decouverte-du-protocole-nec">À la découverte du protocole NEC</h2>
+<p>Le protocole de communication infrarouge utilisé par ma télévision et par mon
+home cinema (tous deux de la marque Samsung) est celui développé par NEC. Il
+utilise des trames simples, composées d'une adresse codée sur 8 ou 16 bits selon
+la version du protocole ainsi que la commande à transmettre codée sur 8 bits. Le
+nombre maximum de commandes distinctes est donc de 256 par appareil. Pour coder
+les 1 et les 0 logiques, il utilise une impulsion haute de 560 µs suivie par une
+impulsion basse d'une durée qui dépend du bit à transmettre. 560 µs pour un 0
+logique ou 1.70 ms environ pour un 1 logique. Pour plus de détails, vous pouvez
+vous rendre sur <a rel="noopener nofollow noreferrer" target="_blank" title="NEC protocol" href="https://www.sbprojects.net/knowledge/ir/nec.php">cette page</a>.</p>
+<p>Pour mener à bien mon projet, j'avais besoin de récupérer l'adresse de mes
+différents appareils ainsi que le code des commandes à transmettre pour pouvoir
+les reproduire depuis mon montage électronique. Heureusement, j'ai la chance de
+posséder un récepteur infrarouge sur mon ordinateur portable. J'ai donc utilisé
+l'utilitaire <strong>mode2</strong> du projet <a rel="noopener nofollow noreferrer" target="_blank" title="LIRC" href="http://www.lirc.org/">LIRC</a> pour récupérer la durée des
+impulsions générées par mes télécommandes et ainsi interpréter leur
+signification. Pour accélérer ce travail rébarbatif, j'ai écrit très rapidement
+un petit script bash qui me retourne la valeur décimale de la commande contenue
+dans la trame :</p>
+<div >
+    <script src="https:&#x2F;&#x2F;gist.github.com&#x2F;SkypLabs&#x2F;d7bf68a44300b3432798ce8177b63629.js?file=nec_decoder.sh"></script>
+</div>
+<p>Avec ce script, j'ai balayé l'ensemble des commandes utilisées par ma télévision
+et mon home cinema. Par exemple, pour allumer ma télévision, la commande en
+décimale est 153. À vous de faire pareil avec vos appareils !</p>
+<h2 id="faire-le-lien-entre-le-bluetooth-et-l-infrarouge-grace-a-l-arduino">Faire le lien entre le bluetooth et l'infrarouge grâce à l'Arduino</h2>
+<p>Maintenant que l'on connait comment le protocole NEC fonctionne, on peut
+l'implémenter dans la carte Arduino pour transmettre les commandes infrarouges.
+La réception Bluetooth se fait via une liaison série entre le module Bluetooth
+et la carte Arduino. Pour envoyer une commande via ce montage vers un appareil
+distant utilisant l'infrarouge, il faut en premier lieu envoyer l'adresse du
+destinataire puis la commande à proprement parler. Toutes ces informations
+doivent être transmises en décimale octet par octet sous forme d'une chaîne de
+caractères. Un octet est représenté par 3 caractères.</p>
+<p>Par exemple, pour allumer ma télévision, je dois envoyer la chaîne <code>007007153</code>.
+Ces 9 caractères représentent donc 3 octets. <code>007007</code> correspond aux 2 octets
+constituant l'adresse de ma télévision et <code>153</code> à la commande d'allumage.</p>
+<p>Voici le code développé pour la carte Arduino (à compiler avec le SDK officiel)
+:</p>
+<div >
+    <script src="https:&#x2F;&#x2F;gist.github.com&#x2F;SkypLabs&#x2F;d7bf68a44300b3432798ce8177b63629.js?file=nec_ir_rc.ino"></script>
+</div>
+<h2 id="le-montage-final">Le montage final</h2>
+<p>Pour relier les différentes parties du montage final entre elles, j'ai réalisé
+un shield Arduino grâce au logiciel de CAO <strong>EAGLE PCB Software</strong>. Le gros
+avantage de cette solution est qu'il devient très facile de monter/démonter les
+différents composants de la réalisation étant donné que j'utilise des supports
+pour toutes les connexions. Cela procure une certaine propreté du montage. En
+voici une photo :</p>
+<p><img src="https://blog.skyplabs.net/posts/ir-remote-control-from-smartphone/tv_rc_montage_final.jpg" alt="TV_RC Project - Montage final" /></p>
+<p>Vous trouverez l'archive ZIP contenant le PCB du sheild Arduino au format EPS à
+<a rel="noopener nofollow noreferrer" target="_blank" title="TV_RC_ARDUINO_SHIELD_PCB_V1.zip" href="https://files.skyplabs.net/TV_RC_ARDUINO_SHIELD_PCB_V1.zip">cette adresse</a>.</p>
+<h2 id="l-application-android">L'application Android</h2>
+<p>Pour terminer ma réalisation, j'ai développé une application Android pour
+pouvoir piloter le tout depuis mon smartphone et/ou ma tablette. Ce programme
+nécessite un certain nombre d'améliorations (il s'agit principalement d'un PoC
+et non pas d'un logiciel achevé) mais est parfaitement fonctionnel. Il a été
+testé sur mon Nexus S et sur le Nexus One de ma copine.</p>
+<p>Vous trouverez l'APK et le code source de l'application à <a rel="noopener nofollow noreferrer" target="_blank" title="TV Remote Control Project" href="https://files.skyplabs.net/tv_rc_android_v0.1.apk">cette
+adresse</a>. Bien que développée pour n'être utilisée que pour
+ma propre installation, vous pourrez vous en inspirer pour l'adapter à votre
+matériel.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>La réalisation de ce projet m'a permis de m'investir un peu plus dans le domaine
+de la domotique. En effet, l'intérêt premier n'est pas seulement de pouvoir
+piloter mes appareils à infrarouge depuis mon smartphone, mais depuis n'importe
+quel système informatique. En pratique, il est donc possible de perfectionner la
+réalisation en y rajoutant de la reconnaissance vocale, des tags RFID bien
+placés dans l'appartement (mon Nexus S possède un lecteur NFC), etc.</p>
+<p>Affaire à suivre...</p>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;electronics&#x2F;">Electronics</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;programming&#x2F;">Programming</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;android&#x2F;">Android</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;arduino&#x2F;">Arduino</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;infrared&#x2F;">Infrared</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;bluetooth&#x2F;">Bluetooth</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

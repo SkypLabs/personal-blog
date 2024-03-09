@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+  <meta name="description" content="Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...">
+  <meta name="keywords" content="Blog, Computer Science, IT, Electronics, Hacking, InfoSec, CTF, Bug Bounty, Open Source">
+  <meta name="author" content="Paul-Emmanuel Raoul">
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="&#x2F;favicon&#x2F;apple-touch-icon.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="16x16" href="&#x2F;favicon&#x2F;favicon-16x16.png" />
+  
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="&#x2F;favicon&#x2F;favicon-32x32.png" />
+  
+  
+  <link rel="manifest" href="&#x2F;favicon&#x2F;site.webmanifest" />
+  
+
+  <title>Skyper&#x27;s blog</title>
+
+  <link rel="stylesheet" href="https://blog.skyplabs.net/css/style.css">
+
+  
+  <script defer data-domain="blog.skyplabs.net" src="https://plausible.io/js/plausible.js"></script>
+  
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://blog.skyplabs.net/atom.xml">
+</head>
+<body vocab="http://schema.org/" typeof="Blog">
+  
+  <div class="sidebar">
+    <div class="container sidebar-sticky">
+      <div class="sidebar-about">
+        <h1><a href="https://blog.skyplabs.net">Skyper&#x27;s blog</a></h1>
+        <p class="lead">Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</p>
+      </div>
+
+      <div class="sidebar-links">
+        
+        <a class="icon-github" href="https://github.com/SkypLabs" title="GitHub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-docker-hub" href="https://hub.docker.com/u/skyplabs" title="Docker Hub" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        
+        
+        <a class="icon-mastodon" href="https://fosstodon.org/@Skyper" title="Mastodon" target="_blank" rel="me noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-twitter" href="https://twitter.com/SkypLabs" title="Twitter" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-linkedin" href="https://www.linkedin.com/in/peraoul" title="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-keybase" href="https://keybase.io/skyplabs" title="Keybase" target="_blank" rel="noopener noreferrer"></a>
+        
+
+        
+        <a class="icon-email" href="mailto:skyper@skyplabs.net" title="Email"></a>
+        
+
+        <a class="icon-rss" href="https://blog.skyplabs.net/atom.xml" title="RSS"></a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-nav-item" href="/">Home</a>
+        
+        
+        <a class="sidebar-nav-item" href="/publications/">Publications</a>
+        
+        <a class="sidebar-nav-item" href="/about/">About me</a>
+        
+        <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+        <a class="sidebar-nav-item" href="/support/">Support me</a>
+        
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="content container">
+    
+<article class="post" property="blogPost" typeof="BlogPosting">
+  
+  <div class="post-meta">
+    
+    <h2 class="post-title" property="headline">[ndh2k16] Hello Friend</h2>
+    
+
+    <time class="post-date" datetime="2016-07-05 00:00"
+      property="datePublished">05 Jul 2016</time>
+    <div class="post-author" property="author" typeof="Person" hidden>
+      <span property="name">Paul-Emmanuel Raoul</span>
+      <span property="givenName">Paul-Emmanuel</span>
+      <span property="familyName">Raoul</span>
+      <span property="alternateName">Skyper</span>
+      <span property="email">skyper@skyplabs.net</span>
+    </div>
+  </div>
+
+
+  <div class="post-content" property="articleBody">
+    <p>Une des épreuves du wargame de la nuit du hack 2016 était de retrouver un code
+de validation à partir de cette image :</p>
+<p><img src="https://files.skyplabs.net/hellofriend.jpg" alt="Fichier JPEG utilisé pour le challenge &quot;hello friend&quot; lors de la nuit du hack 2016" /></p>
+<span id="continue-reading"></span>
+<p>En utilisant l'outil <code>strings</code> sur l'image, nous obtenons les lignes suivantes :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ strings hellofriend.jpg
+</span><span>...
+</span><span>WhoAmI.png
+</span><span>Hello_friend/
+</span><span>Hello_friend/0/
+</span><span>Hello_friend/0/64.png
+</span><span>Hello_friend/1/
+</span><span>Hello_friend/1/61.png
+</span><span>Hello_friend/2/
+</span><span>Hello_friend/2/72.png
+</span><span>Hello_friend/3/
+</span><span>Hello_friend/3/6b.png
+</span><span>Hello_friend/4/
+</span><span>Hello_friend/4/63.png
+</span><span>Hello_friend/5/
+</span><span>Hello_friend/5/30.png
+</span><span>Hello_friend/6/
+</span><span>Hello_friend/6/64.png
+</span><span>Hello_friend/7/
+</span><span>Hello_friend/7/65.png
+</span><span>Hello_friend/8/
+</span><span>Hello_friend/8/IsItReal.jpg
+</span><span>Hello_friend/9/
+</span><span>HaVft
+</span><span>Hello_friend/9/3xploits.jpg
+</span></code></pre>
+<p>Nous en déduisons qu'une archive ZIP est cachée dans le même fichier. L'outil
+<code>binwalk</code> peut nous en convaincre :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ binwalk hellofriend.jpg
+</span><span>
+</span><span>DECIMAL       HEXADECIMAL     DESCRIPTION
+</span><span>--------------------------------------------------------------------------------
+</span><span>0             0x0             JPEG image data, JFIF standard  1.01
+</span><span>382           0x17E           Copyright string: &quot; (c) 1998 Hewlett-Packard Companyny&quot;
+</span><span>3192          0xC78           TIFF image data, big-endian
+</span><span>116141        0x1C5AD         Zip archive data, at least v2.0 to extract, compressed size: 6264,  uncompressed size: 6376, name: &quot;WhoAmI.png&quot;
+</span><span>122445        0x1DE4D         Zip archive data, at least v1.0 to extract, name: &quot;Hello_friend/&quot;
+</span><span>122488        0x1DE78         Zip archive data, at least v1.0 to extract, name: &quot;Hello_friend/0/&quot;
+</span><span>122533        0x1DEA5         Zip encrypted archive data, at least v2.0 to extract, compressed size: 4381,  uncompressed size: 4882, name: &quot;Hello_friend/0/64.png&quot;
+</span><span>126981        0x1F005         Zip archive data, at least v1.0 to extract, name: &quot;Hello_friend/1/&quot;
+</span><span>127026        0x1F032         Zip encrypted archive data, at least v2.0 to extract, compressed size: 4381,  uncompressed size: 4882, name: &quot;Hello_friend/1/61.png&quot;
+</span><span>131474        0x20192         Zip archive data, at least v1.0 to extract, name: &quot;Hello_friend/2/&quot;
+</span><span>131519        0x201BF         Zip encrypted archive data, at least v2.0 to extract, compressed size: 4381,  uncompressed size: 4882, name: &quot;Hello_friend/2/72.png&quot;
+</span><span>135967        0x2131F         Zip archive data, at least v1.0 to extract, name: &quot;Hello_friend/3/&quot;
+</span><span>136012        0x2134C         Zip encrypted archive data, at least v2.0 to extract, compressed size: 4381,  uncompressed size: 4882, name: &quot;Hello_friend/3/6b.png&quot;
+</span><span>140460        0x224AC         Zip archive data, at least v1.0 to extract, name: &quot;Hello_friend/4/&quot;
+</span><span>140505        0x224D9         Zip encrypted archive data, at least v2.0 to extract, compressed size: 4381,  uncompressed size: 4882, name: &quot;Hello_friend/4/63.png&quot;
+</span><span>144953        0x23639         Zip archive data, at least v1.0 to extract, name: &quot;Hello_friend/5/&quot;
+</span><span>144998        0x23666         Zip encrypted archive data, at least v2.0 to extract, compressed size: 4381,  uncompressed size: 4882, name: &quot;Hello_friend/5/30.png&quot;
+</span><span>149446        0x247C6         Zip archive data, at least v1.0 to extract, name: &quot;Hello_friend/6/&quot;
+</span><span>149491        0x247F3         Zip encrypted archive data, at least v2.0 to extract, compressed size: 4381,  uncompressed size: 4882, name: &quot;Hello_friend/6/64.png&quot;
+</span><span>153939        0x25953         Zip archive data, at least v1.0 to extract, name: &quot;Hello_friend/7/&quot;
+</span><span>153984        0x25980         Zip encrypted archive data, at least v2.0 to extract, compressed size: 4381,  uncompressed size: 4882, name: &quot;Hello_friend/7/65.png&quot;
+</span><span>158432        0x26AE0         Zip archive data, at least v1.0 to extract, name: &quot;Hello_friend/8/&quot;
+</span><span>158477        0x26B0D         Zip encrypted archive data, at least v2.0 to extract, compressed size: 101679,  uncompressed size: 133658, name: &quot;Hello_friend/8/IsItReal.jpg&quot;
+</span><span>260229        0x3F885         Zip archive data, at least v1.0 to extract, name: &quot;Hello_friend/9/&quot;
+</span><span>260274        0x3F8B2         Zip encrypted archive data, at least v2.0 to extract, compressed size: 286495,  uncompressed size: 298687, name: &quot;Hello_friend/9/3xploits.jpg&quot;
+</span><span>549041        0x860B1         End of Zip archive
+</span></code></pre>
+<p>L'outil <code>unzip</code> est capable de décompresser une archive ZIP même quand cette
+dernière est enfouie au sein d'un autre fichier. La preuve :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ unzip hellofriend.jpg
+</span><span>Archive:  hellofriend.jpg
+</span><span>warning [hellofriend.jpg]:  116141 extra bytes at beginning or within zipfile
+</span><span>  (attempting to process anyway)
+</span><span>  inflating: WhoAmI.png
+</span><span>   creating: Hello_friend/
+</span><span>   creating: Hello_friend/0/
+</span><span>[hellofriend.jpg] Hello_friend/0/64.png password:
+</span></code></pre>
+<p>Pour trouver ce premier mot de passe, il faut commencer par comprendre d'où
+vient le message &quot;Hello Friend&quot;. En effet, le nom de l'épreuve lui-même est un
+indice. Après une recherche sur internet, nous découvrons que cela correspond au
+titre du premier épisode de la série TV &quot;Mr. Robot&quot;. Sur Wikipédia, nous pouvons
+lire :</p>
+<blockquote>
+<p>« Hello Friend » est aussi le premier message par lequel Elliot est contacté
+par Fsociety.</p>
+</blockquote>
+<p>Et ainsi, nous découvrons ce premier mot de passe : <code>fsociety</code>.</p>
+<p>Après décompression, nous obtenons l'arborescence suivante :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Hello_friend/
+</span><span>├── 0
+</span><span>│   └── 64.png
+</span><span>├── 1
+</span><span>│   └── 61.png
+</span><span>├── 2
+</span><span>│   └── 72.png
+</span><span>├── 3
+</span><span>│   └── 6b.png
+</span><span>├── 4
+</span><span>│   └── 63.png
+</span><span>├── 5
+</span><span>│   └── 30.png
+</span><span>├── 6
+</span><span>│   └── 64.png
+</span><span>├── 7
+</span><span>│   └── 65.png
+</span><span>├── 8
+</span><span>│   └── IsItReal.jpg
+</span><span>└── 9
+</span><span>    └── 3xploits.jpg
+</span><span>
+</span><span>10 directories, 10 files
+</span></code></pre>
+<p>Les dossiers de 0 à 7 contiennent la même image mais avec un nom différent à
+chaque fois. L'image du dossier 8 n'apporte rien de particulier contrairement à
+celle du dossier 9 qui renferme là encore une archive ZIP demandant un mot de
+passe :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ unzip 9/3xploits.jpg
+</span><span>Archive:  9/3xploits.jpg
+</span><span>warning [9/3xploits.jpg]:  186158 extra bytes at beginning or within zipfile
+</span><span>  (attempting to process anyway)
+</span><span>[9/3xploits.jpg] d3bug.png password:
+</span></code></pre>
+<p>Nous devons donc trouver à nouveau un mot de passe. Les noms des 8 premières
+images font penser à de l'hexadécimal. Après conversion en ASCII, voilà ce que
+l'on obtient :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ echo &#39;6461726b63306465&#39; | xxd -r -p
+</span><span>darkc0de
+</span></code></pre>
+<p>Malheureusement, ce n'est pas le mot de passe que nous recherchons. Après
+investigation, nous découvrons que <em>darkc0de</em> fait référence à un <a rel="noopener nofollow noreferrer" target="_blank" href="https://github.com/empijei/useful-commands/blob/master/exploiting/wifi/darkc0de.lst">dictionnaire
+de mots de passe</a>. Nous comprenons que le mot de passe doit se trouver
+dans ce dictionnaire.</p>
+<p><code>fcrackzip</code> permet d'effectuer des attaques par dictionnaire sur des fichiers
+ZIP. Cependant, contrairement à <code>unzip</code>, il n'est pas capable de trouver le
+fichier ZIP contenu dans l'image par lui-même :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ fcrackzip -uDv -p ~/Downloads/darkc0de.lst 3xploits.jpg
+</span><span>found id dbffd8ff, &#39;3xploits.jpg&#39; is not a zipfile ver 2.xx, skipping
+</span><span>no usable files found
+</span></code></pre>
+<p>Grâce à <code>unzip</code>, nous savons que 186158 octets sont présents avant le début du
+fichier ZIP :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ unzip -l 3xploits.jpg
+</span><span>Archive:  3xploits.jpg
+</span><span>warning [3xploits.jpg]:  186158 extra bytes at beginning or within zipfile
+</span><span>  (attempting to process anyway)
+</span><span>  Length      Date    Time    Name
+</span><span>---------  ---------- -----   ----
+</span><span>   302979  05-05-2016 23:49   d3bug.png
+</span><span>---------                     -------
+</span><span>   302979                     1 file
+</span></code></pre>
+<p>Pour supprimer ces octets superflus, nous pouvons utiliser l'outil <code>dd</code> :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ file 3xploits.jpg
+</span><span>3xploits.jpg: JPEG image data, baseline, precision 8, 640x640, frames 3
+</span><span>$ dd if=3xploits.jpg of=3xploits.zip skip=1 bs=186158
+</span><span>0+1 records in
+</span><span>0+1 records out
+</span><span>112529 bytes (113 kB) copied, 0,000613072 s, 184 MB/s
+</span><span>$ file 3xploits.zip
+</span><span>3xploits.zip: Zip archive data, at least v2.0 to extract
+</span></code></pre>
+<p>Maintenant, il est temps de lancer notre attaque par dictionnaire :</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ fcrackzip -uDv -p ~/Downloads/darkc0de.lst 3xploits.zip
+</span><span>found file &#39;d3bug.png&#39;, (size cp/uc 112361/302979, flags 9, chk be20)
+</span><span>PASSWORD FOUND!!!!: pw == How do you like me now?
+</span></code></pre>
+<p>Le mot de passe était donc <code>How do you like me now?</code>.</p>
+<p>Et voici l'image contenue dans l'archive ZIP avec le code de validation inscrit
+dessus :</p>
+<p><img src="https://blog.skyplabs.net/posts/ndh2k16-hello-friend/ndh2k16_hello_friend_d3bug.png" alt="Image contenant le code de validation" /></p>
+
+  </div>
+
+  
+  
+  <span class="categories" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;security&#x2F;">Security</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;categories&#x2F;steganography&#x2F;">Steganography</a>
+    
+    
+  </span>
+  
+
+  
+  <span class="tags" property="keywords">
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;ctf&#x2F;">CTF</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;wargame&#x2F;">Wargame</a>
+     · 
+    
+    
+    <a href="https:&#x2F;&#x2F;blog.skyplabs.net&#x2F;tags&#x2F;write-up&#x2F;">Write-up</a>
+    
+    
+  </span>
+  
+
+</article>
+
+  </div>
+  <script type="text/javascript" src="https://blog.skyplabs.net/elasticlunr.min.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/search_index.en.js"></script>
+  <script type="text/javascript" src="https://blog.skyplabs.net/js/search.js"></script>
+</body>
+</html>

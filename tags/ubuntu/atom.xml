@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - Ubuntu</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/ubuntu/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2011-03-12T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/ubuntu/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[Ubuntu] Récupérer le PATH de l&#x27;utilisateur courant avec sudo</title>
+        <published>2011-03-12T00:00:00+00:00</published>
+        <updated>2011-03-12T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/recover-user-path-after-sudo/"/>
+        <id>https://blog.skyplabs.net/posts/recover-user-path-after-sudo/</id>
+        
+        <content type="html" xml:base="https://blog.skyplabs.net/posts/recover-user-path-after-sudo/">&lt;p&gt;Pour ceux qui se servent de la commande &lt;code&gt;sudo&lt;&#x2F;code&gt; sous Ubuntu, vous avez surement
+remarqué que le PATH de l&#x27;utilisateur courant n&#x27;est pas conservé lors de son
+utilisation. Ça peut être très énervant à la longue.&lt;&#x2F;p&gt;
+&lt;p&gt;La raison est simple : sous Ubuntu, la commande &lt;code&gt;sudo&lt;&#x2F;code&gt; a été compilée avec
+l&#x27;option &lt;code&gt;--with-secure-path&lt;&#x2F;code&gt; qui permet de définir un PATH différent de celui
+de l&#x27;utilisateur courant pour des raisons de sécurité.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour passer outre cette restriction, il suffit de rajouter cet alias dans votre
+&lt;code&gt;.bashrc&lt;&#x2F;code&gt; par exemple :&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;alias &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt;=&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;sudo env PATH=$PATH&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;En effet, la commande &lt;code&gt;env&lt;&#x2F;code&gt; permet de lancer un processus en positionnant des
+valeurs d’environnement.&lt;&#x2F;p&gt;
+&lt;p&gt;Pour plus d&#x27;informations sur les options de compilation de &lt;code&gt;sudo&lt;&#x2F;code&gt; :
+&lt;a rel=&quot;noopener nofollow noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.sudo.ws&#x2F;install.html&quot;&gt;https:&#x2F;&#x2F;www.sudo.ws&#x2F;install.html&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

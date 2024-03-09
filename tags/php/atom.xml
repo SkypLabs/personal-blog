@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Skyper&#x27;s blog - PHP</title>
+    <subtitle>Personal blog about IT, Electronics, InfoSec, Hacking, Bug Hunting...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://blog.skyplabs.net/tags/php/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://blog.skyplabs.net"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2012-10-13T00:00:00+00:00</updated>
+    <id>https://blog.skyplabs.net/tags/php/atom.xml</id>
+    <entry xml:lang="en">
+        <title>[MediaWiki] Impossible de créer la miniature d&#x27;un fichier image</title>
+        <published>2012-10-13T00:00:00+00:00</published>
+        <updated>2012-10-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/mediawiki-thumbnail-creation-issue/"/>
+        <id>https://blog.skyplabs.net/posts/mediawiki-thumbnail-creation-issue/</id>
+        
+        <summary type="html">&lt;p&gt;Lorsque j&#x27;envoyais une image sur MediaWiki (installé sur ma FreeBSD), j&#x27;avais
+droit à une erreur de ce type :&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Erreur lors de la création de la miniature : Impossible d&#x27;enregistrer la
+vignette sur la destination&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Pourtant, c&#x27;était pas faute d&#x27;avoir configuré le répertoire temporaire qui va
+bien (avec les bons droits d&#x27;accès) dans le fichier &lt;code&gt;LocalSettings.php&lt;&#x2F;code&gt; grâce à
+la directive &lt;code&gt;$wgTmpDirectory&lt;&#x2F;code&gt;. Seulement le problème venait du fait que
+MediaWiki utilise la fonction suivante pour déterminer l&#x27;emplacement du
+répertoire temporaire à utiliser :&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Modifier la configuration de PHP depuis Apache</title>
+        <published>2011-06-19T00:00:00+00:00</published>
+        <updated>2011-06-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/apache-edit-php-config/"/>
+        <id>https://blog.skyplabs.net/posts/apache-edit-php-config/</id>
+        
+        <summary type="html">&lt;p&gt;Traditionnellement, la configuration de PHP se définit dans le fichier
+&lt;code&gt;php.ini&lt;&#x2F;code&gt;. Par exemple, sur une Debian, le fichier de configuration de PHP pour
+une utilisation depuis Apache se trouve à cet emplacement :
+&lt;code&gt;&#x2F;etc&#x2F;php5&#x2F;apache2&#x2F;php.ini&lt;&#x2F;code&gt; (pour une installation depuis les dépôts).&lt;&#x2F;p&gt;
+&lt;p&gt;Seulement voilà, on a parfois besoin d&#x27;appliquer une configuration PHP seulement
+à un &lt;strong&gt;virtual host&lt;&#x2F;strong&gt; en particulier et non aux autres. Par exemple, on peut
+souhaiter activer l&#x27;affichage des erreurs de PHP pour une application web encore
+en développement sans modifier la configuration des applications en production.
+Pour réaliser cette tâche, Apache met à notre disposition les instructions
+suivantes (valables uniquement pour le module PHP d&#x27;Apache) :&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;php_value &amp;lt;directive&amp;gt; &amp;lt;valeur&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;php_admin_value &amp;lt;directive&amp;gt; &amp;lt;valeur&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;php_flag &amp;lt;directive&amp;gt; &amp;lt;on|off&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;php_admin_flag &amp;lt;directive&amp;gt; &amp;lt;on|off&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Afficher les erreurs SQL de PHP seulement aux personnes concernées</title>
+        <published>2011-03-19T00:00:00+00:00</published>
+        <updated>2011-03-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://blog.skyplabs.net/posts/display-php-errors-admin-only/"/>
+        <id>https://blog.skyplabs.net/posts/display-php-errors-admin-only/</id>
+        
+        <summary type="html">&lt;p&gt;Il est très fortement conseillé de désactiver l&#x27;affichage des erreurs PHP
+(directive &lt;code&gt;display_errors&lt;&#x2F;code&gt; du &lt;code&gt;php.ini&lt;&#x2F;code&gt;) de vos applications web pour ne pas
+révéler des informations pouvant compromettre la sécurité de votre serveur (dans
+le cas d&#x27;un serveur en production).&lt;&#x2F;p&gt;
+&lt;p&gt;Seulement voilà, cacher ces erreurs peut gêner l&#x27;administrateur à traquer les
+bugs ainsi que les problèmes liés à la base de données. En effet, c&#x27;est beaucoup
+plus facile de repérer une erreur si elle est affichée lors de l&#x27;exécution de la
+page plutôt que de passer son temps à analyser les logs du service.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>
