@@ -36,13 +36,16 @@ please follow these steps:
 If you have a [Keybase][keybase] account, you can start chatting securely with
 me by going on [my profile][my-keybase-profile].
 
-### Public conversations :bird:
+### Mastodon :elephant:
 
-You can also contact me publicly via my [Twitter account][my-twitter].
+You can PM me on [Mastodon][mastodon]: {{ mastodon() }}
+
+However, be aware that private messages are not end-to-end encrypted (yet) on
+Mastodon.
 
  [keybase]: https://keybase.io/
  [keybase-encrypt-tool]: https://keybase.io/encrypt#skyplabs
+ [mastodon]: https://mastodon.social/
  [my-keybase-profile]: https://keybase.io/skyplabs
- [my-twitter]: https://twitter.com/SkypLabs
  [openpgp]: https://www.openpgp.org/
  [tuta]: https://www.tuta.com/
